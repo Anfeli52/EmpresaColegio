@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/registerStyle.css">
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    <script src="../JS/funciones.js"></script>
+    <title>Register</title>
+</head>
+<body>
+    <div class="example"></div>
+    <div class="fondo"></div>
+    <div class="contenedor">
+        <h2>Yaxja</h2>
+        <div class="formularioContenedorRegister">
+            <h3><ion-icon name="person-outline"></ion-icon>Registrarse</h3>
+            <hr>
+            <form action="userMainPage.html">
+                <div class="row">
+                    <div class="parteSuperior">
+                        <label for="nombre">Name</label>
+                        <input type="text" name="nombre" id="idNombre" required placeholder="Name">
+                    </div>
+                    <div class="parteSuperior">
+                        <label for="apellido">Apellido</label>
+                        <input type="text" name="apellido" id="idApellido" required placeholder="Lastname">
+                    </div>
+                    <div class="others">
+                        <label for="correo">Email</label>
+                        <input type="email" name="correo" id="idCorreo" required placeholder="Email">
+                    </div>
+                    <div class="parteInferior">
+                        <label for="contraseña">Password</label>
+                        <input type="password" name="contraseña" id="idContraseña" required placeholder="Password">
+                    </div>
+                    <div class="parteInferior">
+                        <label for="confirmarContraseña">Confirm Password</label>
+                        <input type="password" name="confirmarContraseña" id="idConfirmarContraseña" required placeholder="Confirm Password">
+                    </div>
+                    <div class="others">
+                        <label for="userType">Tipo de Usuario</label>
+                        <select name="userType" required>
+                            <option value="1">Usuario</option>
+                            <option value="2">Administrador</option>
+                        </select>
+                    </div>
+                </div>
+                <label for="" class="btnEnviar"><input type="submit" name="enviar" value="Registrarse" onclick="checkPassword()"></label>        
+            </form>
+        </div>
+        <p class="iniciaSesion">¿Ya tienes una cuenta?<a href="login.html"> Inicia Sesión Ahora</a></p>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

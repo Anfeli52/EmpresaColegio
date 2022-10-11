@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/loginStyle.css">
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+    <script src="../JS/funciones.js"></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="example"></div>
+    <div class="fondo"></div>
+    <div class="contenedor">
+        <h2>Yaxja</h2>
+        <div class="formularioContenedorLogin">
+            <h3><ion-icon name="person-outline"></ion-icon>Iniciar Sesión</h3>
+            <hr>
+            <form action="adminMainPage.html">
+                <label for="email">Username</label>
+                <input type="email" name="email" id="idEmail" required placeholder="Email">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="idPassword" required placeholder="Password">
+                <p><a href="#">¿Olvidaste tu contraseña?</a></p>
+                <label for="enviar" class="btnEnviar"><input type="submit" name="enviar" value="Iniciar Sesión"></label>            
+            </form>
+        </div>
+        <p class="registrate">¿No tienes una cuenta aún?<a href="register.html"> Registrate Ahora</a></p>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

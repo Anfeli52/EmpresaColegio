@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/profileAdminPage.css">
+    <title>Yaxja</title>
+</head>
+<body>
+    <header>
+        <div class="video">
+            <video src="Cascada - 122895.mp4" autoplay loop muted></video>
+        </div>
+        <div class="navigation">
+            <div class="toggle"><span></span></div>
+            <ul>
+                <li style="--i:0;"><a href="#">Inicio</a></li>
+                <li style="--i:1;"><a href="#">Contaminación</a></li>
+                <li style="--i:2;"><a href="profileAdminPage.html">Perfil</a></li>
+                <li style="--i:3;"><a href="#">Campañas</a></li>
+                <li style="--i:4;"><a href="#">Recomendaciones</a></li>
+                <li style="--i:5;"><a href="#">Actualizar Campañas</a></li>
+                <li style="--i:6;"><a href="#">Contacto</a></li>
+                <li style="--i:7;"><a href="#" onclick="logout()">Cerrar sesion</a></li>
+            </ul>
+        </div>
+    </header>
+    <main>
+
+    </main>
+    <footer>
+
+    </footer>
+    <script>
+        let navigation = document.querySelector('.navigation');
+        document.querySelector('.toggle').onclick = function(){
+            this.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

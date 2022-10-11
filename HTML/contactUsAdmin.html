@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../CSS/contactUsAdminStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="../JS/funciones.js"></script>
+    <title>Inicio</title>
+</head>
+<body>
+    <div class="loader">
+        <div></div>
+    </div>
+    <div class="page">
+        <header>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="#" class="logo">
+                            <img src="../IMG/Anakin.jpeg" alt="">
+                            <span class="navItemAdmin">Yaxja</span>
+                        </a>
+                    </li>
+                    <li><a href="adminMainPage.html">
+                        <i class="fas fa-home"></i>
+                        <span class="navItemAdmin">Inicio</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-radiation"></i>
+                        <span class="navItemAdmin">Contaminación</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-user"></i>
+                        <span class="navItemAdmin">Perfil</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-tags"></i>
+                        <span class="navItemAdmin">Campañas</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-tasks"></i>
+                        <span class="navItemAdmin">Recomendaciones</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-download"></i>
+                        <span class="navItemAdmin">Actualizar Campañas</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-phone"></i>
+                        <span class="navItemAdmin">Contacto</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-cog"></i>
+                        <span class="navItemAdmin">Configuración</span>
+                    </a></li>
+                    <li><a href="login.html" class="logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span class="navItemAdmin">Cerrar Sesión</span>
+                    </a></li>
+                </ul>
+            </nav>
+            <nav class="buscador">
+
+            </nav>
+        </header>
+        <main>
+            <div class="contact-in">
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.6859784862995!2d-76.50252868548311!3d3.426429997505996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a71e4d932df3%3A0x618e835959553214!2sColegio%20Comfandi%20Calipso!5e0!3m2!1ses!2sco!4v1665448076468!5m2!1ses!2sco" width="100%" height="auto" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="contact-form">
+                    <h1>Contactanos</h1>
+                    <form action="" onsubmit="sendMail()">
+                        <input type="text" name="subject" id="subject" class="contact-form-txt" required placeholder="Subject">
+                        <input type="text" name="nombre" id="name" class="contact-form-txt" required placeholder="Name">
+                        <input type="email" name="correo" id="email" class="contact-form-txt" required placeholder="Email">
+                        <textarea placeholder="Message" name="mensaje" id="message" class="contact-form-txtarea"></textarea>
+                        <button type="submit" class="contact-form-btn">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script>
+        $(window).on('load',function(){
+            $(".loader").fadeOut(1000);
+            $(".page").fadeIn(1000);
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

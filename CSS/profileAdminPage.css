@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+/*--------------------------------------------------------------------------------------------------------INICIO HEADER--------------------------------------------------------------------------------------------------------*/
+body{
+    min-height: 100vh;
+    background: #eee;
+}
+.video video{
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    zoom: 1%;
+}
+.navigation{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    height: 20px;
+    width: 250px;
+}
+.toggle{
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #fff;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    color: #21daff;
+    padding: 5px 20px;
+}
+.toggle::before{
+    content: 'Menu';
+    margin-right: 10px;
+}
+.toggle.active::before
+{
+    content:'Cerrar';
+}
+.toggle span{
+    position: relative;
+    width: 20px;
+    height: 50px;
+}
+.toggle span::before{
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #21daff;
+    transition: 0.5s;
+}
+.toggle span::after{
+    content: '';
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: #21daff;
+    transition: 0.5s;
+}
+.toggle.active span::before{
+    transform: rotate(225deg);
+    top : 24px;
+}
+.toggle.active span::after{
+    transform: rotate(135deg);
+    bottom: 24px;
+}
+ul{
+    position: relative;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+ul li{
+    position: relative;
+    list-style: none;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(-250px);
+    transition-delay: calc(0.1s * var(--i));
+
+}
+.navigation.active ul li{
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0px);
+}
+ul li a{
+    position: relative;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    height: 50px;
+    background: #fff;
+    color: #333;
+    transition: 0.5s;
+}
+ul li a:hover{
+    background: #f6f6f6;
+    color: #21daff;
+    transition: 0s;
+}
