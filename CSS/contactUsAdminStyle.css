@@ -126,7 +126,7 @@ main{
 }
 .contact-in{
     width: 80%;
-    height: autos;
+    height: auto;
     margin: auto;
     margin-top: 30px;
     display: flex;
