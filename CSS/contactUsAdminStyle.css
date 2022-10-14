@@ -24,6 +24,7 @@ body{
     transition: width 0.2s linear;
     box-sizing: 0.20px 35px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 20px darkcyan;
+    z-index: 10;
 }
 .buscador{
     width: 100%;
@@ -31,6 +32,7 @@ body{
     z-index: -1;
     background: rgb(212, 254, 254);
     box-shadow: 0px 0px 20px darkcyan;
+    z-index: 9;
 }
 .logo{
     text-align: center;

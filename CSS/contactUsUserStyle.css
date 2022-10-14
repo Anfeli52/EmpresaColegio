@@ -24,6 +24,7 @@ body{
     transition: width 0.2s linear;
     box-sizing: 0.20px 35px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 20px darkcyan;
+    z-index: 10;
 }
 .buscador{
     width: 100%;
@@ -33,6 +34,7 @@ body{
     box-shadow: 0px 0px 20px darkcyan;
     justify-content: center;
     align-items: center;
+    z-index: 9;
 }
 .buscador span{
     padding: 15px;
