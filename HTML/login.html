@@ -17,18 +17,26 @@
         <div class="formularioContenedorLogin">
             <h3><ion-icon name="person-outline"></ion-icon>Iniciar Sesión</h3>
             <hr>
-            <form action="adminMainPage.html">
+            <form action="">
                 <label for="email">Username</label>
                 <input type="email" name="email" id="idEmail" required placeholder="Email">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="idPassword" required placeholder="Password">
                 <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-                <label for="enviar" class="btnEnviar"><input type="submit" name="enviar" value="Iniciar Sesión"></label>            
+                <label for="enviar" class="btnEnviar"><input type="submit" class="enviar" value="Iniciar Sesión"></label>            
             </form>
         </div>
         <p class="registrate">¿No tienes una cuenta aún?<a href="register.html"> Registrate Ahora</a></p>
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        /*const fondo = document.querySelector('example');
+        const boton = document.querySelector('enviar');
+        boton.addEventListener('click', function(){
+            this.classList.add('active');
+        });*/
+        const fondo = document.querySelector('example');
+    </script>
 </body>
 </html>
