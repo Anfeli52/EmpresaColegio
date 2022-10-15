@@ -16,7 +16,7 @@
     font-size: 12px;
     width: 450px;
     box-shadow: 7px 7px 50px darkcyan; 
-    height: 320px;
+    height: 380px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -40,13 +40,27 @@
     justify-content: space-between;
 }
 .formularioContenedorRegister form input[type="email"]{
-    width: 432px;
+    width: 200px;
 }
 .formularioContenedorRegister form input[type="text"]{
     width: 200px;
 }
 .formularioContenedorRegister form input[type="password"]{
     width: 200px;
+}
+.formularioContenedorRegister form input[type="number"]{
+    width: 200px;
+    appearance: textfield;
+}
+.formularioContenedorRegister form input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance:textfield;  
+    margin: 0;
+}
+.formularioContenedorRegister form input[type="date"]{
+    width: 200px;
+    height: 18px;
 }
 .formularioContenedorRegister form label{
     text-transform: uppercase;
@@ -85,7 +99,6 @@
 }
 select {
     appearance: none;
-
 }
 .formularioContenedorRegister form input[type="submit"]{
     text-align: center;
@@ -123,7 +136,7 @@ select {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateY(-500%) translateX(-50%);
+    transform: translateY(-580%) translateX(-50%);
     font-size: 40px;
     color: #fff;
     z-index: 2;
@@ -134,6 +147,7 @@ select {
     justify-content: center;
     align-items: center;
     position: absolute;
+    margin-top: 35px    ;
     font-weight: normal;
     top: 50%;
     left: 50%;

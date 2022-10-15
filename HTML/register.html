@@ -24,12 +24,16 @@
                         <input type="text" name="nombre" id="idNombre" required placeholder="Name">
                     </div>
                     <div class="parteSuperior">
-                        <label for="apellido">Apellido</label>
+                        <label for="apellido">Lastname</label>
                         <input type="text" name="apellido" id="idApellido" required placeholder="Lastname">
                     </div>
-                    <div class="others">
+                    <div class="parteSuperior">
                         <label for="correo">Email</label>
                         <input type="email" name="correo" id="idCorreo" required placeholder="Email">
+                    </div>
+                    <div class="parteSuperior">
+                        <label for="nombreUsuario">Username</label>
+                        <input type="text" name="nombreUsuario" id="idNombreUsuario" required placeholder="Username">
                     </div>
                     <div class="parteInferior">
                         <label for="contraseña">Password</label>
@@ -38,6 +42,14 @@
                     <div class="parteInferior">
                         <label for="confirmarContraseña">Confirm Password</label>
                         <input type="password" name="confirmarContraseña" id="idConfirmarContraseña" required placeholder="Confirm Password">
+                    </div>
+                    <div class="parteInferior">
+                        <label for="telefono">Phone Number</label>
+                        <input type="number" name="telefono" id="idTelefono" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required placeholder="1234567890">
+                    </div>
+                    <div class="parteInferior">
+                        <label for="cumpleaños">Birthday</label>
+                        <input type="date" name="cumpleaños" id="idFechaNacimiento" min="1922-01-01" max="2022-12-31" required>
                     </div>
                     <div class="others">
                         <label for="userType">Tipo de Usuario</label>

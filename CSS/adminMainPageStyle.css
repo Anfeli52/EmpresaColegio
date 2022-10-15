@@ -10,10 +10,10 @@
     font-family: "Poppins", sans-serif;
 }
 body{
-    background: #fff;
+    background: var(--color-background);
 }
 .menu{
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -27,6 +27,7 @@ body{
     z-index: 10;
 }
 .buscador{
+    position: fixed;
     width: 100%;
     height: 60px;
     z-index: -1;
@@ -115,4 +116,177 @@ a:hover{
     100%{
         transform: rotate(360deg);
     }
+}
+
+/*------------------------------------------------------------------------INICIO MAIN------------------------------------------------------------------------*/
+:root{
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #677483;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+
+    --box-shadow: 0 2rem 4rem var(--color-light);
+}
+
+main{
+    margin-left: 100px;
+    display: grid;
+}
+.dashboard{
+    margin-top: 75px;
+}
+.dashboard .date{
+    display: inline-block;
+    background: var(--color-light);
+    border-radius: var(--border-radius-1);
+    margin-top: 1rem;
+    padding: 0.5rem 1.6rem;
+}
+.dashboard .date input[type="date"]{
+    background: transparent;
+    color: var(--color-dark);
+}
+.dashboard .insights{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    width: 300px;
+}
+.dashboard .insights > div{
+    background: var(--color-white);
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    margin-top: 1rem;
+    box-shadow: var(--box-shadow);
+    width: 330px;
+    height: 235px;
+    transition: all 300ms ease;
+}
+.dashboard .insights > div:hover{
+    box-shadow: none;
+}
+.dashboard .insights > div span{
+    background: var(--color-primary);
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--color-white);
+    font-size: 2rem;
+}
+.dashboard .insights > div.expenses span{
+    background: var(--color-danger);
+}
+.dashboard .insights > div.income span{
+    background: var(--color-success);
+}
+.dashboard .insights > div .middle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.dashboard .insights h3{
+    margin: 1rem 0 0.6rem;
+    font-size: 1rem;
+}
+.dashboard .insights .progress{
+    position: relative;
+    width: 92px;
+    height: 92px;
+    border-radius: 50%;
+}
+.dashboard .insights svg{
+    width: 7rem;
+    height: 7rem;
+}
+.dashboard .insights svg circle{
+    fill: none;
+    stroke: var(--color-primary);
+    stroke-width: 14;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+    stroke-dasharray: 110;
+    stroke-dashoffset: 92;
+}
+.dashboard .insights .sales svg circle{
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+.dashboard .insights .expenses svg circle{
+    stroke-dashoffset: 30;
+    stroke-dasharray:  180;
+}
+.dashboard .insights .income svg circle{
+    stroke-dashoffset: 35;
+    stroke-dasharray: 110;
+}
+.dashboard .insights .progress .number{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dashboard .insights small{
+    margin-top: 1.3rem;
+    display: block;
+}
+
+/*------------------------------------------------------------------TABLA STATUS------------------------------------------------------------------*/
+.dashboard .recent-orders{
+    margin-top: 2rem;
+}
+.dashboard .recent-orders h2{
+    margin-bottom: 0.8rem;
+}
+.dashboard .recent-orders table{
+    background: var(--color-white);
+    width: 1040px;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+.dashboard .recent-orders .warning{
+    color: var(--color-danger);
+    font-weight: bold;
+}
+.dashboard .recent-orders .primary{
+    color: var(--color-primary);
+    font-weight: bold;
+}
+.dashboard .recent-orders table:hover{
+    box-shadow: none;
+}
+.dashboard table tbody td{
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+.dashboard table tbody tr:last-child td{
+    border: none;
+}
+.dashboard .recent-orders a{
+    text-align: center;
+    display: block;
+    margin: 1rem 24rem;
+    color: var(--color-primary);
 }
