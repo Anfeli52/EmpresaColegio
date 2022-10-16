@@ -13,7 +13,7 @@ body{
     background: #f6f6f9;
 }
 .menu{
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -27,6 +27,7 @@ body{
     z-index: 10;
 }
 .buscador{
+    position: fixed;
     width: 100%;
     height: 60px;
     z-index: -1;
@@ -119,78 +120,25 @@ a:hover{
 
 /*------------------------------------------------------------------------INICIO MAIN------------------------------------------------------------------------*/
 main{
-    width: 100%;
-    height: 100%;
+    margin-left: 100px;
     display: grid;
-    align-items: center;
 }
-.contact-in{
+#bells{
+    margin-top: 20%;
+}
+#bells .bell1, .bell2, .bell3, .bell4{
     width: 80%;
-    height: auto;
-    margin: auto;
-    margin-top: 30px;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    border-radius: 10px;
     background: #fff;
-    box-shadow: 0px 0px 10px 0px #666;
-}
-.contact-map{
-    width: 100%;
-    height: auto;
-    flex: 50%;
-}
-.contact-map iframe{
-    width: 100%;
-    height: 100%;
-}
-.contact-form{
-    width: 100%;
-    height: auto;
-    flex: 50%;
-    padding: 30px;
+    height: 120px;
     text-align: center;
-}
-.contact-form h1{
-    margin-bottom: 10px;
-
-}
-.contact-form-txt{
-    width: 100%;
-    height: 40px;
-    color: #000;
-    border: 1px solid #bcbcbc;
-    border-radius: 50px;
-    outline: none;
+    margin: auto;
+    margin-top: 20px;
     margin-bottom: 20px;
-    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 7px 7px 10px 0px #45474b;
+    transition: all 300ms ease;
 }
-.contact-form-txt::placeholder{
-    color: #aaa;
-}
-.contact-form-txtarea{
-    width: 100%;
-    height: 130px;
-    color: #000;
-    border: 1px solid #bcbcbc;
-    border-radius: 20px;
-    outline: none;
-    margin-bottom: 20px;
-    padding: 15px;
-}
-.contact-form-txtarea::placeholder{
-    color: #aaa;
-}
-.contact-form-btn{
-    width: 100%;
-    border: none;
-    outline: none;
-    border-radius: 50px;
-    background: darkcyan;
-    color: #fff;
-    text-transform: uppercase;
-    padding: 10px 0;
+#bells .bell1:hover, .bell2:hover, .bell3:hover, .bell4:hover{
+    box-shadow: none;
     cursor: pointer;
-    font-size: 18px;
 }

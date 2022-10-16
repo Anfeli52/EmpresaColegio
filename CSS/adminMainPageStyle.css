@@ -10,7 +10,7 @@
     font-family: "Poppins", sans-serif;
 }
 body{
-    background: var(--color-background);
+    background: #f6f6f9;
 }
 .menu{
     position: fixed;
@@ -267,6 +267,10 @@ main{
 }
 .dashboard .recent-orders .warning{
     color: var(--color-danger);
+    font-weight: bold;
+}
+.dashboard .recent-orders .success{
+    color: var(--color-success);
     font-weight: bold;
 }
 .dashboard .recent-orders .primary{
