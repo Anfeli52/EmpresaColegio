@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/User/recomendationUserPageStyle.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <title>Inicio</title>
+</head>
+
+<body>
+    <div class="loader">
+        <div></div>
+    </div>
+    <div class="page">
+        <header>
+            <nav class="menu">
+                <ul>
+                    <li>
+                        <a href="#" class="logo">
+                            <img src="../../IMG/Pingüino asesino.jpg" alt="">
+                            <span class="navItemUser">P4iN</span>
+                        </a>
+                    </li>
+                    <li><a href="userMainPage.html">
+                            <i class="fas fa-home"></i>
+                            <span class="navItemUser">Inicio</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-radiation"></i>
+                            <span class="navItemUser">Contaminación</span>
+                        </a></li>
+                    <li><a href="profileUserPage.html">
+                            <i class="fas fa-user"></i>
+                            <span class="navItemUser">Perfil</span>
+                        </a></li>
+                    <li><a href="campanasUserPage.html">
+                            <i class="fas fa-tags"></i>
+                            <span class="navItemUser">Campañas</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-tasks"></i>
+                            <span class="navItemUser">Recomendaciones</span>
+                        </a></li>
+                    <li><a href="contactUsUser.html">
+                            <i class="fas fa-phone"></i>
+                            <span class="navItemUser">Contacto</span>
+                        </a></li>
+                    <!--<li><a href="#">
+                        <i class="fas fa-cog"></i>
+                        <span class="navItemUser">Configuración</span>
+                    </a></li>-->
+                    <li><a href="../login.html" class="logout">
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="navItemUser">Cerrar Sesión</span>
+                        </a></li>
+                </ul>
+            </nav>
+            <nav class="buscador">
+                
+            </nav>
+        </header>
+        <main>
+            <!-- Contenedor Principal -->
+            <div class="comments-container">
+                <h1>Recomendaciones</h1>
+
+                <ul id="comments-list" class="comments-list">
+                    <li>
+                        <div class="comment-main-level">
+                            <!-- Avatar -->
+                            <div class="comment-avatar"><img src="../../IMG/Anakin.jpeg" alt=""></div>
+                            <!-- Contenedor del Comentario -->
+                            <div class="comment-box">
+                                <div class="comment-head">
+                                    <h6 class="comment-name by-author"><a href="#">Anfeli52</a></h6>
+                                    <span>hace 20 minutos</span>
+                                    <i class="fa fa-reply"></i>
+                                    <i class="fa fa-heart"></i>
+                                </div>
+                                <div class="comment-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure
+                                    laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Respuestas de los comentarios -->
+                        <ul class="comments-list reply-list">
+                            <li>
+                                <!-- Avatar -->
+                                <div class="comment-avatar"><img src="../../IMG/Pingüino asesino.jpg" alt=""></div>
+                                <!-- Contenedor del Comentario -->
+                                <div class="comment-box">
+                                    <div class="comment-head">
+                                        <h6 class="comment-name"><a href="#">P4iN</a>
+                                        </h6>
+                                        <span>hace 10 minutos</span>
+                                        <i class="fa fa-reply"></i>
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                    <div class="comment-content">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et
+                                        iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <!-- Avatar -->
+                                <div class="comment-avatar"><img src="../../IMG/Anakin.jpeg" alt=""></div>
+                                <!-- Contenedor del Comentario -->
+                                <div class="comment-box">
+                                    <div class="comment-head">
+                                        <h6 class="comment-name by-author"><a href="#">Anfeli52</a></h6>
+                                        <span>hace 10 minutos</span>
+                                        <i class="fa fa-reply"></i>
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                    <div class="comment-content">
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et
+                                        iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <div class="comment-main-level">
+                            <!-- Avatar -->
+                            <div class="comment-avatar"><img src="../../IMG/Pingüino asesino.jpg" alt=""></div>
+                            <!-- Contenedor del Comentario -->
+                            <div class="comment-box">
+                                <div class="comment-head">
+                                    <h6 class="comment-name"><a href="#">P4iN</a></h6>
+                                    <span>hace 10 minutos</span>
+                                    <i class="fa fa-reply"></i>
+                                    <i class="fa fa-heart"></i>
+                                </div>
+                                <div class="comment-content">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure
+                                    laudantium vitae, praesentium optio, sapiente distinctio illo?
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </main>
+    </div>
+    <script>
+        $(window).on('load', function () {
+            $(".loader").fadeOut(1000);
+            $(".page").fadeIn(1000);
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>
