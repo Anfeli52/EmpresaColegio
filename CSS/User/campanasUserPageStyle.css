@@ -70,7 +70,7 @@ a{
     font-size: 20px;
     text-align: center;
 }
-.navItemAdmin{
+.navItemUser{
     position: relative;
     top: 12px;
     margin-left: 10px;
@@ -123,22 +123,55 @@ main{
     margin-left: 100px;
     display: grid;
 }
+main h1{
+    margin: 100px 0px 20px 0px;
+}
 #bells{
-    margin-top: 20%;
+    margin-top: 5%;
 }
 #bells .bell1, .bell2, .bell3, .bell4{
     width: 80%;
     background: #fff;
     height: 120px;
     text-align: center;
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin: 20px 20px 20px 0px;
+    /*margin-top: 20px;
+    margin-bottom: 20px;*/
     border-radius: 15px;
     box-shadow: 7px 7px 10px 0px #45474b;
     transition: all 300ms ease;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+}
+#bells .bell1 button, .bell2 button, .bell3 button, .bell4 button{
+    height: 40px;
+    width: 100px;
+    margin-left: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 15px;
+}
+#bells p{
+    visibility: hidden;
+    display: none;
+    margin-left: 100px;
+    background: #ccc;
+    box-shadow: 7px 7px 10px 0 #45474b;
+    text-align: justify;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 20px 0px 0px;
+    height: auto;
+    width: 80%;
+    margin-bottom: 30px;
+}
+#bells .bell1 button:hover, .bell2 button:hover, .bell3 button:hover, .bell4 button:hover{
+    background: #7380ec;
+    transition: all 300ms;
 }
 #bells .bell1:hover, .bell2:hover, .bell3:hover, .bell4:hover{
     box-shadow: none;
-    cursor: pointer;
 }
