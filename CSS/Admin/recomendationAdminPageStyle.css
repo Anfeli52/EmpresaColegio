@@ -282,6 +282,7 @@ main {
 }
 .comment-box .comment-name a:hover {
     background: none;
+    cursor: default;
 }
 .comment-box .comment-head span {
     float: left;
@@ -301,8 +302,7 @@ main {
 }
 .comment-box .comment-name.by-author {
     width: 200px;
-    display:
-        flex;
+    display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;

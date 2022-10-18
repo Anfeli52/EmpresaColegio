@@ -282,6 +282,7 @@ main {
 }
 .comment-box .comment-name a:hover {
     background: none;
+    cursor: default;
 }
 .comment-box .comment-head span {
     float: left;
