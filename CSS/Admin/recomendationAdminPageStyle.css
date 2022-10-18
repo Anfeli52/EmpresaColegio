@@ -323,6 +323,37 @@ main {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
+.commentWriter{
+    width: 770px;
+    height: 90px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 100px;
+    margin-bottom: 15px;
+}
+.commentWriter .imgAvatar{
+    box-shadow:  5px 5px 5px rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+}
+.commentWriter .imgAvatar img{
+    width: 90px;
+    height: 90px;
+    border: 3px solid #fff;
+    border-radius: 10px;
+}
+.commentWriter textarea{
+    border: 2px;
+    border-style: dotted;
+    width: 100%;
+    resize: none;
+    padding: 10px;
+    margin-left: 20px;
+    justify-content: baseline;
+    height: 90px;
+    outline: none;
+    box-shadow:  5px 5px 5px rgba(0, 0, 0, 0.8);
+    border-radius: 7px;
+}
 @media only screen and (max-width: 766px) {
 	.comments-container {
 		width: 480px;
