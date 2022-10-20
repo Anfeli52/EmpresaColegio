@@ -26,15 +26,6 @@ body{
     box-shadow: 0px 0px 20px darkcyan;
     z-index: 10;
 }
-.buscador{
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    z-index: -1;
-    background: rgb(212, 254, 254);
-    box-shadow: 0px 0px 20px darkcyan;
-    z-index: 9;
-}
 .logo{
     text-align: center;
     display: flex;
@@ -124,9 +115,6 @@ main{
     height: 100%;
     display: grid;
     align-items: center;
-}
-.seccion-perfil-usuario{
-    margin-top: 60px;
 }
 .perfil-usuario .cambiar-foto i {
     margin-bottom: .5rem;
