@@ -17,7 +17,7 @@
         <div class="formularioContenedorRegister">
             <h3><ion-icon name="person-outline"></ion-icon>Registrarse</h3>
             <hr>
-            <form action="User/userMainPage.html">
+            <form action="../PHP/register.php" method="post">
                 <div class="row">
                     <div class="parteSuperior">
                         <label for="nombre">Name</label>
@@ -54,8 +54,8 @@
                     <div class="others">
                         <label for="userType">Tipo de Usuario</label>
                         <select name="userType" required>
-                            <option value="1">Usuario</option>
-                            <option value="2">Administrador</option>
+                            <option value="user">Usuario</option>
+                            <option value="admin">Administrador</option>
                         </select>
                     </div>
                 </div>

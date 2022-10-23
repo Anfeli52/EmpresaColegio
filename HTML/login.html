@@ -17,13 +17,13 @@
         <div class="formularioContenedorLogin">
             <h3><ion-icon name="person-outline"></ion-icon>Iniciar Sesión</h3>
             <hr>
-            <form action="Admin/adminMainPage.html">
+            <form action="../PHP/login.php" method="post">
                 <label for="email">Username</label>
                 <input type="email" name="email" id="idEmail" required placeholder="Email" value="anfeli201111@gmail.com">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="idPassword" required placeholder="Password" value="1234567890">
                 <p><a href="#">¿Olvidaste tu contraseña?</a></p>
-                <label for="enviar" class="btnEnviar"><input type="submit" class="enviar" value="Iniciar Sesión"></label>            
+                <label for="enviar" class="btnEnviar"><input type="submit" name="enviar" class="enviar" value="Iniciar Sesión"></label>            
             </form>
         </div>
         <p class="registrate">¿No tienes una cuenta aún?<a href="register.html"> Registrate Ahora</a></p>
