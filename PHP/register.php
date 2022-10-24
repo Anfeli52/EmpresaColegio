@@ -8,8 +8,8 @@ if(isset($_POST['enviar'])){
     $apellido = mysqli_real_escape_string($conexion, $_POST['apellido']);
     $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
     $usuario = mysqli_real_escape_string($conexion, $_POST['nombreUsuario']);
-    $contrasena = md5($_POST['contraseña']);
-    $confirmarContrasena = md5($_POST['confirmarContraseña']);
+    $contrasena = $_POST['contraseña'];
+    $confirmarContrasena = $_POST['confirmarContraseña'];
     $telefono = $_POST['telefono'];
     $cumpleaños = $_POST['cumpleaños'];
     $tipoUsuario = $_POST['userType'];

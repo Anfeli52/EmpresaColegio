@@ -2,21 +2,25 @@
 
 include 'conexion.php';
 
-if(isset($_POST['enviar'])){
-    $correo = mysqli_real_escape_string($conexion, $_POST['correo']);
-    $contrasena = md5($_POST['contraseña']);
-    $select = " SELECT * FROM usuarios WHERE correo = '$correo' AND password = '$contrasena'";
+if(isset($_POST['envio'])){
+    $correo = $_POST['correo'];
+    $contrasena = $_POST['contraseña'];
+    session_start();
+    $select = " SELECT * FROM usuarios WHERE correo = '$correo' && password = '$contrasena'";
     $result = mysqli_query($conexion, $select);
     if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_array($result);
         if($row['tipoUsuario'] == 'admin'){
             #$_SESSION['admin_name'] = $row['usuario'];
-            include('../HTML/Admin/adminMainPage.html');
-            header('location:../HTML/adminMainPage.html');
-        }elseif($row['tipoUsuario'] == 'user'){
+            echo '<script>
+                    window.location.replace("../HTML/Admin/adminMainPage.html"); 
+                </script>';
+        
+            }elseif($row['tipoUsuario'] == 'user'){
             #$_SESSION['user_name'] = $row['usuario'];
-            include('../HTML/User/userMainPage.html');
-            header('location:../HTML/userMainPage.html');
+            echo '<script>
+                    window.location.replace("../HTML/User/userMainPage.html");
+                </script>';
         }
     }else{
         echo'<script>

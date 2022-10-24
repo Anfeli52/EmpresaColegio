@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    background: #f6f6f9;
+}
+.menu{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background:  rgb(51, 133, 144);
+    width: 70px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-sizing: 0.20px 35px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 20px darkcyan;
+    z-index: 10;
+}
+.logo{
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+}
+.logo img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+}
+.logo span{
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+a{
+    position: relative;
+    color: rgb(240, 240, 240);
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding-left: 2px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.fas{
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+}
+.navItemAdmin{
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+}
+a:hover{
+    background: rgb(212, 254, 254);
+    color: rgb(85, 85, 85);
+    transition: 0.2s linear;
+}
+.menu:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+}
+.logout{
+    position: absolute;
+    bottom: 0;
+}
+.page{
+    display: none;
+}
+.loader{
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    background-color: #16191e;
+    position: absolute;
+}
+.loader>div{
+    height: 100px;
+    width: 100px;
+    border: 15px solid #45474b;
+    border-top-color: #2a88e6;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-radius: 50%;
+    animation: spin 1.5s infinite linear;
+}
+@keyframes spin{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+/*-----------------------------------------------------------------------------------------------INICIO MAIN-----------------------------------------------------------------------------------------------*/
+
+.contenedor{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background: #f6f6f9;
+}
+.contenido{
+    height: 90%;
+    width: 80%;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 24px;
+}
+.foto{
+    display: flex !important;
+}
+.perfil{
+    width: 800px;
+    height: 80px;
+    display: flex !important;
+}
+.cajaUser{
+    flex: auto !important;
+}
+.perfilUserName{
+    line-height: 1.25 !important;
+}
+.personalInfo{
+    flex: auto !important;
+}
+.personalInfo p{
+    margin-bottom: 0 !important;
+}
+.Layout-sidebar {
+    width: 296px;
+    height: 450px;
+    background: #3e3e3e;
+    display: flex;
+    align-items: center;
+    border-radius: 2rem 2rem 2rem 2rem;
+}
+.Layout-item{
+    padding-right: 24px !important;
+}
+.org-menu-item li{
+    width: 100%;
+    list-style: none;
+}
+.ActionList-sectionDivider:empty{
+    display: block;
+    height: 1px;
+    padding: 0;
+    margin: 7px 8px 8px;
+    list-style: none;
+    background: #ccc;
+    width: 280px;
+}
+.actionList-sectionDivider .actionList-seccionDivide-title {
+    font-size: 12px;
+    margin: 0px 20px 0px;
+    font-weight: 600;
+    color: #c9c9c9;
+}
+nav-list ul{
+    list-style: none;
+}
+.actionListWrap{
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    text-decoration: none;
+}
+.actionListWrap.actionListWrap--subGroup li a{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    left: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 5px 0px 5px 10px;
+    width: 260px;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+.actionListWrap.actionListWrap--subGroup li a:hover{
+    background: #ccc;
+    color: #000;
+}
+.actionListWrap.actionListWrap--subGroup .actionListItem a .icon svg{
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.Layout-main{
+    width: 800px;
+    height: 1565px;
+    background: #3e3e3e;
+    display: flex;
+}
+.subHeading{
+    width: 400px;
+    height: 45px;
+    display: flex;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #21262d;
+}
