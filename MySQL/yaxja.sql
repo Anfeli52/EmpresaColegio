@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-10-2022 a las 06:13:14
+-- Tiempo de generación: 25-10-2022 a las 06:40:32
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -52,7 +52,11 @@ INSERT INTO `contaminacion` (`codigoAgua`, `nombreAgua`, `cuerpoAgua`, `nivelCon
 (11, 'Guainia', 'Rio', 95),
 (12, 'Igara Parana', 'Rio', 34),
 (13, 'Ariporo', 'Rio', 87),
-(14, 'Caribe', 'Mar', 53);
+(14, 'Caribe', 'Mar', 53),
+(15, 'Meta', 'Rio', 28),
+(16, 'Atlántico', 'Oceano', 42),
+(17, 'Putumayo', 'Rio', 15),
+(18, 'Guaviare', 'Rio', 21);
 
 -- --------------------------------------------------------
 
@@ -79,7 +83,8 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`nombre`, `apellido`, `correo`, `username`, `password`, `confirmPassword`, `telefono`, `fechaCumpleaños`, `tipoUsuario`) VALUES
 ('Andrés Felipe', 'Medina Díaz', 'anfeli201111@gmail.com', 'Anfeli52', '123456789', '123456789', 2147483647, '2006-01-06', 'admin'),
 ('Andrés Felipe', 'Medina Díaz', 'anfelime@gmail.com', 'P4iN', '123456789', '123456789', 2147483647, '2006-01-06', 'user'),
-('Juan Esteban', 'Soto Potes', 'Juanesteban9283@gmail.com', 'Juanes', 'juanes123', 'juanes123', 2147483647, '2006-05-07', 'user'),
+('Juan Esteban', 'Idrobo Lucio', 'jslucio100@gmail.com', 'Jslucio', 'ronaldinho', 'ronaldinho', 2147483647, '2006-01-08', 'admin'),
+('Juan Esteban', 'Soto Potes', 'Juanesteban9283@gmail.com', 'Juanes', 'juanes123', 'juanes123', 2147483647, '2006-05-07', 'admin'),
 ('Luis Carlos', 'Calderón Ríos', 'lccalderon1218@gmail.com', 'Pock', 'pock123', 'pock123', 2147483647, '2006-12-18', 'admin'),
 ('Venus Sayuri', 'Almeida Enriquez', 'venusayurialmeida.99@gmail.com', 'Venussa', 'frisby', 'frisby', 2147483647, '2006-09-09', 'user');
 
@@ -107,7 +112,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `contaminacion`
 --
 ALTER TABLE `contaminacion`
-  MODIFY `codigoAgua` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `codigoAgua` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
