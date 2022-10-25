@@ -12,7 +12,6 @@ if(isset($_POST['enviar'])){
     $confirmarContrasena = $_POST['confirmarContraseña'];
     $telefono = $_POST['telefono'];
     $cumpleaños = $_POST['cumpleaños'];
-    $tipoUsuario = $_POST['userType'];
     
     $select = " SELECT * FROM usuarios WHERE correo = '$correo'";
     $result = mysqli_query($conexion, $select);
@@ -31,7 +30,7 @@ if(isset($_POST['enviar'])){
             </script>';
         exit;
         }else{
-            $insert = "INSERT INTO usuarios(nombre, apellido, correo, username, password, confirmPassword, telefono, fechaCumpleaños, tipoUsuario) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contrasena', '$confirmarContrasena', '$telefono', '$cumpleaños', '$tipoUsuario')";
+            $insert = "INSERT INTO usuarios(nombre, apellido, correo, username, password, confirmPassword, telefono, fechaCumpleaños, tipoUsuario) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contrasena', '$confirmarContrasena', '$telefono', '$cumpleaños', 'user')";
             mysqli_query($conexion, $insert);
             header('location:../HTML/login.html');
         }

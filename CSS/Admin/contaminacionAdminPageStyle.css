@@ -11,7 +11,7 @@
     scroll-behavior: smooth;
 }
 body{
-    background: #f6f6f9;
+    background: #B8DBDF;
 }
 .menu{
     position: fixed;
@@ -112,14 +112,30 @@ a:hover{
 
 /*---------------------------------------------------------INICIO MAIN---------------------------------------------------------*/
 .container{
+    
     width: 80%;
-    background: red;
+    background: #B8DBDF;
     display: table;
     text-align: center;
-    margin: 50px 0px 0px 100px;
+    align-items: center;
+    margin: -80px 0px 50px 180px;
 }
 .row{
     width: 100%;
+}
+
+th{
+    padding: 20px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+thead{
+	background-color: #8EB0B4;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+    
 }
 .col{
     width: 100%;
@@ -128,6 +144,57 @@ a:hover{
     justify-content: center;
     text-align: center;
 }
+
+th td{
+    border: solid 1px black;
+    padding: 20px;
+
+}
 table.table-sm.table-bordered{
     display: contents;
+}
+
+tr:nth-child(even){
+	background-color: #D3E9EC;
+}
+
+tr:hover td{
+	background-color: #8EB0B4;
+	color: white;
+}
+.container1{
+    position: absolute;
+    display: contents;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.columna input{
+    margin-bottom: 20px;
+    outline: none;
+	box-sizing: border-box;
+	height: 30px;
+	width: 300px;
+	padding: 0 20px;
+	color: #000;
+	border-radius: 50px;
+	font-size: 20px;
+	border: 1px solid #567C80;
+	transition: all .7s ease;
+}
+.columna:hover i{
+	transform: rotate(-360deg);
+}
+table tbody tr td a{
+    padding: 13px;
+    height: 100%;
+    color: #000;
+}
+table tbody tr td a:hover{
+    color: #000;
+}
+.container.py-4.text-center{
+    margin-top: 60px;
 }

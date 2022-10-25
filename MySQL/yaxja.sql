@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-10-2022 a las 06:46:33
+-- Tiempo de generación: 25-10-2022 a las 06:08:57
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -31,7 +31,7 @@ CREATE TABLE `contaminacion` (
   `codigoAgua` int(10) NOT NULL,
   `nombreAgua` varchar(20) NOT NULL,
   `cuerpoAgua` varchar(20) NOT NULL,
-  `nivelContaminativo` int(10) NOT NULL
+  `nivelContaminativo` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -39,14 +39,20 @@ CREATE TABLE `contaminacion` (
 --
 
 INSERT INTO `contaminacion` (`codigoAgua`, `nombreAgua`, `cuerpoAgua`, `nivelContaminativo`) VALUES
-(1, 'Lago Calima', 'Lago', 30),
-(2, 'Mar Caribe', 'Mar', 27),
-(3, 'Rio Magdalena', 'Rio', 23),
-(4, 'Oceano Pacifico', 'Oceano', 28),
-(5, 'Ocenao Atlántico', 'Oceano', 32),
-(6, 'Rio Cali', 'Rio', 12),
-(7, 'Rio Pance', 'Rio', 27),
-(8, 'Rio Juanchito', 'Rio', 27);
+(1, 'Calima, Darien', 'Lago', 34),
+(2, 'Pacifico', 'Oceano', 24),
+(3, 'Pance', 'Rio', 55),
+(4, 'Amazonas', 'Rio', 82),
+(5, 'Cauca', 'Rio', 87),
+(6, 'Magdalena', 'Rio', 97),
+(7, 'La Cocha', 'Lago', 67),
+(8, 'Laguna de sonso', 'Lago', 88),
+(9, 'Orinoco', 'Rio', 44),
+(10, 'Yari', 'Rio', 68),
+(11, 'Guainia', 'Rio', 95),
+(12, 'Igara Parana', 'Rio', 34),
+(13, 'Ariporo', 'Rio', 87),
+(14, 'Caribe', 'Mar', 53);
 
 -- --------------------------------------------------------
 
@@ -73,7 +79,9 @@ CREATE TABLE `usuarios` (
 INSERT INTO `usuarios` (`nombre`, `apellido`, `correo`, `username`, `password`, `confirmPassword`, `telefono`, `fechaCumpleaños`, `tipoUsuario`) VALUES
 ('Andrés Felipe', 'Medina Díaz', 'anfeli201111@gmail.com', 'Anfeli52', '123456789', '123456789', 2147483647, '2006-01-06', 'admin'),
 ('Andrés Felipe', 'Medina Díaz', 'anfelime@gmail.com', 'P4iN', '123456789', '123456789', 2147483647, '2006-01-06', 'user'),
-('Luis Carlos', 'Calderón Ríos', 'lccalderon1218@gmail.com', 'Pock', 'soymarica', 'soymarica', 2147483647, '2006-12-18', 'admin');
+('Juan Esteban', 'Soto Potes', 'Juanesteban9283@gmail.com', 'Juanes', 'juanes123', 'juanes123', 2147483647, '2006-05-07', 'user'),
+('Luis Carlos', 'Calderón Ríos', 'lccalderon1218@gmail.com', 'Pock', 'soymarica', 'soymarica', 2147483647, '2006-12-18', 'admin'),
+('Venus Sayuri', 'Almeida Enriquez', 'venusayurialmeida.99@gmail.com', 'Venussa', 'frisby', 'frisby', 2147483647, '2006-09-09', 'user');
 
 --
 -- Índices para tablas volcadas
@@ -99,7 +107,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `contaminacion`
 --
 ALTER TABLE `contaminacion`
-  MODIFY `codigoAgua` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `codigoAgua` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

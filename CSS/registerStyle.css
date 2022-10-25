@@ -11,7 +11,7 @@
     justify-content: center;
     padding: 20px;
     position: absolute;
-    padding-bottom: 60px;
+    padding-bottom: 30px;
     opacity: 100%;
     font-size: 12px;
     width: 450px;
@@ -136,7 +136,7 @@ select {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translateY(-580%) translateX(-50%);
+    transform: translateY(-550%) translateX(-50%);
     font-size: 40px;
     color: #fff;
     z-index: 2;
@@ -151,7 +151,7 @@ select {
     font-weight: normal;
     top: 50%;
     left: 50%;
-    transform: translateY(1150%) translateX(-50%);
+    transform: translateY(1050%) translateX(-50%);
     font-size: 15px;
     color: rgb(51, 103, 120);
     z-index: 2;
