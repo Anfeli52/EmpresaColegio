@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-10-2022 a las 06:08:57
+-- Tiempo de generación: 25-10-2022 a las 06:13:14
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -80,7 +80,7 @@ INSERT INTO `usuarios` (`nombre`, `apellido`, `correo`, `username`, `password`, 
 ('Andrés Felipe', 'Medina Díaz', 'anfeli201111@gmail.com', 'Anfeli52', '123456789', '123456789', 2147483647, '2006-01-06', 'admin'),
 ('Andrés Felipe', 'Medina Díaz', 'anfelime@gmail.com', 'P4iN', '123456789', '123456789', 2147483647, '2006-01-06', 'user'),
 ('Juan Esteban', 'Soto Potes', 'Juanesteban9283@gmail.com', 'Juanes', 'juanes123', 'juanes123', 2147483647, '2006-05-07', 'user'),
-('Luis Carlos', 'Calderón Ríos', 'lccalderon1218@gmail.com', 'Pock', 'soymarica', 'soymarica', 2147483647, '2006-12-18', 'admin'),
+('Luis Carlos', 'Calderón Ríos', 'lccalderon1218@gmail.com', 'Pock', 'pock123', 'pock123', 2147483647, '2006-12-18', 'admin'),
 ('Venus Sayuri', 'Almeida Enriquez', 'venusayurialmeida.99@gmail.com', 'Venussa', 'frisby', 'frisby', 2147483647, '2006-09-09', 'user');
 
 --
