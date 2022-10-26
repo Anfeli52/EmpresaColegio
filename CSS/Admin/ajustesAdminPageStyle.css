@@ -1,0 +1,249 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: sans-serif;
+}
+
+header{
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    font-size: 14px;
+    line-height: 1.5;
+    background: #fff;
+    align-items: center;
+    background-color: aliceblue;
+    height: 60px;
+}
+
+.logo{
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+}
+
+.box{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+input.src{
+    padding-left: 32px;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #444;
+    border: 2px solid darkblue;
+    background: #fff url("../../IMG/search.png") no-repeat 9px center;
+    width: 270px;
+    transition: all .5s;
+}
+
+input.src:focus{
+    width: 350px;
+    background-color: #fff;
+    border-color: darkblue;
+    box-shadow: 0 0 5px #6dcff680;
+}
+
+.options-header{
+    display: flex;
+    align-self: auto;
+    flex-direction: row;
+}
+
+.opciones{
+    font-weight: 600;
+    margin-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    white-space: nowrap;
+    color: black;
+    text-decoration: none;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+}
+
+.opciones:hover{
+    color: rgb(94, 93, 93);
+}
+
+.container{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 24px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1280px;
+}
+
+.foticousuario{
+    display: flex;
+    margin-top: 4px;
+    margin-bottom: 24px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.foto{
+    display: flex;
+    align-items: center;
+}
+
+.avatar{
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+img{
+    border-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.infoto{
+    flex: auto;
+}
+
+.h1foto{
+    font-size: 20px;
+    line-height: 1.25;
+    font-weight: 600;
+    margin: 0;
+}
+
+.h1foto a{
+    color: black;
+}
+
+.descripfoto{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.descripfoto p{
+    margin-right: 16px;
+    margin: 0;
+    color: rgb(48, 48, 48);
+    font-size: 14px;
+}
+
+.layout {
+    --Layout-sidebar-width: 296px;
+}
+
+.layout {
+    --Layout-gutter: 24px;
+}
+
+.layout{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto 0 minmax(0, calc(100% - var(--Layout-sidebar-width) - var(--Layout-gutter)));
+    grid-gap: var(--Layout-gutter);
+}
+
+.layout-izq{
+    width: var(--Layout-sidebar-width);
+    grid-column: 1;
+}
+
+.lista{
+    display: block;
+    padding-right: 24px;
+}
+
+ul{
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.menuajustes{
+    list-style: none;
+}
+
+.ajustes{
+    background: transparent;
+    border-radius: 6px;
+    list-style: none;
+    position: relative;
+}
+
+.contentajustes{
+    align-items: start;
+    background-color: initial;
+    border: none;
+    border-radius: 6px;
+    color: #141414;
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual label trailingVisual trailingAction";
+    grid-template-columns: min-content min-content minmax(0,auto) min-content min-content;
+    grid-template-rows: min-content;
+    padding: 6px;
+    position: relative;
+    text-align: left;
+    transition: background 33.333ms linear;
+    width: 100%;
+}
+
+.contentajustes:hover{
+    background-color: bisque;
+}
+
+.iconolist{
+    fill: #141414;
+    align-items: center;
+    color: #141414;
+    display: flex;
+    pointer-events: none;
+    margin-right: 8px;
+    height: 18px;
+}
+
+.textlist{
+    color: #141414;
+    font-size: 14px;
+    font-weight: 600;
+    grid-area: label;
+    line-height: 1.5;
+    position: relative;
+}
+
+.separador:empty{
+    display: block;
+    height: 1px;
+    padding: 0;
+    margin: 7px -8px 8px;
+    list-style: none;
+    background: #141414;
+    border: 0;
+}
+
+.titumenu{
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+}
+
+li{
+    list-style: none;
+}
