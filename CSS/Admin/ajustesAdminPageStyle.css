@@ -6,7 +6,7 @@ body{
     margin: 0;
     padding: 0;
     background-color: #fff;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 header{
@@ -17,9 +17,8 @@ header{
     padding-right: 32px;
     font-size: 14px;
     line-height: 1.5;
-    background: #fff;
+    background: rgb(110, 207, 207);
     align-items: center;
-    background-color: aliceblue;
     height: 60px;
 }
 
@@ -27,12 +26,15 @@ header{
     margin-left: 20px;
     align-items: center;
     justify-content: center;
-    height: 32px;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
 }
 
 .box{
     margin-left: 20px;
     margin-right: 20px;
+    margin-top: 8px;
 }
 
 input.src{
@@ -58,6 +60,7 @@ input.src:focus{
     display: flex;
     align-self: auto;
     flex-direction: row;
+    margin-top: 8px;
 }
 
 .opciones{
@@ -71,10 +74,11 @@ input.src:focus{
     background: transparent;
     align-items: center;
     justify-content: center;
+    transition: all .5s;
 }
 
 .opciones:hover{
-    color: rgb(94, 93, 93);
+    color: rgb(51, 133, 144);
 }
 
 .container{
@@ -110,7 +114,14 @@ input.src:focus{
 }
 
 img{
-    border-style: none;
+    height: 48px;
+    width: 48px;
+    
+}
+.logo img {
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
 }
 
 a{
@@ -203,10 +214,11 @@ ul{
     text-align: left;
     transition: background 33.333ms linear;
     width: 100%;
+    transition: all .3s;
 }
 
 .contentajustes:hover{
-    background-color: bisque;
+    background-color: rgb(157, 228, 215);
 }
 
 .iconolist{

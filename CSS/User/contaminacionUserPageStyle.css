@@ -8,10 +8,9 @@
     text-decoration: none;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
-    scroll-behavior: smooth;
 }
 body{
-    background: #f6f6f9;
+    background: #B8DBDF;
 }
 .menu{
     position: fixed;
@@ -26,6 +25,15 @@ body{
     box-sizing: 0.20px 35px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 0px 20px darkcyan;
     z-index: 10;
+}
+.buscador{
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    z-index: -1;
+    background: rgb(212, 254, 254);
+    box-shadow: 0px 0px 20px darkcyan;
+    z-index: 9;
 }
 .logo{
     text-align: center;
@@ -62,7 +70,7 @@ a{
     font-size: 20px;
     text-align: center;
 }
-.navItemAdmin{
+.navItemUser{
     position: relative;
     top: 12px;
     margin-left: 10px;
@@ -110,112 +118,97 @@ a:hover{
     }
 }
 
-/*-----------------------------------------------------------------------------------------------INICIO MAIN-----------------------------------------------------------------------------------------------*/
 
-.contenedor{
-    width: 100%;
-    height: 100vh;
+/*---------------------------------------------------------INICIO MAIN---------------------------------------------------------*/
+main{
     display: flex;
-    align-items: flex-end;
     justify-content: center;
-    background: #f6f6f9;
-}
-.contenido{
-    height: 90%;
-    width: 80%;
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-gap: 24px;
-}
-.foto{
-    display: flex !important;
-}
-.perfil{
-    width: 800px;
-    height: 80px;
-    display: flex !important;
-}
-.cajaUser{
-    flex: auto !important;
-}
-.perfilUserName{
-    line-height: 1.25 !important;
-}
-.personalInfo{
-    flex: auto !important;
-}
-.personalInfo p{
-    margin-bottom: 0 !important;
-}
-.Layout-sidebar {
-    width: 296px;
-    height: 450px;
-    background: #3e3e3e;
-    display: flex;
     align-items: center;
-    border-radius: 2rem 2rem 2rem 2rem;
+    text-align: center;
 }
-.Layout-item{
-    padding-right: 24px !important;
-}
-.org-menu-item li{
+.container{
     width: 100%;
-    list-style: none;
+    background: #B8DBDF;
+    display: table;
+    margin-left: 70px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
-.ActionList-sectionDivider:empty{
-    display: block;
-    height: 1px;
-    padding: 0;
-    margin: 7px 8px 8px;
-    list-style: none;
-    background: #ccc;
-    width: 280px;
-}
-.actionList-sectionDivider .actionList-seccionDivide-title {
-    font-size: 12px;
-    margin: 0px 20px 0px;
-    font-weight: 600;
-    color: #c9c9c9;
-}
-nav-list ul{
-    list-style: none;
-}
-.actionListWrap{
+.row{
     width: 100%;
+}
+
+th{
+    padding: 20px 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+thead{
+	background-color: #8EB0B4;
+	border-bottom: solid 5px #0F362D;
+	color: white;
+    
+}
+.col{
+    width: 100%;
+    display: table;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+th td{
+    border: solid 1px black;
+    padding: 20px;
+
+}
+table.table-sm.table-bordered{
+    display: contents;
+}
+
+tr:nth-child(even){
+	background-color: #D3E9EC;
+}
+
+tr:hover td{
+	background-color: #8EB0B4;
+	color: white;
+}
+.container1{
+    position: absolute;
+    display: contents;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+.columna input{
+    margin-bottom: 20px;
+    outline: none;
+	box-sizing: border-box;
+	height: 30px;
+	width: 300px;
+	padding: 0 20px;
+	color: #000;
+	border-radius: 50px;
+	font-size: 20px;
+	border: 1px solid #567C80;
+	transition: all .7s ease;
+}
+.columna:hover i{
+	transform: rotate(-360deg);
+}
+table tbody tr td a{
+    padding: 13px;
     height: 100%;
-    justify-content: center;
-    text-decoration: none;
-}
-.actionListWrap.actionListWrap--subGroup li a{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    left: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding: 5px 0px 5px 10px;
-    width: 260px;
-    border-radius: 1rem 1rem 1rem 1rem;
-}
-.actionListWrap.actionListWrap--subGroup li a:hover{
-    background: #ccc;
     color: #000;
 }
-.actionListWrap.actionListWrap--subGroup .actionListItem a .icon svg{
-    margin-right: 10px;
-    margin-top: 5px;
+table tbody tr td a:hover{
+    color: #000;
 }
-.Layout-main{
-    width: 800px;
-    height: 1565px;
-    background: #3e3e3e;
-    display: flex;
-}
-.subHeading{
-    width: 400px;
-    height: 45px;
-    display: flex;
-    padding-bottom: 8px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #21262d;
+.container.py-4.text-center{
+    margin-top: 60px;
 }

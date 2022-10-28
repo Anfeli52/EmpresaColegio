@@ -8,7 +8,7 @@
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
-.contenedor{
+main{
     width: 100%;
     text-align: center;
 }
@@ -91,6 +91,50 @@
 	75% {margin-left: -300%;}
 	100% {margin-left: -300%;}
 }
+.navMenu{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    background: #4da7b1;
+    z-index: 1000;
+}
+.navMenu ul{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+.logoEmpresa{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+}
+.logoEmpresa img{
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-items: left;
+    border-radius: 50%;
+}
+.navMenu ul li a{
+    text-decoration: none;
+    font-size: 15px;
+    height: 100%;
+    padding: 21.5px 15px 21.5px 15px;
+    color: #fff;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;  
+    transition: 300ms ease;
+}
+.navMenu ul li a:hover{
+    color: #000;
+    transition: 300ms ease;
+    background: #B8DBDF;
+}
 /*-----------------------------------------------------------------------INICIO CUERPO-----------------------------------------------------------------------*/
 .contenido{
     width: 100%;
@@ -156,10 +200,22 @@
 .cuerpoLogo.show2{
     transform: translateX(0);
 }
+hr{
+    height: 10px;
+}
 .misionVision{
-    height: 100vh;
     width: 100%;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
     display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    
 }
 .mision{
     height: 100vh;
@@ -168,8 +224,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 30px;
+    font-weight: 600;
     text-align: center;
     padding: 0px 50px 0px 50px;
+    background: rgb(71, 214, 219);
+    font-family: 'Rubik', sans-serif;
 }
 .vision{
     height: 100vh;
@@ -178,6 +238,27 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: 30px;
+    font-weight: 600;
     text-align: center;
     padding: 0px 50px 0px 50px;
+    font-family: 'Rubik', sans-serif;
 }
+/*--------------------------------------------------------------FIN MAIN--------------------------------------------------------------*/
+/*--------------------------------------------------------------INICIO FOOTER--------------------------------------------------------------*/
+footer{
+    width: 100%;
+    height: 150px;
+    background: red;
+}
+.contenedorFooter{
+    position: relative;
+    display: flex;
+    text-align: center;
+    border-top: 2px;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+/*--------------------------------------------------------------FIN FOOTER--------------------------------------------------------------*/

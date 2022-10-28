@@ -92,11 +92,11 @@ a:hover{
     display: none;
 }
 .loader{
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     background-color: #16191e;
-    position: absolute;
+    position: fixed;
 }
 .loader>div{
     height: 100px;
