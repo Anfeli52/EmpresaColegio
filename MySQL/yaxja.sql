@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-10-2022 a las 06:40:32
+-- Tiempo de generación: 29-10-2022 a las 02:14:55
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -81,6 +81,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`nombre`, `apellido`, `correo`, `username`, `password`, `confirmPassword`, `telefono`, `fechaCumpleaños`, `tipoUsuario`) VALUES
+('Alexandra', 'Cortes', 'alexandracortes@comfandi.edu.co', 'Alexacoba', '123456789', '123456789', 1234567890, '1990-01-06', 'user'),
 ('Andrés Felipe', 'Medina Díaz', 'anfeli201111@gmail.com', 'Anfeli52', '123456789', '123456789', 2147483647, '2006-01-06', 'admin'),
 ('Andrés Felipe', 'Medina Díaz', 'anfelime@gmail.com', 'P4iN', '123456789', '123456789', 2147483647, '2006-01-06', 'user'),
 ('Juan Esteban', 'Idrobo Lucio', 'jslucio100@gmail.com', 'Jslucio', 'ronaldinho', 'ronaldinho', 2147483647, '2006-01-08', 'admin'),
