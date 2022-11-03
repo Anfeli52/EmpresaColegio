@@ -19,7 +19,7 @@ body{
     height: 100%;
     left: 0;
     background:  rgb(51, 133, 144);
-    width: 70px;
+    width: 400px;
     overflow: hidden;
     transition: width 0.2s linear;
     box-sizing: 0.20px 35px rgba(0, 0, 0, 0.1);

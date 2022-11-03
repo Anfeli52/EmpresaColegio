@@ -5,6 +5,7 @@ include 'conexion.php';
 if(isset($_POST['envio'])){
     $correo = $_POST['correo'];
     $contrasena = $_POST['contraseña'];
+    $username = $_POST['nombreUsuario'];
     session_start();
     $select = " SELECT * FROM usuarios WHERE correo = '$correo' && password = '$contrasena'";
     $result = mysqli_query($conexion, $select);
@@ -12,10 +13,7 @@ if(isset($_POST['envio'])){
         $row = mysqli_fetch_array($result);
         if($row['tipoUsuario'] == 'admin'){
             #$_SESSION['admin_name'] = $row['usuario'];
-            echo '<script>
-                    window.location.replace("../HTML/Admin/adminMainPage.html"); 
-                </script>';
-        
+            header('location:Admin/adminMainPage.php');
             }elseif($row['tipoUsuario'] == 'user'){
             #$_SESSION['user_name'] = $row['usuario'];
             echo '<script>

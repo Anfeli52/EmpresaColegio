@@ -117,16 +117,16 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script>
         /* Llamando a la función getData() */
-        getData()
+        getData();
         /* Escuchar un evento keyup en el campo de entrada y luego llamar a la función getData. */
-        document.getElementById("campo").addEventListener("keyup", getData)
+        document.getElementById("campo").addEventListener("keyup", getData);
         /* Peticion AJAX */
         function getData() {
-            let input = document.getElementById("campo").value
-            let content = document.getElementById("content")
-            let url = "../../PHP/tablaContaminacion.php"
+            let input = document.getElementById("campo").value;
+            let content = document.getElementById("content");
+            let url = "../../PHP/tablaContaminacion.php";
             let formaData = new FormData()
-            formaData.append('campo', input)
+            formaData.append('campo', input);
             fetch(url, {
                 method: "POST",
                 body: formaData
