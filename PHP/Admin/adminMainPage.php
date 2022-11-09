@@ -44,7 +44,6 @@ session_start();
                         <i class="fas fa-radiation"></i>
                         <span class="navItemAdmin">Contaminación</span>
                     </a></li>
-
                     <li><a href="campanasAdminPage.html">
                         <i class="fas fa-tags"></i>
                         <span class="navItemAdmin">Campañas</span>
