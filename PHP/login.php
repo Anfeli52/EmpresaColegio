@@ -16,9 +16,7 @@ if(isset($_POST['envio'])){
             header('location:Admin/adminMainPage.php');
             }elseif($row['tipoUsuario'] == 'user'){
             #$_SESSION['user_name'] = $row['usuario'];
-            echo '<script>
-                    window.location.replace("../HTML/User/userMainPage.html");
-                </script>';
+            header('location:User/userMainPage.php');
         }
     }else{
         echo'<script>
