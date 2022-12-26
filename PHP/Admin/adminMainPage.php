@@ -1,11 +1,8 @@
 <?php 
 
 include '../conexion.php';
-include '../register.php';
 session_start();
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +29,7 @@ session_start();
                         <a href="#" class="logo">
                             <img src="../../IMG/Anakin.jpeg" alt="">
                             <span class="navItemAdmin">
-                                <?php echo $usuario ?>
+                                Anfeli52
                             </span>
                         </a>
                     </li>
@@ -40,15 +37,15 @@ session_start();
                         <i class="fas fa-home"></i>
                         <span class="navItemAdmin">Inicio</span>
                     </a></li>
-                    <li><a href="contaminacionAdminPage.html">
+                    <li><a href="contaminacionAdminPage.php">
                         <i class="fas fa-radiation"></i>
                         <span class="navItemAdmin">Contaminación</span>
                     </a></li>
-                    <li><a href="campanasAdminPage.html">
+                    <li><a href="campanasAdminPage.php">
                         <i class="fas fa-tags"></i>
                         <span class="navItemAdmin">Campañas</span>
                     </a></li>
-                    <li><a href="recomendationAdminPage.html">
+                    <li><a href="recomendationAdminPage.php">
                         <i class="fas fa-tasks"></i>
                         <span class="navItemAdmin">Recomendaciones</span>
                     </a></li>
@@ -56,7 +53,7 @@ session_start();
                         <i class="fas fa-download"></i>
                         <span class="navItemAdmin">Actualizar Campañas</span>
                     </a></li>
-                    <li><a href="ajustesAdminPage.html">
+                    <li><a href="ajustesAdminPage.php">
                         <i class="fas fa-cog"></i>
                         <span class="navItemAdmin">Configuración</span>
                     </a></li>
