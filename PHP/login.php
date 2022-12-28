@@ -7,6 +7,7 @@ if(isset($_POST['envio'])){
     $contrasena = $_POST['contraseña'];
     $username = $_POST['nombreUsuario'];
     session_start();
+    $_SESSION['correo'] = $correo;
     $select = " SELECT * FROM usuarios WHERE correo = '$correo' && password = '$contrasena'";
     $result = mysqli_query($conexion, $select);
     if(mysqli_num_rows($result) > 0){
@@ -14,7 +15,7 @@ if(isset($_POST['envio'])){
         if($row['tipoUsuario'] == 'admin'){
             #$_SESSION['admin_name'] = $row['usuario'];
             header('location:Admin/adminMainPage.php');
-            }elseif($row['tipoUsuario'] == 'user'){
+        }elseif($row['tipoUsuario'] == 'user'){
             #$_SESSION['user_name'] = $row['usuario'];
             header('location:User/userMainPage.php');
         }

@@ -1,13 +1,20 @@
 <?php
 
 session_start();
-
-if(isset($_SESSION['envio'])){
-    header('location: ../../HTML/login.html');
-}
-
 include '../conexion.php';
 
+$user = $_SESSION['correo'];
+
+if($user==null || $user==""){
+    header('location:../../HTML/login.html');
+}else{
+    $sql = "SELECT * FROM usuarios WHERE correo = '".$user."';";
+    $resultado = $conexion->query($sql);
+
+    while($data=$resultado->fetch_assoc()){
+        $username=$data['username'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +41,9 @@ include '../conexion.php';
                     <li>
                         <a href="#" class="logo">
                             <img src="../../IMG/Pingüino asesino.jpg" alt="">
-                            <span class="navItemUser">P4iN</span>
+                            <span class="navItemUser">
+                                <?php echo $username ?>
+                            </span>
                         </a>
                     </li>
                     <li><a href="#">

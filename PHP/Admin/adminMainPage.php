@@ -1,7 +1,21 @@
 <?php 
 
-include '../conexion.php';
 session_start();
+include '../conexion.php';
+
+$user = $_SESSION['correo'];
+
+if($user==null || $user==""){
+    header('location:../../HTML/login.html');
+}else{
+    $sql = "SELECT * FROM usuarios WHERE correo = '".$user."';";
+    $resultado = $conexion->query($sql);
+
+    while($data=$resultado->fetch_assoc()){
+        $username=$data['username'];
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +43,7 @@ session_start();
                         <a href="#" class="logo">
                             <img src="../../IMG/Anakin.jpeg" alt="">
                             <span class="navItemAdmin">
-                                Anfeli52
+                                <?php echo $username ?>
                             </span>
                         </a>
                     </li>

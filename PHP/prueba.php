@@ -1,14 +1,15 @@
 <?php
 
+session_start();
 include 'conexion.php';
 
-$correo="anfeli201111@gmail.com";
-$nombre = "SELECT username FROM usuarios WHERE correo = 'anfeli201111@gmail.com';";
-$resultado = mysqli_query($conexion, $nombre);
-$row = mysqli_fetch_assoc($resultado);
+$correo = $_SESSION['correo'];
+$sql = "SELECT username FROM usuarios WHERE correo = '".$correo."'";
+$resultado = $conexion->query($sql);
 
-while($$row=$resultado->fetch_assoc()){
-    echo $row['username']."<br>";
+while($data=$resultado->fetch_assoc()){
+    $nombre = $data['nombre'];
+    $apellido = $data['apellido'];
+    $email = $data['correo'];
 }
-
 ?>
