@@ -4,9 +4,16 @@ session_start();
 include '../conexion.php';
 
 $user = $_SESSION['correo'];
+$select = "SELECT tipoUsuario FROM usuarios WHERE correo = '".$user."';";
+$result = $conexion->query($select);
+while($datos=$result->fetch_assoc()){
+    $tipoUsuario = $datos['tipoUsuario'];
+}
 
 if($user==null || $user==""){
     header('location:../../HTML/login.html');
+}else if($tipoUsuario!="user"){
+    header('location:../Admin/adminMainPage.php');
 }else{
     $sql = "SELECT * FROM usuarios WHERE correo = '".$user."';";
     $resultado = $conexion->query($sql);
@@ -16,7 +23,6 @@ if($user==null || $user==""){
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

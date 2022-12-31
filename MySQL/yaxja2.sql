@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-10-2022 a las 02:14:55
--- Versión del servidor: 10.4.25-MariaDB
--- Versión de PHP: 8.1.10
+-- Tiempo de generación: 31-12-2022 a las 02:06:31
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `yaxja`
+-- Base de datos: `yaxja2`
 --
 
 -- --------------------------------------------------------
@@ -32,7 +32,7 @@ CREATE TABLE `contaminacion` (
   `nombreAgua` varchar(20) NOT NULL,
   `cuerpoAgua` varchar(20) NOT NULL,
   `nivelContaminativo` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `contaminacion`
@@ -71,23 +71,23 @@ CREATE TABLE `usuarios` (
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
   `confirmPassword` varchar(20) NOT NULL,
-  `telefono` int(15) NOT NULL,
+  `telefono` varchar(15) NOT NULL,
   `fechaCumpleaños` date NOT NULL,
   `tipoUsuario` varchar(20) NOT NULL DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
 INSERT INTO `usuarios` (`nombre`, `apellido`, `correo`, `username`, `password`, `confirmPassword`, `telefono`, `fechaCumpleaños`, `tipoUsuario`) VALUES
-('Alexandra', 'Cortes', 'alexandracortes@comfandi.edu.co', 'Alexacoba', '123456789', '123456789', 1234567890, '1990-01-06', 'user'),
-('Andrés Felipe', 'Medina Díaz', 'anfeli201111@gmail.com', 'Anfeli52', '123456789', '123456789', 2147483647, '2006-01-06', 'admin'),
-('Andrés Felipe', 'Medina Díaz', 'anfelime@gmail.com', 'P4iN', '123456789', '123456789', 2147483647, '2006-01-06', 'user'),
-('Juan Esteban', 'Idrobo Lucio', 'jslucio100@gmail.com', 'Jslucio', 'ronaldinho', 'ronaldinho', 2147483647, '2006-01-08', 'admin'),
-('Juan Esteban', 'Soto Potes', 'Juanesteban9283@gmail.com', 'Juanes', 'juanes123', 'juanes123', 2147483647, '2006-05-07', 'admin'),
-('Luis Carlos', 'Calderón Ríos', 'lccalderon1218@gmail.com', 'Pock', 'pock123', 'pock123', 2147483647, '2006-12-18', 'admin'),
-('Venus Sayuri', 'Almeida Enriquez', 'venusayurialmeida.99@gmail.com', 'Venussa', 'frisby', 'frisby', 2147483647, '2006-09-09', 'user');
+('Alexandra', 'Cortes', 'alexandracortes@comfandi.edu.co', 'Alexacoba', '123456789', '123456789', '1234567890', '1990-01-06', 'user'),
+('Andrés Felipe', 'Medina Díaz', 'anfeli201111@gmail.com', 'Anfeli52', '123456789', '123456789', '3107171889', '2006-01-06', 'admin'),
+('Andrés Felipe', 'Medina Díaz', 'anfelime@gmail.com', 'P4iN', '123456789', '123456789', '3107171889', '2006-01-06', 'user'),
+('Juan Esteban', 'Idrobo Lucio', 'jslucio100@gmail.com', 'Jslucio', 'ronaldinho', 'ronaldinho', '2147483647', '2006-01-08', 'admin'),
+('Juan Esteban', 'Soto Potes', 'Juanesteban9283@gmail.com', 'Juanes', 'juanes123', 'juanes123', '2147483647', '2006-05-07', 'admin'),
+('Luis Carlos', 'Calderón Ríos', 'lccalderon1218@gmail.com', 'Pock', 'pock123', 'pock123', '2147483647', '2006-12-18', 'admin'),
+('Venus Sayuri', 'Almeida Enriquez', 'venusayurialmeida.99@gmail.com', 'Venussa', 'frisby', 'frisby', '3122691411', '2006-09-09', 'user');
 
 --
 -- Índices para tablas volcadas
