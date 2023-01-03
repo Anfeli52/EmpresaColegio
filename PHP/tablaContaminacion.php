@@ -1,10 +1,28 @@
 <?php
 
+session_start();
 require('conexion.php');
 
+$user = $_SESSION['correo'];
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
+$result = $conexion->query($select);
+while($datos=$result->fetch_assoc()){
+    $tipoUsuario = $datos['tipoUsuario'];
+}
+
+if($user==null || $user==""){
+    header('location:../HTML/login.html');
+}else{
+    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
+    $resultado = $conexion->query($sql);
+
+    while($data=$resultado->fetch_assoc()){
+        $correo=$data['correo'];
+    }
+}
 
 
-$columns = ['codigoAgua', 'nombreAgua', 'cuerpoAgua', 'nivelContaminativo'];
+$columns = ['codigoAgua', 'nombreAgua', 'cuerpoAgua', 'nivelContaminante'];
 
 
 $table = "contaminacion";
@@ -25,7 +43,7 @@ if ($campo != null) {
     $where .= ")";
 }
 
-$sql = "SELECT " . implode(", ", $columns) . " FROM $table $where "; 
+$sql = "SELECT " . implode(", ", $columns) . " FROM $table $where"; // AND correo = '$correo';
 $resultado = $conexion->query($sql);
 $num_rows = $resultado->num_rows;
 
@@ -37,7 +55,7 @@ if ($num_rows > 0) {
         $html .= '<td>' . $row['codigoAgua'] . '</td>';
         $html .= '<td>' . $row['nombreAgua'] . '</td>';
         $html .= '<td>' . $row['cuerpoAgua'] . '</td>';
-        $html .= '<td>' . $row['nivelContaminativo'] . '</td>';
+        $html .= '<td>' . $row['nivelContaminante'] . '</td>';
         $html .= '<td><a href="">Editar</a></td>';
         $html .= '<td><a href="">Eliminar</a></td>';
         $html .= '</tr>';

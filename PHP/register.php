@@ -13,12 +13,12 @@ if(isset($_POST['enviar'])){
     $telefono = $_POST['telefono'];
     $cumpleaños = $_POST['cumpleaños'];
     
-    $select = " SELECT * FROM usuarios WHERE correo = '$correo'";
+    $select = " SELECT * FROM usuario WHERE correo = '$correo' || username = '$usuario'";
     $result = mysqli_query($conexion, $select);
 
     if(mysqli_num_rows($result) > 0){
         echo'<script>
-            alert("El correo ya está registrado");
+            alert("El correo o usuario ya está registrado");
             window.history.go(-1);
             </script>';
         exit;
@@ -30,7 +30,7 @@ if(isset($_POST['enviar'])){
             </script>';
         exit;
         }else{
-            $insert = "INSERT INTO usuarios(nombre, apellido, correo, username, password, confirmPassword, telefono, fechaCumpleaños, tipoUsuario) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contrasena', '$confirmarContrasena', '$telefono', '$cumpleaños', 'user')";
+            $insert = "INSERT INTO usuario(nombre, apellido, correo, username, password, confirmPassword, telefono, fechaCumpleaños, tipoUsuario) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contrasena', '$confirmarContrasena', '$telefono', '$cumpleaños', 'user')";
             mysqli_query($conexion, $insert);
             header('location:../HTML/login.html');
         }

@@ -5,10 +5,9 @@ include 'conexion.php';
 if(isset($_POST['envio'])){
     $correo = $_POST['correo'];
     $contrasena = $_POST['contraseña'];
-    $username = $_POST['nombreUsuario'];
     session_start();
     $_SESSION['correo'] = $correo;
-    $select = " SELECT * FROM usuarios WHERE correo = '$correo' && password = '$contrasena'";
+    $select = " SELECT * FROM usuario WHERE correo = '$correo' && password = '$contrasena'";
     $result = mysqli_query($conexion, $select);
     if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_array($result);
