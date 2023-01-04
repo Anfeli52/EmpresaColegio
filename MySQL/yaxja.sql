@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-01-2023 a las 01:41:12
+-- Tiempo de generación: 04-01-2023 a las 02:31:49
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -210,7 +210,8 @@ ALTER TABLE `colorcampaña`
 -- Indices de la tabla `contaminacion`
 --
 ALTER TABLE `contaminacion`
-  ADD PRIMARY KEY (`codigoAgua`);
+  ADD PRIMARY KEY (`codigoAgua`),
+  ADD KEY `contaminacion-correo` (`correoContaminacion`);
 
 --
 -- Indices de la tabla `informacion`
@@ -260,6 +261,12 @@ ALTER TABLE `campaña`
 --
 ALTER TABLE `colorcampaña`
   ADD CONSTRAINT `colorcampaña-campaña` FOREIGN KEY (`CodigoCampaña`) REFERENCES `campaña` (`CodigoCampaña`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `contaminacion`
+--
+ALTER TABLE `contaminacion`
+  ADD CONSTRAINT `contaminacion-correo` FOREIGN KEY (`correoContaminacion`) REFERENCES `usuario` (`correo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `informacion`

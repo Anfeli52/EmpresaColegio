@@ -53,7 +53,7 @@ if($user==null || $user==""){
                     <li>
                         <a href="#" class="logo">
                             <img src="../../IMG/Pingüino asesino.jpg" alt="">
-                            <span class="navItemUser">P4iN</span>
+                            <span class="navItemUser"><?php echo $username ?></span>
                         </a>
                     </li>
                     <li><a href="userMainPage.php">

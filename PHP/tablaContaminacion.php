@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-require('conexion.php');
+include 'conexion.php';
 
 $user = $_SESSION['correo'];
 $select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
@@ -22,7 +22,7 @@ if($user==null || $user==""){
 }
 
 
-$columns = ['codigoAgua', 'nombreAgua', 'cuerpoAgua', 'nivelContaminante'];
+$columns = ['correoContaminacion','codigoAgua', 'nombreAgua', 'cuerpoAgua', 'nivelContaminante'];
 
 
 $table = "contaminacion";
@@ -30,20 +30,44 @@ $table = "contaminacion";
 $campo = isset($_POST['campo']) ? $conexion->real_escape_string($_POST['campo']) : null;
 
 
-$where = '';
+$where = "WHERE correoContaminacion = '$correo'";
 
-if ($campo != null) {
+if($campo != null){
+    $cont = count($columns);
+    $where = "WHERE (";
+    for($i = 1; $i < $cont; $i++){
+        $where .=  "'$correo' = correoContaminacion AND " .$columns[$i]. " LIKE '%".$campo."%' OR ";
+    }
+    $where = substr_replace($where, "", -3);
+    $where .= ")";
+    //$where = "SELECT * FROM `contaminacion` WHERE `correoContaminacion` = '$correo' AND codigoAgua LIKE '%".$campo."%' OR nivelContaminante LIKE '%".$campo."%' OR nombreAgua LIKE '%".$campo."%' AND cuerpoAgua LIKE '%".$campo."%';";
+}
+
+
+//SELECT * FROM `contaminacion` WHERE ('venusayurialmeida.99@gmail.com' = correoContaminacion AND codigoAgua LIKE '%R1%' OR 'venusayurialmeida.99@gmail.com' = correoContaminacion AND nivelContaminante LIKE '%R1%' OR 'venusayurialmeida.99@gmail.com' = correoContaminacion AND nombreAgua LIKE '%R1%' OR 'venusayurialmeida.99@gmail.com' = correoContaminacion AND cuerpoAgua LIKE '%R1%')
+//SELECT * FROM `contaminacion` WHERE ('venusayurialmeida.99@gmail.com' = correoContaminacion AND codigoAgua LIKE '%R15%' OR 'venusayurialmeida.99@gmail.com' = correoContaminacion AND nivelContaminante LIKE '%R15%' OR 'venusayurialmeida.99@gmail.com' = correoContaminacion AND nombreAgua LIKE '%R15%' OR 'venusayurialmeida.99@gmail.com' = correoContaminacion AND cuerpoAgua LIKE '%R15%');
+
+
+//SELECT * FROM `contaminacion` WHERE correoContaminacion = 'venusayurialmeida.99@gmail.com' AND codigoAgua LIKE '%R%' OR correoContaminacion = 'venusayurialmeida.99@gmail.com' AND nivelContaminante LIKE '%R%' OR correoContaminacion = 'venusayurialmeida.99@gmail.com' AND nombreAgua LIKE '%R%' OR correoContaminacion = 'venusayurialmeida.99@gmail.com' AND cuerpoAgua LIKE '%R%';
+
+
+
+//SELECT * FROM `contaminacion` WHERE `correoContaminacion` = 'anfeli201111@gmail.com' AND `codigoAgua` LIKE '%R%' OR `nivelContaminante` LIKE '%R%' OR `nombreAgua` LIKE '%R%' OR `cuerpoAgua` LIKE '%R%'
+//SELECT * FROM `contaminacion` WHERE `correoContaminacion` = 'anfeli201111@gmail.com' AND codigoAgua LIKE '%R%' OR nivelContaminante LIKE '%R%' AND nombreAgua LIKE '%R%' AND cuerpoAgua LIKE '%R%';
+
+/*if ($campo != null) {
     $where = "WHERE (";
 
     $cont = count($columns);
-    for ($i = 0; $i < $cont; $i++) {
+    for ($i = 1; $i < $cont; $i++) {
         $where .= $columns[$i] . " LIKE '%" . $campo . "%' OR ";
     }
     $where = substr_replace($where, "", -3);
     $where .= ")";
-}
+}*/
 
-$sql = "SELECT " . implode(", ", $columns) . " FROM $table $where"; // AND correo = '$correo';
+$sql = "SELECT * FROM contaminacion $where";
+//$sql = "SELECT " . implode(", ", $columns) . " FROM $table $where"; // AND correo = '$correo';
 $resultado = $conexion->query($sql);
 $num_rows = $resultado->num_rows;
 
