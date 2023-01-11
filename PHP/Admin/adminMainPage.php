@@ -66,7 +66,7 @@ if($user==null || $user==""){
                     </a></li>
                     <li><a href="recomendationAdminPage.php">
                         <i class="fas fa-tasks"></i>
-                        <span class="navItemAdmin">Recomendaciones</span>
+                        <span class="navItemAdmin">Yaxjaneitor3000</span>
                     </a></li>
                     <li><a href="#">
                         <i class="fas fa-download"></i>

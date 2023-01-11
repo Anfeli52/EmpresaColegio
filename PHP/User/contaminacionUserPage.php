@@ -70,7 +70,7 @@ if($user==null || $user==""){
                     </a></li>
                     <li><a href="recomendationUserPage.html">
                         <i class="fas fa-tasks"></i>
-                        <span class="navItemUser">Recomendaciones</span>
+                        <span class="navItemUser">Yaxjaneitor3000</span>
                     </a></li>
                     <li><a href="ajustesUserPage.html">
                         <i class="fas fa-cog"></i>

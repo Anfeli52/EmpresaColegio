@@ -21,29 +21,35 @@ main{
     align-items: center;
     text-align: center;
     position: absolute;
-    font-size: 30px;
+    font-size: 50px;
     z-index: 10;
     font-family: 'Lobster', cursive;
     color: rgb(255, 255, 255);
 }
+
 .titulo a{
     margin-top: 20px;
     text-decoration: none;
-    border: 2px solid linear-gradient(217deg ,rgba(120, 122, 255, 0.8), rgba(120, 255, 255, 0.8));
+    font-family: 'Courier New', Courier, monospace;
+    border: 2px solid rgba(128, 190, 241, 0.562);
     font-size: 25px;
     padding: 10px;
     background: none;
-    color: #ccc;
+    color: rgb(255, 252, 252);
     transition: 300ms ease;
-    border-radius: 1rem;
+    border-radius: 0.4rem;
+    opacity: 1;
 }
-.titulo a:hover{
 
-    background: #B8DBDF;
-    color: #fff;
+.titulo a:hover{
+    background: #fcfcfcb9;
+    color: rgb(51, 133, 144);
     transition: 300ms ease;
     transform: scale(1.1);
+    font-weight: bolder;
+    
 }
+
 .sombra{
     width: 100%;
     height: 100vh;
@@ -92,15 +98,28 @@ main{
 	100% {margin-left: -300%;}
 }
 .navMenu{
-    width: 100%;
-    height: 60px;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed;
-    background: #4da7b1;
-    z-index: 1000;
+	align-items: center;
+	justify-content: space-between;
+	height: 63px;
+	background: rgb(51, 133, 144);
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+    
+}
+.btn{
+	display: inline-block;
+	margin-top: 15px;
+	padding: 10px 40px;
+	border: 2px solid rgba(128, 190, 241, 0.562);
+	color: rgb(99, 195, 233);
+	text-decoration: none;
+	background: rgba(255, 255, 255, 0.562);
+
+}
+.btn-home a{
+    margin: 0 10px
 }
 .navMenu ul{
     display: flex;
@@ -118,22 +137,25 @@ main{
     display: flex;
     flex-direction: row;
     justify-items: left;
-    border-radius: 50%;
+    border-radius: 3rem;
+    
 }
 .navMenu ul li a{
     text-decoration: none;
     font-size: 15px;
     height: 100%;
-    padding: 21.5px 15px 21.5px 15px;
-    color: #fff;
+    padding: 15px 15px 15px 15px;
+    color: rgb(255, 255, 255);
+    margin-right: 10px;
     font-weight: 600;
-    font-family: 'Poppins', sans-serif;  
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
     transition: 300ms ease;
 }
 .navMenu ul li a:hover{
-    color: #000;
+    color: rgb(212, 254, 254);
     transition: 300ms ease;
-    background: #B8DBDF;
+    background: rgba(131, 186, 248, 0.884);
 }
 /*-----------------------------------------------------------------------INICIO CUERPO-----------------------------------------------------------------------*/
 .contenido{
@@ -143,7 +165,7 @@ main{
     bottom: 0;
     left: 0;
     overflow: hidden;
-    background: linear-gradient(290deg, rgba(0, 183, 255, 0.8) 33%, rgba(140, 215, 224, 0.5) 67%);
+    background-color: rgb(51, 133, 144);
     display: flex;
     flex-direction: row;
     text-align: center;
@@ -179,17 +201,18 @@ main{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-weight: 500;
     font-size: 30px;
-    font-weight: 600;
     text-align: center;
     padding: 0px 50px 0px 50px;
     height: 100%;
     transform: translateX(-400%);
     transition: all 500ms ease;
     font-family: 'Lobster', cursive;
-    font-family: 'Rubik', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .cuerpoLogo h2{
+    font-size: 120px;
     margin-bottom: 50px;
     font-family: 'Lobster', cursive;
 }
@@ -211,38 +234,49 @@ hr{
     left: 0;
     overflow: hidden;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: center;
     justify-items: center;
     align-items: center;
     
 }
 .mision{
-    height: 100vh;
-    width: 50%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 23px;
+    font-weight: 500;
     text-align: center;
     padding: 0px 50px 0px 50px;
-    background: rgb(71, 214, 219);
-    font-family: 'Rubik', sans-serif;
+    background-color: rgb(193, 245, 245);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.mision h2{
+    font-size: 120px;
+    margin-bottom: 50px;
+    font-family: 'Lobster', cursive;
 }
 .vision{
-    height: 100vh;
-    width: 50%;
+    height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: 30px;
-    font-weight: 600;
+    font-size: 24px;
+    font-weight: 500;
     text-align: center;
+    background-color: rgb(212, 254, 254);
     padding: 0px 50px 0px 50px;
-    font-family: 'Rubik', sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.vision h2{
+    font-size: 120px;
+    margin-bottom: 50px;
+    font-family: 'Lobster', cursive;
 }
 /*--------------------------------------------------------------FIN MAIN--------------------------------------------------------------*/
 /*--------------------------------------------------------------INICIO FOOTER--------------------------------------------------------------*/
@@ -260,5 +294,6 @@ footer{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    
 }
 /*--------------------------------------------------------------FIN FOOTER--------------------------------------------------------------*/
