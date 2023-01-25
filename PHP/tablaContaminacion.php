@@ -80,8 +80,8 @@ if ($num_rows > 0) {
         $html .= '<td>' . $row['nombreAgua'] . '</td>';
         $html .= '<td>' . $row['cuerpoAgua'] . '</td>';
         $html .= '<td>' . $row['nivelContaminante'] . '</td>';
-        $html .= '<td><a href="">Editar</a></td>';
-        $html .= '<td><a href="">Eliminar</a></td>';
+        $html .= '<td><a href="#" onclick="editar()">Editar</a></td>';
+        $html .= '<td><a href="#" onclick="eliminar()">Eliminar</a></td>';
         $html .= '</tr>';
     }
 } else {

@@ -24,29 +24,24 @@ if($user==null || $user==""){
 }
 ?>
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Buscar datos en tiempo real con PHP, MySQL y AJAX">
-    <meta name="author" content="Marco Robles">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/User/contaminacionUserPageStyle.css">
+    <link rel="stylesheet" href="../../CSS/User/campanasUserPageStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>Contaminacion</title>
-    <!-- Bootstrap core CSS -->
-
+    <script src="//code.tidio.co/0xm4bymhhmxmiwe8qrrlxsjxzvyi2nkl.js" async></script>
+    <title>Inicio</title>
 </head>
-
 <body>
     <div class="loader">
         <div></div>
     </div>
+    <div class="page">
         <header>
             <nav class="menu">
                 <ul>
@@ -60,17 +55,17 @@ if($user==null || $user==""){
                         <i class="fas fa-home"></i>
                         <span class="navItemUser">Inicio</span>
                     </a></li>
-                    <li><a href="">
+                    <li><a href="contaminacionUserPage.php">
                         <i class="fas fa-radiation"></i>
                         <span class="navItemUser">Contaminación</span>
                     </a></li>
-                    <li><a href="campanasUserPage.php">
+                    <li><a href="#">
                         <i class="fas fa-tags"></i>
                         <span class="navItemUser">Campañas</span>
                     </a></li>
                     <li><a href="recomendationUserPage.php">
                         <i class="fas fa-tasks"></i>
-                        <span class="navItemUser">Yaxjaneitor3000</span>
+                        <span class="navItemUser">Yaxjaneitor 3000</span>
                     </a></li>
                     <li><a href="Settings/cuentaUser.php">
                         <i class="fas fa-cog"></i>
@@ -90,77 +85,44 @@ if($user==null || $user==""){
                     </a></li>
                 </ul>
             </nav>
+            <nav class="buscador">
+
+            </nav>
         </header>
         <main>
-            <div class="container py-4 text-center">
-                <h2>Contaminacion</h2>
-                <div class="row">
-                    <div class="columna">
-                        <form action="" method="post">
-                            <div class="container1">
-                                <label for="campo"></label>
-                                <input type="text" name="campo" id="campo" placeholder="Buscar">
-                                <i class="fa fa-search"></i>
-                            </div>
-                        </form>
-                    </div>
+            <h1>Campañas</h1>
+            <div id="bells">
+                <div class="bell1">
+                    <h2>Campaña 1</h2>
+                    <button id="idBtnBell1" onclick="esconderCampana1()">Leer Más</button>
                 </div>
-                <div class="row py-4">
-                    <div class="col">
-                        <table class="table table-sm table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Codigo Agua</th>
-                                    <th>Nombre Agua</th>
-                                    <th>Cuerpo de Agua</th>
-                                    <th>Nivel Contaminante</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <!-- El id del cuerpo de la tabla. -->
-                            <tbody id="content">
-                            </tbody>
-                        </table>
-                    </div>
+                <p id="idPBell1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sequi vero molestias voluptatibus id? Dolorem temporibus natus exercitationem pariatur iste consequuntur perspiciatis ratione! Esse, doloribus accusantium sint earum harum officiis! Nihil at voluptates provident, perspiciatis sit, illo excepturi expedita porro maiores culpa, corrupti ipsa cupiditate. Similique optio modi assumenda nemo.</p>
+                <div class="bell2">
+                    <h2>Campaña 2</h2>
+                    <button id="idBtnBell2" onclick="esconderCampana2()">Leer Más</button>
                 </div>
+                <p id="idPBell2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sequi vero molestias voluptatibus id? Dolorem temporibus natus exercitationem pariatur iste consequuntur perspiciatis ratione! Esse, doloribus accusantium sint earum harum officiis! Nihil at voluptates provident, perspiciatis sit, illo excepturi expedita porro maiores culpa, corrupti ipsa cupiditate. Similique optio modi assumenda nemo.</p>
+                <div class="bell3">
+                    <h2>Campaña 3</h2>
+                    <button id="idBtnBell3" onclick="esconderCampana3()">Leer Más</button>
+                </div>
+                <p id="idPBell3">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sequi vero molestias voluptatibus id? Dolorem temporibus natus exercitationem pariatur iste consequuntur perspiciatis ratione! Esse, doloribus accusantium sint earum harum officiis! Nihil at voluptates provident, perspiciatis sit, illo excepturi expedita porro maiores culpa, corrupti ipsa cupiditate. Similique optio modi assumenda nemo.</p>
+                <div class="bell4">
+                    <h2>Campaña 4</h2>
+                    <button id="idBtnBell4" onclick="esconderCampana4()">Leer Más</button>
+                </div>
+                <p id="idPBell4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi sequi vero molestias voluptatibus id? Dolorem temporibus natus exercitationem pariatur iste consequuntur perspiciatis ratione! Esse, doloribus accusantium sint earum harum officiis! Nihil at voluptates provident, perspiciatis sit, illo excepturi expedita porro maiores culpa, corrupti ipsa cupiditate. Similique optio modi assumenda nemo.</p>
             </div>
         </main>
     </div>
     <script>
-        $(window).on('load', function () {
+        $(window).on('load',function(){
             $(".loader").fadeOut(1000);
             $(".page").fadeIn(1000);
         });
     </script>
+    <script src="../../JS/funcionesUser.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script>
-        /* Llamando a la función getData() */
-        getData()
-        /* Escuchar un evento keyup en el campo de entrada y luego llamar a la función getData. */
-        document.getElementById("campo").addEventListener("keyup", getData)
-        /* Peticion AJAX */
-        function getData() {
-            let input = document.getElementById("campo").value
-            let content = document.getElementById("content")
-            let url = "../../PHP/tablaContaminacion.php"
-            let formaData = new FormData()
-            formaData.append('campo', input)
-            fetch(url, {
-                method: "POST",
-                body: formaData
-            }).then(response => response.json())
-                .then(data => {
-                    content.innerHTML = data
-                }).catch(err => console.log(err))
-        }
-    </script>
-    <!-- Bootstrap core JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
-
 </body>
-
 </html>

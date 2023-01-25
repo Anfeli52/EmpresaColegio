@@ -1,0 +1,687 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header{
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    font-size: 14px;
+    line-height: 1.5;
+    align-items: center;
+    background-color: rgb(51, 133, 144);
+    box-shadow: 0px 0px 40px darkcyan;
+    height: 60px;
+}
+
+.logo{
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+}
+
+.box{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+input.src{
+    padding-left: 32px;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #444;
+    border: 1px solid fff;
+    background: #fff url("../../../IMG/Ajustes/search.png") no-repeat 9px center;
+    width: 270px;
+    transition: all .5s;
+}
+
+input.src:focus{
+    width: 450px;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.options-header{
+    display: flex;
+    align-self: auto;
+    flex-direction: row;
+}
+
+.opciones{
+    font-weight: 600;
+    margin-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    white-space: nowrap;
+    color: rgba(240, 240, 240, 0.877);
+    text-decoration: none;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+}
+
+.opciones:hover{
+    color: rgb(14, 39, 53);
+}
+
+.container{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1280px;
+}
+
+.foticousuario{
+    display: flex;
+    margin-top: 4px;
+    margin-bottom: 24px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.foto{
+    display: flex;
+    align-items: center;
+}
+
+.avatar{
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+img{
+    border-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.infoto{
+    flex: auto;
+}
+
+.h1foto{
+    font-size: 20px;
+    line-height: 1.25;
+    font-weight: 600;
+    margin: 0;
+}
+
+.h1foto a{
+    color: black;
+    cursor: default;
+}
+
+.descripfoto{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.descripfoto p{
+    margin-right: 16px;
+    margin: 0;
+    color: rgb(48, 48, 48);
+    font-size: 14px;
+}
+
+.layout {
+    --Layout-sidebar-width: 296px;
+}
+
+.layout {
+    --Layout-gutter: 24px;
+}
+
+.layout{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto 0 minmax(0, calc(100% - var(--Layout-sidebar-width) - var(--Layout-gutter)));
+    grid-gap: var(--Layout-gutter);
+}
+
+.layout-izq{
+    width: var(--Layout-sidebar-width);
+    grid-column: 1;
+}
+
+.lista{
+    display: block;
+    padding-right: 24px;
+}
+
+ul{
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.menuajustes{
+    list-style: none;
+}
+
+.ajustes{
+    background: transparent;
+    border-radius: 6px;
+    list-style: none;
+    position: relative;
+}
+
+.contentajustes{
+    align-items: start;
+    background-color: initial;
+    border: none;
+    border-radius: 6px;
+    color: #141414;
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual label trailingVisual trailingAction";
+    grid-template-columns: min-content min-content minmax(0,auto) min-content min-content;
+    grid-template-rows: min-content;
+    padding: 6px;
+    position: relative;
+    text-align: left;
+    transition: background 33.333ms linear;
+    width: 100%;
+}
+
+.contentajustes:hover{
+    background-color: bisque;
+}
+
+.contentajustes-especial{
+    align-items: start;
+    background-color: bisque;
+    border: none;
+    border-radius: 6px;
+    color: #141414;
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual label trailingVisual trailingAction";
+    grid-template-columns: min-content min-content minmax(0,auto) min-content min-content;
+    grid-template-rows: min-content;
+    padding: 6px;
+    position: relative;
+    text-align: left;
+    transition: background 33.333ms linear;
+    width: 100%;
+}
+
+.iconolist{
+    fill: #141414;
+    align-items: center;
+    color: #141414;
+    display: flex;
+    pointer-events: none;
+    margin-right: 8px;
+    height: 18px;
+}
+
+.textlist{
+    color: #141414;
+    font-size: 14px;
+    font-weight: 500;
+    grid-area: label;
+    line-height: 1.5;
+    position: relative;
+}
+
+.textlist-especial{
+    color: #141414;
+    font-size: 14px;
+    font-weight: 600;
+    grid-area: label;
+    line-height: 1.5;
+    position: relative;
+}
+
+.separador:empty{
+    display: block;
+    height: 1px;
+    padding: 0;
+    margin: 7px -8px 8px;
+    list-style: none;
+    background: #141414;
+    border: 0;
+}
+
+.titumenu{
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+}
+
+li{
+    list-style: none;
+}
+
+.layout-der{
+    grid-column: 2/span 2;
+}
+
+.layout-main{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-md{
+    margin-right: 160px;
+}
+
+.subhead{
+    border-bottom: 1px solid #141414;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    padding-bottom: 8px;
+    margin-bottom: 0;
+}
+
+.subhead-text{
+    flex:1 1 auto;
+    font-size: 24px;
+    color: #141414;
+    font-weight: 500;
+    order: 0;
+    height: 36px;
+    margin: 0;
+}
+
+/*FIN DE LO QUE VA EN TODOS------------------------------------------------------------------------------------------------------------------------*/
+
+.profile{
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 0;
+    margin-right: -16px;
+    margin-left: -16px;
+}
+
+#foteichon{
+    margin-left: 88.344px;
+}
+
+.columna2{
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+dl{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.editfoto{
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    height: 21px;
+    width: 234.66px;
+    margin-top: 0;
+}
+
+dd{
+    display: block;
+    margin: 0;
+}
+
+.avatar-upload{
+    position: relative;
+    margin: 0;
+    width: 234.66px;
+}
+
+#ver img{
+    width: 200px;
+    height: 200px;
+    display: block;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+
+form{
+    margin-top: 0em;
+    display: block;
+}
+
+.username{
+    font-weight: 600;
+    font-size: 16px;
+    margin-bottom: 8px;
+    margin-top: 0;
+}
+
+.textuser{
+    width: 440px;
+    max-width: 100%;
+    background-color: rgb(218, 218, 218);
+    margin-right: 5px;
+    padding: 5px 12px;
+    font-size: 14px;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid #141414;
+    border-radius: 6px;
+}
+
+.note{
+    min-height: 17px;
+    margin: 4px 0 2px;
+    font-size: 12px;
+    opacity: 0.6;
+}
+
+.eliminarcuenta{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.btncuenta{
+    color: #fff;
+    background-color: #238636;
+    position: relative;
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid;
+    border-radius: 6px;
+    appearance: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.btncuenta:hover{
+    background-color: #429753;
+}
+
+#deletecuenta{
+    width: 768px;
+    margin-top: 40px;
+    margin-bottom: 16px;
+}
+
+#borrarcuenta{
+    color: red;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 10px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.btndelete{
+    color: red;
+    background-color: rgb(224, 224, 224);
+    border-color: transparent;
+    position: relative;
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #141414;
+    border-radius: 6px;
+    appearance: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.btndelete:hover{
+    background-color: red;
+    color: #fff;
+    border: 1px solid rgb(202, 202, 202);
+}
+
+.editbtn{
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-left: 8px;
+    margin-bottom: 8px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    color: #141414;
+    border-radius: 6px;
+    border: 1px solid #141414;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+    background-color: rgb(192, 192, 192);
+}
+
+.editbtn:hover{
+    color: #444;
+    background-color: rgb(230, 230, 230);
+}
+
+.box{
+    background-color: rgb(216, 216, 216);
+    border: 1px solid #444;
+    border-radius: 6px;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.body-dark{
+    visibility: hidden;
+    min-height: 100%;
+    min-width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgb(0, 0, 0);
+    z-index: 1;
+    opacity: .85;
+}
+
+.box--overlay{
+    width: 448px;
+    margin-left: auto;
+    margin-right: auto;
+    background-clip: padding-box;
+}
+
+.dialog{
+    position: fixed;
+    margin: 10vh auto;
+    top: -20px;
+    z-index: 999;
+    height: auto;
+    max-width: 90vh;
+    overflow: auto;
+    left: 493px;
+    right: 493px;
+}
+
+#mensaje_borrar{
+    display: none;
+}
+
+.box_header{
+    margin: 0;
+    border-bottom-width: 1px;
+    padding: 16px;
+    background-color: rgb(216, 216, 216);
+}
+
+.box_btn_close{
+    line-height: 1.5;
+    margin: -16px;
+    padding: 16px;
+    float: right;
+    display: inline-block;
+    color: #444;
+    vertical-align: middle;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.fa-xmark{
+    display: inline-block;
+    overflow: visible;
+    vertical-align: text-bottom;
+    fill: currentColor;
+    cursor: pointer;
+}
+
+.fa-xmark:hover{
+    color: #0076fd;
+}
+
+.box_title{
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.box_advert{
+    border-radius: 0;
+    margin-top: -1px;
+    border: 1px solid red;
+    border-left: 0;
+    border-right: 0;
+    background-color: rgb(255, 144, 144);
+    padding: 20px 16px;
+    vertical-align: middle;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #141414;
+}
+
+.fa-triangle-exclamation{
+    color: #f85149;
+    margin-right: 12px;
+    display: inline-block;
+    overflow: visible;
+    vertical-align: text-bottom;
+    fill: currentColor;
+}
+
+.box_body{
+    padding: 16px;
+    overflow: auto;
+}
+
+.box_body p{
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #141414;
+}
+
+hr{
+    height: 0;
+    margin: 15px 0;
+    overflow: hidden;
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #444;
+    box-sizing: border-box;
+}
+
+.delete_account_text{
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: block;
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #141414;
+    font-weight: 600;
+}
+
+.delete_account_text i{
+    font-weight: 400;
+}
+
+.form-control{
+    display: block;
+    width: 100%;
+    padding: 5px 12px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: rgb(238, 238, 238);
+    margin-top: 3px;
+}
+
+.form-control:focus{
+    background-color: #fff;
+}
+
+.btn_delete_account{
+    position: relative;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 600;
+    line-height: 20px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background-color: rgb(194, 194, 194);
+    color: #b63131;
+    text-align: center;
+    width: 100%;
+    display: block;
+    top: -10px;
+}
+
+.btn_delete_account:hover{
+    color: #fff;
+    background-color: #b63131;
+    border-color: #b63131;
+    cursor: pointer;
+}

@@ -1,0 +1,7 @@
+function editar(){
+    
+}
+
+function eliminar(){
+    
+}

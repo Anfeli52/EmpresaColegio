@@ -60,15 +60,15 @@ if($user==null || $user==""){
                         <i class="fas fa-radiation"></i>
                         <span class="navItemUser">Contaminación</span>
                     </a></li>
-                    <li><a href="campanasUserPage.html">
+                    <li><a href="campanasUserPage.php">
                         <i class="fas fa-tags"></i>
                         <span class="navItemUser">Campañas</span>
                     </a></li>
-                    <li><a href="recomendationUserPage.html">
+                    <li><a href="recomendationUserPage.php">
                         <i class="fas fa-tasks"></i>
                         <span class="navItemUser">Yaxjaneitor3000</span>
                     </a></li>
-                    <li><a href="ajustesUserPage.html">
+                    <li><a href="Settings/cuentaUser.php">
                         <i class="fas fa-cog"></i>
                         <span class="navItemUser">Configuración</span>
                     </a></li>

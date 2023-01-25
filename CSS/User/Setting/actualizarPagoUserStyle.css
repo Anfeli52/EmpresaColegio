@@ -1,0 +1,801 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header{
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-left: 32px;
+    padding-right: 32px;
+    font-size: 14px;
+    line-height: 1.5;
+    align-items: center;
+    background-color: rgb(51, 133, 144);
+    box-shadow: 0px 0px 40px darkcyan;
+    height: 60px;
+}
+
+.logo{
+    margin-left: 20px;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+}
+
+.box{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+input.src{
+    padding-left: 32px;
+    outline: none;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #444;
+    border: 1px solid fff;
+    background: #fff url("../../../IMG/Ajustes/search.png") no-repeat 9px center;
+    width: 270px;
+    transition: all .5s;
+}
+
+input.src:focus{
+    width: 450px;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.options-header{
+    display: flex;
+    align-self: auto;
+    flex-direction: row;
+}
+
+.opciones{
+    font-weight: 600;
+    margin-right: 16px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    white-space: nowrap;
+    color: rgba(240, 240, 240, 0.877);
+    text-decoration: none;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+}
+
+.opciones:hover{
+    color: rgb(14, 39, 53);
+}
+
+.container{
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-top: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1280px;
+}
+
+.foticousuario{
+    display: flex;
+    margin-top: 4px;
+    margin-bottom: 24px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.foto{
+    display: flex;
+    align-items: center;
+}
+
+.avatar{
+    border-radius: 50%;
+    display: inline-block;
+    overflow: hidden;
+    line-height: 1;
+    vertical-align: middle;
+    flex-shrink: 0;
+    margin-right: 16px;
+}
+
+img{
+    border-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+.infoto{
+    flex: auto;
+}
+
+.h1foto{
+    font-size: 20px;
+    line-height: 1.25;
+    font-weight: 600;
+    margin: 0;
+}
+
+.h1foto a{
+    color: black;
+    cursor: default;
+}
+
+.descripfoto{
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}
+
+.descripfoto p{
+    margin-right: 16px;
+    margin: 0;
+    color: rgb(48, 48, 48);
+    font-size: 14px;
+}
+
+.layout {
+    --Layout-sidebar-width: 296px;
+}
+
+.layout {
+    --Layout-gutter: 24px;
+}
+
+.layout{
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto 0 minmax(0, calc(100% - var(--Layout-sidebar-width) - var(--Layout-gutter)));
+    grid-gap: var(--Layout-gutter);
+}
+
+.layout-izq{
+    width: var(--Layout-sidebar-width);
+    grid-column: 1;
+}
+
+.lista{
+    display: block;
+    padding-right: 24px;
+}
+
+ul{
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.menuajustes{
+    list-style: none;
+}
+
+.ajustes{
+    background: transparent;
+    border-radius: 6px;
+    list-style: none;
+    position: relative;
+}
+
+.contentajustes{
+    align-items: start;
+    background-color: initial;
+    border: none;
+    border-radius: 6px;
+    color: #141414;
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual label trailingVisual trailingAction";
+    grid-template-columns: min-content min-content minmax(0,auto) min-content min-content;
+    grid-template-rows: min-content;
+    padding: 6px;
+    position: relative;
+    text-align: left;
+    transition: background 33.333ms linear;
+    width: 100%;
+}
+
+.contentajustes:hover{
+    background-color: bisque;
+}
+
+.contentajustes-especial{
+    align-items: start;
+    background-color: bisque;
+    border: none;
+    border-radius: 6px;
+    color: #141414;
+    display: grid;
+    grid-template-areas: "leadingAction leadingVisual label trailingVisual trailingAction";
+    grid-template-columns: min-content min-content minmax(0,auto) min-content min-content;
+    grid-template-rows: min-content;
+    padding: 6px;
+    position: relative;
+    text-align: left;
+    transition: background 33.333ms linear;
+    width: 100%;
+}
+
+.iconolist{
+    fill: #141414;
+    align-items: center;
+    color: #141414;
+    display: flex;
+    pointer-events: none;
+    margin-right: 8px;
+    height: 18px;
+}
+
+.textlist{
+    color: #141414;
+    font-size: 14px;
+    font-weight: 500;
+    grid-area: label;
+    line-height: 1.5;
+    position: relative;
+}
+
+.textlist-especial{
+    color: #141414;
+    font-size: 14px;
+    font-weight: 600;
+    grid-area: label;
+    line-height: 1.5;
+    position: relative;
+}
+
+.separador:empty{
+    display: block;
+    height: 1px;
+    padding: 0;
+    margin: 7px -8px 8px;
+    list-style: none;
+    background: #141414;
+    border: 0;
+}
+
+.titumenu{
+    font-size: 12px;
+    font-weight: 600;
+    color: #444;
+}
+
+li{
+    list-style: none;
+}
+
+.layout-der{
+    grid-column: 2/span 2;
+}
+
+.layout-main{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-md{
+    margin-right: 160px;
+}
+
+.subhead{
+    border-bottom: 1px solid #141414;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-end;
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+.subhead-text{
+    flex:1 1 auto;
+    font-size: 24px;
+    color: #141414;
+    font-weight: 500;
+    order: 0;
+    height: 36px;
+    margin: 0;
+}
+
+/*FIN DE LO QUE VA EN TODOS------------------------------------------------------------------------------------------------------------------------*/
+
+.infoBilletera{
+    background-color: rgb(230, 230, 230, 0.5);
+    border-radius: 6px;
+    border: 1px solid #141414;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.text-right{
+    text-align: right;
+    font-size: 12px;
+}
+
+.text-edit{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: inline-block;
+    padding: 0;
+    font-size: inherit;
+    color: #0065fc;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 0;
+    appearance: none;
+}
+
+.text-edit:hover{
+    text-decoration: underline;
+}
+
+#add_infobilletera{
+    display: none;
+}
+
+.flex_info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.datos_billing{
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    margin-bottom: 4px;
+    margin-top: 0;
+}
+
+.user_info{
+    display: flex;
+    width: 58.3%;
+}
+
+form{
+    display: block;
+    margin-top: 0em;
+}
+
+.flex_column{
+    row-gap: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+}
+
+.d-flex{
+    gap: 15px;
+    display: flex;
+}
+
+.d-flex2{
+    height: 31px;
+}
+
+.FormControl{
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.flex-1{
+    flex: 1;
+}
+
+.FormControl-label{
+    color: #444;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.FormControl-input{
+    display: grid;
+    position: relative;
+}
+
+.ingresaInfo{
+    height: 32px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.5;
+    background-color: rgb(230, 230, 230, 0.5);
+    border: 1px solid #444;
+    color: #444;
+    padding: 5px 8px;
+    width: 100%;
+}
+
+.ingresaInfo:focus{
+    background-color: rgb(247, 247, 247);
+}
+
+.ajio{
+    color: red;
+}
+
+.select_country{
+    grid-column: 1/-1;
+    grid-row: 1;
+    padding-right: 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.5;
+    padding-top: 5px;
+    padding-left: 8px;
+    padding-bottom: 5px;
+    padding-right: 20px;
+    width: 100%;
+    background-color: rgba(230, 230, 230, 0.5);
+    border: 1px solid #444;
+    color: #444;
+    appearance: none;
+    height: 32px;
+    z-index: 1;
+}
+
+.flechita{
+    position: relative;
+    top: -27.5px;
+    left: 187px;
+    z-index: -1;
+    color: #141414;
+}
+
+option{
+    font-weight: normal;
+    display: block;
+    white-space: nowrap;
+    min-height: 1.2em;
+    padding: 0px 2px 1px;
+}
+
+.save a{
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+}
+
+.save{
+    margin-top: 24px;
+    color: #fff;
+    background-color: #238636;
+    position: relative;
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid;
+    border-radius: 6px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-decoration: none;
+    top: -25px;
+}
+
+.save:hover{
+    background-color: #429753;
+}
+
+.btn-content{
+    align-items: center;
+    display: grid;
+    flex: 1 0 auto;
+    grid-template-areas: "leadingVisual text trailingVisual";
+    grid-template-columns: min-content minmax(0, auto) min-content;
+    place-content: center;
+}
+
+.btn-label{
+    white-space: nowrap;
+    line-height: 1.5;
+    grid-area: text;
+}
+
+.js_billing{
+    padding-top: 16px;
+    padding-bottom: 16px;
+    border-top: 1px solid #444;
+}
+
+.warn_add_info{
+    border-radius: 6px;
+    border: 1px solid ;
+    position: relative;
+    padding: 20px;
+    border-color: rgb(187, 128, 9);
+    background: rgba(187, 128, 9, 0.212);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+}
+
+.fa-triangle-exclamation{
+    color: #d29922;
+    margin-right: 15px;
+    display: inline-block;
+    overflow: visible;
+    fill: currentColor;
+}
+
+.fa-xmark{
+    margin-right: 0;
+    color: #d29922;
+}
+
+.btn_close{
+    border: 0;
+    cursor: pointer;
+    float: right;
+    text-align: center;
+    background: none;
+    display: inline-block;
+    overflow: visible;
+    fill: currentColor;
+    vertical-align: text-bottom;
+    height: 19px;
+    width: 19px;
+}
+
+.payment_method{
+    background-color: rgb(230, 230, 230, 0.5);
+    border-radius: 6px;
+    border: 1px solid #141414;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.state_payment{
+    margin-bottom: 4px;
+    color: rgb(90, 90, 90);
+    margin-top: 0;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#add_title{
+    margin-bottom: 6px;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.btn_add_payment_information{
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    display: inline-block;
+    padding: 0;
+    color: #0065fc;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+    background-color: transparent;
+    border: 0;
+}
+
+.btn_add_payment_information:hover{
+    text-decoration: underline;
+}
+
+.d-flex3{
+    display: flex;
+    justify-content: space-between;
+}
+
+.box_add{
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.payment_methods{
+    position: relative;
+    display: none;
+}
+
+.PayWith{
+    margin: 4px 0;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.radio_payment{
+    position: relative;
+    float: left;
+    margin: 10px -32px 0 16px;
+    z-index: 3;
+}
+
+.radio-label:hover{
+    background-color: rgb(60, 60, 60);
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+.radio-label{
+    position: relative;
+    z-index: 1;
+    float: left;
+    padding: 6px 16px 6px 16px;
+    font-size: 14px;
+    line-height: 20px;
+    color: #141414;
+    background-color: rgb(185, 182, 182);
+    cursor: pointer;
+    border: 1px solid #444;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.radio-label:first-of-type{
+    margin-left: 0;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+
+.radio-label:last-of-type{
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.clearfix::before {
+    display: table;
+    content: "";
+}
+
+.clearfix::after {
+    display: table;
+    clear: both;
+    content: "";
+}
+
+.tarjet_info{
+    margin-top: 25px;
+    display: none;
+}
+
+#separator{
+    margin-top: 51px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.more_info{
+    margin-top: 25px;
+}
+
+.flechita2{
+    position: relative;
+    top: -27.5px;
+    left: 131px;
+    z-index: -1;
+    color: #141414;
+}
+
+.cvv_year_month{
+    gap: 5px;
+}
+
+.expiration_date{
+    width: 150px;
+}
+
+.year{
+    margin-top: 50px;
+}
+
+.cvv{
+    margin-top: 25px;
+    align-items: flex-end;
+}
+
+.input_cvv{
+    width: 90px;
+}
+
+.cvv .FormControl-label{
+    margin-right: 50px;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+-webkit-appearance: none; 
+margin: 0; 
+}
+
+.btn_save_card .save{
+    margin-top: 15px;
+}
+
+.cancel{
+    margin-top: 30px;
+    color: red;
+    background-color: rgb(224, 224, 224);
+    border-color: transparent;
+    position: relative;
+    display: inline-block;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid #141414;
+    border-radius: 6px;
+    appearance: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    top: -25px;
+}
+
+.cancel:hover{
+    background-color: red;
+    color: #fff;
+    border: 1px solid rgb(202, 202, 202);
+}
+
+.paypal_info{
+    margin-top: 25px;
+    display: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.paypal_label{
+    margin: 0 0 8px;
+}
+
+.paypal_logo_url{
+    display: inline-block;
+    margin-bottom: 16px;
+    vertical-align: top;
+    background-color: rgb(230, 230, 230);
+    border-radius: 4px;
+}
+
+.info_billetera_resumen{
+    margin-bottom: 4px;
+    color: #141414;
+    opacity: 0.7;
+    padding-bottom: 16px;
+}
+
+.datos_resumen{
+    list-style: none;
+    float: left;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.name_billetera{
+    padding-bottom: 4px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+}
+
+.rest_billetera{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 12px;
+}
