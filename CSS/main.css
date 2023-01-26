@@ -151,11 +151,13 @@ main{
     font-family: 'Courier New', Courier, monospace;
     text-transform: uppercase;
     transition: 300ms ease;
+    border-radius: 10px;
 }
 .navMenu ul li a:hover{
     color: rgb(212, 254, 254);
     transition: 300ms ease;
     background: rgba(131, 186, 248, 0.884);
+    
 }
 /*-----------------------------------------------------------------------INICIO CUERPO-----------------------------------------------------------------------*/
 .contenido{
