@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 04-01-2023 a las 02:31:49
+-- Tiempo de generación: 27-01-2023 a las 07:06:29
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -166,21 +166,22 @@ CREATE TABLE `usuario` (
   `confirmPassword` varchar(50) NOT NULL,
   `telefono` varchar(15) NOT NULL,
   `fechaCumpleaños` date NOT NULL,
-  `tipoUsuario` varchar(20) NOT NULL
+  `tipoUsuario` varchar(20) NOT NULL,
+  `fotoPerfil` varchar(300) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `username`, `password`, `confirmPassword`, `telefono`, `fechaCumpleaños`, `tipoUsuario`) VALUES
-('alexandracortes@comfandi.edu.co', 'Alexandra', 'Cortes', 'Alexacoba', '123456789', '123456789', '1234567890', '1990-01-06', 'user'),
-('anfeli201111@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'Anfeli52', '1234567890', '1234567890', '3107171889', '2006-01-06', 'admin'),
-('anfelime@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'P4iN', '1234567890', '1234567890', '3107171889', '2006-01-06', 'user'),
-('jslucio100@gmail.com', 'Juan Esteban', 'Idrobo Lucio', 'Jslucio', 'ronaldinho', 'ronaldinho', '2147483647', '2006-01-08', 'admin'),
-('Juanesteban9283@gmail.com', 'Juan Esteban', 'Soto Potes', 'Juanes', 'juanes123', 'juanes123', '2147483647', '2006-05-07', 'admin'),
-('lccalderon1218@gmail.com', 'Luis Carlos', 'Calderón Ríos', 'Pock', 'pock123', 'pock123', '2147483647', '2006-12-18', 'admin'),
-('venusayurialmeida.99@gmail.com', 'Venus Sayuri', 'Almeida Enriquez', 'Venussa', 'frisby', 'frisby', '3122691411', '2006-09-09', 'user');
+INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `username`, `password`, `confirmPassword`, `telefono`, `fechaCumpleaños`, `tipoUsuario`, `fotoPerfil`) VALUES
+('alexandracortes@comfandi.edu.co', 'Alexandra', 'Cortes', 'Alexacoba', '123456789', '123456789', '1234567890', '1990-01-06', 'user', '../../IMG/FotosPerfil/Anonimo.png'),
+('anfeli201111@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'Anfeli52', '1234567890', '1234567890', '3107171889', '2006-01-06', 'admin', '../../IMG/FotosPerfil/Anakin.jpeg'),
+('anfelime@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'P4iN', '1234567890', '1234567890', '3107171889', '2006-01-06', 'user', '../../IMG/FotosPerfil/la-paz-nunca-fue-una-opcion-juego-de-ganso-gorra-snapback.jpg'),
+('jslucio100@gmail.com', 'Juan Esteban', 'Idrobo Lucio', 'Jslucio', 'ronaldinho', 'ronaldinho', '2147483647', '2006-01-08', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
+('Juanesteban9283@gmail.com', 'Juan Esteban', 'Soto Potes', 'Juanes', 'juanes123', 'juanes123', '2147483647', '2006-05-07', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
+('lccalderon1218@gmail.com', 'Luis Carlos', 'Calderón Ríos', 'Pock', 'pock123', 'pock123', '2147483647', '2006-12-18', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
+('venusayurialmeida.99@gmail.com', 'Venus Sayuri', 'Almeida Enriquez', 'Venussa', 'frisby', 'frisby', '3122691411', '2006-09-09', 'user', '../../IMG/FotosPerfil/desayuno1-producto.jpeg');
 
 --
 -- Índices para tablas volcadas
