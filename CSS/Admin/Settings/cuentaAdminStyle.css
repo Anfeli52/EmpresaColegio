@@ -41,7 +41,7 @@ input.src{
     border-radius: 5px;
     color: #444;
     border: 1px solid fff;
-    background: #fff url("../../../IMG/Ajustes/search.png") no-repeat 9px center;
+    background: #fff url("../../../IMG/search.png") no-repeat 9px center;
     width: 270px;
     transition: all .5s;
 }
@@ -60,6 +60,7 @@ input.editarbtn {
     display: flex;
     flex-direction: row;
 }
+
 
 input.src:focus{
     width: 450px;
@@ -527,7 +528,7 @@ p {
     visibility: hidden;
     min-height: 100%;
     min-width: 100%;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     background: rgb(0, 0, 0);

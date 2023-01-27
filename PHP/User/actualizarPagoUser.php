@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-include '../../conexion.php';
+include '../conexion.php';
 
 $user = $_SESSION['correo'];
 $select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
@@ -22,6 +22,7 @@ if($user==null || $user==""){
         $username=$data['username'];
         $correo=$data['correo'];
         $nombre=$data['nombre'];
+        $foto = $data['fotoPerfil'];
     }
 }
 ?>
@@ -31,11 +32,12 @@ if($user==null || $user==""){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../IMG/logoheader.png">
     <title>Actualizar Método de Pago</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="../../../CSS/User/Setting/actualizarPagoUserStyle.css">
+    <link rel="stylesheet" href="../../CSS/User/Setting/actualizarPagoUserStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
 </head>
 <body>
@@ -43,7 +45,7 @@ if($user==null || $user==""){
     <header>
 
         <div class="logo">
-            <img src="../../../IMG/logoYaxja.jpeg" alt="#" height="32" width="32">
+            <img src="../../IMG/logoYaxja.jpeg" alt="#" height="32" width="32">
         </div>
 
         <div class="box">
@@ -51,9 +53,9 @@ if($user==null || $user==""){
         </div>
 
         <nav class="options-header">
-            <a href="../userMainPage.php" class="opciones">Inicio</a>
-            <a href="../contaminacionUserPage.php" class="opciones">Contaminación</a>
-            <a href="../campanasUserPage.php" class="opciones">Campañas</a>
+            <a href="userMainPage.php" class="opciones">Inicio</a>
+            <a href="contaminacionUserPage.php" class="opciones">Contaminación</a>
+            <a href="campanasUserPage.php" class="opciones">Campañas</a>
             <a href="#" class="opciones">Yaxjaneitor3000</a>
         </nav>
 
@@ -64,7 +66,7 @@ if($user==null || $user==""){
         <div class="container">
             <div class="foticousuario">
                 <div class="foto">
-                    <img src="../../../IMG/Ajustes/usuario.png" alt="#" size="48" height="48" width="48" class="avatar">
+                    <img src="<?php echo $foto; ?>" alt="#" size="48" height="48" width="48" class="avatar">
 
                     <div class="infoto">
                         <h1 class="h1foto"> <a href="#"><?php echo $username ?></a> </h1>
@@ -434,7 +436,7 @@ if($user==null || $user==""){
 
     <footer></footer>
     
-<script src="../../../JS/MenuAjustes/Adverts.js"></script>
+<script src="../../JS/MenuAjustes/Adverts.js"></script>
 
 </body>
 </html>

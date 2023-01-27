@@ -11,6 +11,7 @@ if(isset($_POST['enviar'])){
     $confirmarContrasena = $_POST['confirmarContraseña'];
     $telefono = $_POST['telefono'];
     $cumpleaños = $_POST['cumpleaños'];
+    $foto = "../../IMG/FotosPerfil/Anonimo.png";
     $select = " SELECT * FROM usuario WHERE correo = '$correo' || username = '$usuario'";
     $result = mysqli_query($conexion, $select);
 
@@ -28,7 +29,7 @@ if(isset($_POST['enviar'])){
             </script>';
         exit;
         }else{
-            $insert = "INSERT INTO usuario(nombre, apellido, correo, username, password, confirmPassword, telefono, fechaCumpleaños, tipoUsuario) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contrasena', '$confirmarContrasena', '$telefono', '$cumpleaños', 'user')";
+            $insert = "INSERT INTO usuario(nombre, apellido, correo, username, password, confirmPassword, telefono, fechaCumpleaños, tipoUsuario, fotoPerfil) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contrasena', '$confirmarContrasena', '$telefono', '$cumpleaños', 'user', '$foto')";
             mysqli_query($conexion, $insert);
             header('location:../HTML/login.html?success=Account Created Successfully');
         }

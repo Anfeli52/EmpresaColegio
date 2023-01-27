@@ -19,7 +19,10 @@ if($user==null || $user==""){
     $resultado = $conexion->query($sql);
 
     while($data=$resultado->fetch_assoc()){
-        $username=$data['username'];
+        $username = $data['username'];
+        $correo = $data['correo'];
+        $nombre = $data['nombre'];
+        $foto = $data['fotoPerfil'];
     }
 }
 ?>
@@ -52,7 +55,7 @@ if($user==null || $user==""){
                 <ul>
                     <li>
                         <a href="#" class="logo">
-                            <img src="../../IMG/Anakin.jpeg" alt="">
+                            <img src="<?php echo $foto; ?>" alt="">
                             <span class="navItemAdmin"><?php echo $username ?></span>
                         </a>
                     </li>
@@ -76,7 +79,7 @@ if($user==null || $user==""){
                             <i class="fas fa-download"></i>
                             <span class="navItemAdmin">Actualizar Campañas</span>
                         </a></li>
-                        <li><a href="ajustesAdminPage.php">
+                        <li><a href="cuentaAdmin.php">
                             <i class="fas fa-cog"></i>
                             <span class="navItemAdmin">Configuración</span>
                         </a></li>

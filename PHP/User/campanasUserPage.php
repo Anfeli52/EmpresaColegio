@@ -13,13 +13,16 @@ while($datos=$result->fetch_assoc()){
 if($user==null || $user==""){
     header('location:../../HTML/login.html');
 }else if($tipoUsuario!="user"){
-    header('location:../User/userMainPage.php');
+    header('location:../Admin/adminMainPage.php');
 }else{
     $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
     $resultado = $conexion->query($sql);
 
     while($data=$resultado->fetch_assoc()){
-        $username=$data['username'];
+        $username = $data['username'];
+        $correo = $data['correo'];
+        $nombre = $data['nombre'];
+        $foto = $data['fotoPerfil'];
     }
 }
 ?>
@@ -29,13 +32,14 @@ if($user==null || $user==""){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../IMG/logoheader.png">
     <link rel="stylesheet" href="../../CSS/User/campanasUserPageStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//code.tidio.co/0xm4bymhhmxmiwe8qrrlxsjxzvyi2nkl.js" async></script>
-    <title>Inicio</title>
+    <title>Campañas</title>
 </head>
 <body>
     <div class="loader">
@@ -47,7 +51,7 @@ if($user==null || $user==""){
                 <ul>
                     <li>
                         <a href="#" class="logo">
-                            <img src="../../IMG/Pingüino asesino.jpg" alt="">
+                            <img src="<?php echo $foto; ?>" alt="">
                             <span class="navItemUser"><?php echo $username ?></span>
                         </a>
                     </li>
@@ -63,11 +67,11 @@ if($user==null || $user==""){
                         <i class="fas fa-tags"></i>
                         <span class="navItemUser">Campañas</span>
                     </a></li>
-                    <li><a href="recomendationUserPage.php">
+                    <li><a href="#">
                         <i class="fas fa-tasks"></i>
                         <span class="navItemUser">Yaxjaneitor 3000</span>
                     </a></li>
-                    <li><a href="Settings/cuentaUser.php">
+                    <li><a href="cuentaUser.php">
                         <i class="fas fa-cog"></i>
                         <span class="navItemUser">Configuración</span>
                     </a></li>
