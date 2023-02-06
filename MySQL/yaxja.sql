@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-01-2023 a las 07:06:29
+-- Tiempo de generación: 06-02-2023 a las 03:51:36
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -72,9 +72,11 @@ CREATE TABLE `colorcampaña` (
 
 CREATE TABLE `contaminacion` (
   `codigoAgua` varchar(25) NOT NULL,
-  `nivelContaminante` int(10) NOT NULL,
+  `nivelContaminante` float(10,0) NOT NULL,
+  `nivelTurbidad` float NOT NULL,
   `nombreAgua` varchar(20) NOT NULL,
   `cuerpoAgua` varchar(20) NOT NULL,
+  `fechaMuestra` date NOT NULL,
   `correoContaminacion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -82,25 +84,9 @@ CREATE TABLE `contaminacion` (
 -- Volcado de datos para la tabla `contaminacion`
 --
 
-INSERT INTO `contaminacion` (`codigoAgua`, `nivelContaminante`, `nombreAgua`, `cuerpoAgua`, `correoContaminacion`) VALUES
-('R1500', 34, 'Igara Parana', 'Rio', 'anfeli201111@gmail.com'),
-('R1510', 87, 'Ariporo', 'Rio', 'anfeli201111@gmail.com'),
-('R1520', 34, 'Calima, Darien', 'Lago', 'venusayurialmeida.99@gmail.com'),
-('R1530', 95, 'Guainia', 'Rio', 'venusayurialmeida.99@gmail.com'),
-('R1540', 53, 'Caribe', 'Mar', 'venusayurialmeida.99@gmail.com'),
-('R1550', 68, 'Yari', 'Rio', 'venusayurialmeida.99@gmail.com'),
-('R1560', 28, 'Meta', 'Rio', 'jslucio100@gmail.com'),
-('R1570', 42, 'Atlántico', 'Oceano', 'jslucio100@gmail.com'),
-('R1580', 15, 'Putumayo', 'Rio', 'alexandracortes@comfandi.edu.co'),
-('R1590', 21, 'Guaviare', 'Rio', 'alexandracortes@comfandi.edu.co'),
-('R1600', 24, 'Pacifico', 'Oceano', 'alexandracortes@comfandi.edu.co'),
-('R1610', 55, 'Pance', 'Rio', 'Juanesteban9283@gmail.com'),
-('R1620', 82, 'Amazonas', 'Rio', 'Juanesteban9283@gmail.com'),
-('R1630', 87, 'Cauca', 'Rio', 'lccalderon1218@gmail.com'),
-('R1640', 97, 'Magdalena', 'Rio', 'lccalderon1218@gmail.com'),
-('R1650', 67, 'La Cocha', 'Lago', 'lccalderon1218@gmail.com'),
-('R1660', 88, 'Laguna de sonso', 'Lago', 'anfeli201111@gmail.com'),
-('R1670', 44, 'Orinoco', 'Rio', 'venusayurialmeida.99@gmail.com');
+INSERT INTO `contaminacion` (`codigoAgua`, `nivelContaminante`, `nivelTurbidad`, `nombreAgua`, `cuerpoAgua`, `fechaMuestra`, `correoContaminacion`) VALUES
+('R24390', 21, 12, 'Lago Algo', 'Lago', '2023-02-03', 'anfelime@gmail.com'),
+('R52853', 12, 21, 'Lago Calima', 'Lago', '2023-02-03', 'anfeli201111@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -175,7 +161,7 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `username`, `password`, `confirmPassword`, `telefono`, `fechaCumpleaños`, `tipoUsuario`, `fotoPerfil`) VALUES
-('alexandracortes@comfandi.edu.co', 'Alexandra', 'Cortes', 'Alexacoba', '123456789', '123456789', '1234567890', '1990-01-06', 'user', '../../IMG/FotosPerfil/Anonimo.png'),
+('alejandroescobar@gmail.com', 'Alejandro', 'Escobar', 'Alejo', '1234567890', '1234567890', '3162358566', '1992-12-24', 'user', '../../IMG/FotosPerfil/Anonimo.png'),
 ('anfeli201111@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'Anfeli52', '1234567890', '1234567890', '3107171889', '2006-01-06', 'admin', '../../IMG/FotosPerfil/Anakin.jpeg'),
 ('anfelime@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'P4iN', '1234567890', '1234567890', '3107171889', '2006-01-06', 'user', '../../IMG/FotosPerfil/la-paz-nunca-fue-una-opcion-juego-de-ganso-gorra-snapback.jpg'),
 ('jslucio100@gmail.com', 'Juan Esteban', 'Idrobo Lucio', 'Jslucio', 'ronaldinho', 'ronaldinho', '2147483647', '2006-01-08', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
