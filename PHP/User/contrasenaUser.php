@@ -4,30 +4,31 @@ session_start();
 include '../conexion.php';
 
 $user = $_SESSION['correo'];
-$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '" . $user . "';";
 $result = $conexion->query($select);
-while($datos=$result->fetch_assoc()){
+while ($datos = $result->fetch_assoc()) {
     $tipoUsuario = $datos['tipoUsuario'];
 }
 
-if($user==null || $user==""){
+if ($user == null || $user == "") {
     header('location:../../HTML/login.html');
-}else if($tipoUsuario!="user"){
+} else if ($tipoUsuario != "user") {
     header('location:../Admin/adminMainPage.php');
-}else{
-    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
+} else {
+    $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
     $resultado = $conexion->query($sql);
 
-    while($data=$resultado->fetch_assoc()){
-        $username=$data['username'];
-        $correo=$data['correo'];
-        $nombre=$data['nombre'];
+    while ($data = $resultado->fetch_assoc()) {
+        $username = $data['username'];
+        $correo = $data['correo'];
+        $nombre = $data['nombre'];
         $foto = $data['fotoPerfil'];
     }
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,6 +39,7 @@ if($user==null || $user==""){
     <link rel="stylesheet" href="../../CSS/User/Setting/contrasenaUserStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
 </head>
+
 <body>
 
     <header>
@@ -57,7 +59,7 @@ if($user==null || $user==""){
             <a href="#" class="opciones">Yaxjaneitor3000</a>
         </nav>
 
-    </header>    
+    </header>
 
     <main>
 
@@ -73,7 +75,7 @@ if($user==null || $user==""){
                             <p>Tu cuenta personal :D</p>
                         </div>
                     </div>
-                    
+
                 </div>
             </div> <!--DIV FOTICOUSUARIO-->
 
@@ -83,7 +85,7 @@ if($user==null || $user==""){
                         <ul class="menuajustes">
                             <li> <!--INICIO PARTE 1-->
                                 <ul>
-                                    
+
                                     <li class="ajustes">
                                         <a href="cuentaUser.php" class="contentajustes">
                                             <span class="iconolist"><i class="fa-solid fa-gear"></i></span>
@@ -99,7 +101,7 @@ if($user==null || $user==""){
 
                                 </ul>
                             </li> <!--FIN PARTE 1-->
-                            
+
                             <li class="separador"></li>
 
                             <li> <!--INICIO PARTE 2-->
@@ -107,7 +109,7 @@ if($user==null || $user==""){
                                     <li>
                                         <h3 class="titumenu">Acceso</h3>
                                     </li>
-                                    
+
                                     <li class="ajustes">
                                         <a href="emailUser.php" class="contentajustes">
                                             <span class="iconolist"><i class="fa-solid fa-envelope"></i></span>
@@ -125,7 +127,7 @@ if($user==null || $user==""){
                                     <li>
                                         <h3 class="titumenu">Seguridad</h3>
                                     </li>
-                                    
+
                                     <li class="ajustes">
                                         <a href="contrasenaUser.php" class="contentajustes-especial">
                                             <span class="iconolist"><i class="fa-solid fa-shield-halved"></i></span>
@@ -143,7 +145,7 @@ if($user==null || $user==""){
                                     <li>
                                         <h3 class="titumenu">Método de Pago</h3>
                                     </li>
-                                    
+
                                     <li class="ajustes">
                                         <a href="actualizarPagoUser.php" class="contentajustes">
                                             <span class="iconolist"><i class="fa-solid fa-rotate"></i></span>
@@ -179,37 +181,37 @@ if($user==null || $user==""){
                                 <h2 class="subhead-text">
                                     Contraseña y Autenticación
                                 </h2>
-                            </div> <!--SUBHEAD------------------------------ A PARTIR DE AQUI LLENAR  --> 
+                            </div> <!--SUBHEAD------------------------------ A PARTIR DE AQUI LLENAR  -->
 
                             <div class="password-autenticacion">
-                                
-                                <form action="" class="edit_password">
+
+                                <form action="changePasswordUser.php" class="edit_password" method="post">
 
                                     <dl class="password">
                                         <dt class="text_old"> <label for="" class="title_password">Anterior Contraseña</label> </dt>
-                                        <dd class="campo_old"> <input type="password" class="type_old_password" required="required"> </dd>
+                                        <dd class="campo_old"> <input type="password" name="oldPassword" class="type_old_password" required="required"> </dd>
                                     </dl>
 
                                     <dl class="password">
                                         <dt class="text_old"> <label for="" class="title_password">Nueva Contraseña</label> </dt>
-                                        <dd class="campo_old"> <input type="password" class="type_old_password" required="required"> </dd>
+                                        <dd class="campo_old"> <input type="password" name="newPassword" class="type_old_password" required="required"> </dd>
                                     </dl>
 
                                     <dl class="password">
                                         <dt class="text_old"> <label for="" class="title_password">Confirmar Contraseña</label> </dt>
-                                        <dd class="campo_old"> <input type="password" class="type_old_password" required="required"> </dd>
+                                        <dd class="campo_old"> <input type="password" name="confirmNewPassword" class="type_old_password" required="required"> </dd>
                                     </dl>
 
                                     <p class="note"> Asegurate de que tu contraseña tenga <span class="rojito">entre 12 y 20 caracteres</span>.</p>
 
                                     <p class="update_password">
-                                    <button type="submit" class="btnUpdate" onclick="ActualizaContrasena()"> Actualizar Contraseña </button>
-                                    <span>
-                                        <a href="#" class="forgot"> ¿Has olvidado tu contraseña? </a> <!--ENLACE POR SI OLVIDO LA CONTRASEÑA-->
-                                    </span>
+                                        <button type="submit" class="btnUpdate" onclick="ActualizaContrasena()"> Actualizar Contraseña </button>
+                                        <span>
+                                            <a href="#" class="forgot"> ¿Has olvidado tu contraseña? </a> <!--ENLACE POR SI OLVIDO LA CONTRASEÑA-->
+                                        </span>
                                     </p>
 
-                                </form> <!--CAJA CAMBIAR CONTRASEÑA-->
+                                </form><!--CAJA CAMBIAR CONTRASEÑA-->
 
                                 <div class="autenticacion">
                                     <div class="autenticacion_title">
@@ -236,7 +238,7 @@ if($user==null || $user==""){
 
                                 </div> <!--CAJA AUTENTICACION-->
                             </div>
-                            
+
                         </div> <!--CONTAINER DEL LAYOUT DERECHO-->
                     </div> <!--LAYOUT MAIN-->
                 </div> <!--LAYOUT DERECHO-->
@@ -246,8 +248,9 @@ if($user==null || $user==""){
     </main>
 
     <footer></footer>
-    
-<script src="../../JS/MenuAjustes/Adverts.js"></script>
+
+    <script src="../../JS/MenuAjustes/Adverts.js"></script>
 
 </body>
+
 </html>

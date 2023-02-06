@@ -151,21 +151,21 @@ if($user==null || $user==""){
 
                             <div class="password-autenticacion">
                                 
-                                <form action="" class="edit_password">
+                                <form action="changePasswordAdmin.php" class="edit_password" method="post">
 
                                     <dl class="password">
                                         <dt class="text_old"> <label for="" class="title_password">Anterior Contraseña</label> </dt>
-                                        <dd class="campo_old"> <input type="password" class="type_old_password" required="required"> </dd>
+                                        <dd class="campo_old"> <input type="password" name="oldPassword" class="type_old_password" required="required"> </dd>
                                     </dl>
 
                                     <dl class="password">
                                         <dt class="text_old"> <label for="" class="title_password">Nueva Contraseña</label> </dt>
-                                        <dd class="campo_old"> <input type="password" class="type_old_password" required="required"> </dd>
+                                        <dd class="campo_old"> <input type="password" name="newPassword" class="type_old_password" required="required"> </dd>
                                     </dl>
 
                                     <dl class="password">
                                         <dt class="text_old"> <label for="" class="title_password">Confirmar Contraseña</label> </dt>
-                                        <dd class="campo_old"> <input type="password" class="type_old_password" required="required"> </dd>
+                                        <dd class="campo_old"> <input type="password" name="confirmNewPassword" class="type_old_password" required="required"> </dd>
                                     </dl>
 
                                     <p class="note"> Asegurate de que tu contraseña tenga <span class="rojito">entre 12 y 20 caracteres</span>.</p>
