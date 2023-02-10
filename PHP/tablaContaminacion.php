@@ -3,7 +3,7 @@
 session_start();
 include 'conexion.php';
 
-$user = $_SESSION['correo'];
+$user = $_SESSION['email'];
 $select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
 $result = $conexion->query($select);
 while($datos=$result->fetch_assoc()){

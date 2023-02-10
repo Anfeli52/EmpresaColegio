@@ -3,7 +3,7 @@
 session_start();
 include 'conexion.php';
 
-$correo = $_SESSION['correo'];
+$correo = $_SESSION['email'];
 $sql = "SELECT username FROM usuarios WHERE correo = '".$correo."'";
 $resultado = $conexion->query($sql);
 

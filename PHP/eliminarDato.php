@@ -3,7 +3,7 @@
 session_start();
 include 'conexion.php';
 
-$correo = $_SESSION['correo'];
+$correo = $_SESSION['email'];
 $sql = "SELECT * FROM contaminacion WHERE correoContaminacion = '".$correo."';";
 $resultado = $conexion->query($sql);
 

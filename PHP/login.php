@@ -6,7 +6,7 @@ if(isset($_POST['envio'])){
     $correo = $_POST['correo'];
     $contrasena = $_POST['contraseña'];
     session_start();
-    $_SESSION['correo'] = $correo;
+    $_SESSION['email'] = $correo;
     $_SESSION['pass'] = $contrasena;
     $select = " SELECT * FROM usuario WHERE correo = '$correo' && password = '$contrasena'";
     $result = mysqli_query($conexion, $select);

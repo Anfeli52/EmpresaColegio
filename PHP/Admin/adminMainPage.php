@@ -3,7 +3,7 @@
 session_start();
 include '../conexion.php';
 
-$user = $_SESSION['correo'];
+$user = $_SESSION['email'];
 $select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
 $result = $conexion->query($select);
 while($datos=$result->fetch_assoc()){
@@ -70,6 +70,10 @@ if($user==null || $user==""){
                     <li><a href="#">
                         <i class="fas fa-tasks"></i>
                         <span class="navItemAdmin">Yaxjaneitor3000</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-users"></i>
+                        <span class="navItemAdmin">Usuarios</span>
                     </a></li>
                     <li><a href="#">
                         <i class="fas fa-download"></i>

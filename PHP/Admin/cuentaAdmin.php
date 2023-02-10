@@ -3,7 +3,7 @@
 session_start();
 include '../conexion.php';
 
-$user = $_SESSION['correo'];
+$user = $_SESSION['email'];
 $select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
 $result = $conexion->query($select);
 while($datos=$result->fetch_assoc()){
@@ -52,6 +52,7 @@ if($user==null || $user==""){
             <a href="contaminacionAdminPage.php" class="opciones">Contaminación</a>
             <a href="campanasAdminPage.php" class="opciones">Campañas</a>
             <a href="#" class="opciones">Yaxjaneitor3000</a>
+            <a href="#" class="opciones">Usuarios</a>
         </nav>
     </header>    
     <main>
@@ -166,10 +167,10 @@ if($user==null || $user==""){
                                             </dt>
                                             <dd class="avatar-upload">
                                                 <div id="ver">
-                                                    <img src="<?php echo $foto; ?>" alt="">
+                                                    <img id="imagenPrevisualizacion"  src="<?php echo $foto; ?>" alt="">
                                                 </div>
                                                 <label class="editbtn">
-                                                    Editar<input type="file" class="editarbtn" multiple="multiple" name="fotico" accept=".jpg, .png, .jpeg"><i class="fa-solid fa-pen" value=""></i>
+                                                    Editar<input type="file" class="editarbtn" multiple="multiple" id="fotico" name="fotico" accept=".jpg, .png, .jpeg"><i class="fa-solid fa-pen" value=""></i>
                                                 </label>
                                             </dd>
                                         </dl>
@@ -249,3 +250,26 @@ if($user==null || $user==""){
     
 </body>
 </html>
+<script>
+    // Obtener referencia al input y a la imagen
+
+    const $seleccionArchivos = document.querySelector("#fotico"),
+        $imagenPrevisualizacion = document.querySelector("#imagenPrevisualizacion");
+
+    // Escuchar cuando cambie
+    $seleccionArchivos.addEventListener("change", () => {
+        // Los archivos seleccionados, pueden ser muchos o uno
+        const archivos = $seleccionArchivos.files;
+        // Si no hay archivos salimos de la función y quitamos la imagen
+        if (!archivos || !archivos.length) {
+            $imagenPrevisualizacion.src = "";
+            return;
+        }
+        // Ahora tomamos el primer archivo, el cual vamos a previsualizar
+        const primerArchivo = archivos[0];
+        // Lo convertimos a un objeto de tipo objectURL
+        const objectURL = URL.createObjectURL(primerArchivo);
+        // Y a la fuente de la imagen le ponemos el objectURL
+        $imagenPrevisualizacion.src = objectURL;
+    });
+</script>
