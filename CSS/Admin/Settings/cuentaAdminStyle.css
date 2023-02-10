@@ -43,7 +43,7 @@ input.src{
     border: 1px solid fff;
     background: #fff url("../../../IMG/search.png") no-repeat 9px center;
     width: 270px;
-    transition: all .5s;
+    transition: all .2s;
 }
 
 input.editarbtn {
