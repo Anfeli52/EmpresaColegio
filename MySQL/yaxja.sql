@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-02-2023 a las 03:51:36
+-- Tiempo de generación: 10-02-2023 a las 23:08:58
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -164,10 +164,12 @@ INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `username`, `password`, `
 ('alejandroescobar@gmail.com', 'Alejandro', 'Escobar', 'Alejo', '1234567890', '1234567890', '3162358566', '1992-12-24', 'user', '../../IMG/FotosPerfil/Anonimo.png'),
 ('anfeli201111@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'Anfeli52', '1234567890', '1234567890', '3107171889', '2006-01-06', 'admin', '../../IMG/FotosPerfil/Anakin.jpeg'),
 ('anfelime@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'P4iN', '1234567890', '1234567890', '3107171889', '2006-01-06', 'user', '../../IMG/FotosPerfil/la-paz-nunca-fue-una-opcion-juego-de-ganso-gorra-snapback.jpg'),
+('dani2111@gmail.com', 'Daniela', 'Monsalve', 'Dani', '12345', '12345', '3175576660', '2006-02-11', 'user', '../../IMG/FotosPerfil/Dani.jpeg'),
 ('jslucio100@gmail.com', 'Juan Esteban', 'Idrobo Lucio', 'Jslucio', 'ronaldinho', 'ronaldinho', '2147483647', '2006-01-08', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
 ('Juanesteban9283@gmail.com', 'Juan Esteban', 'Soto Potes', 'Juanes', 'juanes123', 'juanes123', '2147483647', '2006-05-07', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
+('karolgrain@gmail.com', 'Karol Lizeth', 'Grain Mosquera', 'KG', '1234', '1234', '3186520341', '2006-02-02', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
 ('lccalderon1218@gmail.com', 'Luis Carlos', 'Calderón Ríos', 'Pock', 'pock123', 'pock123', '2147483647', '2006-12-18', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
-('venusayurialmeida.99@gmail.com', 'Venus Sayuri', 'Almeida Enriquez', 'Venussa', 'frisby', 'frisby', '3122691411', '2006-09-09', 'user', '../../IMG/FotosPerfil/desayuno1-producto.jpeg');
+('venusayurialmeida.99@gmail.com', 'Venus Sayuri', 'Almeida Enriquez', 'Venussa', 'frisby', 'frisby', '3122691411', '2006-09-09', 'user', '../../IMG/FotosPerfil/Anonimo.png');
 
 --
 -- Índices para tablas volcadas
