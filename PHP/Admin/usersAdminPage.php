@@ -32,7 +32,7 @@ if($user==null || $user==""){
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../CSS/Admin/adminMainPageStyle.css">
+    <link rel="stylesheet" href="../../CSS/Admin/usersAdminPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
@@ -55,7 +55,7 @@ if($user==null || $user==""){
                             </span>
                         </a>
                     </li>
-                    <li><a href="#">
+                    <li><a href="adminMainPage.php">
                         <i class="fas fa-home"></i>
                         <span class="navItemAdmin">Inicio</span>
                     </a></li>
@@ -98,6 +98,43 @@ if($user==null || $user==""){
                 </ul>
             </nav>
         </header>
+        <main>
+        <div class="container py-4 text-center">
+                <h2>Usuarios Registrados</h2>
+                <div class="row">
+                    <div class="columna">
+                        <form action="" method="post">
+                            <div class="container1">
+                                <label for="campo"></label>
+                                <input type="text" name="campo" id="campo" placeholder="Buscar">
+                                <i class="fa fa-search"></i>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row py-4">
+                    <div class="col">
+                        <table class="table table-sm table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Correo</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido</th>
+                                    <th>Username</th>
+                                    <th>Teléfono</th>
+                                    <th>Tipo de Usuario</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <!-- El id del cuerpo de la tabla. -->
+                            <tbody id="content">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
     <script>
         $(window).on('load',function(){
@@ -107,5 +144,29 @@ if($user==null || $user==""){
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        /* Llamando a la función getData() */
+        getData();
+        /* Escuchar un evento keyup en el campo de entrada y luego llamar a la función getData. */
+        document.getElementById("campo").addEventListener("keyup", getData);
+        /* Peticion AJAX */
+        function getData() {
+            let input = document.getElementById("campo").value;
+            let content = document.getElementById("content");
+            let url = "../tablaUsuarios.php";
+            let formaData = new FormData()
+            formaData.append('campo', input);
+            fetch(url, {
+                    method: "POST",
+                    body: formaData
+                }).then(response => response.json())
+                .then(data => {
+                    content.innerHTML = data
+                }).catch(err => console.log(err))
+        }
+    </script>
+    <!-- Bootstrap core JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 </body>
 </html>

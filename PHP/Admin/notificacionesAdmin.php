@@ -47,10 +47,11 @@ if($user==null || $user==""){
             <input type="text" name="search" placeholder="Buscar..." class="src" autocomplete="off">
         </div>
         <nav class="options-header">
-            <a href="userMainPage.php" class="opciones">Inicio</a>
-            <a href="contaminacionUserPage.php" class="opciones">Contaminación</a>
-            <a href="campanasUserPage.php" class="opciones">Campañas</a>
+            <a href="adminMainPage.php" class="opciones">Inicio</a>
+            <a href="contaminacionAdminPage.php" class="opciones">Contaminación</a>
+            <a href="campanasAdminPage.php" class="opciones">Campañas</a>
             <a href="#" class="opciones">Yaxjaneitor3000</a>
+            <a href="usersAdminPage.php" class="opciones">Usuarios</a>
         </nav>
     </header>    
     <main>

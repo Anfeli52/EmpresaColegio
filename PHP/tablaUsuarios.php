@@ -21,23 +21,24 @@ if($user==null || $user==""){
     }
 }
 
-$columns = ['correoContaminacion','codigoAgua', 'nombreAgua', 'cuerpoAgua', 'nivelContaminante', 'nivelTurbidad', 'fechaMuestra'];
-$table = "contaminacion";
+$columns = ['correo', 'nombre', 'apellido', 'username', 'telefono', 'tipoUsuario'];
+$table = "usuario";
 $campo = isset($_POST['campo']) ? $conexion->real_escape_string($_POST['campo']) : null;
 
-$where = "WHERE correoContaminacion = '$correo'";
+$where = '';
 
-if($campo != null){
-    $cont = count($columns);
+if ($campo != null) {
     $where = "WHERE (";
-    for($i = 1; $i < $cont; $i++){
-        $where .=  "'$correo' = correoContaminacion AND " .$columns[$i]. " LIKE '%".$campo."%' OR ";
+
+    $cont = count($columns);
+    for ($i = 0; $i < $cont; $i++) {
+        $where .= $columns[$i] . " LIKE '%" . $campo . "%' OR ";
     }
     $where = substr_replace($where, "", -3);
     $where .= ")";
 }
 
-$sql = "SELECT * FROM contaminacion $where";
+$sql = "SELECT * FROM usuario $where";
 $resultado = $conexion->query($sql);
 $num_rows = $resultado->num_rows;
 
@@ -46,16 +47,14 @@ $html = '';
 if ($num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
         $html .= '<tr>';
-        $html .= '<td>' . $row['fotoAgua'] . '</td>';
-        $html .= '<td>' . $row['codigoAgua'] . '</td>';
-        $html .= '<td>' . $row['nombreAgua'] . '</td>';
-        $html .= '<td>' . $row['cuerpoAgua'] . '</td>';
-        $html .= '<td>' . $row['nivelContaminante'] . '</td>';
-        $html .= '<td>' . $row['nivelTurbidad'] . '</td>';
-        $html .= '<td>' . $row['fechaMuestra'] . '</td>';
-
-        $html .= '<td><a href="#" onclick="editar()">Editar</a></td>';
-        $html .= '<td><a href="#" onclick="eliminar()">Eliminar</a></td>';
+        $html .= '<td>' . $row['correo'] . '</td>';
+        $html .= '<td>' . $row['nombre'] . '</td>';
+        $html .= '<td>' . $row['apellido'] . '</td>';
+        $html .= '<td>' . $row['username'] . '</td>';
+        $html .= '<td>' . $row['telefono'] . '</td>';
+        $html .= '<td><select><option>admin</option><option>user</option></</select></td>';
+        $html .= '<td><a class= "editar" href="#" onclick="editar()">Editar</a></td>';
+        $html .= '<td><a class= "borrar" href="#" onclick="eliminar()">Eliminar</a></td>';
         $html .= '</tr>';
     }
 } else {
@@ -65,3 +64,5 @@ if ($num_rows > 0) {
 }
 
 echo json_encode($html, JSON_UNESCAPED_UNICODE);
+
+?>

@@ -52,7 +52,7 @@ if($user==null || $user==""){
             <a href="contaminacionAdminPage.php" class="opciones">Contaminación</a>
             <a href="campanasAdminPage.php" class="opciones">Campañas</a>
             <a href="#" class="opciones">Yaxjaneitor3000</a>
-            <a href="#" class="opciones">Usuarios</a>
+            <a href="usersAdminPage.php" class="opciones">Usuarios</a>
         </nav>
     </header>    
     <main>

@@ -75,6 +75,10 @@ if($user==null || $user==""){
                             <i class="fas fa-tasks"></i>
                             <span class="navItemAdmin">Yaxjaneitor3000</span>
                         </a></li>
+                    <li><a href="usersAdminPage.php">
+                            <i class="fas fa-users"></i>
+                            <span class="navItemAdmin">Usuarios</span>
+                        </a></li>
                     <li><a href="#">
                             <i class="fas fa-download"></i>
                             <span class="navItemAdmin">Actualizar Campañas</span>
@@ -117,10 +121,13 @@ if($user==null || $user==""){
                         <table class="table table-sm table-bordered">
                             <thead>
                                 <tr>
+                                    <th>Foto Cuerpo</th>
                                     <th>Codigo Agua</th>
                                     <th>Nombre Agua</th>
                                     <th>Cuerpo de Agua</th>
                                     <th>Nivel Contaminante</th>
+                                    <th>Nivel Turbidad</th>
+                                    <th>Fecha</th>
                                     <th></th>
                                     <th></th>
                                 </tr>

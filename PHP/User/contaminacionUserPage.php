@@ -116,6 +116,7 @@ if($user==null || $user==""){
                                     <th>Nombre Agua</th>
                                     <th>Cuerpo de Agua</th>
                                     <th>Nivel Contaminante</th>
+                                    <th>Foto Cuerpo</th>
                                     <th></th>
                                     <th></th>
                                 </tr>
