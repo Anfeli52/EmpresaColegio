@@ -1,24 +1,24 @@
-<?php 
+<?php
 
 session_start();
 include '../conexion.php';
 
 $user = $_SESSION['email'];
-$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '" . $user . "';";
 $result = $conexion->query($select);
-while($datos=$result->fetch_assoc()){
+while ($datos = $result->fetch_assoc()) {
     $tipoUsuario = $datos['tipoUsuario'];
 }
 
-if($user==null || $user==""){
+if ($user == null || $user == "") {
     header('location:../../HTML/login.html');
-}else if($tipoUsuario!="admin"){
+} else if ($tipoUsuario != "admin") {
     header('location:../User/userMainPage.php');
-}else{
-    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
+} else {
+    $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
     $resultado = $conexion->query($sql);
 
-    while($data=$resultado->fetch_assoc()){
+    while ($data = $resultado->fetch_assoc()) {
         $username = $data['username'];
         $correo = $data['correo'];
         $nombre = $data['nombre'];
@@ -28,21 +28,24 @@ if($user==null || $user==""){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/Admin/usersAdminPage.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Inicio</title>
 </head>
+
 <body>
     <div class="loader">
         <div></div>
     </div>
+    <div class="body-dark" id="body"></div>
     <div class="page">
         <header>
             <nav class="menu">
@@ -56,33 +59,33 @@ if($user==null || $user==""){
                         </a>
                     </li>
                     <li><a href="adminMainPage.php">
-                        <i class="fas fa-home"></i>
-                        <span class="navItemAdmin">Inicio</span>
-                    </a></li>
+                            <i class="fas fa-home"></i>
+                            <span class="navItemAdmin">Inicio</span>
+                        </a></li>
                     <li><a href="contaminacionAdminPage.php">
-                        <i class="fas fa-radiation"></i>
-                        <span class="navItemAdmin">Contaminación</span>
-                    </a></li>
+                            <i class="fas fa-radiation"></i>
+                            <span class="navItemAdmin">Contaminación</span>
+                        </a></li>
                     <li><a href="campanasAdminPage.php">
-                        <i class="fas fa-tags"></i>
-                        <span class="navItemAdmin">Campañas</span>
-                    </a></li>
+                            <i class="fas fa-tags"></i>
+                            <span class="navItemAdmin">Campañas</span>
+                        </a></li>
                     <li><a href="#">
-                        <i class="fas fa-tasks"></i>
-                        <span class="navItemAdmin">Yaxjaneitor3000</span>
-                    </a></li>
+                            <i class="fas fa-tasks"></i>
+                            <span class="navItemAdmin">Yaxjaneitor3000</span>
+                        </a></li>
                     <li><a href="#">
-                        <i class="fas fa-users"></i>
-                        <span class="navItemAdmin">Usuarios</span>
-                    </a></li>
+                            <i class="fas fa-users"></i>
+                            <span class="navItemAdmin">Usuarios</span>
+                        </a></li>
                     <li><a href="#">
-                        <i class="fas fa-download"></i>
-                        <span class="navItemAdmin">Actualizar Campañas</span>
-                    </a></li>
+                            <i class="fas fa-download"></i>
+                            <span class="navItemAdmin">Actualizar Campañas</span>
+                        </a></li>
                     <li><a href="cuentaAdmin.php">
-                        <i class="fas fa-cog"></i>
-                        <span class="navItemAdmin">Configuración</span>
-                    </a></li>
+                            <i class="fas fa-cog"></i>
+                            <span class="navItemAdmin">Configuración</span>
+                        </a></li>
                     <!-- <li><a href="contactUsAdmin.html">
                         <i class="fas fa-phone"></i>
                         <span class="navItemAdmin">Contacto</span>
@@ -92,14 +95,14 @@ if($user==null || $user==""){
                         <span class="navItemAdmin">Configuración</span>
                     </a></li> -->
                     <li><a href="../../PHP/logout.php" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="navItemAdmin">Cerrar Sesión</span>
-                    </a></li>
+                            <i class="fas fa-sign-out-alt"></i>
+                            <span class="navItemAdmin">Cerrar Sesión</span>
+                        </a></li>
                 </ul>
             </nav>
         </header>
         <main>
-        <div class="container py-4 text-center">
+            <div class="container py-4 text-center">
                 <h2>Usuarios Registrados</h2>
                 <div class="row">
                     <div class="columna">
@@ -134,10 +137,90 @@ if($user==null || $user==""){
                     </div>
                 </div>
             </div>
+            <!--INICIO EDITAR DATOS TABLA USUARIOS-->
+            <div class="dialog d-flex flex-column box--overlay box" id="mensaje_borrar">
+                <div class="box_header">
+                    <button type="button" class="box_btn_close" onclick="closedialog()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <h2 class="box_title"> ¿Estás seguro que quieres hacer esto? </h2>
+                </div>
+                <div class="box_advert">
+                    <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> Esto es extremadamente importante.
+                </div>
+                <div class="box_body">
+                    <h3><strong>EDITAR DATOS</strong></h3>
+                    <hr>
+                    </hr>
+                    <form action="updateUsers.php" method="post">
+                        <p class="delete_account_text">
+                            <label class="options"> Correo: </label>
+                            <input type="email" name="usuarioCorreo" class="form-control" required>
+                        </p>
+
+                        <p class="delete_account_text">
+                            <label class="options"> Nombre: </label>
+                            <input type="text" name="usuarioNombre" class="form-control" required>
+                        </p>
+
+                        <p class="delete_account_text" id="last_camp">
+                            <label class="options"> Apellido: </label>
+                            <input type="text" name="usuarioApellido" class="form-control" required>
+                        </p>
+                        <p class="delete_account_text">
+                            <label class="options"> Username: </label>
+                            <input type="text" name="usuarioUsername" class="form-control" required>
+                        </p>
+
+                        <p class="delete_account_text">
+                            <label class="options"> Teléfono: </label>
+                            <input type="number" name="usuarioTelefono" class="form-control" required>
+                        </p>
+
+                        <p class="delete_account_text" id="last_camp">
+                            <label class="options"> Tipo de Usuario: </label>
+                            <select class="sectionUserType" name="usuarioTipoUsuario">
+                                <option value="">admin</option>
+                                <option value="">user</option>
+                            </select>
+                        </p>
+                        <div class="botones">
+                            <button type="submit" class="btn_update_account"> Actualizar </button>
+                            <button type="reset" class="btn_cancelUpdate_account" onclick="closedialog()"> Cancelar </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!---------------------------------------------------------------------ELIMINAR CAMPO--------------------------------------------------------------------->
+            <div class="dialog d-flex flex-column box--overlay box" id="eliminarCampo">
+                <div class="box_header">
+                    <button type="button" class="box_btn_close" onclick="closedialog()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                    <h2 class="box_title"> ¿Estás seguro que quieres hacer esto? </h2>
+                </div>
+                <div class="box_advert">
+                    <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i>
+                </div>
+                <div class="box_body">
+                    <p> Eliminaremos de inmediato de Yaxja. </p>
+                    <label class="delete"> Para verificar, escribe <i>borrar campo</i> abajo: </label>
+                    <hr></hr>
+                    <form action="deleteField.php" method="post">
+                        <p class="delete_account_text">
+                            <input type="text" name="deletedField" class="form-deleted-field" required>
+                        </p>
+                        <div class="botones">
+                            <button type="submit" class="btn_cancelUpdate_account"> Eliminar </button>
+                            <button type="reset" class="btn_update_account" onclick="closedialog()"> Cancelar </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </main>
     </div>
     <script>
-        $(window).on('load',function(){
+        $(window).on('load', function() {
             $(".loader").fadeOut(1000);
             $(".page").fadeIn(1000);
         });
@@ -168,5 +251,7 @@ if($user==null || $user==""){
     <!-- Bootstrap core JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script src="../../JS/usersAdministration.js"></script>
 </body>
+
 </html>

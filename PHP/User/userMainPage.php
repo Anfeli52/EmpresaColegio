@@ -34,7 +34,7 @@ if($user==null || $user==""){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../IMG/logoheader.png">
     <link rel="stylesheet" href="../../CSS/User/userMainPageStyles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//code.tidio.co/0xm4bymhhmxmiwe8qrrlxsjxzvyi2nkl.js" async></script>
@@ -71,6 +71,10 @@ if($user==null || $user==""){
                     <li><a href="#">
                         <i class="fas fa-tasks"></i>
                         <span class="navItemUser">Yaxjaneitor3000</span>
+                    </a></li>
+                    <li><a href="#">
+                        <i class="fas fa-message"></i>
+                        <span class="navItemUser">Chat</span>
                     </a></li>
                     <li><a href="cuentaUser.php">
                         <i class="fas fa-cog"></i>

@@ -46,20 +46,21 @@ $html = '';
 if ($num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
         $html .= '<tr>';
-        $html .= '<td>' . $row['fotoAgua'] . '</td>';
-        $html .= '<td>' . $row['codigoAgua'] . '</td>';
-        $html .= '<td>' . $row['nombreAgua'] . '</td>';
-        $html .= '<td>' . $row['cuerpoAgua'] . '</td>';
-        $html .= '<td>' . $row['nivelContaminante'] . '</td>';
-        $html .= '<td>' . $row['nivelTurbidad'] . '</td>';
-        $html .= '<td>' . $row['fechaMuestra'] . '</td>';
-        $html .= '<td><a href="#" onclick="editar()">Editar</a></td>';
-        $html .= '<td><a href="#" onclick="eliminar()">Eliminar</a></td>';
+            $html .= '<td> <img src="'.$row['fotoAgua'].'" alt=""> </td>';
+//          $html .= '<td>' . $row['fotoAgua'] . '</td>'; //ESTE CAMPO NO SE MUESTRA EN LA BASE DE DATOS, ES POR ESO QUE SE QUITA (POR AHORA) PARA QUE SE MUESTREN LOS DATOS
+            $html .= '<td>' . $row['codigoAgua'] . '</td>';
+            $html .= '<td>' . $row['nombreAgua'] . '</td>';
+            $html .= '<td>' . $row['cuerpoAgua'] . '</td>';
+            $html .= '<td>' . $row['nivelContaminante'] . '</td>';
+            $html .= '<td>' . $row['nivelTurbidad'] . '</td>';
+            $html .= '<td>' . $row['fechaMuestra'] . '</td>';
+            $html .= '<td><a href="#" onclick="editar()">Editar</a></td>';
+            $html .= '<td><a href="#" onclick="eliminar()">Eliminar</a></td>';
         $html .= '</tr>';
     }
 } else {
     $html .= '<tr>';
-    $html .= '<td colspan="6">Sin resultados</td>';
+    $html .= '<td colspan="10">Sin resultados</td>';
     $html .= '</tr>';
 }
 
