@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-02-2023 a las 23:08:58
+-- Tiempo de generación: 25-02-2023 a las 00:21:12
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -77,6 +77,7 @@ CREATE TABLE `contaminacion` (
   `nombreAgua` varchar(20) NOT NULL,
   `cuerpoAgua` varchar(20) NOT NULL,
   `fechaMuestra` date NOT NULL,
+  `fotoAgua` varchar(300) NOT NULL,
   `correoContaminacion` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -84,9 +85,9 @@ CREATE TABLE `contaminacion` (
 -- Volcado de datos para la tabla `contaminacion`
 --
 
-INSERT INTO `contaminacion` (`codigoAgua`, `nivelContaminante`, `nivelTurbidad`, `nombreAgua`, `cuerpoAgua`, `fechaMuestra`, `correoContaminacion`) VALUES
-('R24390', 21, 12, 'Lago Algo', 'Lago', '2023-02-03', 'anfelime@gmail.com'),
-('R52853', 12, 21, 'Lago Calima', 'Lago', '2023-02-03', 'anfeli201111@gmail.com');
+INSERT INTO `contaminacion` (`codigoAgua`, `nivelContaminante`, `nivelTurbidad`, `nombreAgua`, `cuerpoAgua`, `fechaMuestra`, `fotoAgua`, `correoContaminacion`) VALUES
+('R216', 21, 21, 'Hola', 'Oceano', '2023-02-07', '../../IMG/Anakin.jpeg', 'venusayurialmeida.99@gmail.com'),
+('R92936', 0, 0, 'Cauquita', 'Lago', '2023-02-06', '../../IMG/Anonimo.png', 'anfeli201111@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -165,11 +166,11 @@ INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `username`, `password`, `
 ('anfeli201111@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'Anfeli52', '1234567890', '1234567890', '3107171889', '2006-01-06', 'admin', '../../IMG/FotosPerfil/Anakin.jpeg'),
 ('anfelime@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'P4iN', '1234567890', '1234567890', '3107171889', '2006-01-06', 'user', '../../IMG/FotosPerfil/la-paz-nunca-fue-una-opcion-juego-de-ganso-gorra-snapback.jpg'),
 ('dani2111@gmail.com', 'Daniela', 'Monsalve', 'Dani', '12345', '12345', '3175576660', '2006-02-11', 'user', '../../IMG/FotosPerfil/Dani.jpeg'),
-('jslucio100@gmail.com', 'Juan Esteban', 'Idrobo Lucio', 'Jslucio', 'ronaldinho', 'ronaldinho', '2147483647', '2006-01-08', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
-('Juanesteban9283@gmail.com', 'Juan Esteban', 'Soto Potes', 'Juanes', 'juanes123', 'juanes123', '2147483647', '2006-05-07', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
+('jslucio100@gmail.com', 'Juan Esteban', 'Idrobo Lucio', 'Jslucio', 'ronaldinho', 'ronaldinho', '3164208464', '2006-01-08', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
+('Juanesteban9283@gmail.com', 'Juan Esteban', 'Soto Potes', 'Juanes', 'juanes123', 'juanes123', '3161499556', '2006-05-07', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
 ('karolgrain@gmail.com', 'Karol Lizeth', 'Grain Mosquera', 'KG', '1234', '1234', '3186520341', '2006-02-02', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
-('lccalderon1218@gmail.com', 'Luis Carlos', 'Calderón Ríos', 'Pock', 'pock123', 'pock123', '2147483647', '2006-12-18', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
-('venusayurialmeida.99@gmail.com', 'Venus Sayuri', 'Almeida Enriquez', 'Venussa', 'frisby', 'frisby', '3122691411', '2006-09-09', 'user', '../../IMG/FotosPerfil/Anonimo.png');
+('lccalderon1218@gmail.com', 'Luis Carlos', 'Calderón Ríos', 'Pock', 'pock123', 'pock123', '3122487782', '2006-12-18', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
+('venusayurialmeida.99@gmail.com', 'Venus Sayuri', 'Almeida Enriquez', 'Venussa', 'frisby', 'frisby', '3122691411', '2006-09-09', 'user', '../../IMG/FotosPerfil/20221208_193023.jpg');
 
 --
 -- Índices para tablas volcadas

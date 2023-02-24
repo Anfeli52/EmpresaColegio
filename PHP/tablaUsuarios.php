@@ -71,7 +71,7 @@ if ($num_rows > 0) {
             $userType = "<select><option>admin</option><option>user</option></select>";
         }
         $html .= '<tr>';
-            $html .= '<td>' . $row['correo'] . '</td>';
+            $html .= '<td id = '.$row['correo'].'>' . $row['correo'] . '</td>';
             $html .= '<td>' . $row['nombre'] . '</td>';
             $html .= '<td>' . $row['apellido'] . '</td>';
             $html .= '<td>' . $row['username'] . '</td>';

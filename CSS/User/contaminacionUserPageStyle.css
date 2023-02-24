@@ -201,9 +201,23 @@ tr:hover td{
 .columna:hover i{
 	transform: rotate(-360deg);
 }
+table tbody tr td{
+    padding: 0;
+}
+table tbody tr td img{
+    width: 70px;
+    height: 77px;
+    margin: auto;
+    padding: 0;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
 table tbody tr td a{
-    padding: 13px;
-    height: 100%;
+    padding: 26px 5px;
+    width: 100px;
+    height: 77px;
     color: #000;
 }
 table tbody tr td a:hover{

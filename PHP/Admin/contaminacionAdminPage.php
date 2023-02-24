@@ -4,21 +4,21 @@ session_start();
 include '../conexion.php';
 
 $user = $_SESSION['email'];
-$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '" . $user . "';";
 $result = $conexion->query($select);
-while($datos=$result->fetch_assoc()){
+while ($datos = $result->fetch_assoc()) {
     $tipoUsuario = $datos['tipoUsuario'];
 }
 
-if($user==null || $user==""){
+if ($user == null || $user == "") {
     header('location:../../HTML/login.html');
-}else if($tipoUsuario!="admin"){
+} else if ($tipoUsuario != "admin") {
     header('location:../User/userMainPage.php');
-}else{
-    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
+} else {
+    $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
     $resultado = $conexion->query($sql);
 
-    while($data=$resultado->fetch_assoc()){
+    while ($data = $resultado->fetch_assoc()) {
         $username = $data['username'];
         $correo = $data['correo'];
         $nombre = $data['nombre'];
@@ -63,7 +63,7 @@ if($user==null || $user==""){
                     <li><a href="adminMainPage.php">
                             <i class="fas fa-home"></i>
                             <span class="navItemAdmin">Inicio</span>
-                    </a></li>
+                        </a></li>
                     <li><a href="contaminacionAdminPage.php">
                             <i class="fas fa-radiation"></i>
                             <span class="navItemAdmin">Contaminación</span>
@@ -81,10 +81,14 @@ if($user==null || $user==""){
                             <span class="navItemAdmin">Usuarios</span>
                         </a></li>
                     <li><a href="#">
+                            <i class="fas fa-message"></i>
+                            <span class="navItemAdmin">Chat</span>
+                        </a></li>
+                    <li><a href="#">
                             <i class="fas fa-download"></i>
                             <span class="navItemAdmin">Actualizar Campañas</span>
                         </a></li>
-                        <li><a href="cuentaAdmin.php">
+                    <li><a href="cuentaAdmin.php">
                             <i class="fas fa-cog"></i>
                             <span class="navItemAdmin">Configuración</span>
                         </a></li>
@@ -143,7 +147,7 @@ if($user==null || $user==""){
         </main>
     </div>
     <script>
-        $(window).on('load', function () {
+        $(window).on('load', function() {
             $(".loader").fadeOut(1000);
             $(".page").fadeIn(1000);
         });
@@ -163,18 +167,17 @@ if($user==null || $user==""){
             let formaData = new FormData()
             formaData.append('campo', input);
             fetch(url, {
-                method: "POST",
-                body: formaData
-            }).then(response => response.json())
+                    method: "POST",
+                    body: formaData
+                }).then(response => response.json())
                 .then(data => {
                     content.innerHTML = data
                 }).catch(err => console.log(err))
         }
     </script>
     <!-- Bootstrap core JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <script src="../../JS/contaminacion.js"></script>
 
 </body>

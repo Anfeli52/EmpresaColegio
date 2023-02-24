@@ -76,6 +76,10 @@ if($user==null || $user==""){
                         <span class="navItemAdmin">Usuarios</span>
                     </a></li>
                     <li><a href="#">
+                            <i class="fas fa-message"></i>
+                            <span class="navItemAdmin">Chat</span>
+                    </a></li>
+                    <li><a href="#">
                         <i class="fas fa-download"></i>
                         <span class="navItemAdmin">Actualizar Campañas</span>
                     </a></li>

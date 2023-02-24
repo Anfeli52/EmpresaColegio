@@ -35,7 +35,7 @@ if ($user == null || $user == "") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/Admin/usersAdminPage.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>Inicio</title>
@@ -77,6 +77,10 @@ if ($user == null || $user == "") {
                     <li><a href="#">
                             <i class="fas fa-users"></i>
                             <span class="navItemAdmin">Usuarios</span>
+                        </a></li>
+                    <li><a href="#">
+                            <i class="fas fa-message"></i>
+                            <span class="navItemAdmin">Chat</span>
                         </a></li>
                     <li><a href="#">
                             <i class="fas fa-download"></i>
@@ -155,33 +159,33 @@ if ($user == null || $user == "") {
                     <form action="updateUsers.php" method="post">
                         <p class="delete_account_text">
                             <label class="options"> Correo: </label>
-                            <input type="email" name="usuarioCorreo" class="form-control" required>
+                            <input type="email" name="usuarioCorreo" class="form-control" required value="">
                         </p>
 
                         <p class="delete_account_text">
                             <label class="options"> Nombre: </label>
-                            <input type="text" name="usuarioNombre" class="form-control" required>
+                            <input type="text" name="usuarioNombre" class="form-control" required value="">
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
                             <label class="options"> Apellido: </label>
-                            <input type="text" name="usuarioApellido" class="form-control" required>
+                            <input type="text" name="usuarioApellido" class="form-control" required value="">
                         </p>
                         <p class="delete_account_text">
                             <label class="options"> Username: </label>
-                            <input type="text" name="usuarioUsername" class="form-control" required>
+                            <input type="text" name="usuarioUsername" class="form-control" required value="">
                         </p>
 
                         <p class="delete_account_text">
                             <label class="options"> Teléfono: </label>
-                            <input type="number" name="usuarioTelefono" class="form-control" required>
+                            <input type="number" name="usuarioTelefono" class="form-control" required value="">
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
                             <label class="options"> Tipo de Usuario: </label>
                             <select class="sectionUserType" name="usuarioTipoUsuario">
-                                <option value="">admin</option>
-                                <option value="">user</option>
+                                <option>admin</option>
+                                <option>user</option>
                             </select>
                         </p>
                         <div class="botones">
@@ -205,7 +209,8 @@ if ($user == null || $user == "") {
                 <div class="box_body">
                     <p> Eliminaremos de inmediato de Yaxja. </p>
                     <label class="delete"> Para verificar, escribe <i>borrar campo</i> abajo: </label>
-                    <hr></hr>
+                    <hr>
+                    </hr>
                     <form action="deleteField.php" method="post">
                         <p class="delete_account_text">
                             <input type="text" name="deletedField" class="form-deleted-field" required>

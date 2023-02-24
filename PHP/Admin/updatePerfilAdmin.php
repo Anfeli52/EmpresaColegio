@@ -37,7 +37,7 @@ if(mysqli_num_rows($result)>0){
     }elseif($ruta!="../../IMG/FotosPerfil/" && $username==""&&$username==null){
         $update = "UPDATE usuario SET fotoPerfil = '$ruta' WHERE correo = '$correo'";
     }else{
-        header('location:cuentaUser.php');
+        header('location:cuentaAdmin.php');
     }
     mysqli_query($conexion, $update);
 }

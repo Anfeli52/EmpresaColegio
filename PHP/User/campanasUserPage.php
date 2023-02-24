@@ -72,7 +72,7 @@ if($user==null || $user==""){
                         <span class="navItemUser">Yaxjaneitor 3000</span>
                     </a></li>
                     <li><a href="#">
-                        <i class="fas fa-tasks"></i>
+                        <i class="fas fa-message"></i>
                         <span class="navItemUser">Chat</span>
                     </a></li>
                     <li><a href="cuentaUser.php">
