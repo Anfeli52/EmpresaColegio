@@ -69,7 +69,7 @@ if($user==null || $user==""){
                     </a></li>
                     <li><a href="#">
                         <i class="fas fa-tasks"></i>
-                        <span class="navItemUser">Yaxjaneitor 3000</span>
+                        <span class="navItemUser">DW-23</span>
                     </a></li>
                     <li><a href="#">
                         <i class="fas fa-message"></i>

@@ -77,8 +77,8 @@ if ($num_rows > 0) {
             $html .= '<td>' . $row['username'] . '</td>';
             $html .= '<td>' . $row['telefono'] . '</td>';
             $html .= '<td>' . $userType . '</td>';
-            $html .= '<td>' . $num . '</td>';
-            $html .= '<td><a class= "editar" href="#" onclick="editar()">Editar</a></td>';
+            //$html .= '<td>' . $num . '</td>';
+            $html .= '<td><a class= "editar" id='.$row['correo'].'" href="#" onclick="editar()">Editar</a></td>';
             $html .= '<td><a class= "borrar" href="#" onclick="deleteSpace()">Eliminar</a></td>';
         $html .= '</tr>';
         $i++;
@@ -90,3 +90,5 @@ if ($num_rows > 0) {
 }
 
 echo json_encode($html, JSON_UNESCAPED_UNICODE);
+
+?>

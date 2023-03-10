@@ -72,7 +72,7 @@ if ($user == null || $user == "") {
                         </a></li>
                     <li><a href="#">
                             <i class="fas fa-tasks"></i>
-                            <span class="navItemAdmin">Yaxjaneitor3000</span>
+                            <span class="navItemAdmin">DW-23</span>
                         </a></li>
                     <li><a href="#">
                             <i class="fas fa-users"></i>
@@ -156,7 +156,7 @@ if ($user == null || $user == "") {
                     <h3><strong>EDITAR DATOS</strong></h3>
                     <hr>
                     </hr>
-                    <form action="updateUsers.php" method="post">
+                    <form action="updateUsers.php" id="frmajax" enctype="multipart/form-data" method="post">
                         <p class="delete_account_text">
                             <label class="options"> Correo: </label>
                             <input type="email" name="usuarioCorreo" class="form-control" required value="">
@@ -257,6 +257,43 @@ if ($user == null || $user == "") {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     <script src="../../JS/usersAdministration.js"></script>
+
+    <script>
+    $(document).ready(function(){
+
+        //Cuando de click en el boton guardar realiza el ajax
+        $('#btnguardar').click(function(){
+            var datos=$('#frmajax').serialize();
+
+            // alert(datos);
+            //return false;
+            //ajax lleva 4 cosas en su estructura
+            $.ajax({
+                //metodo
+                type:"POST",
+                //Archivo Php para enviar los datos
+                url:"#",
+                data:datos,
+                success:function(r){
+                //retorna un echo de php
+                if(r==1){
+                    alert("Tengo los datos");
+                    document.getElementById('').value;
+                    document.getElementById('').value;
+                    document.getElementById('').value;
+                    document.getElementById('').value;
+                    document.getElementById('').value;
+                }else{
+                    alert("No tomé ningún dato");
+                }
+            }
+
+            });
+            //submit evita que se recargue
+            return false;
+        });
+    });
+</script>
 </body>
 
 </html>

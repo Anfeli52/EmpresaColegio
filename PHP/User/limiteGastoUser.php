@@ -50,7 +50,8 @@ if($user==null || $user==""){
             <a href="userMainPage.php" class="opciones">Inicio</a>
             <a href="contaminacionUserPage.php" class="opciones">Contaminación</a>
             <a href="campanasUserPage.php" class="opciones">Campañas</a>
-            <a href="#" class="opciones">Yaxjaneitor3000</a>
+            <a href="#" class="opciones">DW-23</a>
+            <a href="#" class="opciones">Chat</a>
         </nav>
     </header>    
     <main>
