@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-02-2023 a las 00:21:12
+-- Tiempo de generación: 13-03-2023 a las 02:06:57
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -86,7 +86,6 @@ CREATE TABLE `contaminacion` (
 --
 
 INSERT INTO `contaminacion` (`codigoAgua`, `nivelContaminante`, `nivelTurbidad`, `nombreAgua`, `cuerpoAgua`, `fechaMuestra`, `fotoAgua`, `correoContaminacion`) VALUES
-('R216', 21, 21, 'Hola', 'Oceano', '2023-02-07', '../../IMG/Anakin.jpeg', 'venusayurialmeida.99@gmail.com'),
 ('R92936', 0, 0, 'Cauquita', 'Lago', '2023-02-06', '../../IMG/Anonimo.png', 'anfeli201111@gmail.com');
 
 -- --------------------------------------------------------

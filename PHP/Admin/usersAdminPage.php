@@ -25,6 +25,9 @@ if ($user == null || $user == "") {
         $foto = $data['fotoPerfil'];
     }
 }
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -259,41 +262,41 @@ if ($user == null || $user == "") {
     <script src="../../JS/usersAdministration.js"></script>
 
     <script>
-    $(document).ready(function(){
+        $(document).ready(function() {
 
-        //Cuando de click en el boton guardar realiza el ajax
-        $('#btnguardar').click(function(){
-            var datos=$('#frmajax').serialize();
+            //Cuando de click en el boton guardar realiza el ajax
+            $('#btnguardar').click(function() {
+                var datos = $('#frmajax').serialize();
 
-            // alert(datos);
-            //return false;
-            //ajax lleva 4 cosas en su estructura
-            $.ajax({
-                //metodo
-                type:"POST",
-                //Archivo Php para enviar los datos
-                url:"#",
-                data:datos,
-                success:function(r){
-                //retorna un echo de php
-                if(r==1){
-                    alert("Tengo los datos");
-                    document.getElementById('').value;
-                    document.getElementById('').value;
-                    document.getElementById('').value;
-                    document.getElementById('').value;
-                    document.getElementById('').value;
-                }else{
-                    alert("No tomé ningún dato");
-                }
-            }
+                // alert(datos);
+                //return false;
+                //ajax lleva 4 cosas en su estructura
+                $.ajax({
+                    //metodo
+                    type: "POST",
+                    //Archivo PHP para enviar los datos
+                    url: "#",
+                    data: datos,
+                    success: function(r) {
+                        //retorna un echo de php
+                        if (r == 1) {
+                            alert("Tengo los datos");
+                            document.getElementById('').value;
+                            document.getElementById('').value;
+                            document.getElementById('').value;
+                            document.getElementById('').value;
+                            document.getElementById('').value;
+                        } else {
+                            alert("No tomé ningún dato");
+                        }
+                    }
 
+                });
+                //submit evita que se recargue
+                return false;
             });
-            //submit evita que se recargue
-            return false;
         });
-    });
-</script>
+    </script>
 </body>
 
 </html>

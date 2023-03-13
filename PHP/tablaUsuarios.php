@@ -65,21 +65,21 @@ $i = 0;
 if ($num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
         $num++;
-        if ($row['tipoUsuario'] == 'user') {
+        /*if ($row['tipoUsuario'] == 'user') {
             $userType = "<select><option>user</option><option>admin</option></select>";
         } else {
             $userType = "<select><option>admin</option><option>user</option></select>";
-        }
+        }*/
         $html .= '<tr>';
             $html .= '<td id = '.$row['correo'].'>' . $row['correo'] . '</td>';
-            $html .= '<td>' . $row['nombre'] . '</td>';
-            $html .= '<td>' . $row['apellido'] . '</td>';
-            $html .= '<td>' . $row['username'] . '</td>';
-            $html .= '<td>' . $row['telefono'] . '</td>';
-            $html .= '<td>' . $userType . '</td>';
+            $html .= '<td id = '.$row['correo'].'>' . $row['nombre'] . '</td>';
+            $html .= '<td id = '.$row['correo'].'>' . $row['apellido'] . '</td>';
+            $html .= '<td id = '.$row['correo'].'>' . $row['username'] . '</td>';
+            $html .= '<td id = '.$row['correo'].'>' . $row['telefono'] . '</td>';
+            $html .= '<td id = '.$row['correo'].'>' . $row['tipoUsuario'] . '</td>';
             //$html .= '<td>' . $num . '</td>';
-            $html .= '<td><a class= "editar" id='.$row['correo'].'" href="#" onclick="editar()">Editar</a></td>';
-            $html .= '<td><a class= "borrar" href="#" onclick="deleteSpace()">Eliminar</a></td>';
+            $html .= '<td><button class= "editar" id='.$row['correo'].' onclick="editar()">Editar</button></td>';
+            $html .= '<td><button class= "borrar" id='.$row['correo'].' onclick="deleteSpace()">Eliminar</button></td>';
         $html .= '</tr>';
         $i++;
     }
