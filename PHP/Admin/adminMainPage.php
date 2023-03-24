@@ -933,7 +933,7 @@ if ($user == null || $user == "") {
                                 <h5> 000001 </h5>
                             </td>
                             <td class="product-name">
-                                <p> DW-23 </p>
+                                <p> DW23 </p>
                             </td>
                             <td class="quantity">
                                 <p> 16 </p>
@@ -956,7 +956,7 @@ if ($user == null || $user == "") {
                                 <h5> 000002 </h5>
                             </td>
                             <td class="product-name">
-                                <p> DW-23 </p>
+                                <p> DW23 </p>
                             </td>
                             <td class="quantity">
                                 <p> 20 </p>
@@ -979,7 +979,7 @@ if ($user == null || $user == "") {
                                 <h5> 000003 </h5>
                             </td>
                             <td class="product-name">
-                                <p> DW-23 </p>
+                                <p> DW23 </p>
                             </td>
                             <td class="quantity">
                                 <p> 54 </p>
@@ -1002,7 +1002,7 @@ if ($user == null || $user == "") {
                                 <h5> 000004 </h5>
                             </td>
                             <td class="product-name">
-                                <p> DW-23 </p>
+                                <p> DW23 </p>
                             </td>
                             <td class="quantity">
                                 <p> 48 </p>
@@ -1025,7 +1025,7 @@ if ($user == null || $user == "") {
                                 <h5> 000005 </h5>
                             </td>
                             <td class="product-name">
-                                <p> DW-23 </p>
+                                <p> DW23 </p>
                             </td>
                             <td class="quantity">
                                 <p> 09 </p>
@@ -1048,7 +1048,7 @@ if ($user == null || $user == "") {
                                 <h5> 000006 </h5>
                             </td>
                             <td class="product-name">
-                                <p> DW-23 </p>
+                                <p> DW23 </p>
                             </td>
                             <td class="quantity">
                                 <p> 12 </p>
@@ -1071,7 +1071,7 @@ if ($user == null || $user == "") {
                                 <h5> 000007 </h5>
                             </td>
                             <td class="product-name">
-                                <p> DW-23 </p>
+                                <p> DW23 </p>
                             </td>
                             <td class="quantity">
                                 <p> 34 </p>
@@ -1094,7 +1094,7 @@ if ($user == null || $user == "") {
                                 <h5> 000008 </h5>
                             </td>
                             <td class="product-name">
-                                <p> DW-23 </p>
+                                <p> DW23 </p>
                             </td>
                             <td class="quantity">
                                 <p> 76 </p>
