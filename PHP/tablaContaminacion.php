@@ -54,8 +54,8 @@ if ($num_rows > 0) {
             $html .= '<td>' . $row['nivelContaminante'] . '</td>';
             $html .= '<td>' . $row['nivelTurbidad'] . '</td>';
             $html .= '<td>' . $row['fechaMuestra'] . '</td>';
-            $html .= '<td><a href="#" onclick="editar()">Editar</a></td>';
-            $html .= '<td><a href="#" onclick="eliminar()">Eliminar</a></td>';
+            $html .= '<td class="edit-table"><a href="#" onclick="editar()">Modify</a></td>';
+            $html .= '<td  class="eliminate-table"><a href="#" onclick="eliminar()">Remove</a></td>';
         $html .= '</tr>';
     }
 } else {

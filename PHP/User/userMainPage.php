@@ -38,6 +38,7 @@ if($user==null || $user==""){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//code.tidio.co/0xm4bymhhmxmiwe8qrrlxsjxzvyi2nkl.js" async></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Inicio</title>
 </head>
 <body>
@@ -45,55 +46,73 @@ if($user==null || $user==""){
         <div></div>
     </div>
     <div class="page">
-        <header>
-            <nav class="menu">
-                <ul>
-                    <li>
-                        <a href="#" class="logo">
+    <header>
+            <div class="sidebar">
+
+                <div class="logo_content">
+                    <div class="logo">
+                        <a href="#" class="foto">
                             <img src="<?php echo $foto; ?>" alt="">
-                            <span class="navItemUser">
-                                <?php echo $username ?>
-                            </span>
                         </a>
+                        <div class="logo_name"><?php echo $username ?></div>
+                    </div>
+                    <i class='bx bx-menu' id="btn"></i>
+                    <i class="bx bx-x" id="btnclose"></i>
+                </div>
+
+                <ul class="nav">
+                    <li>
+                        <a href="userMainPage.php">
+                            <i class='bx bxs-home-smile'></i>
+                            <span class="link_name"> Inicio </span>
+                        </a>
+                        <span class="tooltip"> Inicio </span>
                     </li>
-                    <li><a href="#">
-                        <i class="fas fa-home"></i>
-                        <span class="navItemUser">Inicio</span>
-                    </a></li>
-                    <li><a href="contaminacionUserPage.php">
-                        <i class="fas fa-radiation"></i>
-                        <span class="navItemUser">Contaminación</span>
-                    </a></li>
-                    <li><a href="campanasUserPage.php">
-                        <i class="fas fa-tags"></i>
-                        <span class="navItemUser">Campañas</span>
-                    </a></li>
-                    <li><a href="#">
-                        <i class="fas fa-tasks"></i>
-                        <span class="navItemUser">DW-23</span>
-                    </a></li>
-                    <li><a href="#">
-                        <i class="fas fa-message"></i>
-                        <span class="navItemUser">Chat</span>
-                    </a></li>
-                    <li><a href="cuentaUser.php">
-                        <i class="fas fa-cog"></i>
-                        <span class="navItemUser">Configuración</span>
-                    </a></li>
-                    <!--<li><a href="contactUsUser.html">
-                        <i class="fas fa-phone"></i>
-                        <span class="navItemUser">Contacto</span>
-                    </a></li>-->
-                    <!--<li><a href="#">
-                        <i class="fas fa-cog"></i>
-                        <span class="navItemUser">Configuración</span>
-                    </a></li>-->
-                    <li><a href="../../PHP/logout.php" class="logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        <span class="navItemUser">Cerrar Sesión</span>
-                    </a></li>
+                    <li>
+                        <a href="contaminacionUserPage.php">
+                            <i class='bx bxs-radiation'></i>
+                            <span class="link_name"> Contaminación </span>
+                        </a>
+                            <span class="tooltip"> Contaminación </span>
+                    </li>
+                    <li>
+                        <a href="campanasUserPage.php">
+                            <i class='bx bxs-megaphone'></i>
+                            <span class="link_name"> Campañas </span>
+                        </a>
+                        <span class="tooltip"> Campañas </span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class='bx bx-chip' ></i>
+                            <span class="link_name"> DW-23 </span>
+                        </a>
+                        <span class="tooltip"> DW-23 </span>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class='bx bxs-message-dots'></i>
+                            <span class="link_name"> Chat </span>
+                        </a>
+                        <span class="tooltip"> Chat </span>
+                    </li>
+                    <li>
+                        <a href="cuentaUser.php">
+                            <i class='bx bxs-cog'></i>
+                            <span class="link_name"> Configuración </span>
+                        </a>
+                        <span class="tooltip"> Configuración </span>
+                    </li>
+                    <li id="close_session">
+                        <a href="../../PHP/logout.php">
+                            <i class='bx bx-exit'></i>
+                            <span class="link_name"> Cerrar Sesión </span>
+                        </a>
+                        <span class="tooltip"> Cerrar Sesión </span>
+                    </li>
                 </ul>
-            </nav>
+
+            </div>
         </header>
         <main>
             <div class="fondo">
@@ -213,5 +232,17 @@ if($user==null || $user==""){
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script>
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
+        let btnclose = document.querySelector('#btnclose');
+    
+        btn.onclick = function(){
+            sidebar.classList.toggle('active');
+        }
+        btnclose.onclick = function(){
+            sidebar.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

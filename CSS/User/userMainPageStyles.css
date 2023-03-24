@@ -6,92 +6,212 @@
     outline: none;
     border: none;
     text-decoration: none;
-    box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+
 body{
-    background: #f6f6f9;
-    height: 100vh;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background-color: #F0EBCC;
 }
-.menu{
+
+/*---------------------------------------------------------------- SIDEBAR ---------------------------------------------------------------------------------------------*/
+
+.sidebar{
     position: fixed;
     top: 0;
-    bottom: 0;
-    height: 100%;
     left: 0;
-    background:  rgb(51, 133, 144);
-    width: 70px;
-    overflow: hidden;
-    transition: width 0.2s linear;
-    box-sizing: 0.20px 35px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 0px 20px darkcyan;
+    width: 50px;
+    background-color: #053247;
+    padding: 6px 16px;
+    height: 98.8%;
+    box-shadow: 5px 0 30px black;
+    transition: all .2s ease;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
     z-index: 10;
 }
-.buscador{
-    position: fixed;
-    width: 100%;
-    height: 60px;
-    z-index: -1;
-    background: rgb(212, 254, 254);
-    box-shadow: 0px 0px 20px darkcyan;
-    z-index: 9;
+
+.sidebar.active{
+    width: 240px;
 }
-.logo{
+
+.sidebar .logo_content .logo{
+    display: flex;
+    color: #fff;
+    height: 50px;
+    width: 100%;
+    font-size: 30px;
+    margin-left: 5px;
+    align-items: center;
+    pointer-events: none;
+    opacity: 0;
+    top: 20px;
+    position: absolute;
+    top: 20px;
+}
+
+.sidebar.active .logo_content .logo{
+    opacity: 1;
+}
+
+.sidebar .logo_content .logo .logo_name{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 10px;
+    word-wrap: break-word;
+    width: 110px;
+}
+
+.sidebar .logo_content .logo .foto{
     text-align: center;
     display: flex;
     transition: all 0.5s ease;
-    margin: 10px 0 0 10px;
+    margin-right: 5px;
 }
-.logo img{
-    width: 45px;
-    height: 45px;
+
+.sidebar .logo_content .logo .foto img{
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
 }
-.logo span{
-    font-weight: bold;
-    padding-left: 15px;
-    font-size: 18px;
-    text-transform: uppercase;
-}
-a{
-    position: relative;
-    color: rgb(240, 240, 240);
-    font-size: 14px;
-    display: table;
-    width: 300px;
-    padding-left: 2px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-.fas{
-    position: relative;
-    width: 70px;
-    height: 40px;
-    top: 14px;
-    font-size: 20px;
-    text-align: center;
-}
-.navItemUser{
-    position: relative;
-    top: 12px;
-    margin-left: 10px;
-}
-a:hover{
-    background: rgb(212, 254, 254);
-    color: rgb(85, 85, 85);
-    transition: 0.2s linear;
-}
-.menu:hover{
-    width: 280px;
-    transition: all 0.5s ease;
-}
-.logout{
+
+.sidebar #btn, #btnclose{
     position: absolute;
-    bottom: 0;
+    left: 50%;
+    top: 20px;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translate(-50%);
+    background-color: #fff;
+    color: #053247;
+    transition: all .4s ease;
 }
+
+#btnclose{
+    display: none;
+    font-size: 22px;
+}
+
+.sidebar #btnclose:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #2f4346;
+}
+
+.sidebar #btn:hover{
+    cursor: pointer;
+    color: #fff;
+    background-color: #2f4346;
+}
+
+.sidebar.active #btnclose{
+    left: 85%;
+    transition: all .4s ease;
+    display: block;
+}
+
+.sidebar.active #btn{
+    display: none;
+}
+
+.sidebar i{
+    height: 50px;
+    min-width: 50px;
+    border-radius: 20px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 25px;
+}
+
+.sidebar ul{
+    margin-top: 100px;
+}
+
+.sidebar ul li{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0;
+    list-style: none;
+    line-height: 50px;
+}
+
+.sidebar ul li a{
+    color: #fff;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+    transition: all .4s ease;
+}
+
+.sidebar ul li a:hover{
+    color: #053247;
+    background: #fff;
+}
+
+.sidebar .link_name{
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar.active .link_name{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar ul li .tooltip{
+    position: absolute;
+    left: 130px;
+    top: 0;
+    transform: translate(-45%, -50%);
+    border-radius: 10px;
+    height: 35px;
+    width: 130px;
+    background: #fff;
+    line-height: 35px;
+    text-align: center;
+    font-size: 13px;
+    display: block;
+    color: #053247;
+    box-shadow: 0 5px 10px black;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .5s ease;
+}
+
+.sidebar.active ul li .tooltip{
+    display: none;
+}
+
+.sidebar ul li:hover .tooltip{
+    opacity: 1;
+    top: 50%;
+}
+
+#close_session{
+    position: absolute;
+    bottom: 20px;
+    width: 50px;
+}
+
+.sidebar.active #close_session a{
+    width: 240px;
+}
+
+/*--------------------------------------------------------------------FIN DEL MENU-----------------------------------------------------------------------------------------------------*/
+
 .page{
     display: none;
 }
+
 .loader{
     height: 100%;
     width: 100%;
@@ -99,6 +219,7 @@ a:hover{
     background-color: #16191e;
     position: fixed;
 }
+
 .loader>div{
     height: 100px;
     width: 100px;
@@ -113,13 +234,15 @@ a:hover{
     border-radius: 50%;
     animation: spin 1.5s infinite linear;
 }
+
 @keyframes spin{
     100%{
         transform: rotate(360deg);
     }
 }
 
-/*---------------------------------------------------------INICIO MAIN---------------------------------------------------------*/
+/*---------------------------------------------------------INICIO MAIN---------------------------------------------------------------------------------*/
+
 main{
     width: 100%;
     

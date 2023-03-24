@@ -58,30 +58,35 @@ while($row = $aña->fetch_assoc()){
 */
 
 $html = '';
-$num = 0;
-$i = 0;
 
 
 if ($num_rows > 0) {
     while ($row = $resultado->fetch_assoc()) {
-        $num++;
-        /*if ($row['tipoUsuario'] == 'user') {
-            $userType = "<select><option>user</option><option>admin</option></select>";
+        if ($row['tipoUsuario'] == 'user') {
+            $userType = "<div class='select'>
+                            <select>
+                                <option value='user'> user </option>
+                                <option value='admin'> admin </option>
+                            </select>
+                        </div>";
         } else {
-            $userType = "<select><option>admin</option><option>user</option></select>";
-        }*/
+            $userType = "<div class='select'>
+                            <select>
+                                <option value='admin'> admin </option>
+                                <option value='user'> user </option>
+                            </select>
+                        </div>";
+        }
         $html .= '<tr>';
-            $html .= '<td id = '.$row['correo'].'>' . $row['correo'] . '</td>';
-            $html .= '<td id = '.$row['correo'].'>' . $row['nombre'] . '</td>';
-            $html .= '<td id = '.$row['correo'].'>' . $row['apellido'] . '</td>';
-            $html .= '<td id = '.$row['correo'].'>' . $row['username'] . '</td>';
-            $html .= '<td id = '.$row['correo'].'>' . $row['telefono'] . '</td>';
-            $html .= '<td id = '.$row['correo'].'>' . $row['tipoUsuario'] . '</td>';
-            //$html .= '<td>' . $num . '</td>';
-            $html .= '<td><button class= "editar" id='.$row['correo'].' onclick="editar()">Editar</button></td>';
-            $html .= '<td><button class= "borrar" id='.$row['correo'].' onclick="deleteSpace()">Eliminar</button></td>';
+            $html .= '<td>' . $row['correo'] . '</td>';
+            $html .= '<td>' . $row['nombre'] . '</td>';
+            $html .= '<td>' . $row['apellido'] . '</td>';
+            $html .= '<td>' . $row['username'] . '</td>';
+            $html .= '<td>' . $row['telefono'] . '</td>';
+            $html .= '<td>' . $userType . '</td>';
+            $html .= '<td class="edit-table"><a href="usersAdminPage.php?editedId='.$row['correo'].'">Edit</a></td>';
+            $html .= '<td  class="eliminate-table"><a href="#" onclick="eliminar()">Delete</a></td>';
         $html .= '</tr>';
-        $i++;
     }
 } else {
     $html .= '<tr>';
@@ -90,5 +95,3 @@ if ($num_rows > 0) {
 }
 
 echo json_encode($html, JSON_UNESCAPED_UNICODE);
-
-?>

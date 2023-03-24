@@ -52,7 +52,6 @@ if($user==null || $user==""){
             <a href="campanasAdminPage.php" class="opciones">Campañas</a>
             <a href="#" class="opciones">DW-23</a>
             <a href="usersAdminPage.php" class="opciones">Usuarios</a>
-            <a href="#" class="opciones">Chat</a>
         </nav>
     </header>    
     <main>
