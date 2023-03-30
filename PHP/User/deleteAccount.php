@@ -23,7 +23,7 @@ if($usuarioCorreo==$correo || $usuarioCorreo==$username){
             mysqli_query($conexion, $delete);
             session_destroy();
             session_unset();
-            header('location:../../HTML/login.html');
+            header('location:../../HTML/login.php');
         }else{
             header('location:cuentaUser.php');
         }

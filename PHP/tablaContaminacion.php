@@ -11,7 +11,7 @@ while($datos=$result->fetch_assoc()){
 }
 
 if($user==null || $user==""){
-    header('location:../HTML/login.html');
+    header('location:../HTML/login.php');
 }else{
     $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
     $resultado = $conexion->query($sql);
@@ -54,8 +54,8 @@ if ($num_rows > 0) {
             $html .= '<td>' . $row['nivelContaminante'] . '</td>';
             $html .= '<td>' . $row['nivelTurbidad'] . '</td>';
             $html .= '<td>' . $row['fechaMuestra'] . '</td>';
-            $html .= '<td class="edit-table"><a href="#" onclick="editar()">Modify</a></td>';
-            $html .= '<td  class="eliminate-table"><a href="#" onclick="eliminar()">Remove</a></td>';
+            $html .= '<td class="edit-table"><a href="contaminacionAdminPage.php?contaminationEditedField='.$row['codigoAgua'].'" name="editarCampo"> Editar </a></td>';
+            $html .= '<td  class="eliminate-table"><a href="contaminacionAdminPage.php?contaminationDeteledField='.$row['codigoAgua'].'" name="eliminarCampo"> Eliminar </a></td>';
         $html .= '</tr>';
     }
 } else {

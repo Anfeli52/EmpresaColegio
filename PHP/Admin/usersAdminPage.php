@@ -11,7 +11,7 @@ while ($datos = $result->fetch_assoc()) {
 }
 
 if ($user == null || $user == "") {
-    header('location:../../HTML/login.html');
+    header('location:../../HTML/login.php');
 } else if ($tipoUsuario != "admin") {
     header('location:../User/userMainPage.php');
 } else {
@@ -910,15 +910,15 @@ if ($user == null || $user == "") {
             $query = mysqli_query($conexion, $selectUsersTable);
             $search = mysqli_fetch_assoc($query);
 
-            if($search['tipoUsuario']=="user"){
+            if ($search['tipoUsuario'] == "user") {
                 $userType = '<select class="sectionUserType" name="usuarioTipoUsuario">
-                                <option value="">user</option>
-                                <option value="">admin</option>
+                                <option value="user">user</option>
+                                <option value="admin">admin</option>
                             </select>';
-            }else{
+            } else {
                 $userType = '<select class="sectionUserType" name="usuarioTipoUsuario">
-                                <option value="">admin</option>
-                                <option value="">user</option>
+                                <option value="admin">admin</option>
+                                <option value="user">user</option>
                             </select>';
             }
 
@@ -928,8 +928,8 @@ if ($user == null || $user == "") {
             
             <div class="dialog d-flex flex-column box--overlay box" id="mensaje_borrar">
                 <div class="box_header">
-                    <button type="button" class="box_btn_close" onclick="closedialog()">
-                        <i class="fa-solid fa-xmark"></i>
+                    <button type="button" class="box_btn_close">
+                        <a href="usersAdminPage.php"><i class="fa-solid fa-xmark"></i></a>
                     </button>
                     <h2 class="box_title"> ¿Estás seguro que quieres hacer esto? </h2>
                 </div>
@@ -943,41 +943,61 @@ if ($user == null || $user == "") {
                     <form action="updateUsers.php" method="post">
                         <p class="delete_account_text">
                             <label class="options"> Correo: </label>
-                            <input type="email" name="usuarioCorreo" class="form-control" value="'.$search['correo'].'" required>
+                            <input type="email" name="usuarioCorreo" class="form-control" value="' . $search['correo'] . '" required>
                         </p>
 
                         <p class="delete_account_text">
                             <label class="options"> Nombre: </label>
-                            <input type="text" name="usuarioNombre" class="form-control" value="'.$search['nombre'].'" required>
+                            <input type="text" name="usuarioNombre" class="form-control" value="' . $search['nombre'] . '" required>
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
                             <label class="options"> Apellido: </label>
-                            <input type="text" name="usuarioApellido" class="form-control" value="'.$search['apellido'].'" required>
+                            <input type="text" name="usuarioApellido" class="form-control" value="' . $search['apellido'] . '" required>
                         </p>
                         <p class="delete_account_text">
                             <label class="options"> Username: </label>
-                            <input type="text" name="usuarioUsername" class="form-control" value="'.$search['username'].'" required>
+                            <input type="text" name="usuarioUsername" class="form-control" value="' . $search['username'] . '" required>
                         </p>
 
                         <p class="delete_account_text">
                             <label class="options"> Teléfono: </label>
-                            <input type="number" name="usuarioTelefono" class="form-control" value="'.$search['telefono'].'" required>
+                            <input type="number" name="usuarioTelefono" class="form-control" value="' . $search['telefono'] . '" required>
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
                             <label class="options"> Tipo de Usuario: </label>
-                            '.$userType.'
+                            ' . $userType . '
                         </p>
                         <div class="botones">
-                            <button type="submit" class="btn_update_account"><a href="usersAdminPage.php"> Actualizar </a></button>
+                            <button type="submit" class="btn_update_account"> Actualizar </button>
                             <button type="reset" class="btn_cancelUpdate_account"><a href="usersAdminPage.php"> Cancelar </a></button>
                         </div>
                     </form>
                 </div>
             </div>';
         }
+        if (isset($_GET['deletedId'])) {
+            $correoDelete = $_GET['deletedId'];
+            echo '
+            <div class="blackBackground"></div>
+            <div class="box-add-campana" id="elim-box"> <!-- ELIMINAR CAMPAÑA -->
+                <div class="box-header">
+                    <a href="usersAdminPage.php" class="equis"><i class="bx bx-x"></i></a>
+                    <h1 class="box-header"> DELETE FIELD </h1>
 
+                    <form action="deleteFieldUsers.php?deletedId='.$correoDelete.'" method="post">
+                        <div class="add-text">
+                            <p class="sure"> Are you sure? </p>
+                            <div class="box-btn">
+                                <button type="submit" class="btn-submit" name="btnDeleteField"> Yes, delete </button>
+                                <a href="usersAdminPage.php" class="btn-submit"> No, Cancel </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> <!-- ELIMINAR CAMPAÑA -->';
+        }
         ?>
         <!--
             <div class="dialog d-flex flex-column box--overlay box" id="mensaje_borrar">

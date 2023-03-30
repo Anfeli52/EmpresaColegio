@@ -11,7 +11,7 @@ while($datos=$result->fetch_assoc()){
 }
 
 if($user==null || $user==""){
-    header('location:../../HTML/login.html');
+    header('location:../../HTML/login.php');
 }else if($tipoUsuario!="admin"){
     header('location:../User/userMainPage.php');
 }else{
@@ -172,7 +172,7 @@ if($user==null || $user==""){
                                     <p class="note"> Asegurate de que tu contraseña tenga <span class="rojito">entre 12 y 20 caracteres</span>.</p>
 
                                     <p class="update_password">
-                                    <button type="submit" class="btnUpdate" onclick="ActualizaContrasena()"> Actualizar Contraseña </button>
+                                    <button type="submit" class="btnUpdate" name="updatePasswords" onclick="ActualizaContrasena()"> Actualizar Contraseña </button>
                                     <span>
                                         <a href="#" class="forgot"> ¿Has olvidado tu contraseña? </a> <!--ENLACE POR SI OLVIDO LA CONTRASEÑA-->
                                     </span>

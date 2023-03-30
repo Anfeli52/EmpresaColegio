@@ -31,7 +31,7 @@ if(isset($_POST['enviar'])){
         }else{
             $insert = "INSERT INTO usuario(nombre, apellido, correo, username, password, confirmPassword, telefono, fechaCumpleaños, tipoUsuario, fotoPerfil) VALUES ('$nombre', '$apellido', '$correo', '$usuario', '$contrasena', '$confirmarContrasena', '$telefono', '$cumpleaños', 'user', '$foto')";
             mysqli_query($conexion, $insert);
-            header('location:../HTML/login.html?success=Account Created Successfully');
+            header('location:../HTML/login.php?success=Account Created Successfully');
         }
     }
 }

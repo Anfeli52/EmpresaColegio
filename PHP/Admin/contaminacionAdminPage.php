@@ -4,21 +4,21 @@ session_start();
 include '../conexion.php';
 
 $user = $_SESSION['email'];
-$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '" . $user . "';";
 $result = $conexion->query($select);
-while($datos=$result->fetch_assoc()){
+while ($datos = $result->fetch_assoc()) {
     $tipoUsuario = $datos['tipoUsuario'];
 }
 
-if($user==null || $user==""){
-    header('location:../../HTML/login.html');
-}else if($tipoUsuario!="admin"){
+if ($user == null || $user == "") {
+    header('location:../../HTML/login.php');
+} else if ($tipoUsuario != "admin") {
     header('location:../User/userMainPage.php');
-}else{
-    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
+} else {
+    $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
     $resultado = $conexion->query($sql);
 
-    while($data=$resultado->fetch_assoc()){
+    while ($data = $resultado->fetch_assoc()) {
         $username = $data['username'];
         $correo = $data['correo'];
         $nombre = $data['nombre'];
@@ -807,107 +807,139 @@ if($user==null || $user==""){
     <div class="body-dark" id="body"></div>
     <div class="page">
 
-            <div class="sidebar">
+        <div class="sidebar">
 
-                <div class="logo_content">
-                    <div class="logo">
-                        <a href="#" class="foto">
-                            <img src="<?php echo $foto; ?>" alt="">
-                        </a>
-                        <div class="logo_name"><?php echo $username ?></div>
-                    </div>              
-                    <i class='bx bx-menu' id="btn"></i>
-                    <i class="bx bx-x" id="btnclose"></i>
+            <div class="logo_content">
+                <div class="logo">
+                    <a href="#" class="foto">
+                        <img src="<?php echo $foto; ?>" alt="">
+                    </a>
+                    <div class="logo_name"><?php echo $username ?></div>
                 </div>
-
-                <ul class="nav">
-                    <li>
-                        <a href="adminMainPage.php">
-                            <i class='bx bxs-dashboard'></i>
-                            <span class="link_name"> Dashboard </span>
-                        </a>
-                        <span class="tooltip"> Dashboard </span>
-                    </li>
-                    <li>
-                        <a href="contaminacionAdminPage.php">
-                            <i class='bx bxs-radiation'></i>
-                            <span class="link_name"> Contaminación </span>
-                        </a>
-                        <span class="tooltip"> Contaminación </span>
-                    </li>
-                    <li>
-                        <a href="campanasAdminPage.php">
-                            <i class='bx bxs-megaphone'></i>
-                            <span class="link_name"> Campañas </span>
-                        </a>
-                        <span class="tooltip"> Campañas </span>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class='bx bx-chip' ></i>
-                            <span class="link_name"> DW-23 </span>
-                        </a>
-                        <span class="tooltip"> DW-23 </span>
-                    </li>
-                    <li>
-                        <a href="usersAdminPage.php">
-                            <i class='bx bxs-user' ></i>
-                            <span class="link_name"> Usuarios </span>
-                        </a>
-                        <span class="tooltip"> Usuarios </span>
-                    </li>
-                    <li>
-                        <a href="cuentaAdmin.php">
-                            <i class='bx bxs-cog'></i>
-                            <span class="link_name"> Configuración </span>
-                        </a>
-                        <span class="tooltip"> Configuración </span>
-                    </li>
-                    <li id="close_session">
-                        <a href="../../PHP/logout.php">
-                            <i class='bx bx-exit'></i>
-                            <span class="link_name"> Cerrar Sesión </span>
-                        </a>
-                        <span class="tooltip"> Cerrar Sesión </span>
-                    </li>
-                </ul>
-
+                <i class='bx bx-menu' id="btn"></i>
+                <i class="bx bx-x" id="btnclose"></i>
             </div>
 
-            <!-- FIN DEL SIDEBAR ------------------------------------------------------------------->
+            <ul class="nav">
+                <li>
+                    <a href="adminMainPage.php">
+                        <i class='bx bxs-dashboard'></i>
+                        <span class="link_name"> Dashboard </span>
+                    </a>
+                    <span class="tooltip"> Dashboard </span>
+                </li>
+                <li>
+                    <a href="contaminacionAdminPage.php">
+                        <i class='bx bxs-radiation'></i>
+                        <span class="link_name"> Contaminación </span>
+                    </a>
+                    <span class="tooltip"> Contaminación </span>
+                </li>
+                <li>
+                    <a href="campanasAdminPage.php">
+                        <i class='bx bxs-megaphone'></i>
+                        <span class="link_name"> Campañas </span>
+                    </a>
+                    <span class="tooltip"> Campañas </span>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class='bx bx-chip'></i>
+                        <span class="link_name"> DW-23 </span>
+                    </a>
+                    <span class="tooltip"> DW-23 </span>
+                </li>
+                <li>
+                    <a href="usersAdminPage.php">
+                        <i class='bx bxs-user'></i>
+                        <span class="link_name"> Usuarios </span>
+                    </a>
+                    <span class="tooltip"> Usuarios </span>
+                </li>
+                <li>
+                    <a href="cuentaAdmin.php">
+                        <i class='bx bxs-cog'></i>
+                        <span class="link_name"> Configuración </span>
+                    </a>
+                    <span class="tooltip"> Configuración </span>
+                </li>
+                <li id="close_session">
+                    <a href="../../PHP/logout.php">
+                        <i class='bx bx-exit'></i>
+                        <span class="link_name"> Cerrar Sesión </span>
+                    </a>
+                    <span class="tooltip"> Cerrar Sesión </span>
+                </li>
+            </ul>
+        </div>
 
-            <div class="container-table">
-                <h3> POLLUTION TABLE </h3>
+        <!-- FIN DEL SIDEBAR ------------------------------------------------------------------->
 
-                <form action="" class="search-bar">
-                    <input type="text" placeholder="Search..." name="campo" id="campo">
-                    <button type="submit"> <i class="fa fa-search"></i> </button>
-                </form>
+        <div class="container-table">
+            <h3> POLLUTION TABLE </h3>
 
-                <div class="board">
-                    <table width="100%">
-                        <thead>
-                            <tr>
-                                <td>Foto Cuerpo</td>
-                                <td>Codigo Agua</td>
-                                <td>Nombre Agua</td>
-                                <td>Cuerpo de Agua</td>
-                                <td>Nivel Contaminante</td>
-                                <td>Nivel Turbidad</td>
-                                <td>Fecha</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </thead>
+            <form action="" class="search-bar">
+                <input type="text" placeholder="Search..." name="campo" id="campo">
+                <button type="submit"> <i class="fa fa-search"></i> </button>
+            </form>
 
-                        <tbody id="content"> <!-- EL ID DEL CUERPO DE LA TABLA --> </tbody>
-                    </table>
-                </div>
+            <div class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Foto Cuerpo</td>
+                            <td>Codigo Agua</td>
+                            <td>Nombre Agua</td>
+                            <td>Cuerpo de Agua</td>
+                            <td>Nivel Contaminante</td>
+                            <td>Nivel Turbidad</td>
+                            <td>Fecha</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody id="content"> <!-- EL ID DEL CUERPO DE LA TABLA --> </tbody>
+                </table>
             </div>
+        </div>
+        <?php 
+        
+        
+        if(isset($_GET['contaminationDeteledField'])){
+            $codigoContaminacion = $_GET['contaminationDeteledField'];
+            $search = "SELECT * FROM contaminacion WHERE codigoAgua = '$codigoContaminacion'";
+            $busqueda = mysqli_query($conexion, $search);
+            echo '
+                <div class="blackBackground"></div>
+                <div class="box-add-campana" id="elim-box"> <!-- ELIMINAR CAMPAÑA -->
+                    <div class="box-header">
+                        <a href="contaminacionAdminPage.php" class="equis"><i class="bx bx-x"></i></a>
+                        <h1 class="box-header"> DELETE FIELD </h1>
+
+                        <form action="deleteContaminationField.php?deletedContaminatedId='.$codigoContaminacion.'" method="post">
+                            <div class="add-text">
+                                <p class="sure"> Are you sure? </p>
+                                <div class="box-btn">
+                                    <button type="submit" class="btn-submit" name="btnDeleteContaminationField"> Yes, delete </button>
+                                    <a href="contaminacionAdminPage.php" class="btn-submit"> No, Cancel </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> <!-- ELIMINAR CAMPAÑA -->
+            ';
+        }
+
+        if(isset($_GET['contaminationEditedField'])){
+            $editContaminationCode = $_GET['contaminationEditedField'];
             
+        }
+        
+        ?>
+
     </div>
     <script>
-        $(window).on('load', function () {
+        $(window).on('load', function() {
             $(".loader").fadeOut(1000);
             $(".page").fadeIn(1000);
         });
@@ -927,31 +959,30 @@ if($user==null || $user==""){
             let formaData = new FormData()
             formaData.append('campo', input);
             fetch(url, {
-                method: "POST",
-                body: formaData
-            }).then(response => response.json())
+                    method: "POST",
+                    body: formaData
+                }).then(response => response.json())
                 .then(data => {
                     content.innerHTML = data
                 }).catch(err => console.log(err))
         }
     </script>
     <!-- Bootstrap core JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <script src="../../JS/contaminacion.js"></script>
 
     <script>
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
-    let btnclose = document.querySelector('#btnclose');
-    
-    btn.onclick = function(){
-        sidebar.classList.toggle('active');
-    }
-    btnclose.onclick = function(){
-        sidebar.classList.toggle('active');
-    }
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
+        let btnclose = document.querySelector('#btnclose');
+
+        btn.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+        btnclose.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
     </script>
 
 </body>

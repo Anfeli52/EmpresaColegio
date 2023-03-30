@@ -20,10 +20,7 @@ if(isset($_POST['envio'])){
             header('location:User/userMainPage.php');
         }
     }else{
-        echo'<script>
-            alert("Email o contraseña incorrectos");
-            window.history.go(-1);
-            </script>';
+        header('location: ../HTML/login.php?error="failedLog"');
     }
 }
 ?>

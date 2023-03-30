@@ -14,7 +14,7 @@ if($password == $confirmPassword){
     echo '<script>
             alert("Contraseña actualizada exitósamente");
         </script>';
-    header('location:../HTML/login.html');
+    header('location:../HTML/login.php');
 }else{
     echo '<script>
             alert("Los passwords no coinciden");

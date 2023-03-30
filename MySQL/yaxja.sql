@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-03-2023 a las 00:56:02
+-- Tiempo de generación: 29-03-2023 a las 23:14:21
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -20,20 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `yaxja`
 --
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `administrador`
---
-
-CREATE TABLE `administrador` (
-  `CorreoAdmin` varchar(25) NOT NULL,
-  `NombreAdmin` varchar(25) NOT NULL,
-  `ContraseñaAdmin` varchar(25) NOT NULL,
-  `EdadAdmin` int(2) NOT NULL,
-  `GeneroAdmin` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -82,7 +68,6 @@ CREATE TABLE `contaminacion` (
 --
 
 INSERT INTO `contaminacion` (`codigoAgua`, `nivelContaminante`, `nivelTurbidad`, `nombreAgua`, `cuerpoAgua`, `fechaMuestra`, `fotoAgua`, `correoContaminacion`) VALUES
-('R02936', 0, 0, 'Cauquita', 'Lago', '2023-02-06', '../../IMG/Anonimo.png', 'anfeli201111@gmail.com'),
 ('R12345', 23, 1, 'Laguinho', 'Lago', '2022-03-12', '../../IMG/Anonimo.png', 'anfeli201111@gmail.com');
 
 -- --------------------------------------------------------
@@ -96,31 +81,6 @@ CREATE TABLE `recomendacion` (
   `Nombre` varchar(25) NOT NULL,
   `Informacion` text NOT NULL,
   `CorreoUsuario` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `rio`
---
-
-CREATE TABLE `rio` (
-  `CodigoRio` varchar(25) NOT NULL,
-  `NombreRio` varchar(25) NOT NULL,
-  `IdcuerpodeAgua` varchar(25) NOT NULL,
-  `Idcontaminacion` int(20) NOT NULL,
-  `correoAdmin` varchar(25) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `tipocuerpodeagua`
---
-
-CREATE TABLE `tipocuerpodeagua` (
-  `IdCuerpoDeAgua` varchar(25) NOT NULL,
-  `TipoCuerpoDeAgua` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -157,15 +117,23 @@ INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `username`, `password`, `
 ('lccalderon1218@gmail.com', 'Luis Carlos', 'Calderón Ríos', 'Pock', 'pock123', 'pock123', '3122487782', '2006-12-18', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
 ('venusayurialmeida.99@gmail.com', 'Venus Sayuri', 'Almeida Enriquez', 'Venussa', 'frisby', 'frisby', '3122691411', '2006-09-09', 'user', '../../IMG/FotosPerfil/20221208_193023.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ventas`
+--
+
+CREATE TABLE `ventas` (
+  `correoCliente` varchar(50) NOT NULL,
+  `orderNumber` int(10) NOT NULL,
+  `productName` varchar(50) NOT NULL,
+  `cantidad` int(20) NOT NULL,
+  `estadoEnvio` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `administrador`
---
-ALTER TABLE `administrador`
-  ADD PRIMARY KEY (`CorreoAdmin`);
 
 --
 -- Indices de la tabla `campaña`
@@ -189,23 +157,17 @@ ALTER TABLE `recomendacion`
   ADD KEY `recomendacion-usuario` (`CorreoUsuario`);
 
 --
--- Indices de la tabla `rio`
---
-ALTER TABLE `rio`
-  ADD PRIMARY KEY (`CodigoRio`),
-  ADD KEY `rio-admin` (`correoAdmin`);
-
---
--- Indices de la tabla `tipocuerpodeagua`
---
-ALTER TABLE `tipocuerpodeagua`
-  ADD PRIMARY KEY (`IdCuerpoDeAgua`);
-
---
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`correo`);
+
+--
+-- Indices de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  ADD PRIMARY KEY (`orderNumber`),
+  ADD KEY `correo-ventas` (`correoCliente`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -240,17 +202,10 @@ ALTER TABLE `recomendacion`
   ADD CONSTRAINT `recomendacion-usuario` FOREIGN KEY (`CorreoUsuario`) REFERENCES `usuario` (`correo`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Filtros para la tabla `rio`
+-- Filtros para la tabla `ventas`
 --
-ALTER TABLE `rio`
-  ADD CONSTRAINT `rio-admin` FOREIGN KEY (`correoAdmin`) REFERENCES `administrador` (`CorreoAdmin`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `rio-contaminacion` FOREIGN KEY (`CodigoRio`) REFERENCES `contaminacion` (`codigoAgua`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `tipocuerpodeagua`
---
-ALTER TABLE `tipocuerpodeagua`
-  ADD CONSTRAINT `tipoCuerpodeAgua-rio` FOREIGN KEY (`IdCuerpoDeAgua`) REFERENCES `rio` (`CodigoRio`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ventas`
+  ADD CONSTRAINT `correo-ventas` FOREIGN KEY (`correoCliente`) REFERENCES `usuario` (`correo`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,24 +1,24 @@
-<?php 
+<?php
 
 session_start();
 include '../conexion.php';
 
 $user = $_SESSION['email'];
-$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '" . $user . "';";
 $result = $conexion->query($select);
-while($datos=$result->fetch_assoc()){
+while ($datos = $result->fetch_assoc()) {
     $tipoUsuario = $datos['tipoUsuario'];
 }
 
-if($user==null || $user==""){
-    header('location:../../HTML/login.html');
-}else if($tipoUsuario!="admin"){
+if ($user == null || $user == "") {
+    header('location:../../HTML/login.php');
+} else if ($tipoUsuario != "admin") {
     header('location:../User/userMainPage.php');
-}else{
-    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
+} else {
+    $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
     $resultado = $conexion->query($sql);
 
-    while($data=$resultado->fetch_assoc()){
+    while ($data = $resultado->fetch_assoc()) {
         $username = $data['username'];
         $correo = $data['correo'];
         $nombre = $data['nombre'];
@@ -28,6 +28,7 @@ if($user==null || $user==""){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,6 +39,7 @@ if($user==null || $user==""){
     <link rel="stylesheet" href="../../CSS/Admin/Settings/cuentaAdminStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
 </head>
+
 <body>
     <div class="body-dark" id="body"></div>
     <header>
@@ -54,7 +56,7 @@ if($user==null || $user==""){
             <a href="#" class="opciones">DW-23</a>
             <a href="usersAdminPage.php" class="opciones">Usuarios</a>
         </nav>
-    </header>    
+    </header>
     <main>
         <div class="container">
             <div class="foticousuario">
@@ -66,7 +68,7 @@ if($user==null || $user==""){
                             <p>Tu cuenta personal :D</p>
                         </div>
                     </div>
-                    
+
                 </div>
             </div> <!--DIV FOTICOUSUARIO-->
             <div class="layout">
@@ -89,7 +91,7 @@ if($user==null || $user==""){
                                     </li>
                                 </ul>
                             </li> <!--FIN PARTE 1-->
-                            
+
                             <li class="separador"></li>
 
                             <li> <!--INICIO PARTE 2-->
@@ -97,7 +99,7 @@ if($user==null || $user==""){
                                     <li>
                                         <h3 class="titumenu">Acceso</h3>
                                     </li>
-                                    
+
                                     <li class="ajustes">
                                         <a href="emailAdmin.php" class="contentajustes">
                                             <span class="iconolist"><i class="fa-solid fa-envelope"></i></span>
@@ -115,7 +117,7 @@ if($user==null || $user==""){
                                     <li>
                                         <h3 class="titumenu">Seguridad</h3>
                                     </li>
-                                    
+
                                     <li class="ajustes">
                                         <a href="contrasenaAdmin.php" class="contentajustes">
                                             <span class="iconolist"><i class="fa-solid fa-shield-halved"></i></span>
@@ -141,45 +143,43 @@ if($user==null || $user==""){
 
                             <div class="profile">
                                 <div class="columna2">
-                                <form action="updatePerfilAdmin.php" enctype="multipart/form-data" method="post">
-                                <div class="profile">
-                                    <div class="columna2">
-                                        <!-------------------------------------------------------------------INICIO FORMULARIO CUENTA CAMBIAR NOMBRE DE USUARIO------------------------------------------------------------------->
-                                        <div>
-                                            <dl>
-                                                <dt>
-                                                    <h1 class="username">Nombre de Usuario</h1>
-                                                </dt>
-                                                <dd>
-                                                    <input type="text" class="textuser" name="UserName" value="" require>
-                                                    <div class="note">
-                                                        Escoge un nuevo nombre de usuario c:
-                                                    </div>
-                                                </dd>
-                                            </dl>
-                                        </div>
-                                        <!-------------------------------------------------------------------FIN FORMULARIO CUENTA CAMBIAR NOMBRE DE USUARIO------------------------------------------------------------------->
-                                    </div>
-                                    <div class="columna2" id="foteichon">
-                                        <dl>
-                                            <dt>
-                                                <h1 class="editfoto">Foto de Perfil</h1>
-                                            </dt>
-                                            <dd class="avatar-upload">
-                                                <div id="ver">
-                                                    <img id="imagenPrevisualizacion"  src="<?php echo $foto; ?>" alt="">
+                                    <form action="updatePerfilAdmin.php" enctype="multipart/form-data" method="post">
+                                        <div class="profile">
+                                            <div class="columna2">
+                                                <!-------------------------------------------------------------------INICIO FORMULARIO CUENTA CAMBIAR NOMBRE DE USUARIO------------------------------------------------------------------->
+                                                <div>
+                                                    <dl>
+                                                        <dt>
+                                                            <h1 class="username">Nombre de Usuario</h1>
+                                                        </dt>
+                                                        <dd>
+                                                            <input type="text" class="textuser" name="UserName" value="" require>
+                                                            <div class="note">
+                                                                Escoge un nuevo nombre de usuario c:
+                                                            </div>
+                                                        </dd>
+                                                    </dl>
                                                 </div>
-                                                <label class="editbtn">
-                                                    Editar<input type="file" class="editarbtn" multiple="multiple" id="fotico" name="fotico" accept=".jpg, .png, .jpeg"><i class="fa-solid fa-pen" value=""></i>
-                                                </label>
-                                            </dd>
-                                        </dl>
-                                    </div>
-                                </div>
-                                <input type="submit" class="btncuenta" name="actualizar" value=" Guardar Cambios" onsubmit="SaveName()">
-                            </form>
-                                        </dd>
-                                    </dl>
+                                                <!-------------------------------------------------------------------FIN FORMULARIO CUENTA CAMBIAR NOMBRE DE USUARIO------------------------------------------------------------------->
+                                            </div>
+                                            <div class="columna2" id="foteichon">
+                                                <dl>
+                                                    <dt>
+                                                        <h1 class="editfoto">Foto de Perfil</h1>
+                                                    </dt>
+                                                    <dd class="avatar-upload">
+                                                        <div id="ver">
+                                                            <img id="imagenPrevisualizacion" src="<?php echo $foto; ?>" alt="">
+                                                        </div>
+                                                        <label class="editbtn">
+                                                            Editar<input type="file" class="editarbtn" multiple="multiple" id="fotico" name="fotico" accept=".jpg, .png, .jpeg"><i class="fa-solid fa-pen" value=""></i>
+                                                        </label>
+                                                    </dd>
+                                                </dl>
+                                            </div>
+                                        </div>
+                                        <input type="submit" class="btncuenta" name="actualizar" value=" Guardar Cambios" onsubmit="SaveName()">
+                                    </form>
                                 </div>
                             </div>
 
@@ -213,7 +213,8 @@ if($user==null || $user==""){
                             <p> Eliminaremos de inmediato <strong>todo lo relacionado con tu cuenta</strong> de Yaxja. </p>
                             <p> Ya no se le facturará y, después de 90 días, su nombre de usuario estará disponible para cualquier persona en Yaxja. </p>
                             <p> Para obtener más ayuda, contáctanos. </p>
-                            <hr></hr>
+                            <hr>
+                            </hr>
 
                             <form action="deleteAccountAdmin.php" method="post">
                                 <p class="delete_account_text">
@@ -245,10 +246,11 @@ if($user==null || $user==""){
     </main>
 
     <footer></footer>
-    
+
     <script src="../../JS/MenuAjustes/Adverts.js"></script>
-    
+
 </body>
+
 </html>
 <script>
     // Obtener referencia al input y a la imagen

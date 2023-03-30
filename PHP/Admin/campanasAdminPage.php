@@ -11,7 +11,7 @@ while ($datos = $result->fetch_assoc()) {
 }
 
 if($user==null || $user==""){
-    header('location:../../HTML/login.html');
+    header('location:../../HTML/login.php');
 }else if($tipoUsuario!="admin"){
     header('location:../User/userMainPage.php');
 }else{
@@ -1015,8 +1015,6 @@ if($user==null || $user==""){
                     </div>
                 </form>
             </div>
-
-
         </div> <!-- ELIMINAR CAMPAÑA -->
 
     </div>

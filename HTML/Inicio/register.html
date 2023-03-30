@@ -10,59 +10,73 @@
     <title>Register</title>
 </head>
 <body>
-    <div class="example"></div>
-    <div class="fondo"></div>
+
+    <div class="olas">
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(5, 50, 71, 0.9)" />
+            <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(5, 50, 71, 0.7)" />
+            <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(5, 50, 71, 0.5)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(5, 50, 71, 0.3)" />
+            <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(5, 50, 71, 0.1)" />
+            <use xlink:href="#gentle-wave" x="48" y="7" fill="#053247" />
+        </g>
+        </svg>
+    </div>
+
     <div class="contenedor">
-        <h2>Yaxja</h2>
-        <div class="formularioContenedorRegister">
-            <h3><ion-icon name="person-outline"></ion-icon>Registrarse</h3>
-            <hr>
+
+        <div class="register-container">
             <form action="../../PHP/register.php" method="post">
+                <h1> Register </h1>
                 <div class="row">
-                    <div class="parteSuperior">
-                        <label for="nombre">Name</label>
-                        <input type="text" name="nombre" id="idNombre" required placeholder="Name" value="">
+                    <div class="camporegister"> 
+                        <label for="" class="label-register">Name</label> <br>
+                        <input type="text" name="nombre" id="idNombre" required placeholder="Name" value=""> 
                     </div>
-                    <div class="parteSuperior">
-                        <label for="apellido">Lastname</label>
-                        <input type="text" name="apellido" id="idApellido" required placeholder="Lastname" value="">
+                    <div class="camporegister"> 
+                        <label for="" class="label-register">Last Name</label> <br>
+                        <input type="text" name="apellido" id="idApellido" required placeholder="Last Name" value=""> 
                     </div>
-                    <div class="parteSuperior">
-                        <label for="correo">Email</label>
-                        <input type="email" name="correo" id="idCorreo" required placeholder="Email" value="">
+                    <div class="camporegister">
+                        <label for="" class="label-register">Email</label> <br>
+                        <input type="email" name="correo" id="idCorreo" required placeholder="Email" value=""> 
                     </div>
-                    <div class="parteSuperior">
-                        <label for="nombreUsuario">Username</label>
-                        <input type="text" name="nombreUsuario" id="idNombreUsuario" required placeholder="Username" value="">
+                    <div class="camporegister"> 
+                        <label for="" class="label-register">Username</label> <br>
+                        <input type="text" name="nombreUsuario" id="idNombreUsuario" required placeholder="Username" value=""> 
                     </div>
-                    <div class="parteInferior">
-                        <label for="contraseña">Password</label>
-                        <input type="password" name="contraseña" id="idContraseña" required placeholder="Password" value="">
+                    <div class="camporegister"> 
+                        <label for="" class="label-register">Password</label> <br>
+                        <input type="password" name="contraseña" id="idContraseña" required placeholder="Password" value=""> 
                     </div>
-                    <div class="parteInferior">
-                        <label for="confirmarContraseña">Confirm Password</label>
-                        <input type="password" name="confirmarContraseña" id="idConfirmarContraseña" required placeholder="Confirm Password" value="">
+                    <div class="camporegister">
+                        <label for="" class="label-register">Confirm Password</label> <br> 
+                        <input type="password" name="confirmarContraseña" id="idConfirmarContraseña" required placeholder="Confirm Password" value=""> 
                     </div>
-                    <div class="parteInferior">
-                        <label for="telefono">Phone Number</label>
-                        <input type="number" name="telefono" id="idTelefono" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required placeholder="1234567890" value="">
+                    <div class="camporegister"> 
+                        <label for="" class="label-register">Phone Number</label> <br>
+                        <input type="number"  name="telefono" id="idTelefono" maxlength="10" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" required placeholder="Phone Number"> 
                     </div>
-                    <div class="parteInferior">
-                        <label for="cumpleaños">Birthday</label>
-                        <input type="date" name="cumpleaños" id="idFechaNacimiento" min="1922-01-01" max="2022-12-31" required value="">
+                    <div class="camporegister"> 
+                        <label for="" class="label-register">Birthdate</label> <br>
+                        <input type="date" name="cumpleaños" id="idFechaNacimiento" min="1922-01-01" max="2022-12-31" required value=""> 
                     </div>
-                    <!--<div class="others">
-                        <label for="userType">Tipo de Usuario</label>
-                        <select name="userType" required>
-                            <option value="user">Usuario</option>
-                            <option value="admin">Administrador</option>
-                        </select>
-                    </div>-->
                 </div>
-                <label for="" class="btnEnviar"><input type="submit" name="enviar" value="Registrarse"></label>        
+
+                <div class="btn-enviar">
+                    <input type="submit" name="envio" class="enviar-login" value="Sign up">
+                </div>
             </form>
+            
+            <p class="register"> Do you already have an account? <a href="../login.php"> Log in </a> </p>
+
         </div>
-        <p class="iniciaSesion">¿Ya tienes una cuenta?<a href="../login.html"> Inicia Sesión Ahora</a></p>
+
     </div>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

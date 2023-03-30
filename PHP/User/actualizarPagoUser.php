@@ -11,7 +11,7 @@ while($datos=$result->fetch_assoc()){
 }
 
 if($user==null || $user==""){
-    header('location:../../HTML/login.html');
+    header('location:../../HTML/login.php');
 }else if($tipoUsuario!="user"){
     header('location:../Admin/adminMainPage.php');
 }else{

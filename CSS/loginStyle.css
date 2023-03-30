@@ -1,146 +1,207 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Philosopher&display=swap');
+
 *{
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
 }
-.formularioContenedorLogin{
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    position: absolute;
-    padding-bottom: 60px;
-    opacity: 100%;
-    flex-direction: column;
-    font-size: 12px;
-    width: 270px;
-    box-shadow: 7px 7px 50px darkcyan; 
-    height: 240px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
-    background-color: #fff;
+
+body{
+    background-color: #053247;
+    min-height: 100vh;
 }
-.formularioContenedorLogin h3{
-    text-align: center;
-    font-size: 25px;
-    justify-content: center;
-    align-items: center;
+
+.waves {
+    position:relative;
+    width: 10000px;
+    height: 15vh;
+    margin-bottom: -7px; 
+    min-height: 100vh;
 }
-.formularioContenedorLogin p{
-    margin-bottom: 5px;
+
+.parallax > use {
+    animation: move-forever 25s cubic-bezier(.55,.5,.45,.5) infinite;
 }
-.formularioContenedorLogin .registrate{
-    color: #fff;
+
+.parallax > use:nth-child(1) {
+    animation-delay: -2s;
+    animation-duration: 3s;
 }
-.formularioContenedorLogin form{
-    margin-top: 20px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+
+.parallax > use:nth-child(2) {
+    animation-delay: -3s;
+    animation-duration: 4s;
 }
-.formularioContenedorLogin label{
-    text-transform: uppercase;
-    font-size: 12px;
-    font-weight: bolder;
+
+.parallax > use:nth-child(3) {
+    animation-delay: -4s;
+    animation-duration: 5s;
 }
-.formularioContenedorLogin .btnEnviar{
-    text-align: center;
+
+.parallax > use:nth-child(4) {
+    animation-delay: -5s;
+    animation-duration: 6s;
 }
-.formularioContenedorLogin p{
-    margin-bottom: 5px;
+
+.parallax > use:nth-child(5) {
+    animation-delay: -6s;
+    animation-duration: 7s;
 }
-.formularioContenedorLogin p a{
-    text-decoration: none;
-    color: darkcyan;
-    font-weight: bolder;
+
+.parallax > use:nth-child(6) {
+    animation-delay: -7s;
+    animation-duration: 8s;
 }
-.formularioContenedorLogin form input{
-    margin: 10px 0 20px;
-    border: 1px;
-    border-style: dotted;
-    border-radius: 2px;
-    margin-left: 0;
-    font-size: 12px;
-    padding: 5px;
-    padding-left: 10px;
+
+@keyframes move-forever {
+    0% {
+        transform: translate3d(-90px,0,0);
+    }
+    100% { 
+        transform: translate3d(85px,0,0);
+    }
 }
-.formularioContenedorLogin form input:focus{
-    border-color: darkcyan;
-}
-.formularioContenedorLogin form input[type="submit"]{
-    text-align: center;
-    width: 250px;
-    height: 30px;
-    cursor: pointer;
-    margin-bottom: 10px;
-    border-radius: 3px;
-    font-size: 12px;
-    text-transform: uppercase;
-    border: 0px;
-    background-color: darkcyan;
-    color: #fff;
-}
-.example{
+
+.olas{
+    position: fixed;
+    top: 25%;
     width: 100%;
     height: 50%;
-    z-index: -1;
-    position: fixed;
-    background-color: rgb(51, 133, 144); 
+    z-index: 1;
 }
-.fondo{
-    width: 100%;
-    height: 100%;
-    z-index: -2;
-    position: fixed;
-    background-color: rgb(212, 254, 254);
-}
-.contenedor h2{
-    text-align: center;
+
+.contenedor{
+    display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
+    min-height: 100vh;
+}
+
+.login-container{
+    z-index: 2;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateY(-450%) translateX(-50%);
-    font-size: 40px;
-    color: #fff;
-    z-index: 2;
-    font-family: 'Lobster', cursive;
-}
-.contenedor .registrate{
-    text-align: left;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    font-weight: normal;
-    top: 50%;
-    left: 50%;
-    transform: translateY(1000%) translateX(-50%);
-    font-size: 15px;
-    color: rgb(51, 103, 120);
-    z-index: 2;
-    font-family: 'Lobster', cursive;
+    width: 350px;
+    height: 570px;
 }
-.contenedor .registrate a{
-    color: darkcyan;
+
+.login-container img{
+    height: 200px;
+    width: 200px;
+}
+
+.login-container h1{
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: "Philosopher", sans-serif;
+    font-size: 36px;
+}
+
+.login-text{
+    display: flex;
+    flex-direction: column;
+}
+
+.login-text label{
+    font-size: 18px;
+    font-family: "Philosopher", sans-serif;
+    margin-left: 6px;
+}
+
+.input-login{
+    background-color: #eee;
+    border-radius: 10px;
+    border: none;
+    padding: 12px 15px;
+    margin: 4px 0px 15px 0px;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    font-size: 14px;
+    width: 250px;
+}
+
+.pass-link{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.pass-link a{
+    color: #333;
+    font-size: 14px;
     text-decoration: none;
-    font-family: 'Lobster', cursive;
+    margin: 15px 0;
+    transition: .2s;
 }
-.example.active{
-    width: 100%;
-    height: 90px;
-    z-index: -1;
-    position: fixed;
-    background-color: rgb(51, 133, 144);
-    transform: rotate(270deg);
-    transition: 1s ease;
-    top: 50%;
-    right: 46.65%;
-    box-shadow: 0px 0px 20px darkcyan;
+
+.pass-link a:hover{
+    color: #4bb6b7;
+}
+
+.btn-enviar{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.enviar-login{
+    border-radius: 20px;
+    border: 1px solid #4bb6b7;
+    background-color: #4bb6b7;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    padding: 12px 80px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.enviar-login:hover{
+    letter-spacing: 3px;
+}
+
+.register{
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+}
+
+.register a{
+    color: #333;
+    font-family: "Philosopher", sans-serif;
+    font-size: 18px;
+    transition: all .3s;
+    margin-left: 5px;
+}
+
+.register a:hover{
+    color: #4bb6b7;
+    text-decoration: none;
+}
+
+.contenedorError{
+    background: #c60000;
+    padding: 5px;
+    width: 300px;
+    height: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    border-radius: 8px;
+    text-align: center;
+}
+.contenedorError span{
+    color: #fff;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
 }

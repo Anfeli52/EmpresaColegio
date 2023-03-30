@@ -11,7 +11,7 @@ while ($datos = $result->fetch_assoc()) {
 }
 
 if ($user == null || $user == "") {
-    header('location:../HTML/login.html');
+    header('location:../HTML/login.php');
 } else {
     $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
     $resultado = $conexion->query($sql);
@@ -83,9 +83,9 @@ if ($num_rows > 0) {
             $html .= '<td>' . $row['apellido'] . '</td>';
             $html .= '<td>' . $row['username'] . '</td>';
             $html .= '<td>' . $row['telefono'] . '</td>';
-            $html .= '<td>' . $userType . '</td>';
+            $html .= '<td>' . $row['tipoUsuario'] . '</td>';
             $html .= '<td class="edit-table"><a href="usersAdminPage.php?editedId='.$row['correo'].'">Edit</a></td>';
-            $html .= '<td  class="eliminate-table"><a href="#" onclick="eliminar()">Delete</a></td>';
+            $html .= '<td  class="eliminate-table"><a href="usersAdminPage.php?deletedId='.$row['correo'].'" onclick="eliminar()">Delete</a></td>';
         $html .= '</tr>';
     }
 } else {
