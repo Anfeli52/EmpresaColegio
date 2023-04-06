@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-03-2023 a las 23:14:21
+-- Tiempo de generación: 06-04-2023 a las 23:11:24
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -31,9 +31,8 @@ CREATE TABLE `campaña` (
   `CodigoCampaña` int(20) NOT NULL,
   `ImagenCampaña` varchar(1000) NOT NULL,
   `NombreCampaña` varchar(40) NOT NULL,
-  `DescripcionCampaña` varchar(200) NOT NULL,
+  `DescripcionCampaña` varchar(300) NOT NULL,
   `DetallesLink` varchar(1000) NOT NULL,
-  `correoAdmin` varchar(25) NOT NULL,
   `correoUsuario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -41,10 +40,10 @@ CREATE TABLE `campaña` (
 -- Volcado de datos para la tabla `campaña`
 --
 
-INSERT INTO `campaña` (`CodigoCampaña`, `ImagenCampaña`, `NombreCampaña`, `DescripcionCampaña`, `DetallesLink`, `correoAdmin`, `correoUsuario`) VALUES
-(9, '../../IMG/FotosCampanas/Kenny South Park.jpg', 'Aña', 'hola', 'https://www.youtube.com', '', 'anfeli201111@gmail.com'),
-(13, '../../IMG/FotosCampanas/Kyle South Park.jpg', 'Aña 2', 'Wachi Wachi Wa', 'https://www.youtube.com', '', 'anfeli201111@gmail.com'),
-(14, '../../IMG/FotosCampanas/2.jpg', 'Hola', 'Hola', 'https://youtube.com', '', 'anfeli201111@gmail.com');
+INSERT INTO `campaña` (`CodigoCampaña`, `ImagenCampaña`, `NombreCampaña`, `DescripcionCampaña`, `DetallesLink`, `correoUsuario`) VALUES
+(19, '../../IMG/FotosCampanas/Linkin Park.jpg', 'Linkin Park', 'Linkin Park es una banda estadounidense de rock alternativo procedente de Agoura Hills, California formada en 1996. Integrada por Mike Shinoda, Dave Farrell, Joe Hahn, Brad Delson, Rob Bourdon y Chester Bennington, este último como voz principal.', 'https://es.wikipedia.org/wiki/Linkin_Park', 'anfeli201111@gmail.com'),
+(20, '../../IMG/FotosCampanas/Hybrid Theory.png', 'Hybrid Theory ', 'First Album', 'https://www.youtube.com/watch?v=vjVkXlxsO8Q&list=PLlqZM4covn1EVQPNevXbBHMa62g0LcQaz', 'anfeli201111@gmail.com'),
+(21, '../../IMG/FotosCampanas/Meteora.jpg', 'Meteora', 'Second Album', 'https://www.youtube.com/watch?v=U6R-twDkrcI&list=PLlqZM4covn1EbvC_6cuERQ59QaMbPkUyE', 'anfeli201111@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -177,7 +176,7 @@ ALTER TABLE `ventas`
 -- AUTO_INCREMENT de la tabla `campaña`
 --
 ALTER TABLE `campaña`
-  MODIFY `CodigoCampaña` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `CodigoCampaña` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- Restricciones para tablas volcadas
