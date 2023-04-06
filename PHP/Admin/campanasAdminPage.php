@@ -877,16 +877,18 @@ if($user==null || $user==""){
             <h3 class="i-name"> CAMPAIGNS </h3>
 
             <div class="create">
-                <button class="add-campaign" onclick="addCampana()" id="addCampana">
-                    <i class='bx bx-plus'></i>
-                </button>
+                <a href="campanasAdminPage.php?addCampaign=1">
+                    <button class="add-campaign" id="addCampana">
+                        <i class='bx bx-plus'></i>
+                    </button>
+                </a>
                 <i class='bx bx-up-arrow-alt'></i>
                 <p> Add a new campaign. </p>
             </div>
 
+            
             <div class="grid">
-
-                
+            
                     <?php 
                     
                     $select = "SELECT * FROM campaña";
@@ -894,128 +896,159 @@ if($user==null || $user==""){
                     while($things = mysqli_fetch_assoc($query)){
                         echo '
                         <div class="grid-item">
-                        <div class="card">
-
-                        <div class="add-elim-edit">
-                            <div class="elim-campaign button" onclick="deleteCampana()">
-                                <i class="bx bxs-trash" ></i>
+                            <div class="card">
+                                <div class="add-elim-edit">
+                                    <a href="campanasAdminPage.php?deleteCampaignId='.$things['CodigoCampaña'].'">
+                                        <div class="elim-campaign button">
+                                            <i class="bx bxs-trash" ></i>
+                                        </div>
+                                    </a>
+                                    <a href="campanasAdminPage.php?editCampaignId='.$things['CodigoCampaña'].'">
+                                        <div class="edit-campaign button">
+                                            <i class="bx bxs-pencil" ></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <img src="'.$things['ImagenCampaña'].'" class="card-img">
+                                <div class="card-content">
+                                    <h1 class="card-header">'.$things['NombreCampaña'].'</h1>
+                                    <p class="card-text">
+                                        '.$things['DescripcionCampaña'].'
+                                    </p>
+                                    <a href="'.$things['DetallesLink'].'" class="btn-cardLes"><button class="card-btn">  Lets Go! </button> </a>
+                                </div> <!-- DIV CARD-CONTENT -->
                             </div>
-                            <div class="edit-campaign button" onclick="editCampana()">
-                                <i class="bx bxs-pencil" ></i>
-                            </div>
-                        </div>
-
-                        <img src="'.$things['ImagenCampaña'].'" class="card-img">
-                        <div class="card-content">
-                            <h1 class="card-header">'.$things['NombreCampaña'].'</h1>
-                            <p class="card-text">
-                                '.$things['DescripcionCampaña'].'
-                            </p>
-                            <button class="card-btn"> <a href="https://makeeverydropcount.pub.gov.sg/singapore-world-water-day/"> Lets Go! </a> </button>
-                        </div> <!-- DIV CARD-CONTENT -->
-                    </div>
-                    </div>';
+                        </div>';
                     }
                     ?>
-                 <!-- DIV GRID-ITEM // PARA CREAR LA CARTICA ES TODO GRID-ITEM -->
-
+                    <!-- DIV GRID-ITEM // PARA CREAR LA CARTICA ES TODO GRID-ITEM -->
             </div> <!-- DIV GRID // ESTE DIV CONTIENE TODAS LAS TARJETAS -->
-
         </div> <!-- DIV CAMPAIGNS -->
+        
+        <?php 
 
-        <div class="box-add-campana" id="add-box"> <!-- AÑADIR CAMPAÑA -->
-            <div class="box-header">
-                <i class='bx bx-x' onclick="cerrarbox1()"></i>
-                <h1 class="box-header"> ADD A NEW CAMPAIGN </h1>
-            </div>
+        if(isset($_GET['editCampaignId'])){
+            $codigoCampaña = $_GET['editCampaignId'];
+            $select = "SELECT * FROM campaña WHERE CodigoCampaña = '$codigoCampaña'";
+            $query = mysqli_query($conexion, $select);
 
-            <form action="../nuevacampaña.php" enctype="multipart/form-data" method="post"> <!-- FORM PARA AÑADIR CAMPAÑA -->    
-                <div class="box-content">   
-                    <div class="add-img">
-                        <p> Adds an image of the campaign. </p>
-                        <input type="file" id="file" name="imagencampana" multiple="multiple" accept=".jpg, .png, .jpeg" required>
-                        <label for="file" class="avatar"> <i class='bx bx-image-add'></i> </label>
-                        <span id="file-name"></span>
+            $search = mysqli_fetch_assoc($query);
+
+            echo '
+                <div class="blackBackground"></div>
+                <div class="box-add-campana" id="edit-box"> <!-- EDITAR CAMPAÑA -->
+                    <div class="box-header">
+                        <a href="campanasAdminPage.php">
+                            <i class="bx bx-x"></i>
+                        </a>
+                        <h1 class="box-header"> EDIT THE CAMPAIGN </h1>
                     </div>
-                    <div class="add-text">
-                        <div class="campo-add">
-                            <label for="campana-name"> Campaign Name </label>
-                            <input type="text" placeholder="Maximum 40 characters..." id="campana-name" maxlength="40" name="nombrecampaña" required>
+                    
+                    <form action="updateCampaign.php?updatedCampignId='.$search['CodigoCampaña'].'" enctype="multipart/form-data" method="post"> <!-- FORM PARA EDITAR CAMPAÑA -->    
+                        <div class="box-content">   
+                            <div class="add-img">
+                                <p> Update the campaign image. </p>
+                                <input type="file" id="file" name="imagencampana" multiple="multiple" accept=".jpg, .png, .jpeg"> <!-- EN EL PLACEHOLDER VA LA INFORMACION DE LA ACTUAL CAMPAÑA -->
+                                <label for="file" class="avatar"> <i class="bx bx-image-add"></i> </label>
+                                <span id="file-name"></span>
+                            </div>
+                            <div class="add-text">
+                                <div class="campo-add">
+                                    <label for="campana-name"> New Campaign Name </label>
+                                    <input type="text" placeholder="Maximum 40 characters..." id="campana-name" maxlength="40" name="nombrecampaña" value="'.$search['NombreCampaña'].'" required> <!-- EN EL PLACEHOLDER VA LA INFORMACION DE LA ACTUAL CAMPAÑA -->
+                                </div>
+                                <hr>
+                                <div class="campo-add">
+                                    <label for="campana-description"> New Campaign Description </label>
+                                    <textarea id="campana-description" cols="30" rows="4" maxlength="300" placeholder="Maximun 300 characters..." name="descripcioncampaña" required>'.$search['DescripcionCampaña'].'</textarea>
+                                </div>
+                                <hr>
+                                <div class="campo-add">
+                                    <label for=""> New Link Details </label>
+                                    <input type="url" placeholder="https://www.yaxjaExample.com" name="linkcampaña" value="'.$search['DetallesLink'].'" required> <!-- EN EL PLACEHOLDER VA LA INFORMACION DE LA ACTUAL CAMPAÑA -->
+                                </div>
+                            </div>
+                            <div class="box-btn">
+                                <button type="submit" name="btn-updateCampaign" class="btn-submit"> Edit </button>
+                                <a href="campanasAdminPage.php"><div class="btn-submit"> Cancel </div></a>
+                            </div>
                         </div>
-                        <hr>
-                        <div class="campo-add">
-                            <label for="campana-description"> Campaign Description </label>
-                            <textarea id="campana-description" cols="30" rows="4" maxlength="200" placeholder="Maximun 200 characters..." name="descripcioncampaña" required></textarea>
-                        </div>
-                        <hr>
-                        <div class="campo-add">
-                            <label for=""> Link Details </label>
-                            <input type="url" placeholder="Enter a URL..." name="linkcampaña" required>
-                        </div>
+                    </form>
+                </div> <!-- EDITAR CAMPAÑA -->
+            ';
+        }
+        
+        if(isset($_GET['addCampaign'])){
+            echo '
+                <div class="blackBackground"></div>
+                <div class="box-add-campana" id="add-box"> <!-- AÑADIR CAMPAÑA -->
+                    <div class="box-header">
+                        <a href="campanasAdminPage.php">
+                            <i class="bx bx-x"></i>
+                        </a>
+                        <h1 class="box-header"> ADD A NEW CAMPAIGN </h1>
                     </div>
-                    <div class="box-btn">
-                        <button type="submit" class="btn-submit"> Create </button>
-                        <div onclick="cerrarbox1()" class="btn-submit"> Cancel </div>
-                    </div>
+                    
+                    <form action="../nuevacampaña.php" enctype="multipart/form-data" method="post"> <!-- FORM PARA AÑADIR CAMPAÑA -->    
+                        <div class="box-content">   
+                            <div class="add-img">
+                                <p> Adds an image of the campaign. </p>
+                                <input type="file" id="file" name="imagencampana" multiple="multiple" accept=".jpg, .png, .jpeg" required>
+                                <label for="file" class="avatar"> <i class="bx bx-image-add"></i> </label>
+                                <span id="file-name"></span>
+                            </div>
+                            <div class="add-text">
+                                <div class="campo-add">
+                                    <label for="campana-name"> Campaign Name </label>
+                                    <input type="text" placeholder="Maximum 40 characters..." id="campana-name" maxlength="40" name="nombrecampaña" required>
+                                </div>
+                                <hr>
+                                <div class="campo-add">
+                                    <label for="campana-description"> Campaign Description </label>
+                                    <textarea id="campana-description" cols="30" rows="4" maxlength="300" placeholder="Maximun 300 characters..." name="descripcioncampaña" required></textarea>
+                                </div>
+                                <hr>
+                                <div class="campo-add">
+                                    <label for=""> Link Details </label>
+                                    <input type="url" placeholder="Enter a URL..." name="linkcampaña" required>
+                                </div>
+                            </div>
+                            <div class="box-btn">
+                                <button type="submit" name="btn-addCampaign" class="btn-submit"> Create </button>
+                                <a href="campanasAdminPage.php"><div class="btn-submit"> Cancel </div></a>
+                            </div>
+                        </div>
+                    </form>
+                </div> <!-- AÑADIR CAMPAÑA -->
+            ';
+        }
+
+        if(isset($_GET['deleteCampaignId'])){
+            $codigo = $_GET['deleteCampaignId'];
+            echo '
+            <div class="blackBackground"></div>
+            <div class="box-add-campana" id="elim-box"> <!-- ELIMINAR CAMPAÑA -->
+                <div class="box-header">
+                    <a href="campanasAdminPage.php">
+                        <i class="bx bx-x"></i>
+                    </a>
+                    <h1 class="box-header"> DELETE CAMPAIGN </h1>
+            
+                    <form action="deleteCampaign.php?campaignCode='.$codigo.'" enctype="multipart/form-data" method="post"> <!-- FORM PARA EDITAR CAMPAÑA -->  
+                        <div class="add-text">
+                            <p class="sure"> Are you sure? </p>
+            
+                            <div class="box-btn">
+                                <button type="submit" name="btn-deleteCampaign" class="btn-submit"> Yes, delete </button>
+                                <a href="campanasAdminPage.php"><div class="btn-submit"> No, Cancel </div></a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form>
-        </div> <!-- AÑADIR CAMPAÑA -->
-
-        <div class="box-add-campana" id="edit-box"> <!-- EDITAR CAMPAÑA -->
-            <div class="box-header">
-                <i class='bx bx-x' onclick="cerrarbox2()"></i>
-                <h1 class="box-header"> EDIT THE CAMPAIGN </h1>
-            </div>
-
-            <form action="" enctype="multipart/form-data" method="post"> <!-- FORM PARA EDITAR CAMPAÑA -->    
-                <div class="box-content">   
-                    <div class="add-img">
-                        <p> Update the campaign image. </p>
-                        <input type="file" id="file" name="imagencampana" multiple="multiple" accept=".jpg, .png, .jpeg" required> <!-- EN EL PLACEHOLDER VA LA INFORMACION DE LA ACTUAL CAMPAÑA -->
-                        <label for="file" class="avatar"> <i class='bx bx-image-add'></i> </label>
-                        <span id="file-name"></span>
-                    </div>
-                    <div class="add-text">
-                        <div class="campo-add">
-                            <label for="campana-name"> New Campaign Name </label>
-                            <input type="text" placeholder="Maximum 40 characters..." id="campana-name" maxlength="40" name="nombrecampaña" required> <!-- EN EL PLACEHOLDER VA LA INFORMACION DE LA ACTUAL CAMPAÑA -->
-                        </div>
-                        <hr>
-                        <div class="campo-add">
-                            <label for="campana-description"> New Campaign Description </label>
-                            <textarea id="campana-description" cols="30" rows="4" maxlength="200" placeholder="Maximun 200 characters..." name="descripcioncampaña" required></textarea>
-                        </div>
-                        <hr>
-                        <div class="campo-add">
-                            <label for=""> New Link Details </label>
-                            <input type="url" placeholder="" name="linkcampaña" required> <!-- EN EL PLACEHOLDER VA LA INFORMACION DE LA ACTUAL CAMPAÑA -->
-                        </div>
-                    </div>
-                    <div class="box-btn">
-                        <button type="submit" class="btn-submit"> Edit </button>
-                        <div onclick="cerrarbox2()" class="btn-submit"> Cancel </div>
-                    </div>
-                </div>
-            </form>
-        </div> <!-- EDITAR CAMPAÑA -->
-
-        <div class="box-add-campana" id="elim-box"> <!-- ELIMINAR CAMPAÑA -->
-            <div class="box-header">
-                <i class='bx bx-x' onclick="cerrarbox3()"></i>
-                <h1 class="box-header"> DELETE CAMPAIGN </h1>
-
-                <form action="" enctype="multipart/form-data" method="post"> <!-- FORM PARA EDITAR CAMPAÑA -->  
-                    <div class="add-text">
-                        <p class="sure"> Are you sure? </p>
-
-                        <div class="box-btn">
-                            <button type="submit" class="btn-submit"> Yes, delete </button>
-                            <div onclick="cerrarbox3()" class="btn-submit"> No, Cancel </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div> <!-- ELIMINAR CAMPAÑA -->
+            </div> <!-- ELIMINAR CAMPAÑA -->
+            ';
+        }
+        ?>
 
     </div>
 

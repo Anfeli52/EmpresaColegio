@@ -916,7 +916,7 @@ if ($user == null || $user == "") {
                         <a href="contaminacionAdminPage.php" class="equis"><i class="bx bx-x"></i></a>
                         <h1 class="box-header"> DELETE FIELD </h1>
 
-                        <form action="deleteContaminationField.php?deletedContaminatedId='.$codigoContaminacion.'" method="post">
+                        <form action="deleteContaminationField.php?contaminatedDeletedId='.$codigoContaminacion.'" method="post">
                             <div class="add-text">
                                 <p class="sure"> Are you sure? </p>
                                 <div class="box-btn">

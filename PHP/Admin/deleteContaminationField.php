@@ -4,7 +4,7 @@ include '../conexion.php';
 session_start();
 
 if(isset($_POST['btnDeleteContaminationField'])){
-    $id = $_GET['deletedContaminatedId'];
+    $id = $_GET['contaminatedDeletedId'];
     $delete = "DELETE FROM contaminacion WHERE codigoAgua = '$id'";
     mysqli_query($conexion, $delete);
     header('location: contaminacionAdminPage.php?delete="true"');
