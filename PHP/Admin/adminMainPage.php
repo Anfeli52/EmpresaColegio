@@ -921,189 +921,57 @@ if ($user == null || $user == "") {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="people">
-                                <img src="../../IMG/Medina.jpeg" alt="">
-                                <div class="people-de">
-                                    <h5> Johannesburgo Bruselas </h5>
-                                    <p> ilovesouthafrica1886@gmail.com </p>
-                                </div>
-                            </td>
-                            <td class="order">
-                                <h5> 000001 </h5>
-                            </td>
-                            <td class="product-name">
-                                <p> DW23 </p>
-                            </td>
-                            <td class="quantity">
-                                <p> 16 </p>
-                            </td>
-                            <td class="payment-status success">
-                                <p> Success </p>
-                            </td>
-                            <td class="details"><a href="#"> Details </a></td>
-                        </tr>
+                        <?php
+                        
+                        $select = "SELECT * FROM ventas";
+                        $query=mysqli_query($conexion, $select);
+                        while($fetch = mysqli_fetch_assoc($query)){
 
-                        <tr>
-                            <td class="people">
-                                <img src="../../IMG/Medina.jpeg" alt="">
-                                <div class="people-de">
-                                    <h5> Johannesburgo Bruselas </h5>
-                                    <p> ilovesouthafrica1886@gmail.com </p>
-                                </div>
-                            </td>
-                            <td class="order">
-                                <h5> 000002 </h5>
-                            </td>
-                            <td class="product-name">
-                                <p> DW23 </p>
-                            </td>
-                            <td class="quantity">
-                                <p> 20 </p>
-                            </td>
-                            <td class="payment-status warning">
-                                <p> Declined </p>
-                            </td>
-                            <td class="details"><a href="#"> Details </a></td>
-                        </tr>
+                            $selectClient = "SELECT * FROM usuario WHERE correo = '".$fetch['correoCliente']."'";
+                            $queryClient=mysqli_query($conexion, $selectClient);
+                            $fetchClient = mysqli_fetch_assoc($queryClient);
 
-                        <tr>
-                            <td class="people">
-                                <img src="../../IMG/Medina.jpeg" alt="">
-                                <div class="people-de">
-                                    <h5> Johannesburgo Bruselas </h5>
-                                    <p> ilovesouthafrica1886@gmail.com </p>
-                                </div>
-                            </td>
-                            <td class="order">
-                                <h5> 000003 </h5>
-                            </td>
-                            <td class="product-name">
-                                <p> DW23 </p>
-                            </td>
-                            <td class="quantity">
-                                <p> 54 </p>
-                            </td>
-                            <td class="payment-status caution">
-                                <p> Pending </p>
-                            </td>
-                            <td class="details"><a href="#"> Details </a></td>
-                        </tr>
+                            if($fetch['estadoEnvio']=="Success"){
+                                $paymentStatus = '
+                                <td class="payment-status success">
+                                    <p> '.$fetch['estadoEnvio'].' </p>
+                                </td>';
+                            }elseif($fetch['estadoEnvio']=="Declined"){
+                                $paymentStatus = '
+                                <td class="payment-status warning">
+                                    <p> '.$fetch['estadoEnvio'].' </p>
+                                </td>';
+                            }else{
+                                $paymentStatus = '
+                                <td class="payment-status caution">
+                                    <p> '.$fetch['estadoEnvio'].' </p>
+                                </td>';
+                            }
 
-                        <tr>
-                            <td class="people">
-                                <img src="../../IMG/Medina.jpeg" alt="">
-                                <div class="people-de">
-                                    <h5> Johannesburgo Bruselas </h5>
-                                    <p> ilovesouthafrica1886@gmail.com </p>
-                                </div>
-                            </td>
-                            <td class="order">
-                                <h5> 000004 </h5>
-                            </td>
-                            <td class="product-name">
-                                <p> DW23 </p>
-                            </td>
-                            <td class="quantity">
-                                <p> 48 </p>
-                            </td>
-                            <td class="payment-status success">
-                                <p> Success </p>
-                            </td>
-                            <td class="details"><a href="#"> Details </a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="people">
-                                <img src="../../IMG/Medina.jpeg" alt="">
-                                <div class="people-de">
-                                    <h5> Johannesburgo Bruselas </h5>
-                                    <p> ilovesouthafrica1886@gmail.com </p>
-                                </div>
-                            </td>
-                            <td class="order">
-                                <h5> 000005 </h5>
-                            </td>
-                            <td class="product-name">
-                                <p> DW23 </p>
-                            </td>
-                            <td class="quantity">
-                                <p> 09 </p>
-                            </td>
-                            <td class="payment-status warning">
-                                <p> Declined </p>
-                            </td>
-                            <td class="details"><a href="#"> Details </a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="people">
-                                <img src="../../IMG/Medina.jpeg" alt="">
-                                <div class="people-de">
-                                    <h5> Johannesburgo Bruselas </h5>
-                                    <p> ilovesouthafrica1886@gmail.com </p>
-                                </div>
-                            </td>
-                            <td class="order">
-                                <h5> 000006 </h5>
-                            </td>
-                            <td class="product-name">
-                                <p> DW23 </p>
-                            </td>
-                            <td class="quantity">
-                                <p> 12 </p>
-                            </td>
-                            <td class="payment-status caution">
-                                <p> Pending </p>
-                            </td>
-                            <td class="details"><a href="#"> Details </a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="people">
-                                <img src="../../IMG/Medina.jpeg" alt="">
-                                <div class="people-de">
-                                    <h5> Johannesburgo Bruselas </h5>
-                                    <p> ilovesouthafrica1886@gmail.com </p>
-                                </div>
-                            </td>
-                            <td class="order">
-                                <h5> 000007 </h5>
-                            </td>
-                            <td class="product-name">
-                                <p> DW23 </p>
-                            </td>
-                            <td class="quantity">
-                                <p> 34 </p>
-                            </td>
-                            <td class="payment-status success">
-                                <p> Success </p>
-                            </td>
-                            <td class="details"><a href="#"> Details </a></td>
-                        </tr>
-
-                        <tr>
-                            <td class="people">
-                                <img src="../../IMG/Medina.jpeg" alt="">
-                                <div class="people-de">
-                                    <h5> Johannesburgo Bruselas </h5>
-                                    <p> ilovesouthafrica1886@gmail.com </p>
-                                </div>
-                            </td>
-                            <td class="order">
-                                <h5> 000008 </h5>
-                            </td>
-                            <td class="product-name">
-                                <p> DW23 </p>
-                            </td>
-                            <td class="quantity">
-                                <p> 76 </p>
-                            </td>
-                            <td class="payment-status warning">
-                                <p> Declined </p>
-                            </td>
-                            <td class="details"><a href="#"> Details </a></td>
-                        </tr>
+                            echo '
+                                <tr>
+                                    <td class="people">
+                                        <img src="'.$fetchClient['fotoPerfil'].'" alt="">
+                                        <div class="people-de">
+                                            <h5> '.$fetchClient['username'].' </h5>
+                                            <p> '.$fetch['correoCliente'].' </p>
+                                        </div>
+                                    </td>
+                                    <td class="order">
+                                        <h5> '.$fetch['orderNumber'].' </h5>
+                                    </td>
+                                    <td class="product-name">
+                                        <p> '.$fetch['productName'].' </p>
+                                    </td>
+                                    <td class="quantity">
+                                        <p> '.$fetch['cantidad'].' </p>
+                                    </td>
+                                    '.$paymentStatus.'
+                                    <td class="details"><a href="#"> Details </a></td>
+                                </tr>
+                            ';
+                        }
+                        ?>
                     </tbody>
                 </table>
             </div>

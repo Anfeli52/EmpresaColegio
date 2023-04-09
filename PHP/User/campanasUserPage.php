@@ -896,7 +896,7 @@ if($user==null || $user==""){
                             <p class="card-text">
                                 '.$things['DescripcionCampaña'].'
                             </p>
-                            <button class="card-btn"> <a href="'.$things['DetallesLink'].'"> Lets Go! </a> </button>
+                            <a href="'.$things['DetallesLink'].'"><button class="card-btn"> Lets Go! </button></a>
                         </div> <!-- DIV CARD-CONTENT -->
                     </div>
                     </div>';

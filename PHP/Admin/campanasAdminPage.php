@@ -960,7 +960,7 @@ if($user==null || $user==""){
                                 <hr>
                                 <div class="campo-add">
                                     <label for="campana-description"> New Campaign Description </label>
-                                    <textarea id="campana-description" cols="30" rows="4" maxlength="300" placeholder="Maximun 300 characters..." name="descripcioncampaña" required>'.$search['DescripcionCampaña'].'</textarea>
+                                    <textarea id="campana-description" cols="30" rows="4" maxlength="200" placeholder="Maximun 200 characters..." name="descripcioncampaña" required>'.$search['DescripcionCampaña'].'</textarea>
                                 </div>
                                 <hr>
                                 <div class="campo-add">
@@ -1005,7 +1005,7 @@ if($user==null || $user==""){
                                 <hr>
                                 <div class="campo-add">
                                     <label for="campana-description"> Campaign Description </label>
-                                    <textarea id="campana-description" cols="30" rows="4" maxlength="300" placeholder="Maximun 300 characters..." name="descripcioncampaña" required></textarea>
+                                    <textarea id="campana-description" cols="30" rows="4" maxlength="200" placeholder="Maximun 200 characters..." name="descripcioncampaña" required></textarea>
                                 </div>
                                 <hr>
                                 <div class="campo-add">

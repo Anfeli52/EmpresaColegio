@@ -412,6 +412,7 @@ body{
 .card-btn:hover,
 .card-btn:active{
     background-color: #053247;
+    color: #E5E7EB;
 }
 
 .create{
