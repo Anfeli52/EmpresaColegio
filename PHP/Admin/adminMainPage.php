@@ -967,7 +967,6 @@ if ($user == null || $user == "") {
                                         <p> '.$fetch['cantidad'].' </p>
                                     </td>
                                     '.$paymentStatus.'
-                                    <td class="details"><a href="#"> Details </a></td>
                                 </tr>
                             ';
                         }
