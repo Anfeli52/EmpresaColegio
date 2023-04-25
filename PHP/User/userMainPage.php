@@ -4,21 +4,21 @@ session_start();
 include '../conexion.php';
 
 $user = $_SESSION['email'];
-$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '" . $user . "';";
 $result = $conexion->query($select);
-while($datos=$result->fetch_assoc()){
+while ($datos = $result->fetch_assoc()) {
     $tipoUsuario = $datos['tipoUsuario'];
 }
 
-if($user==null || $user==""){
+if ($user == null || $user == "") {
     header('location:../../HTML/login.php');
-}else if($tipoUsuario!="user"){
+} else if ($tipoUsuario != "user") {
     header('location:../Admin/adminMainPage.php');
-}else{
-    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
+} else {
+    $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
     $resultado = $conexion->query($sql);
 
-    while($data=$resultado->fetch_assoc()){
+    while ($data = $resultado->fetch_assoc()) {
         $username = $data['username'];
         $correo = $data['correo'];
         $nombre = $data['nombre'];
@@ -28,6 +28,7 @@ if($user==null || $user==""){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -39,210 +40,231 @@ if($user==null || $user==""){
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="//code.tidio.co/0xm4bymhhmxmiwe8qrrlxsjxzvyi2nkl.js" async></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Inicio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <title>Main</title>
 </head>
+
 <body>
+
     <div class="loader">
-        <div></div>
+        <div class="ping"></div>
     </div>
+
     <div class="page">
-    <header>
-            <div class="sidebar">
 
-                <div class="logo_content">
-                    <div class="logo">
-                        <a href="#" class="foto">
-                            <img src="<?php echo $foto; ?>" alt="">
-                        </a>
-                        <div class="logo_name"><?php echo $username ?></div>
-                    </div>
-                    <i class='bx bx-menu' id="btn"></i>
-                    <i class="bx bx-x" id="btnclose"></i>
-                </div>
+        <header>
+            <a href="#" class="logo"> Yaxja </a>
 
-                <ul class="nav">
-                    <li>
-                        <a href="userMainPage.php">
-                            <i class='bx bxs-home-smile'></i>
-                            <span class="link_name"> Inicio </span>
-                        </a>
-                        <span class="tooltip"> Inicio </span>
-                    </li>
-                    <li>
-                        <a href="contaminacionUserPage.php">
-                            <i class='bx bxs-radiation'></i>
-                            <span class="link_name"> Contaminación </span>
-                        </a>
-                            <span class="tooltip"> Contaminación </span>
-                    </li>
-                    <li>
-                        <a href="campanasUserPage.php">
-                            <i class='bx bxs-megaphone'></i>
-                            <span class="link_name"> Campañas </span>
-                        </a>
-                        <span class="tooltip"> Campañas </span>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class='bx bx-chip' ></i>
-                            <span class="link_name"> DW-23 </span>
-                        </a>
-                        <span class="tooltip"> DW-23 </span>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class='bx bxs-message-dots'></i>
-                            <span class="link_name"> Chat </span>
-                        </a>
-                        <span class="tooltip"> Chat </span>
-                    </li>
-                    <li>
-                        <a href="cuentaUser.php">
-                            <i class='bx bxs-cog'></i>
-                            <span class="link_name"> Configuración </span>
-                        </a>
-                        <span class="tooltip"> Configuración </span>
-                    </li>
-                    <li id="close_session">
-                        <a href="../../PHP/logout.php">
-                            <i class='bx bx-exit'></i>
-                            <span class="link_name"> Cerrar Sesión </span>
-                        </a>
-                        <span class="tooltip"> Cerrar Sesión </span>
-                    </li>
-                </ul>
+            <ul>
+                <li> <a href="#section" class="active"> Home </a> </li>
+                <li> <a href="contaminacionUserPage.php" class="see"> Pollution </a> </li>
+                <li> <a href="campanasUserPage.php" class="see"> Campaigns </a> </li>
+                <li> <a href="#"> DW-23 </a> </li>
+                <li> <a href="#"> Chat </a> </li>
+                <li> <a href="cuentaUser.php"> Settings </a> </li>
 
-            </div>
+                <li><img src="<?php echo $foto; ?>" alt="#" class="avatar"></li>
+                <li id="log-out">
+                    <a href="../logout.php"> <i class="bx bx-exit"></i> </a>
+                    <span> Log Out </span>
+                </li>
+            </ul>
         </header>
-        <main>
-            <div class="fondo">
-                <h1>¿Quienes Somos?</h1>
+
+        <section id="section">
+            <img src="../../IMG/Nubes.svg" id="nubes">
+            <img src="../../IMG/Sol.svg" id="sol">
+            <img src="../../IMG/Arboles-y-Suelo.svg" id="arboles">
+            <img src="../../IMG/MontañasOscuras.svg" id="mountaindark">
+            <img src="../../IMG/MontañasClaras.svg" id="mountainlight">
+
+            <h2 id="text"> WELCOME </h2>
+            <a href="#sec" id="btn"> Explore </a>
+
+            <img src="../../IMG/Lago.svg" id="lago">
+        </section>
+
+        <div class="sec" id="sec">
+            <div data-aos="fade-down">
+                <h2 class="titulo-section"> About Us </h2>
             </div>
-            <div class="contenedor">
-                <div class="quienesSomos">
-                    <div class="queEsYaxja">
-                        <h2>¿Qué es YAXJA?</h2>
-                        <img src="../../IMG/logoYaxja.jpeg" alt="">
-                        
-                        <div class="yaxja">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, dicta reiciendis, error fuga ducimus dolorum incidunt autem rerum eum corrupti assumenda modi aspernatur sint quia! Enim odio perferendis voluptatibus itaque!</p>
-                        </div>
-                    </div>
-                    
-                    <div class="personal">
-                        <div class="contenedorPersonal">
-                            <h1>Personal</h1>
-                        </div>
-                        <div class="whoIsLucio">
-                            <label>
-                                <input type="checkbox">
-                                <div class="flip-card">
-                                    <div class="front">
-                                        <div class="front">
-                                            <img src="../../IMG/Lucio.jpeg" alt="">
-                                            <h1>Juan Idrobo</h1>
-                                            <h2>Marketing</h2>
-                                            <b>jslucio100@gmail.com</b>
-                                            <p>Click to flip</p>
-                                        </div>
-                                    </div>
-                                    <div class="back">
-                                        <h1>Sobre Mi</h1>
-                                        <hr>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, neque? Facilis repudiandae beatae adipisci? Consequuntur nam omnis assumenda cum praesentium.</p>
-                                        <hr>
-                                        <p class="click">Click to flip</p>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="whoIsLuis">
-                            <label>
-                                <input type="checkbox">
-                                <div class="flip-card">
-                                    <div class="front">
-                                        <img src="../../IMG/Luis.jpeg" alt="">
-                                        <h1>Luis Calderón</h1>
-                                        <h2>Diseño</h2>
-                                        <b>lccalderon1218@gmail.com</b>
-                                        <p>Click to flip</p>
-                                    </div>
-                                    <div class="back">
-                                        <h1>Sobre Mi</h1>
-                                        <hr>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, neque? Facilis repudiandae beatae adipisci? Consequuntur nam omnis assumenda cum praesentium.</p>
-                                        <hr>
-                                        <p class="click">Click to flip</p>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="whoIsSoto">
-                            <label>
-                                <input type="checkbox">
-                                <div class="flip-card">
-                                    <div class="front">
-                                        <img src="../../IMG/Soto.jpeg" alt="">
-                                        <h1>Juan Soto</h1>
-                                        <h2>Líder</h2>
-                                        <b>Juanesteban9283@gmail.com</b>
-                                        <p>Click to flip</p>
-                                    </div>
-                                    <div class="back">
-                                        <h1>Sobre Mi</h1>
-                                        <hr>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, neque? Facilis repudiandae beatae adipisci? Consequuntur nam omnis assumenda cum praesentium.</p>
-                                        <hr>
-                                        <p class="click">Click to flip</p>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="whoIsMedina">
-                            <label>
-                                <input type="checkbox">
-                                <div class="flip-card">
-                                    <div class="front">
-                                        <img src="../../IMG/Anonimo.webp" alt="">
-                                        <h1>Andrés Medina</h1>
-                                        <h2>Programador</h2>
-                                        <b>anfeli201111@gmail.com</b>
-                                        <p>Click to flip</p>
-                                    </div>
-                                    <div class="back">
-                                        <h1>Sobre Mi</h1>
-                                        <hr>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti, neque? Facilis repudiandae beatae adipisci? Consequuntur nam omnis assumenda cum praesentium.</p>
-                                        <hr>
-                                        <p class="click">Click to flip</p>
-                                    </div>
-                                </div>
-                            </label>
-                        </div>
+            <div class="aboutUs">
+
+                <p class="est" data-aos="fade-up"> — EST 2023 — </p>
+
+                <p class="text-about" data-aos="fade-up">
+                    We are a company that makes social and business needs technological solutions that contribute to the evolution of humanity through technological development applied to the specific needs of each company or person, offering them comprehensive solutions, with the purpose of creating or developing software for easy to use, that has outstanding levels of profitability, quality, presence and influence in the labor market. <br> <br>
+
+                    In 10 years we will be a company that will contribute to the environment and the development of technology through the programs developed, thus giving support through our software to organizations that try to eliminate the problem of pollution, achieving in the future to have a healthier, cleaner and more habitable environment. <br> <br>
+
+                    <span class="quote1" data-aos="fade-up"> Take care and remember... SCROLL SLOW, HOMIE! </span>
+                </p>
+
+            </div> <!--FIN DIV ABOUTUS-->
+        </div> <!--FIN DIV SEC-->
+
+        <div class="third" id="third">
+            <div>
+                <h2 class="titulo-section" data-aos="fade-left"> Our team </h2>
+            </div>
+            <div class="ourTeam">
+
+                <p class="meet" data-aos="fade-right"> Get to know us </p>
+
+                <div class="cardsTeam">
+
+                    <div class="card" id="egga" data-aos="fade-right"> <!--DIV CARD-->
+                        <div class="blob"></div> <!--DIV BLOB-->
+                        <span class="img"> <img src="../../IMG/Medina.jpeg" alt=""> </span>
+                        <h2>Andrés Medina</h2>
+                        <span class="puesto"> Web Developer </span>
+
+                        <p> <!--P-->
+                            <a href="#"> <i class='bx bxl-instagram'></i> </a>
+                            <a href="#"> <i class='bx bxl-facebook-circle'></i> </a>
+                            <a href="#"> <i class='bx bxl-twitter'></i> </a>
+                            <a href="#"> <i class='bx bx-envelope'></i> </a>
+                        </p> <!--FIN P-->
+                    </div> <!--FIN DIV CARD HUEVO-->
+
+                    <div class="card" id="pock" data-aos="fade-right"> <!--DIV CARD-->
+                        <div class="blob"></div> <!--DIV BLOB-->
+                        <span class="img"> <img src="../../IMG/Luis.jpeg" alt=""> </span>
+                        <h2>Luis Calderón</h2>
+                        <span class="puesto"> Web Designer </span>
+
+                        <p> <!--P-->
+                            <a href="#"> <i class='bx bxl-instagram'></i> </a>
+                            <a href="#"> <i class='bx bxl-facebook-circle'></i> </a>
+                            <a href="#"> <i class='bx bxl-twitter'></i> </a>
+                            <a href="#"> <i class='bx bx-envelope'></i> </a>
+                        </p> <!--FIN P-->
+                    </div> <!--FIN DIV CARD lUIS-->
+
+                    <div class="card" id="potes" data-aos="fade-left"> <!--DIV CARD-->
+                        <div class="blob"></div> <!--DIV BLOB-->
+                        <span class="img"> <img src="../../IMG/Soto.jpeg" alt=""> </span>
+                        <h2>Juan Soto</h2>
+                        <span class="puesto"> Manager </span>
+
+                        <p> <!--P-->
+                            <a href="#"> <i class='bx bxl-instagram'></i> </a>
+                            <a href="#"> <i class='bx bxl-facebook-circle'></i> </a>
+                            <a href="#"> <i class='bx bxl-twitter'></i> </a>
+                            <a href="#"> <i class='bx bx-envelope'></i> </a>
+                        </p> <!--FIN P-->
+                    </div> <!--FIN DIV CARD POTES-->
+
+                    <div class="card" data-aos="fade-left"> <!--DIV CARD-->
+                        <div class="blob"></div> <!--DIV BLOB-->
+                        <span class="img"> <img src="../../IMG/Lucio.jpeg" alt=""> </span>
+                        <h2>Juan Idrobo</h2>
+                        <span class="puesto"> Marketing </span>
+
+                        <p> <!--P-->
+                            <a href="#"> <i class='bx bxl-instagram'></i> </a>
+                            <a href="#"> <i class='bx bxl-facebook-circle'></i> </a>
+                            <a href="#"> <i class='bx bxl-twitter'></i> </a>
+                            <a href="#"> <i class='bx bx-envelope'></i> </a>
+                        </p> <!--FIN P-->
+                    </div> <!--FIN DIV CARD WESTCOL-->
+
+                </div> <!--FIN DIV CARDSTEAM-->
+
+            </div> <!--FIN DIV OURTEAN-->
+        </div> <!--FIN DIV THIRD-->
+
+        <div class="four" id="four">
+            <div class="agu">
+
+                <div class="info-dw">
+                    <h1 class="intro-dw"> Introducing the new </h1>
+                    <h1 class="dw-23"> DW-23 </h1>
+
+                    <p class="text-dw">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eum exercitationem quos, inventore minus sint asperiores labore, similique blanditiis ea laudantium dolorum est!
+                    </p>
+
+                    <a href="#" class="btn-more"> Know more </a>
+                </div>
+                <div class="img-dw">
+                    <img src="../../IMG/FotosCuerpos/Agua.jpg" alt="">
+                </div>
+
+            </div>
+        </div>
+
+        <footer id="contact">
+            <div class="footer-content">
+                <div class="footer-tab contact-us">
+                    <h3> CONTACT US </h3>
+                    <p> <a href="#"> yaxja@gmail.com </a> </p>
+                    <h3> OFFICE </h3>
+                    <p> +626 460 0461 </p>
+                </div>
+
+                <div class="footer-tab follow-us">
+                    <h3> FOLLOW US </h3>
+                    <div class="footer-share">
+                        <a href="#"> <i class='bx bxl-twitter'></i> </a>
+                        <a href="#"> <i class='bx bxl-facebook'></i> </a>
+                        <a href="#"> <i class='bx bxl-instagram'></i> </a>
+                        <a href="#"> <i class='bx bxl-youtube'></i> </a>
                     </div>
                 </div>
+
+                <div class="footer-tab location">
+                    <h3> LOCATION </h3>
+                    <p>
+                        Comfandi Calipso
+                        <br>
+                        Cali, VAC 760022
+                    </p>
+                </div>
+
+                <div id="legal">
+                    © YAXJA, CO - Committed to the environment since diapers.
+                </div>
             </div>
-        </main>
+        </footer>
+
     </div>
+
     <script>
-        $(window).on('load',function(){
+        let nubes = document.getElementById('nubes');
+        let sol = document.getElementById('sol');
+        let mountainlight = document.getElementById('mountainlight');
+        let mountaindark = document.getElementById('mountaindark');
+        let arboles = document.getElementById('arboles');
+        let lago = document.getElementById('lago');
+        let text = document.getElementById('text');
+        let btn = document.getElementById('btn');
+
+        window.addEventListener('scroll', function() {
+            let value = window.scrollY;
+            sol.style.top = value * 1.05 + 'px';
+            mountaindark.style.top = value * 0.5 + 'px';
+            mountainlight.style.top = value * 0.5 + 'px';
+            lago.style.top = value * 0.5 + 'px';
+            text.style.marginBottom = value * 2 + 'px'
+            btn.style.marginTop = value * 1.5 + 'px';
+        });
+    </script>
+
+    <script>
+        $(window).on('load', function() {
             $(".loader").fadeOut(1000);
             $(".page").fadeIn(1000);
         });
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        let btn = document.querySelector('#btn');
-        let sidebar = document.querySelector('.sidebar');
-        let btnclose = document.querySelector('#btnclose');
-    
-        btn.onclick = function(){
-            sidebar.classList.toggle('active');
-        }
-        btnclose.onclick = function(){
-            sidebar.classList.toggle('active');
-        }
+        AOS.init();
     </script>
+
 </body>
+
 </html>

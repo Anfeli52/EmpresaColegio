@@ -798,7 +798,7 @@ if($user==null || $user==""){
     </div> <!-- NO ABRA ESO -->
 
     <div class="loader">
-        <div></div>
+        <div class="ping"></div>
     </div>
 
     <div class="page">

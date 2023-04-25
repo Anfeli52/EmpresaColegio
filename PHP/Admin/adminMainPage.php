@@ -33,13 +33,14 @@ if ($user == null || $user == "") {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../IMG/logoheader.png">
     <link rel="stylesheet" href="../../CSS/Admin/adminMainPageStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Inicio</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -798,8 +799,9 @@ if ($user == null || $user == "") {
     </div> <!-- NO ABRA ESO -->
 
     <div class="loader">
-        <div></div>
+        <div class="ping"></div>
     </div>
+
     <div class="page">
 
         <div class="sidebar">
@@ -826,19 +828,19 @@ if ($user == null || $user == "") {
                 <li>
                     <a href="contaminacionAdminPage.php">
                         <i class='bx bxs-radiation'></i>
-                        <span class="link_name"> Contaminación </span>
+                        <span class="link_name"> Pollution </span>
                     </a>
-                    <span class="tooltip"> Contaminación </span>
+                    <span class="tooltip"> Pollution </span>
                 </li>
                 <li>
                     <a href="campanasAdminPage.php">
                         <i class='bx bxs-megaphone'></i>
-                        <span class="link_name"> Campañas </span>
+                        <span class="link_name"> Campaigns </span>
                     </a>
-                    <span class="tooltip"> Campañas </span>
+                    <span class="tooltip"> Campaigns </span>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="dw-23.php">
                         <i class='bx bx-chip'></i>
                         <span class="link_name"> DW-23 </span>
                     </a>
@@ -847,29 +849,29 @@ if ($user == null || $user == "") {
                 <li>
                     <a href="usersAdminPage.php">
                         <i class='bx bxs-user'></i>
-                        <span class="link_name"> Usuarios </span>
+                        <span class="link_name"> Users </span>
                     </a>
-                    <span class="tooltip"> Usuarios </span>
+                    <span class="tooltip"> Users </span>
                 </li>
                 <li>
                     <a href="cuentaAdmin.php">
                         <i class='bx bxs-cog'></i>
-                        <span class="link_name"> Configuración </span>
+                        <span class="link_name"> Settings </span>
                     </a>
-                    <span class="tooltip"> Configuración </span>
+                    <span class="tooltip"> Settings </span>
                 </li>
                 <li id="close_session">
                     <a href="../../PHP/logout.php">
                         <i class='bx bx-exit'></i>
-                        <span class="link_name"> Cerrar Sesión </span>
+                        <span class="link_name"> Log Out </span>
                     </a>
-                    <span class="tooltip"> Cerrar Sesión </span>
+                    <span class="tooltip"> Log Out </span>
                 </li>
             </ul>
 
         </div>
 
-        <!------------------------------------------------------------------ FIN SIDEBAR ----------------------------------------------------------------------------------------->
+        <!-- FIN DEL SIDEBAR ------------------------------------------------------------------->
 
         <div class="dashboard" id="main">
             <h3 class="i-name"> WELCOME TO YOUR DASHBOARD, <b><?php echo $username ?></b>! </h3>
@@ -922,54 +924,53 @@ if ($user == null || $user == "") {
                     </thead>
                     <tbody>
                         <?php
-                        
-                        $select = "SELECT * FROM ventas";
-                        $query=mysqli_query($conexion, $select);
-                        while($fetch = mysqli_fetch_assoc($query)){
+                            $select = "SELECT * FROM ventas";
+                            $query=mysqli_query($conexion, $select);
+                            while($fetch = mysqli_fetch_assoc($query)){
 
-                            $selectClient = "SELECT * FROM usuario WHERE correo = '".$fetch['correoCliente']."'";
-                            $queryClient=mysqli_query($conexion, $selectClient);
-                            $fetchClient = mysqli_fetch_assoc($queryClient);
+                                $selectClient = "SELECT * FROM usuario WHERE correo = '".$fetch['correoCliente']."'";
+                                $queryClient=mysqli_query($conexion, $selectClient);
+                                $fetchClient = mysqli_fetch_assoc($queryClient);
 
-                            if($fetch['estadoEnvio']=="Success"){
-                                $paymentStatus = '
-                                <td class="payment-status success">
-                                    <p> '.$fetch['estadoEnvio'].' </p>
-                                </td>';
-                            }elseif($fetch['estadoEnvio']=="Declined"){
-                                $paymentStatus = '
-                                <td class="payment-status warning">
-                                    <p> '.$fetch['estadoEnvio'].' </p>
-                                </td>';
-                            }else{
-                                $paymentStatus = '
-                                <td class="payment-status caution">
-                                    <p> '.$fetch['estadoEnvio'].' </p>
-                                </td>';
+                                if($fetch['estadoEnvio']=="Success"){
+                                    $paymentStatus = '
+                                    <td class="payment-status success">
+                                        <p> '.$fetch['estadoEnvio'].' </p>
+                                    </td>';
+                                }elseif($fetch['estadoEnvio']=="Declined"){
+                                    $paymentStatus = '
+                                    <td class="payment-status warning">
+                                        <p> '.$fetch['estadoEnvio'].' </p>
+                                    </td>';
+                                }else{
+                                    $paymentStatus = '
+                                    <td class="payment-status caution">
+                                        <p> '.$fetch['estadoEnvio'].' </p>
+                                    </td>';
+                                }
+
+                                echo '
+                                    <tr>
+                                        <td class="people">
+                                            <img src="'.$fetchClient['fotoPerfil'].'" alt="">
+                                            <div class="people-de">
+                                                <h5> '.$fetchClient['username'].' </h5>
+                                                <p> '.$fetch['correoCliente'].' </p>
+                                            </div>
+                                        </td>
+                                        <td class="order">
+                                            <h5> '.$fetch['orderNumber'].' </h5>
+                                        </td>
+                                        <td class="product-name">
+                                            <p> '.$fetch['productName'].' </p>
+                                        </td>
+                                        <td class="quantity">
+                                            <p> '.$fetch['cantidad'].' </p>
+                                        </td>
+                                        '.$paymentStatus.'
+                                    </tr>
+                                ';
                             }
-
-                            echo '
-                                <tr>
-                                    <td class="people">
-                                        <img src="'.$fetchClient['fotoPerfil'].'" alt="">
-                                        <div class="people-de">
-                                            <h5> '.$fetchClient['username'].' </h5>
-                                            <p> '.$fetch['correoCliente'].' </p>
-                                        </div>
-                                    </td>
-                                    <td class="order">
-                                        <h5> '.$fetch['orderNumber'].' </h5>
-                                    </td>
-                                    <td class="product-name">
-                                        <p> '.$fetch['productName'].' </p>
-                                    </td>
-                                    <td class="quantity">
-                                        <p> '.$fetch['cantidad'].' </p>
-                                    </td>
-                                    '.$paymentStatus.'
-                                </tr>
-                            ';
-                        }
                         ?>
                     </tbody>
                 </table>
@@ -1045,13 +1046,14 @@ if ($user == null || $user == "") {
     </div>
 
 
-    
+
     <script>
         $(window).on('load', function() {
             $(".loader").fadeOut(1000);
             $(".page").fadeIn(1000);
         });
     </script>
+    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 

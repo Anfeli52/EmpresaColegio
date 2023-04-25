@@ -4,21 +4,21 @@ session_start();
 include '../conexion.php';
 
 $user = $_SESSION['email'];
-$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '" . $user . "';";
 $result = $conexion->query($select);
-while($datos=$result->fetch_assoc()){
+while ($datos = $result->fetch_assoc()) {
     $tipoUsuario = $datos['tipoUsuario'];
 }
 
-if($user==null || $user==""){
+if ($user == null || $user == "") {
     header('location:../../HTML/login.php');
-}else if($tipoUsuario!="user"){
+} else if ($tipoUsuario != "user") {
     header('location:../Admin/adminMainPage.php');
-}else{
-    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
+} else {
+    $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
     $resultado = $conexion->query($sql);
 
-    while($data=$resultado->fetch_assoc()){
+    while ($data = $resultado->fetch_assoc()) {
         $username = $data['username'];
         $correo = $data['correo'];
         $nombre = $data['nombre'];
@@ -37,8 +37,7 @@ if($user==null || $user==""){
     <link rel="stylesheet" href="../../CSS/User/contaminacionUserPageStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Contaminacion</title>
@@ -802,9 +801,9 @@ if($user==null || $user==""){
     </div> <!-- NO ABRA ESO -->
 
     <div class="loader">
-        <div></div>
+        <div class="ping"></div>
     </div>
-    
+
     <div class="body-dark" id="body"></div>
     <div class="page">
 
@@ -834,7 +833,7 @@ if($user==null || $user==""){
                         <i class='bx bxs-radiation'></i>
                         <span class="link_name"> Contaminación </span>
                     </a>
-                        <span class="tooltip"> Contaminación </span>
+                    <span class="tooltip"> Contaminación </span>
                 </li>
                 <li>
                     <a href="campanasUserPage.php">
@@ -845,7 +844,7 @@ if($user==null || $user==""){
                 </li>
                 <li>
                     <a href="#">
-                        <i class='bx bx-chip' ></i>
+                        <i class='bx bx-chip'></i>
                         <span class="link_name"> DW-23 </span>
                     </a>
                     <span class="tooltip"> DW-23 </span>
@@ -875,40 +874,40 @@ if($user==null || $user==""){
 
         </div>
 
-            <!-- FIN DEL SIDEBAR ------------------------------------------------------------------->
+        <!-- FIN DEL SIDEBAR ------------------------------------------------------------------->
 
-            <div class="container-table">
-                <h3> POLLUTION TABLE </h3>
+        <div class="container-table">
+            <h3> POLLUTION TABLE </h3>
 
-                <form action="" class="search-bar">
-                    <input type="text" placeholder="Search..." name="campo" id="campo">
-                    <button type="submit"> <i class="fa fa-search"></i> </button>
-                </form>
+            <form action="" class="search-bar">
+                <input type="text" placeholder="Search..." name="campo" id="campo">
+                <button type="submit"> <i class="fa fa-search"></i> </button>
+            </form>
 
-                <div class="board">
-                    <table width="100%">
-                        <thead>
-                            <tr>
-                                <td>Foto Cuerpo</td>
-                                <td>Codigo Agua</td>
-                                <td>Nombre Agua</td>
-                                <td>Cuerpo de Agua</td>
-                                <td>Nivel Contaminante</td>
-                                <td>Nivel Turbidad</td>
-                                <td>Fecha</td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                        </thead>
+            <div class="board">
+                <table width="100%">
+                    <thead>
+                        <tr>
+                            <td>Foto Cuerpo</td>
+                            <td>Codigo Agua</td>
+                            <td>Nombre Agua</td>
+                            <td>Cuerpo de Agua</td>
+                            <td>Nivel Contaminante</td>
+                            <td>Nivel Turbidad</td>
+                            <td>Fecha</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </thead>
 
-                        <tbody id="content"> <!-- EL ID DEL CUERPO DE LA TABLA --> </tbody>
-                    </table>
-                </div>
+                    <tbody id="content"> <!-- EL ID DEL CUERPO DE LA TABLA --> </tbody>
+                </table>
             </div>
+        </div>
 
     </div>
     <script>
-        $(window).on('load', function () {
+        $(window).on('load', function() {
             $(".loader").fadeOut(1000);
             $(".page").fadeIn(1000);
         });
@@ -924,35 +923,34 @@ if($user==null || $user==""){
         function getData() {
             let input = document.getElementById("campo").value;
             let content = document.getElementById("content");
-            let url = "../tablaContaminacion.php";
+            let url = "../tablaContaminacionUser.php";
             let formaData = new FormData()
             formaData.append('campo', input);
             fetch(url, {
-                method: "POST",
-                body: formaData
-            }).then(response => response.json())
+                    method: "POST",
+                    body: formaData
+                }).then(response => response.json())
                 .then(data => {
                     content.innerHTML = data
                 }).catch(err => console.log(err))
         }
     </script>
     <!-- Bootstrap core JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
     <script src="../../JS/contaminacion.js"></script>
 
     <script>
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
-    let btnclose = document.querySelector('#btnclose');
-    
-    btn.onclick = function(){
-        sidebar.classList.toggle('active');
-    }
-    btnclose.onclick = function(){
-        sidebar.classList.toggle('active');
-    }
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
+        let btnclose = document.querySelector('#btnclose');
+
+        btn.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+        btnclose.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
     </script>
 
 </body>

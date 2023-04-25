@@ -166,7 +166,26 @@ function ActualizaContrasena() {
 function editar_infobilletera() {
     document.getElementById('add_infobilletera').style.display = 'block';
     document.getElementById('resumen').style.display = 'none';
+    document.getElementById('edit-billing').style.display = 'none';
 }
+
+function cancelinfo() {
+    document.getElementById('add_infobilletera').style.display = 'none';
+    document.getElementById('resumen').style.display = 'block';
+    document.getElementById('edit-billing').style.display = 'block';
+}
+
+function addPayMethod(){
+    document.getElementById('add-card').style.visibility = 'visible';
+    document.getElementById('body').style.visibility = 'visible';
+}
+
+function cerrarPaymentMethod(){
+    document.getElementById('add-card').style.visibility = 'hidden';
+    document.getElementById('body').style.visibility = 'hidden';
+}
+
+/*
 
 function AddInfo() {
     document.getElementById('Advert_add_info').style.display = 'block';
@@ -261,4 +280,4 @@ function Update_limit() {
         icon: 'success',
         title: 'Actualizado con éxito'
     })
-}
+}*/

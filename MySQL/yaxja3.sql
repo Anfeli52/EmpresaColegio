@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2023 a las 16:39:01
+-- Tiempo de generación: 06-04-2023 a las 23:11:24
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -31,7 +31,7 @@ CREATE TABLE `campaña` (
   `CodigoCampaña` int(20) NOT NULL,
   `ImagenCampaña` varchar(1000) NOT NULL,
   `NombreCampaña` varchar(40) NOT NULL,
-  `DescripcionCampaña` varchar(200) NOT NULL,
+  `DescripcionCampaña` varchar(300) NOT NULL,
   `DetallesLink` varchar(1000) NOT NULL,
   `correoUsuario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -41,8 +41,9 @@ CREATE TABLE `campaña` (
 --
 
 INSERT INTO `campaña` (`CodigoCampaña`, `ImagenCampaña`, `NombreCampaña`, `DescripcionCampaña`, `DetallesLink`, `correoUsuario`) VALUES
-(20, '../../IMG/FotosCampanas/Agua.jpg', 'Primera Campaña', 'Primera Campaña.', 'https://www.youtube.com/watch?v=vjVkXlxsO8Q&list=PLlqZM4covn1EVQPNevXbBHMa62g0LcQaz', 'anfeli201111@gmail.com'),
-(21, '../../IMG/FotosCampanas/Agua2.jpg', 'Segunda Campaña', 'Segunda Campaña.', 'https://www.youtube.com/watch?v=U6R-twDkrcI&list=PLlqZM4covn1EbvC_6cuERQ59QaMbPkUyE', 'anfeli201111@gmail.com');
+(19, '../../IMG/FotosCampanas/Linkin Park.jpg', 'Linkin Park', 'Linkin Park es una banda estadounidense de rock alternativo procedente de Agoura Hills, California formada en 1996. Integrada por Mike Shinoda, Dave Farrell, Joe Hahn, Brad Delson, Rob Bourdon y Chester Bennington, este último como voz principal.', 'https://es.wikipedia.org/wiki/Linkin_Park', 'anfeli201111@gmail.com'),
+(20, '../../IMG/FotosCampanas/Hybrid Theory.png', 'Hybrid Theory ', 'First Album', 'https://www.youtube.com/watch?v=vjVkXlxsO8Q&list=PLlqZM4covn1EVQPNevXbBHMa62g0LcQaz', 'anfeli201111@gmail.com'),
+(21, '../../IMG/FotosCampanas/Meteora.jpg', 'Meteora', 'Second Album', 'https://www.youtube.com/watch?v=U6R-twDkrcI&list=PLlqZM4covn1EbvC_6cuERQ59QaMbPkUyE', 'anfeli201111@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -66,54 +67,7 @@ CREATE TABLE `contaminacion` (
 --
 
 INSERT INTO `contaminacion` (`codigoAgua`, `nivelContaminante`, `nivelTurbidad`, `nombreAgua`, `cuerpoAgua`, `fechaMuestra`, `fotoAgua`, `correoContaminacion`) VALUES
-('R12345', 23, 1, 'Laguinho', 'Lago', '2022-03-12', '../../IMG/FotosCuerpos/Agua.jpg', 'anfeli201111@gmail.com');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `contaminacion2`
---
-
-CREATE TABLE `contaminacion2` (
-  `codigoAgua` varchar(25) NOT NULL,
-  `nivelContaminante` float(10,0) NOT NULL,
-  `nivelTurbidad` float NOT NULL,
-  `nombreAgua` varchar(20) NOT NULL,
-  `cuerpoAgua` varchar(20) NOT NULL,
-  `fechaMuestra` date NOT NULL,
-  `correoContaminacion` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `contaminacion2`
---
-
-INSERT INTO `contaminacion2` (`codigoAgua`, `nivelContaminante`, `nivelTurbidad`, `nombreAgua`, `cuerpoAgua`, `fechaMuestra`, `correoContaminacion`) VALUES
-('R12345', 23, 1, 'Laguinho', 'Lago', '2022-03-12', 'anfeli201111@gmail.com'),
-('R3357', 22, 5, 'aaa', 'Rio', '2023-04-19', 'anfeli201111@gmail.com');
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `metodopago`
---
-
-CREATE TABLE `metodopago` (
-  `cardNumber` varchar(19) NOT NULL,
-  `cardHolder` varchar(32) NOT NULL,
-  `expMM` int(2) NOT NULL,
-  `expYY` int(2) NOT NULL,
-  `cvv` int(4) NOT NULL,
-  `correoUsuario` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `metodopago`
---
-
-INSERT INTO `metodopago` (`cardNumber`, `cardHolder`, `expMM`, `expYY`, `cvv`, `correoUsuario`) VALUES
-('4093-5500-8705-2290', 'LUIS CALDERON', 12, 2029, 1234, 'alejandroescobar@gmail.com'),
-('3410-293819-20830', 'PACO GENTO', 11, 2030, 1244, 'alejandroescobar@gmail.com');
+('R12345', 23, 1, 'Laguinho', 'Lago', '2022-03-12', '../../IMG/Anonimo.png', 'anfeli201111@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -177,15 +131,6 @@ CREATE TABLE `ventas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `ventas`
---
-
-INSERT INTO `ventas` (`correoCliente`, `orderNumber`, `productName`, `cantidad`, `estadoEnvio`) VALUES
-('anfelime@gmail.com', 1, 'DW23', 1, 'Declined'),
-('jslucio100@gmail.com', 2, 'DW23', 1, 'Pending'),
-('venusayurialmeida.99@gmail.com', 3, 'DW23', 3, 'Success');
-
---
 -- Índices para tablas volcadas
 --
 
@@ -202,19 +147,6 @@ ALTER TABLE `campaña`
 ALTER TABLE `contaminacion`
   ADD PRIMARY KEY (`codigoAgua`),
   ADD KEY `contaminacion-correo` (`correoContaminacion`);
-
---
--- Indices de la tabla `contaminacion2`
---
-ALTER TABLE `contaminacion2`
-  ADD PRIMARY KEY (`codigoAgua`),
-  ADD KEY `contaminacion-correo` (`correoContaminacion`);
-
---
--- Indices de la tabla `metodopago`
---
-ALTER TABLE `metodopago`
-  ADD KEY `pago-usuario` (`correoUsuario`);
 
 --
 -- Indices de la tabla `recomendacion`

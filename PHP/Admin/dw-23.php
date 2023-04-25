@@ -1,24 +1,24 @@
-<?php 
+<?php
 
 session_start();
 include '../conexion.php';
 
 $user = $_SESSION['email'];
-$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '" . $user . "';";
 $result = $conexion->query($select);
-while($datos=$result->fetch_assoc()){
+while ($datos = $result->fetch_assoc()) {
     $tipoUsuario = $datos['tipoUsuario'];
 }
 
-if($user==null || $user==""){
+if ($user == null || $user == "") {
     header('location:../../HTML/login.php');
-}else if($tipoUsuario!="admin"){
+} else if ($tipoUsuario != "admin") {
     header('location:../User/userMainPage.php');
-}else{
-    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
+} else {
+    $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
     $resultado = $conexion->query($sql);
 
-    while($data=$resultado->fetch_assoc()){
+    while ($data = $resultado->fetch_assoc()) {
         $username = $data['username'];
         $correo = $data['correo'];
         $nombre = $data['nombre'];
@@ -28,17 +28,21 @@ if($user==null || $user==""){
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../IMG/logoheader.png">
-    <title>Password</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../CSS/Admin/dw-23Style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../../CSS/Admin/Settings/contrasenaAdminStyle.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>DW-23</title>
 </head>
+
 <body>
 
     <div class="rain">
@@ -793,218 +797,167 @@ if($user==null || $user==""){
             <path stroke="none" d="M 2.5,0 C 2.6949458,3.5392017 3.344765,20.524571 4.4494577,30.9559 5.7551357,42.666753 4.5915685,50 2.5,50 0.40843152,50 -0.75513565,42.666753 0.55054234,30.9559 1.655235,20.524571 2.3050542,3.5392017 2.5,0 Z"></path>
         </svg>
     </div> <!-- NO ABRA ESO -->
-
+    
     <div class="body-dark" id="body"></div>
 
-    <div class="sidebar">
-
-        <div class="logo_content">
-            <div class="logo">
-                <a href="#" class="foto">
-                    <img src="<?php echo $foto; ?>" alt="">
-                </a>
-                <div class="logo_name"><?php echo $username ?></div>
-            </div>
-            <i class='bx bx-menu' id="btn"></i>
-            <i class="bx bx-x" id="btnclose"></i>
-        </div>
-
-        <div class="src">
-            <i class='bx bx-search-alt-2'></i>
-            <input type="text" placeholder="Search..." class="search-side">
-        </div>
-
-        <ul class="nav">
-            <li>
-                <a href="adminMainPage.php">
-                    <i class='bx bxs-dashboard'></i>
-                    <span class="link_name"> Dashboard </span>
-                </a>
-                <span class="tooltip"> Dashboard </span>
-            </li>
-            <li>
-                <a href="contaminacionAdminPage.php">
-                    <i class='bx bxs-radiation'></i>
-                    <span class="link_name"> Pollution </span>
-                </a>
-                <span class="tooltip"> Pollution </span>
-            </li>
-            <li>
-                <a href="campanasAdminPage.php">
-                    <i class='bx bxs-megaphone'></i>
-                    <span class="link_name"> Campaigns </span>
-                </a>
-                <span class="tooltip"> Campaigns </span>
-            </li>
-            <li>
-                <a href="dw-23.php">
-                    <i class='bx bx-chip'></i>
-                    <span class="link_name"> DW-23 </span>
-                </a>
-                <span class="tooltip"> DW-23 </span>
-            </li>
-            <li>
-                <a href="usersAdminPage.php">
-                    <i class='bx bxs-user'></i>
-                    <span class="link_name"> Users </span>
-                </a>
-                <span class="tooltip"> Users </span>
-            </li>
-            <li>
-                <a href="cuentaAdmin.php">
-                    <i class='bx bxs-cog'></i>
-                    <span class="link_name"> Settings </span>
-                </a>
-                <span class="tooltip"> Settings </span>
-            </li>
-            <li id="close_session">
-                <a href="../../PHP/logout.php">
-                    <i class='bx bx-exit'></i>
-                    <span class="link_name"> Log Out </span>
-                </a>
-                <span class="tooltip"> Log Out </span>
-            </li>
-        </ul>
-
+    <div class="loader">
+        <div class="ping"></div>
     </div>
 
-    <div class="container">
-        <div class="ajustescuenta">
+    <div class="page">
 
-            <div class="foticousuario">
-                <div class="foto">
-                    <img src="<?php echo $foto; ?>" alt="#" class="avatar">
-                    <div class="infoto">
-                        <h1 class="h1foto"> <a href="#"><?php echo $username ?></a> </h1>
-                        <div class="descripfoto">
-                            <p>Your personal account :D</p>
-                        </div>
-                    </div>
+        <div class="sidebar">
+
+            <div class="logo_content">
+                <div class="logo">
+                    <a href="#" class="foto">
+                        <img src="<?php echo $foto; ?>" alt="">
+                    </a>
+                    <div class="logo_name"><?php echo $username ?></div>
                 </div>
+                <i class='bx bx-menu' id="btn"></i>
+                <i class="bx bx-x" id="btnclose"></i>
             </div>
 
-            <div class="layout">
-                <div class="layout-izq">
-                    <div class="lista">
-                        <ul class="menuajustes">
-                            <li> 
-                                <ul>
-                                    <li class="ajustes">
-                                        <a href="cuentaAdmin.php" class="contentajustes">
-                                            <span class="iconolist"><i class="fa-solid fa-gear"></i></span>
-                                            <span class="textlist-especial">Account</span>
-                                        </a>
-                                    </li>
-                                    <li class="ajustes">
-                                        <a href="notificacionesAdmin.php" class="contentajustes">
-                                            <span class="iconolist"><i class="fa-solid fa-bell"></i></span>
-                                            <span class="textlist">Notifications</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li> 
+            <ul class="nav">
+                <li>
+                    <a href="adminMainPage.php">
+                        <i class='bx bxs-dashboard'></i>
+                        <span class="link_name"> Dashboard </span>
+                    </a>
+                    <span class="tooltip"> Dashboard </span>
+                </li>
+                <li>
+                    <a href="contaminacionAdminPage.php">
+                        <i class='bx bxs-radiation'></i>
+                        <span class="link_name"> Pollution </span>
+                    </a>
+                    <span class="tooltip"> Pollution </span>
+                </li>
+                <li>
+                    <a href="campanasAdminPage.php">
+                        <i class='bx bxs-megaphone'></i>
+                        <span class="link_name"> Campaigns </span>
+                    </a>
+                    <span class="tooltip"> Campaigns </span>
+                </li>
+                <li>
+                    <a href="dw-23.php">
+                        <i class='bx bx-chip'></i>
+                        <span class="link_name"> DW-23 </span>
+                    </a>
+                    <span class="tooltip"> DW-23 </span>
+                </li>
+                <li>
+                    <a href="usersAdminPage.php">
+                        <i class='bx bxs-user'></i>
+                        <span class="link_name"> Users </span>
+                    </a>
+                    <span class="tooltip"> Users </span>
+                </li>
+                <li>
+                    <a href="cuentaAdmin.php">
+                        <i class='bx bxs-cog'></i>
+                        <span class="link_name"> Settings </span>
+                    </a>
+                    <span class="tooltip"> Settings </span>
+                </li>
+                <li id="close_session">
+                    <a href="../../PHP/logout.php">
+                        <i class='bx bx-exit'></i>
+                        <span class="link_name"> Log Out </span>
+                    </a>
+                    <span class="tooltip"> Log Out </span>
+                </li>
+            </ul>
 
-                            <li> 
-                                <ul>
-                                    <li>
-                                        <h3 class="titumenu">Access</h3>
-                                    </li>
+        </div>
 
-                                    <li class="ajustes">
-                                        <a href="emailAdmin.php" class="contentajustes">
-                                            <span class="iconolist"><i class="fa-solid fa-envelope"></i></span>
-                                            <span class="textlist">E-mail</span>
-                                        </a>
-                                    </li>
+        <!-- FIN DEL SIDEBAR ------------------------------------------------------------------->
 
-                                </ul>
-                            </li>
+        <div class="container-table">
+            <h1> Update DW-23 data </h1>
+            <div class="info-product">
+                <div class="img-product">
+                    <button onclick="editImg()" class="btn-edit-img"> Click to change image </button>
+                    <img src="../../IMG/Medina.jpeg" alt="" id="imgProduct">
+                </div>
+                <div class="campos-product">
+                    <form action="">
+                        <div class="input-product">
+                            <label for="productName"> Product Name </label>
+                            <input type="text" placeholder="DW-23" id="productName" name="" maxlength="60">
+                        </div>
+                        <div class="input-product">
+                            <label for="productDescription"> Product description </label>
+                            <textarea placeholder="Description" id="productDescription" cols="30" rows="8" maxlength="500" name=""></textarea>
+                        </div>
+                        <div class="input-product">
+                            <label for="productPrice"> Price of the product </label>
+                            <label class="priceSymbol"> $ </label>
+                            <input type="number" placeholder="Price of the product" id="productPrice" name="" maxlength="7" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                        </div>
+                        <div class="input-product">
+                            <label for="productFeature1"> Product features 1 </label>
+                            <input type="text" placeholder="Feature 1" id="productFeature1" name="" maxlength="60">
+                        </div>
+                        <div class="input-product">
+                            <label for="productFeature2"> Product features 2 </label>
+                            <input type="text" placeholder="Feature 2" id="productFeature2" name="" maxlength="60">
+                        </div>
+                        <div class="input-product">
+                            <label for="productFeature3"> Product features 3 </label>
+                            <input type="text" placeholder="Feature 3" id="productFeature3" name="" maxlength="60">
+                        </div>
+                        <div class="buttons-img">
+                            <button type="submit" class="btn-submit"> Update </button>
+                            <button type="reset" class="btn-submit"> Cancel </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-                            <li>
-                                <ul>
-                                    <li>
-                                        <h3 class="titumenu">Security</h3>
-                                    </li>
+        <div class="container-edit-img" id="edit-img"> <!-- CONTAINER EDITAR IMAGEN -->
+            <i class='bx bx-x' onclick="cerrarEdit()" class="x-edit-img"></i>
+            <form action="">
+                <label class="header-edit-img" for="file">
+                    <i class='bx bx-cloud-upload'></i>
+                    <p> Browse File to upload! </p>
+                </label> 
+                <label class="footer-edit-img"> 
+                    <p id="file-name"> Not selected file </p>
+                </label> 
+                <input id="file" type="file">
+                
+                <div class="buttons-img">
+                    <button type="submit" class="btn-submit"> Submit </button>
+                    <div onclick="cerrarEdit()" class="btn-submit"> Cancel </div>
+                </div>
+            </form>
+        </div> <!-- CONTAINER EDITAR IMAGEN -->
+        
+    </div>
+    <script>
+        $(window).on('load', function() {
+            $(".loader").fadeOut(1000);
+            $(".page").fadeIn(1000);
+        });
+    </script>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-                                    <li class="ajustes">
-                                        <a href="contrasenaAdmin.php" class="contentajustes especial">
-                                            <span class="iconolist"><i class="fa-solid fa-shield-halved"></i></span>
-                                            <span class="textlist">Password and Authentication</span>
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                    </div> <!-- LISTA -->
-                </div> <!-- LAYOUT - IZQ -->
-
-                <div class="layout-der">
-                    <div class="subhead">
-                        <h1 class="subhead-text"> Password and Authentication </h1>
-                    </div>
-                    <div class="layout-main">
-
-                        <div class="pass-authen">
-                            <form action="changePasswordUser.php" class="edit_password" method="post">
-                                <div class="password">
-                                    <div class="text_old"> <label for="" class="title_password">Old Password</label> </div>
-                                    <div class="campo_old"> <input type="password" name="oldPassword" class="type_old_password" placeholder="Old Password" maxlength="20" minlength="12" required> </div>
-                                </div>
-
-                                <div class="password">
-                                    <div class="text_old"> <label for="" class="title_password">New Password</label> </div>
-                                    <div class="campo_old"> <input type="password" name="newPassword" class="type_old_password" placeholder="New Password" maxlength="20" minlength="12" required> </div>
-                                </div>
-
-                                <div class="password">
-                                    <div class="text_old"> <label for="" class="title_password">Confirm Password</label> </div>
-                                    <div class="campo_old"> <input type="password" name="confirmNewPassword" class="type_old_password" placeholder="Confirm Password" maxlength="20" minlength="12" required> </div>
-                                </div>
-
-                                <p class="note"> Make sure your password is <span class="rojito">between 12 and 20 characters</span>.</p>
-
-                                <p class="update_password">
-                                    <button type="submit" class="btnUpdate" onclick="ActualizaContrasena()"> Update Password </button>
-                                    <span>
-                                        <a href="#" class="forgot"> Have you forgotten your password? </a> 
-                                    </span>
-                                </p>
-                            </form>
-
-                            <div class="autenticacion">
-                                <div class="autenticacion_title">
-                                    <h2 class="autentic_subhead">Two-Step Authentication</h2>
-                                </div>
-
-                                <div class="autenticacion_text">
-                                    <i class="fa-solid fa-lock"></i>
-                                    <h2 class="habilited_autenticacion">Two-factor authentication is not yet enabled.</h2>
-
-                                    <p class="note_autenticacion">Two-step authentication adds an extra layer of security to your account by requiring more than just a password to log in.</p>
-                                    <div class="btn_autenticacion">
-                                        <a href="#"> Enable two-factor authentication </a>
-                                    </div>
-                                    <div class="VerMas">
-                                        <a href="#" class="forgot"> Read more </a>
-                                    </div>
-                                </div> 
-
-                            </div>
-                        </div> <!-- PASS - AUTHEN -->
-
-                    </div> <!-- LAYOUT - MAIN -->
-                </div> <!-- LAYOUT - DER -->
-            </div> <!-- LAYOUT -->
-
-        </div> <!-- AJUSTESCUENTA -->
-    </div> <!-- CONTAINER -->
+    <script>
+        document.getElementById('file').onchange = function() {
+            console.log(this.value);
+            document.getElementById('file-name').innerHTML = document.getElementById('file').files[0].name;
+        }
+    </script>
 
     <script>
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
-        let srcBtn = document.querySelector('.bx-search-alt-2');
 
         btn.onclick = function() {
             sidebar.classList.toggle('active');
@@ -1012,12 +965,24 @@ if($user==null || $user==""){
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
         }
-        srcBtn.onclick = function() {
-            sidebar.classList.toggle('active');
-        }
     </script>
-    
-    <script src="../../JS/MenuAjustes/Adverts.js"></script>
 
+    <script src="../../JS/dw-23.js"></script>
+
+    <script>
+        const number = document.querySelector('#productPrice');
+
+        function formatNumber (n) {
+            n = String(n).replace(/\D/g, "");
+            return n === '' ? n : Number(n).toLocaleString(); 
+        }
+
+        number.addEventListener('keyup', (e) => {
+            const element = e.target;
+            const value = element.value;
+            element.value = formatNumber(value);
+        });
+    </script>
 </body>
+
 </html>

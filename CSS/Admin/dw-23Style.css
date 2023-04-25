@@ -170,56 +170,6 @@ body{
     display: none;
 }
 
-.sidebar .src{
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin-top: 100px;
-    transition: all .2s;
-}
-
-.sidebar .src .search-side{
-    position: absolute;
-    height: 100%;
-    width: calc(100% - 50px);
-    left: 0;
-    top: 0;
-    border-radius: 20px;
-    outline: none;
-    border: none;
-    background-color: #0076fd;
-    padding-left: 50px;
-    font-size: 15px;
-    color: #053247;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-    transition: all .2s;
-}
-
-.sidebar .src .bx-search-alt-2{
-    position: absolute;
-    z-index: 99;
-    font-size: 22px;
-    cursor: pointer;
-    transition: all .2s;
-    color: #fff;
-    background-color: #0076fd;
-}
-
-.sidebar .src .bx-search-alt-2:hover{
-    color: #0076fd;
-    background-color: #fff;
-}
-
-.sidebar .src .bx-search-alt-2:hover ~ .search-side{
-    background-color: #fff;
-}
-
-.sidebar.active .search-side,
-.sidebar.active .bx-search-alt-2{
-    background-color: #fff;
-    color: #053247;
-}
-
 .sidebar i{
     height: 50px;
     min-width: 50px;
@@ -230,7 +180,7 @@ body{
 }
 
 .sidebar ul{
-    margin-top: 20px;
+    margin-top: 100px;
 }
 
 .sidebar ul li{
@@ -366,313 +316,178 @@ body{
 
 /*------------------------------------------------------------------------ INICIO MAIN ------------------------------------------------------------------------*/
 
-.container{
+.container-table{
     position: absolute;
     left: 7%;
-    width: 85%;
+    width: 80%;
     padding: 4%;
     display: flex;
+    align-items: center;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
 }
 
-.ajustescuenta{
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    width: 90%;
+.container-table h1{
+    color: #053247;
+    font-size: 56px;
+    font-weight: 500;
+    font-family: "Philosopher", sans-serif;
+    margin-bottom: 30px;
 }
 
-/*------------------------ LAYOUT IZQ ---------------------*/
-
-.foticousuario{
+.info-product{
     display: flex;
-    margin-top: 4px;
-    margin-bottom: 24px;
-    align-items: center;
+    flex-direction: row;
     justify-content: space-between;
-    background-color: #fff;
+    width: 100%;
 }
 
-.foto{
-    display: flex;
-    align-items: center;
-}
-
-.avatar{
-    border-radius: 50%;
-    display: inline-block;
-    overflow: hidden;
-    line-height: 1;
-    vertical-align: middle;
-    flex-shrink: 0;
-    margin-right: 16px;
-    width: 60px;
-    height: 60px;
-    size: 60px;
-}
-
-img{
-    border-style: none;
-}
-
-a{
-    text-decoration: none;
-}
-
-.infoto{
-    flex: auto;
-}
-
-.h1foto{
-    font-size: 20px;
-    line-height: 1.25;
-    font-weight: 600;
-    margin: 0;
+.btn-edit-img{
+    bottom: 40px;
+    position: relative;
+    padding: 10px 70px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #053247;
+    color: #fff;
+    transition: all .3s;
+    font-weight: 500;
     letter-spacing: 1px;
 }
 
-.h1foto a{
+.btn-edit-img:hover{
+    background-color: #E5E7EB;
     color: #053247;
-    cursor: default;
-    font-family: "Philosopher", sans-serif;
+    letter-spacing: 2px;
 }
 
-.descripfoto{
-    flex-wrap: wrap;
+.img-product{
+    width: 50%;
+    height: 880px;
+    border-radius: 20px;
     display: flex;
-    align-items: center;
-    margin: 0;
-}
-
-.descripfoto p{
-    margin-right: 16px;
-    margin: 0;
-    color: rgb(48, 48, 48);
-    font-size: 14px;
-}
-
-.layout{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.layout-izq{
-    width: 30%;
-}
-
-.lista{
-    display: block;
-    margin-top: 2px;
-}
-
-ul{
-    list-style: none;
-}
-
-.menuajustes{
-    list-style: none;
-}
-
-.ajustes{
-    background: transparent;
-    border-radius: 6px;
-    list-style: none;
-}
-
-.contentajustes{
-    display: block;
-    background-color: initial;
-    border: none;
-    border-radius: 10px;
-    color: #053247;
-    padding: 10px;
-    text-align: left;
-    transition: all .3s;
-    width: 100%;
-    font-size: 16px;
-}
-
-.contentajustes:hover,
-.especial{
-    background-color: #053247;
-    color: #fff;
-}
-
-.titumenu{
-    font-size: 18px;
-    font-weight: 600;
-    color: #444;
-    margin-left: 10px;
-    margin-top: 20px;
-    margin-bottom: 5px;
-    font-family: "Philosopher", sans-serif;
-}
-
-.iconolist{
-    margin-right: 5px;
-}
-
-li{
-    list-style: none;
-}
-
-/*------------------------ LAYOUT DER ---------------------*/
-
-.layout-der{
-    width: 70%;
-    padding: 0px 20px 0px 70px;
-}
-
-.layout-main{
-    display: flex;
-    flex-direction: row;
-}
-
-.subhead{
-    border-bottom: 1px solid #053247;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    padding-bottom: 8px;
-    margin-bottom: 0;
-}
-
-.subhead-text{
-    flex:1 1 auto;
-    font-size: 30px;
-    font-family: "Philosopher", sans-serif;
-    color: #053247;
-    font-weight: 600;
-    order: 0;
-    height: 36px;
-    margin: 0;
-}
-
-.layout-main form{
-    width: 100%;
-}
-
-.profile{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.nameUser{
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-}
-
-.nameUser h2,
-#foteichon h2{
-    font-size: 18px;
-    margin-bottom: 2px;
-    margin-left: 5px;
-    font-weight: 400;
-}
-
-.nameUser input{
-    background-color: #eee;
-    border-radius: 10px;
-    border: none;
-    padding: 12px 15px;
-    margin: 4px 0;
-    width: 90%;
-    font-family: "Poppins", sans-serif;
-    outline: none;
-    font-size: 15px;
-}
-
-.note{
-    font-size: 13px;
-    color: #053247;
-    opacity: 0.8;
-    margin-left: 5px;
-    margin-top: 2px;
-}
-
-#foteichon{
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.avatar-upload{
-    display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 1px #053247;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.7);
 }
 
-#imagenPrevisualizacion{
-    width: 250px;
-    height: 250px;
+.img-product img{
+    max-width: 70%;
+    height: 700px;
+}
+
+.campos-product{
+    height: 880px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 1px #053247;
+    width: 40%;
+    padding: 0px 40px;
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+/*--------------------------------------------------------------------- CONTAINER EDITAR IMAGEN ----------------------------------------------------------------------*/
+
+.x-edit-img{
+    font-size: 30px;
+    margin: 20px 0px;
+    text-align: center;
+    background-color: #fff;
+    color: #053247;
     border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-#fotico{
-    display: none;
-}
-
-.editarbtn{
-    padding: 4px 30px;
-    font-size: 16px;
-    border-radius: 20px;
-    background-color: #0076fd;
-    color: #fff;
+    box-shadow: 0 0 15px 2px royalblue;
+    line-height: 30px;
     cursor: pointer;
-    font-weight: 400;
     transition: all .3s;
-    position: relative;
-    bottom: 10%;
+}
+.x-edit-img:hover{
+    transform: scale(1.2);
+    color: #BD081C;
+    box-shadow: 0 0 15px 2px #BD081C;
 }
 
-.editarbtn:hover{
-    color: #0076fd;
-    background-color: #fff;
-    box-shadow: 0 0 15px 5px #0076fd;
-}
-
-.btncuenta{
+.container-edit-img{
+    visibility: hidden;
+    z-index: 12;
+    border-radius: 10px;
+    box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     padding: 10px 30px;
-    font-size: 14px;
-    border-radius: 20px;
-    background-color: #00B000;
-    color: #fff;
-    cursor: pointer;
-    font-weight: 400;
+    gap: 5px;
+    background-color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     transition: all .3s;
 }
 
-.btncuenta:hover{
-    color: #00B000;
-    background-color: #fff;
-    box-shadow: 0 0 15px 5px #00B000;
+.container-edit-img form{
+    width: 270px;
+    height: 320px;
 }
 
-#deletecuenta{
-    margin-top: 40px;
-    margin-bottom: 16px;
+.header-edit-img{
+    height: 180px;
+    flex: 1;
+    width: 100%;
+    border: 2px dashed royalblue;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    cursor: pointer;
 }
 
-#borrarcuenta{
-    color: red;
+.header-edit-img i{
+    height: 100px;
+    font-size: 100px;
+    color: royalblue;
 }
 
-.mensaje-delete{
-    font-size: 18px;
-    margin-bottom: 15px;
-    font-weight: 400;
+.header-edit-img p{
+    text-align: center;
+    color: black;
 }
 
-.btndelete{
+.footer-edit-img{
+    background-color: rgba(0, 110, 255, 0.34);
+    margin-top: 5px;
+    width: 95%;
+    height: 40px;
+    padding: 8px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: black;
+    border: none;
+}
+
+.footer-edit-img p{
+    flex: 1;
+    text-align: center;
+    color: royalblue;
+}
+
+.buttons-img{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.btn-submit{
     padding: 10px 30px;
     font-size: 14px;
     border-radius: 20px;
@@ -683,13 +498,25 @@ li{
     transition: all .3s;
 }
 
-.btndelete:hover{
+.btn-submit:hover{
     color: #BD081C;
     background-color: #fff;
-    box-shadow: 0 0 15px 5px #BD081C;
+    box-shadow: 0px 0px 15px 2px #BD081C;
 }
 
-/*---------------- MENSAJE DELETE -----------------------*/
+.btn-submit:nth-child(1){
+    background-color: #3950cf;
+}
+
+.btn-submit:nth-child(1):hover{
+    color: #3950cf;
+    background-color: #fff;
+    box-shadow: 0px 0px 15px 2px #3950cf;
+}
+
+#file{
+    display: none;
+}
 
 .body-dark{
     visibility: hidden;
@@ -703,140 +530,51 @@ li{
     opacity: .85;
 }
 
-.box-delete{
-    display: none;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 12;
-    border-radius: 10px;
-    background-color: #fff;
-    width: 500px;
-    color: #053247;
-}
+/*--------------------------------------------------------- INFO DEL PRODUCTO ---------------------------------------------------------------------------------------*/
 
-.box_btn_close{
-    float: right;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    font-size: 20px;
-    background-color: #BD081C;
-    color: #fff;
-    transition: all .3s;
-    cursor: pointer;
-}
-
-.box_btn_close:hover{
-    color: #BD081C;
-    background-color: #fff;
-    box-shadow: 0 0 15px 5px #BD081C;
-}
-
-.box-header{
-    margin: 20px;
+.input-product{
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    margin: 30px 0px;
 }
 
-.box-title{
-    font-size: 18px;
-    font-family: "Philosopher", sans-serif;
-}
-
-.box_advert{
-    border-radius: 0;
-    border: 1px solid red;
-    border-left: 0;
-    border-right: 0;
-    background-color: rgb(255, 144, 144);
-    padding: 10px;
-    vertical-align: middle;
-    font-size: 14px;
-    padding: 20px 16px;
-    color: #053247;
-}
-
-.fa-triangle-exclamation{
-    color: #f85149;
-    margin-right: 12px;
-    overflow: visible;
-    fill: currentColor;
-    font-size: 18px;
-}
-
-.box-body{
-    margin: 20px;
-}
-
-.box-body p{
-    font-size: 14px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #053247;
-}
-
-hr{
-    height: 0;
-    margin: 15px 0;
-    overflow: hidden;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #053247;
-    box-sizing: border-box;
-}
-
-.delete-account-text{
-    font-size: 14px;
-    display: block;
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #053247;
-    font-weight: 600;
-}
-
-.delete-account-text i{
-    font-weight: 400;
-}
-
-.form-control{
+.input-product input,
+.input-product textarea{
     background-color: #eee;
     border-radius: 10px;
     border: none;
     padding: 12px 15px;
     margin: 4px 0;
-    width: calc(100% - 30px);
+    width: 90%;
     font-family: "Poppins", sans-serif;
     outline: none;
     font-size: 14px;
 }
 
-.btn-delete-account{
-    padding: 10px 30px;
-    border-radius: 20px;
-    width: 100%;
-    font-size: 20px;
-    background-color: #BD081C;
-    color: #fff;
-    transition: all .3s;
-    cursor: pointer;
+.input-product label{
+    margin-left: 5px;
 }
 
-.btn-delete-account:hover{
-    color: #BD081C;
-    background-color: #fff;
-    box-shadow: 0 0 15px 5px #BD081C;
+#productPrice{
+    padding-left: 25px;
+    width: calc(90% - 10px);
 }
 
-.contact-us{
-    color: #0076fd;
-    transition: all .3s;
+.priceSymbol{
+    position: absolute;
+    margin-top: 38.5px;
+    margin-left: 10px !important;
+    font-size: 16px;
 }
 
-.contact-us:hover{
-    color: #0076fd;
-    text-decoration: underline;
+textarea{
+    resize: none;
 }
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }

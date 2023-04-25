@@ -2,7 +2,7 @@
 
 include 'conexion.php';
 
-if(isset($_POST['enviar'])){
+if(isset($_POST['envio'])){
     $nombre = mysqli_real_escape_string($conexion, $_POST['nombre']);
     $apellido = mysqli_real_escape_string($conexion, $_POST['apellido']);
     $correo = mysqli_real_escape_string($conexion, $_POST['correo']);

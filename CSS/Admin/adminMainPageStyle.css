@@ -261,7 +261,7 @@ body {
     width: 240px;
 }
 
-/*---------------------------------------------------------------- LOADER ---------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------- LOADER ---------------------------------------------------------------------------------------------------*/
 
 .page{
     display: none;
@@ -276,24 +276,46 @@ body {
     top: 0%;
 }
 
-.loader>div{
-    height: 100px;
-    width: 100px;
-    border: 15px solid #45474b;
-    border-top-color: #2a88e6;
+.loader>.ping {
+    --uib-size: 300px;
+    --uib-speed: 1s;
+    --uib-color: #3950cf;
     position: absolute;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    border-radius: 50%;
-    animation: spin 1.5s infinite linear;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: var(--uib-size);
+    width: var(--uib-size);
 }
 
-@keyframes spin{
-    100%{
-        transform: rotate(360deg);
+.loader>.ping::before,
+.loader>.ping::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: var(--uib-color);
+    animation: pulse7132 var(--uib-speed) linear infinite;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.loader>.ping::after {
+    animation-delay: calc(var(--uib-speed) / -2);
+}
+
+@keyframes pulse7132 {
+    0% {
+        transform: scale(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0;
     }
 }
 

@@ -168,6 +168,8 @@ section img#mountainlight{
     background-image: url("../IMG/wave-haikei-four.svg");
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 100vh;
+    padding: 100px 250px 0px 250px;
 }
 
 .third{
@@ -192,9 +194,66 @@ section img#mountainlight{
 }
 
 .four .agu{
-    font-size: 3.5em;
-    color: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.info-dw{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 50%;
+}
+
+.info-dw h1{
     font-family: "Philosopher", sans-serif;
+    color: #fff;
+    letter-spacing: 1px;
+    font-size: 72px;
+    font-weight: 400;
+}
+
+.info-dw .dw-23{
+    font-weight: 700;
+    color: #00acee;
+}
+
+.info-dw .text-dw{
+    color: #fff;
+    margin-top: 20px;
+    width: 90%;
+    text-align: left;
+    font-size: 18px;
+}
+
+.info-dw .btn-more{
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #00acee;
+    color: #fff;
+    border-radius: 20px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.info-dw .btn-more:hover{
+    background-color: #fff;
+    color: #00acee;
+}
+
+.img-dw{
+    z-index: 10;
+    width: 40%;
+}
+
+.img-dw img{
+    width: 100%;
 }
 
 .aboutUs{

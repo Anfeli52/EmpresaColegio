@@ -32,8 +32,7 @@ if ($user == null || $user == "") {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Buscar datos en tiempo real con PHP, MySQL y AJAX">
-    <meta name="author" content="Marco Robles">
+    <link rel="shortcut icon" href="../../IMG/logoheader.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../CSS/Admin/contaminacionAdminPageStyle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -41,7 +40,7 @@ if ($user == null || $user == "") {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Contaminacion</title>
+    <title>Pollution</title>
     <!-- Bootstrap core CSS -->
 
 </head>
@@ -802,7 +801,7 @@ if ($user == null || $user == "") {
     </div> <!-- NO ABRA ESO -->
 
     <div class="loader">
-        <div></div>
+        <div class="ping"></div>
     </div>
     <div class="body-dark" id="body"></div>
     <div class="page">
@@ -843,7 +842,7 @@ if ($user == null || $user == "") {
                     <span class="tooltip"> Campañas </span>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="dw-23.php">
                         <i class='bx bx-chip'></i>
                         <span class="link_name"> DW-23 </span>
                     </a>
@@ -932,7 +931,50 @@ if ($user == null || $user == "") {
 
         if(isset($_GET['contaminationEditedField'])){
             $editContaminationCode = $_GET['contaminationEditedField'];
+            $search = "SELECT * FROM contaminacion WHERE codigoAgua = '$editContaminationCode'";
+            $busqueda = mysqli_query($conexion, $search);
+            $fetch = mysqli_fetch_assoc($busqueda);
+            echo '
+            <div class="blackBackground"></div>
             
+            <div class="dialog d-flex flex-column box--overlay box" id="mensaje_borrar">
+                <div class="box_header">
+                    <button type="button" class="box_btn_close">
+                        <a href="contaminacionAdminPage.php"><i class="fa-solid fa-xmark"></i></a>
+                    </button>
+                    <h2 class="box_title"> ¿Estás seguro que quieres hacer esto? </h2>
+                </div>
+                <div class="box_advert">
+                    <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> Esto es extremadamente importante.
+                </div>
+                <div class="box_body">
+                    <h3><strong>EDITAR DATOS</strong></h3>
+                    <hr>
+                    </hr>
+                    <form action="updateContamination.php?editedField='.$fetch['codigoAgua'].'" enctype="multipart/form-data" method="post">
+                        <p class="delete_account_text">
+                            <label class="options"> Nombre Cuerpo: </label>
+                            <input type="text" name="nombreCuerpo" class="form-control" value="' . $fetch['nombreAgua'] . '" required>
+                        </p>
+
+                        <p class="delete_account_text">
+                            <label class="options"> Cuerpo Agua: </label>
+                            <input type="text" name="cuerpoAgua" class="form-control" value="' . $fetch['cuerpoAgua'] . '" required>
+                        </p>
+
+                        <p class="delete_account_text" id="last_camp">
+                            <label class="options"> Foto Cuerpo: </label>
+                            <input type="file" id="fotoCuerpo" name="fotoCuerpo" multiple="multiple" accept=".jpg, .png, .jpeg" required>
+
+                        </p>
+
+                        <div class="botones">
+                            <button type="submit" name="actualizarContaminacion" class="btn_update_account"> Actualizar </button>
+                            <button type="reset" class="btn_cancelUpdate_account"><a href="contaminacionAdminPage.php"> Cancelar </a></button>
+                        </div>
+                    </form>
+                </div>
+            </div>';
         }
         
         ?>
