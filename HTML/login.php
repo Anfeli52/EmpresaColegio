@@ -38,34 +38,56 @@
             
             if(isset($_GET['error'])){
                 echo '
-                <div class="contenedorError">
-                    <span>¡¡Correo o Contraseña Incorrectos!!</span>
-                </div>
+                    <div class="contenedorError">
+                        <span>INCORRECT EMAIL OR PASSWORD!!</span>
+                    </div>
+
+                    <form action="../PHP/login.php" method="post">
+                        <h1> Log in </h1>
+                        <div class="login-text">
+                            <label for="correo"> Email </label>
+                            <input type="email" placeholder="Email" id="idEmail" name="correo" value="" class="input-login error">
+
+                            <label for="password"> Password </label>
+                            <input type="password" placeholder="Password" id="idPassword" name="contraseña" value="" class="input-login error">
+                        </div>
+
+                        <div class="pass-link">
+                            <a href="forgotPassword.html"> Did you forget your password? </a>
+                        </div>
+
+                        <div class="btn-enviar">
+                            <input type="submit" name="envio" class="enviar-login" value="Log In">
+                        </div>
+                    </form>
+            
+                    <p class="register"> Do not you have an account yet? <a href="Inicio/register.html"> Sign up </a> </p>
+                ';
+            } else{
+                echo '
+                    <form action="../PHP/login.php" method="post">
+                        <h1> Log in </h1>
+                        <div class="login-text">
+                            <label for="correo"> Email </label>
+                            <input type="email" placeholder="Email" id="idEmail" name="correo" value="" class="input-login">
+
+                            <label for="password"> Password </label>
+                            <input type="password" placeholder="Password" id="idPassword" name="contraseña" value="" class="input-login">
+                        </div>
+
+                        <div class="pass-link">
+                            <a href="forgotPassword.html"> Did you forget your password? </a>
+                        </div>
+
+                        <div class="btn-enviar">
+                            <input type="submit" name="envio" class="enviar-login" value="Log In">
+                        </div>
+                    </form>
+
+                    <p class="register"> Do not you have an account yet? <a href="Inicio/register.html"> Sign up </a> </p>
                 ';
             }
-
             ?>
-            <form action="../PHP/login.php" method="post">
-                <h1> Log in </h1>
-                <div class="login-text">
-                    <label for="correo"> Email </label>
-                    <input type="email" placeholder="Email" id="idEmail" name="correo" value="" class="input-login">
-
-                    <label for="password"> Password </label>
-                    <input type="password" placeholder="Password" id="idPassword" name="contraseña" value="" class="input-login">
-                </div>
-
-                <div class="pass-link">
-                    <a href="forgotPassword.html"> Did you forget your password? </a>
-                </div>
-
-                <div class="btn-enviar">
-                    <input type="submit" name="envio" class="enviar-login" value="Log In">
-                </div>
-            </form>
-            
-            <p class="register"> Do not you have an account yet? <a href="Inicio/register.html"> Sign up </a> </p>
-        
         </div>
 
         <!--<form action="../PHP/login.php" method="post">

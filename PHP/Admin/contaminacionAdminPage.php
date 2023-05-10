@@ -830,16 +830,16 @@ if ($user == null || $user == "") {
                 <li>
                     <a href="contaminacionAdminPage.php">
                         <i class='bx bxs-radiation'></i>
-                        <span class="link_name"> Contaminación </span>
+                        <span class="link_name"> Pollution </span>
                     </a>
-                    <span class="tooltip"> Contaminación </span>
+                    <span class="tooltip"> Pollution </span>
                 </li>
                 <li>
                     <a href="campanasAdminPage.php">
                         <i class='bx bxs-megaphone'></i>
-                        <span class="link_name"> Campañas </span>
+                        <span class="link_name"> Campaigns </span>
                     </a>
-                    <span class="tooltip"> Campañas </span>
+                    <span class="tooltip"> Campaigns </span>
                 </li>
                 <li>
                     <a href="dw-23.php">
@@ -851,23 +851,30 @@ if ($user == null || $user == "") {
                 <li>
                     <a href="usersAdminPage.php">
                         <i class='bx bxs-user'></i>
-                        <span class="link_name"> Usuarios </span>
+                        <span class="link_name"> Users </span>
                     </a>
-                    <span class="tooltip"> Usuarios </span>
+                    <span class="tooltip"> Users </span>
                 </li>
                 <li>
                     <a href="cuentaAdmin.php">
                         <i class='bx bxs-cog'></i>
-                        <span class="link_name"> Configuración </span>
+                        <span class="link_name"> Settings </span>
                     </a>
-                    <span class="tooltip"> Configuración </span>
+                    <span class="tooltip"> Settings </span>
+                </li>
+                <li class="change-idioma">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span class="en">English</span>
+                    <input type="checkbox" class="check-idioma">
+                    <span class="es">Spanish</span>
+                    <span class="tooltip"> Language </span>
                 </li>
                 <li id="close_session">
                     <a href="../../PHP/logout.php">
                         <i class='bx bx-exit'></i>
-                        <span class="link_name"> Cerrar Sesión </span>
+                        <span class="link_name"> Log Out </span>
                     </a>
-                    <span class="tooltip"> Cerrar Sesión </span>
+                    <span class="tooltip"> Log Out </span>
                 </li>
             </ul>
         </div>
@@ -886,13 +893,13 @@ if ($user == null || $user == "") {
                 <table width="100%">
                     <thead>
                         <tr>
-                            <td>Foto Cuerpo</td>
-                            <td>Codigo Agua</td>
-                            <td>Nombre Agua</td>
-                            <td>Cuerpo de Agua</td>
-                            <td>Nivel Contaminante</td>
-                            <td>Nivel Turbidad</td>
-                            <td>Fecha</td>
+                            <td>Photo of the Body of Water</td>
+                            <td>Water Code</td>
+                            <td>Water Name</td>
+                            <td>Water Body</td>
+                            <td>Contamination Level</td>
+                            <td>Turbidity level</td>
+                            <td>Date</td>
                             <td></td>
                             <td></td>
                         </tr>
@@ -942,35 +949,35 @@ if ($user == null || $user == "") {
                     <button type="button" class="box_btn_close">
                         <a href="contaminacionAdminPage.php"><i class="fa-solid fa-xmark"></i></a>
                     </button>
-                    <h2 class="box_title"> ¿Estás seguro que quieres hacer esto? </h2>
+                    <h2 class="box_title"> Are you sure you want to do this? </h2>
                 </div>
                 <div class="box_advert">
-                    <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> Esto es extremadamente importante.
+                    <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> This is extremely important.
                 </div>
                 <div class="box_body">
-                    <h3><strong>EDITAR DATOS</strong></h3>
+                    <h3><strong>EDIT DATA</strong></h3>
                     <hr>
                     </hr>
                     <form action="updateContamination.php?editedField='.$fetch['codigoAgua'].'" enctype="multipart/form-data" method="post">
                         <p class="delete_account_text">
-                            <label class="options"> Nombre Cuerpo: </label>
+                            <label class="options"> Name body of water: </label>
                             <input type="text" name="nombreCuerpo" class="form-control" value="' . $fetch['nombreAgua'] . '" required>
                         </p>
 
                         <p class="delete_account_text">
-                            <label class="options"> Cuerpo Agua: </label>
+                            <label class="options"> Water body: </label>
                             <input type="text" name="cuerpoAgua" class="form-control" value="' . $fetch['cuerpoAgua'] . '" required>
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
-                            <label class="options"> Foto Cuerpo: </label>
+                            <label class="options"> Photo of the body of water: </label>
                             <input type="file" id="fotoCuerpo" name="fotoCuerpo" multiple="multiple" accept=".jpg, .png, .jpeg" required>
 
                         </p>
 
                         <div class="botones">
-                            <button type="submit" name="actualizarContaminacion" class="btn_update_account"> Actualizar </button>
-                            <button type="reset" class="btn_cancelUpdate_account"><a href="contaminacionAdminPage.php"> Cancelar </a></button>
+                            <button type="submit" name="actualizarContaminacion" class="btn_update_account"> Update </button>
+                            <button type="reset" class="btn_cancelUpdate_account"><a href="contaminacionAdminPage.php"> Cancel </a></button>
                         </div>
                     </form>
                 </div>
@@ -1018,12 +1025,30 @@ if ($user == null || $user == "") {
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
 
         btn.onclick = function() {
             sidebar.classList.toggle('active');
         }
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/Admin/contaminacionAdminPage.php";
+            } else{
+                location.href = "../../PHP/Admin/contaminacionAdminPage.php"
+            }
         }
     </script>
 

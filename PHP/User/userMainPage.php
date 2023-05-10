@@ -53,7 +53,14 @@ if ($user == null || $user == "") {
     <div class="page">
 
         <header>
-            <a href="#" class="logo"> Yaxja </a>
+            <div class="yaxja-idioma">
+                <a href="#" class="logo"> Yaxja </a>
+                <div class="change-idioma">
+                    <span class="en">English</span>
+                    <input type="checkbox" class="check-idioma">
+                    <span class="es">Spanish</span>
+                </div>
+            </div>
 
             <ul>
                 <li> <a href="#section" class="active"> Home </a> </li>
@@ -249,6 +256,41 @@ if ($user == null || $user == "") {
             text.style.marginBottom = value * 2 + 'px'
             btn.style.marginTop = value * 1.5 + 'px';
         });
+    </script>
+
+    <script>
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
+        let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
+        let srcBtn = document.querySelector('.bx-search-alt-2');
+
+        btn.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+        btnclose.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+        srcBtn.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/User/UserMainPage.php";
+            } else{
+                location.href = "../../PHP/User/UserMainPage.php"
+            }
+        }
     </script>
 
     <script>

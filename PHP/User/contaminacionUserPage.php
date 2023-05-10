@@ -40,7 +40,7 @@ if ($user == null || $user == "") {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Contaminacion</title>
+    <title>Pollution</title>
     <!-- Bootstrap core CSS -->
 
 </head>
@@ -824,23 +824,23 @@ if ($user == null || $user == "") {
                 <li>
                     <a href="userMainPage.php">
                         <i class='bx bxs-home-smile'></i>
-                        <span class="link_name"> Inicio </span>
+                        <span class="link_name"> Main </span>
                     </a>
-                    <span class="tooltip"> Inicio </span>
+                    <span class="tooltip"> Main </span>
                 </li>
                 <li>
                     <a href="contaminacionUserPage.php">
                         <i class='bx bxs-radiation'></i>
-                        <span class="link_name"> Contaminación </span>
+                        <span class="link_name"> Pollution </span>
                     </a>
-                    <span class="tooltip"> Contaminación </span>
+                    <span class="tooltip"> Pollution </span>
                 </li>
                 <li>
                     <a href="campanasUserPage.php">
                         <i class='bx bxs-megaphone'></i>
-                        <span class="link_name"> Campañas </span>
+                        <span class="link_name"> Campaigns </span>
                     </a>
-                    <span class="tooltip"> Campañas </span>
+                    <span class="tooltip"> Campaigns </span>
                 </li>
                 <li>
                     <a href="#">
@@ -859,16 +859,23 @@ if ($user == null || $user == "") {
                 <li>
                     <a href="cuentaUser.php">
                         <i class='bx bxs-cog'></i>
-                        <span class="link_name"> Configuración </span>
+                        <span class="link_name"> Settings </span>
                     </a>
-                    <span class="tooltip"> Configuración </span>
+                    <span class="tooltip"> Settings </span>
+                </li>
+                <li class="change-idioma">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span class="en">English</span>
+                    <input type="checkbox" class="check-idioma">
+                    <span class="es">Spanish</span>
+                    <span class="tooltip"> Language </span>
                 </li>
                 <li id="close_session">
                     <a href="../../PHP/logout.php">
                         <i class='bx bx-exit'></i>
-                        <span class="link_name"> Cerrar Sesión </span>
+                        <span class="link_name"> Log Out </span>
                     </a>
-                    <span class="tooltip"> Cerrar Sesión </span>
+                    <span class="tooltip"> Log Out </span>
                 </li>
             </ul>
 
@@ -888,13 +895,13 @@ if ($user == null || $user == "") {
                 <table width="100%">
                     <thead>
                         <tr>
-                            <td>Foto Cuerpo</td>
-                            <td>Codigo Agua</td>
-                            <td>Nombre Agua</td>
-                            <td>Cuerpo de Agua</td>
-                            <td>Nivel Contaminante</td>
-                            <td>Nivel Turbidad</td>
-                            <td>Fecha</td>
+                            <td>Photo of the Body of Water</td>
+                            <td>Water Code</td>
+                            <td>Water Name</td>
+                            <td>Water Body</td>
+                            <td>Contamination Level</td>
+                            <td>Turbidity level</td>
+                            <td>Date</td>
                             <td></td>
                             <td></td>
                         </tr>
@@ -904,6 +911,82 @@ if ($user == null || $user == "") {
                 </table>
             </div>
         </div>
+        <?php 
+        
+        if(isset($_GET['contaminationDeteledField'])){
+            $codigoContaminacion = $_GET['contaminationDeteledField'];
+            $search = "SELECT * FROM contaminacion WHERE codigoAgua = '$codigoContaminacion'";
+            $busqueda = mysqli_query($conexion, $search);
+            echo '
+                <div class="blackBackground"></div>
+                <div class="box-add-campana" id="elim-box"> <!-- ELIMINAR CAMPAÑA -->
+                    <div class="box-header">
+                        <a href="contaminacionAdminPage.php" class="equis"><i class="bx bx-x"></i></a>
+                        <h1 class="box-header"> DELETE FIELD </h1>
+
+                        <form action="deleteContaminationFieldUser.php?contaminatedDeletedIdUser='.$codigoContaminacion.'" method="post">
+                            <div class="add-text">
+                                <p class="sure"> Are you sure? </p>
+                                <div class="box-btn">
+                                    <button type="submit" class="btn-submit" name="btnDeleteContaminationFieldUser"> Yes, delete </button>
+                                    <a href="contaminacionUserPage.php" class="btn-submit"> No, Cancel </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> <!-- ELIMINAR CAMPAÑA -->
+            ';
+        }
+
+        if(isset($_GET['contaminationEditedField'])){
+            $editContaminationCode = $_GET['contaminationEditedField'];
+            $search = "SELECT * FROM contaminacion WHERE codigoAgua = '$editContaminationCode'";
+            $busqueda = mysqli_query($conexion, $search);
+            $fetch = mysqli_fetch_assoc($busqueda);
+            echo '
+            <div class="blackBackground"></div>
+            
+            <div class="dialog d-flex flex-column box--overlay box" id="mensaje_borrar">
+                <div class="box_header">
+                    <button type="button" class="box_btn_close">
+                        <a href="contaminacionUserPage.php"><i class="fa-solid fa-xmark"></i></a>
+                    </button>
+                    <h2 class="box_title"> Are you sure you want to do this? </h2>
+                </div>
+                <div class="box_advert">
+                    <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> This is extremely important.
+                </div>
+                <div class="box_body">
+                    <h3><strong>EDIT DATA</strong></h3>
+                    <hr>
+                    </hr>
+                    <form action="updateContaminationUser.php?editedField='.$fetch['codigoAgua'].'" enctype="multipart/form-data" method="post">
+                        <p class="delete_account_text">
+                            <label class="options"> Name body of water: </label>
+                            <input type="text" name="nombreCuerpo" class="form-control" value="' . $fetch['nombreAgua'] . '" required>
+                        </p>
+
+                        <p class="delete_account_text">
+                            <label class="options"> Water body: </label>
+                            <input type="text" name="cuerpoAgua" class="form-control" value="' . $fetch['cuerpoAgua'] . '" required>
+                        </p>
+
+                        <p class="delete_account_text" id="last_camp">
+                            <label class="options"> Photo of the body of water: </label>
+                            <input type="file" id="fotoCuerpo" name="fotoCuerpo" multiple="multiple" accept=".jpg, .png, .jpeg" required>
+
+                        </p>
+
+                        <div class="botones">
+                            <button type="submit" name="actualizarContaminacionUser" class="btn_update_account"> Update </button>
+                            <button type="reset" class="btn_cancelUpdate_account"><a href="contaminacionUserPage.php"> Cancel </a></button>
+                        </div>
+                    </form>
+                </div>
+            </div>';
+        }
+        
+        ?>
 
     </div>
     <script>
@@ -944,12 +1027,30 @@ if ($user == null || $user == "") {
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
 
         btn.onclick = function() {
             sidebar.classList.toggle('active');
         }
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/User/contaminacionUserPage.php";
+            } else{
+                location.href = "../../PHP/User/contaminacionUserPage.php"
+            }
         }
     </script>
 

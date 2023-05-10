@@ -90,7 +90,7 @@ body{
     justify-content: center;
     align-items: center;
     width: 350px;
-    height: 570px;
+    height: fit-content;
 }
 
 .login-container img{
@@ -188,20 +188,46 @@ body{
 }
 
 .contenedorError{
-    background: #c60000;
-    padding: 5px;
-    width: 300px;
-    height: 15px;
+    background-color: rgb(255, 195, 195);
+    border: 1px solid #BD081C;
+    margin-bottom: 20px;
+    padding: 15px;
+    width: 70%;
     display: flex;
     justify-content: center;
     align-items: center;
     justify-items: center;
-    border-radius: 8px;
+    border-radius: 10px;
     text-align: center;
+    letter-spacing: 1px;
 }
+
 .contenedorError span{
-    color: #fff;
+    color: #BD081C;
     font-size: 12px;
     font-weight: 900;
     text-transform: uppercase;
+    font-family: "Philosopher", sans-serif;
+}
+
+.error{
+    border: 2px solid #BD081C;
+    background-color: #bd081d2a;
+    animation: horizontal-shaking 0.3s linear infinite;
+}
+
+.error::placeholder{
+    color: #BD081C;
+}
+
+.error:focus{
+    animation: none;
+}
+
+@keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(2px) }
+    50% { transform: translateX(-2px) }
+    75% { transform: translateX(2px) }
+    100% { transform: translateX(0) }
 }

@@ -829,16 +829,16 @@ if($user==null || $user==""){
                     <li>
                         <a href="contaminacionAdminPage.php">
                             <i class='bx bxs-radiation'></i>
-                            <span class="link_name"> Contaminación </span>
+                            <span class="link_name"> Pollution </span>
                         </a>
-                        <span class="tooltip"> Contaminación </span>
+                        <span class="tooltip"> Pollution </span>
                     </li>
                     <li>
                         <a href="campanasAdminPage.php">
                             <i class='bx bxs-megaphone'></i>
-                            <span class="link_name"> Campañas </span>
+                            <span class="link_name"> Campaigns </span>
                         </a>
-                        <span class="tooltip"> Campañas </span>
+                        <span class="tooltip"> Campaigns </span>
                     </li>
                     <li>
                         <a href="dw-23.php">
@@ -850,23 +850,30 @@ if($user==null || $user==""){
                     <li>
                         <a href="usersAdminPage.php">
                             <i class='bx bxs-user' ></i>
-                            <span class="link_name"> Usuarios </span>
+                            <span class="link_name"> Users </span>
                         </a>
-                        <span class="tooltip"> Usuarios </span>
+                        <span class="tooltip"> Users </span>
                     </li>
                     <li>
                         <a href="cuentaAdmin.php">
                             <i class='bx bxs-cog'></i>
-                            <span class="link_name"> Configuración </span>
+                            <span class="link_name"> Settings </span>
                         </a>
-                        <span class="tooltip"> Configuración </span>
+                        <span class="tooltip"> Settings </span>
+                    </li>
+                    <li class="change-idioma">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <span class="en">English</span>
+                        <input type="checkbox" class="check-idioma">
+                        <span class="es">Spanish</span>
+                        <span class="tooltip"> Language </span>
                     </li>
                     <li id="close_session">
                         <a href="../../PHP/logout.php">
                             <i class='bx bx-exit'></i>
-                            <span class="link_name"> Cerrar Sesión </span>
+                            <span class="link_name"> Log Out </span>
                         </a>
-                        <span class="tooltip"> Cerrar Sesión </span>
+                        <span class="tooltip"> Log Out </span>
                     </li>
                 </ul>
 
@@ -966,12 +973,12 @@ if($user==null || $user==""){
                                 <hr>
                                 <div class="campo-add">
                                     <label for=""> New Link Details </label>
-                                    <input type="url" placeholder="https://www.yaxjaExample.com" name="linkcampaña" value="'.$search['DetallesLink'].'" required> <!-- EN EL PLACEHOLDER VA LA INFORMACION DE LA ACTUAL CAMPAÑA -->
+                                    <input type="url" placeholder="https://www.yaxjaExample.com" name="linkcampaña" value="'.$search['DetallesLink'].'" required>
                                 </div>
                             </div>
                             <div class="box-btn">
                                 <button type="submit" name="btn-updateCampaign" class="btn-submit"> Edit </button>
-                                <a href="campanasAdminPage.php"><div class="btn-submit"> Cancel </div></a>
+                                <a href="campanasAdminPage.php" class="btn-submit"> Cancel </a>
                             </div>
                         </div>
                     </form>
@@ -1016,7 +1023,7 @@ if($user==null || $user==""){
                             </div>
                             <div class="box-btn">
                                 <button type="submit" name="btn-addCampaign" class="btn-submit"> Create </button>
-                                <a href="campanasAdminPage.php"><div class="btn-submit"> Cancel </div></a>
+                                <a href="campanasAdminPage.php" class="btn-submit"> Cancel </a>
                             </div>
                         </div>
                     </form>
@@ -1041,7 +1048,7 @@ if($user==null || $user==""){
             
                             <div class="box-btn">
                                 <button type="submit" name="btn-deleteCampaign" class="btn-submit"> Yes, delete </button>
-                                <a href="campanasAdminPage.php"><div class="btn-submit"> No, Cancel </div></a>
+                                <a href="campanasAdminPage.php" class="btn-submit"> No, Cancel </a>
                             </div>
                         </div>
                     </form>
@@ -1071,16 +1078,34 @@ if($user==null || $user==""){
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
     <script>
-    let btn = document.querySelector('#btn');
-    let sidebar = document.querySelector('.sidebar');
-    let btnclose = document.querySelector('#btnclose');
-    
-    btn.onclick = function(){
-        sidebar.classList.toggle('active');
-    }
-    btnclose.onclick = function(){
-        sidebar.classList.toggle('active');
-    }
+        let btn = document.querySelector('#btn');
+        let sidebar = document.querySelector('.sidebar');
+        let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
+
+        btn.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+        btnclose.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/Admin/campanasAdminPage.php";
+            } else{
+                location.href = "../../PHP/Admin/campanasAdminPage.php"
+            }
+        }
     </script>
 
     <script src="../../JS/campana.js"></script>

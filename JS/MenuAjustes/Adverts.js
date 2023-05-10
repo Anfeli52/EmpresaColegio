@@ -1,4 +1,4 @@
-function SaveName() {
+    function SaveName() {
     const Toast = Swal.mixin({
         toast: true,
         position: 'top-end',
@@ -137,7 +137,7 @@ function AddEmail() {
     })
     Toast.fire({
         icon: 'success',
-        title: 'Añadido con éxito'
+        title: 'Successfully updated'
     })
 }
 
@@ -163,16 +163,32 @@ function ActualizaContrasena() {
 
 // FIN CONTRASEÑA // INICIO ACTUALIZA PAGO---------------------------------------------------------------------------------------------------------------------------------
 
-function editar_infobilletera() {
+function añadir_infobilletera() {
     document.getElementById('add_infobilletera').style.display = 'block';
     document.getElementById('resumen').style.display = 'none';
     document.getElementById('edit-billing').style.display = 'none';
+    document.getElementById('add-billing').style.display = 'none';
 }
 
 function cancelinfo() {
     document.getElementById('add_infobilletera').style.display = 'none';
     document.getElementById('resumen').style.display = 'block';
     document.getElementById('edit-billing').style.display = 'block';
+    document.getElementById('add-billing').style.display = 'block';
+}
+
+function editar_infobilletera() {
+    document.getElementById('editar_infobilletera').style.display = 'block';
+    document.getElementById('resumen').style.display = 'none';
+    document.getElementById('edit-billing').style.display = 'none';
+    document.getElementById('add-billing').style.display = 'none';
+}
+
+function cancelinfo2() {
+    document.getElementById('editar_infobilletera').style.display = 'none';
+    document.getElementById('resumen').style.display = 'block';
+    document.getElementById('edit-billing').style.display = 'block';
+    document.getElementById('add-billing').style.display = 'block';
 }
 
 function addPayMethod(){
@@ -184,6 +200,18 @@ function cerrarPaymentMethod(){
     document.getElementById('add-card').style.visibility = 'hidden';
     document.getElementById('body').style.visibility = 'hidden';
 }
+
+function editPayMethod(){
+    document.getElementById('edit-card').style.visibility = 'visible';
+    document.getElementById('body').style.visibility = 'visible';
+}
+
+function cerrarPaymentMethod2(){
+    document.getElementById('edit-card').style.visibility = 'hidden';
+    document.getElementById('body').style.visibility = 'hidden';
+}
+
+/*------------------------------------------------------------------*/
 
 /*
 

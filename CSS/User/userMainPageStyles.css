@@ -125,6 +125,69 @@ header ul #log-out a:hover ~ span{
     top: 20%;
 }
 
+.yaxja-idioma .change-idioma{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px 30px;
+    position: absolute;
+}
+
+.yaxja-idioma .change-idioma .en{
+    color: #0076fd;
+}
+
+.yaxja-idioma .change-idioma .es{
+    color: #ff7979;
+}
+
+.yaxja-idioma .change-idioma .check-idioma{
+    position: relative;
+    width: 25px;
+    height: 50px;
+    cursor: pointer;
+    margin: 10px 0px;
+}
+
+.yaxja-idioma .change-idioma .check-idioma::before{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 50px;
+    background-color: #0076fd;
+    border-radius: 25px;
+}
+
+.yaxja-idioma .change-idioma .check-idioma::after{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: url(../../IMG/usa.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    border: 2px solid #0076fd;
+    box-sizing: border-box;
+}
+
+.yaxja-idioma .change-idioma .check-idioma:checked::after{
+    top: 25px;
+    border: 2px solid #ff7979;
+    background: url(../../IMG/spain.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.yaxja-idioma .change-idioma .check-idioma:checked::before{
+    background-color: #ff7979;
+}
+
 /*-------------------------------------------------------------------- LOADER ---------------------------------------------------------------------------------------------------*/
 
 .page{

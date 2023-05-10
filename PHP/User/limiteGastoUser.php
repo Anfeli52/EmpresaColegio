@@ -24,6 +24,17 @@ if ($user == null || $user == "") {
         $nombre = $data['nombre'];
         $foto = $data['fotoPerfil'];
     }
+
+    $sqlpay = "SELECT * FROM metodopago WHERE correoUsuario = '".$user."';";
+    $resultadopay = $conexion->query($sqlpay);
+
+    while($data2=$resultadopay->fetch_assoc()){
+        $cardNumber=$data2['cardNumber'];
+        $cardHolder=$data2['cardHolder'];
+        $expMM=$data2['expMM'];
+        $expYY=$data2['expYY'];
+        $cvv=$data2['cvv'];
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -857,6 +868,13 @@ if ($user == null || $user == "") {
                 </a>
                 <span class="tooltip"> Settings </span>
             </li>
+            <li class="change-idioma">
+                <i class="fa-solid fa-earth-americas"></i>
+                <span class="en">English</span>
+                <input type="checkbox" class="check-idioma">
+                <span class="es">Spanish</span>
+                <span class="tooltip"> Language </span>
+            </li>
             <li id="close_session">
                 <a href="../../PHP/logout.php">
                     <i class='bx bx-exit'></i>
@@ -976,71 +994,147 @@ if ($user == null || $user == "") {
 
                         <p class="text-limit"> Set a monthly spending limit. You can adjust it at any time. </p>
 
-                        <div class="advert-payment"> <!-- CUANDO TENGA UN METODO DE PAGO NO APARECE -->
-                            <i class="fa-solid fa-triangle-exclamation fa-shake"></i>
-                            <p> You need to have a payment method. </p>
-                            <span> You can't change spending limits until you add a valid payment method. </span>
-                            <a href="actualizarPagoUser.php"> Add a payment method </a>
-                        </div>
+                        <?php 
+        
+                            if(mysqli_num_rows($resultadopay)>0){
+                                echo '
+                                    <div class="advert-payment" style="display: none">
+                                        <i class="fa-solid fa-triangle-exclamation fa-shake"></i>
+                                        <p> You need to have a payment method. </p>
+                                        <span> You cant change spending limits until you add a valid payment method. </span>
+                                        <a href="actualizarPagoUser.php"> Add a payment method </a>
+                                    </div>
 
-                        <div class="spending-limit">
-                            <div class="box-row">
-                                <label class="d-block" for="01">
-                                    <input type="radio" class="form-checkbox" name="r" id="01" value="2">
-                                    <p>Limitar el gasto</p>
-                                </label>
+                                    <div class="spending-limit">
+                                        <div class="box-row">
+                                            <label class="d-block" for="01">
+                                                <input type="radio" class="form-checkbox" name="r" id="01" value="2">
+                                                <p>Limit spending</p>
+                                            </label>
 
-                                <div class="spending-note">
-                                    <p class="mb-1"> Establezca un límite de gasto mensual </p>
-                                    <div class="spending-details">
-                                        <div class="box-update">
-                                            <i class="fa-solid fa-dollar-sign dollar"></i>
-                                            <input class="input-spendig-limit" type="number" name="spending-limit" min="0" placeholder="000.000 COP" id="input-limit" maxlength="7" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
-                                            <button type="button" class="btn-update-limit" onclick="Update_limit()"> Actualizar límite </button>
+                                            <div class="spending-note">
+                                                <p class="mb-1"> Set a monthly spending limit </p>
+                                                <div class="spending-details">
+                                                    <div class="box-update">
+                                                        <i class="fa-solid fa-dollar-sign dollar"></i>
+                                                        <input class="input-spendig-limit" type="number" name="spending-limit" min="0" placeholder="000.000 COP" id="input-limit" maxlength="7" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                                        <button type="button" class="btn-update-limit" onclick="Update_limit()"> Update Limit </button>
+                                                    </div>
+                                                    <p class="mb-1"> Leaving it at $0.00 will avoid any extra expenses </p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <p class="mb-1"> Dejarlo en $0.00 evitará cualquier gasto extra </p>
+
+                                        <div class="box-row">
+                                            <label class="d-block" for="02">
+                                                <input type="radio" class="form-checkbox" name="r" id="02" checked="">
+                                                <p>Unlimited expenses</p>
+                                            </label>
+
+                                            <p class="mb-1"> Pay as much as you want without any limit. </p>
+                                        </div>
+
+                                        <div class="alerts-spending">
+                                            <h2> Email Alerts </h2>
+                                            <p class="alerts-text"> Receive email notifications when usage reaches 75%, 90%, and 100% thresholds. </p>
+
+                                            <div class="checkboxes">
+                                                <div class="container-checkbox">
+                                                    <input type="checkbox" id="cbx2" style="display: none;">
+                                                    <label for="cbx2" class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </label>
+                                                    <label for="cbx2" class="check-text"> Include alerts of your expenses. </label>
+                                                </div>
+
+                                                <div class="container-checkbox">
+                                                    <input type="checkbox" id="cbx3" style="display: none;">
+                                                    <label for="cbx3" class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </label>
+                                                    <label for="cbx3" class="check-text"> Alerts for changes in the spending limit. </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="box-row">
-                                <label class="d-block" for="02">
-                                    <input type="radio" class="form-checkbox" name="r" id="02" checked="">
-                                    <p>Gastos ilimitados</p>
-                                </label>
-
-                                <p class="mb-1"> Paga tanto como desees sin ningún límite. </p>
-                            </div>
-
-                            <div class="alerts-spending">
-                                <h2> Email Alerts </h2>
-                                <p class="alerts-text"> Receive email notifications when usage reaches 75%, 90%, and 100% thresholds. </p>
-
-                                <div class="checkboxes">
-                                    <div class="container-checkbox">
-                                        <input type="checkbox" id="cbx2" style="display: none;">
-                                        <label for="cbx2" class="check">
-                                            <svg width="18px" height="18px" viewBox="0 0 18 18">
-                                                <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
-                                                <polyline points="1 9 7 14 15 4"></polyline>
-                                            </svg>
-                                        </label>
-                                        <label for="cbx2" class="check-text"> Include alerts of your expenses. </label>
+                                ';
+                            }else{
+                                echo '
+                                    <div class="advert-payment">
+                                        <i class="fa-solid fa-triangle-exclamation fa-shake"></i>
+                                        <p> You need to have a payment method. </p>
+                                        <span> You cant change spending limits until you add a valid payment method. </span>
+                                        <a href="actualizarPagoUser.php"> Add a payment method </a>
                                     </div>
 
-                                    <div class="container-checkbox">
-                                        <input type="checkbox" id="cbx3" style="display: none;">
-                                        <label for="cbx3" class="check">
-                                            <svg width="18px" height="18px" viewBox="0 0 18 18">
-                                                <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
-                                                <polyline points="1 9 7 14 15 4"></polyline>
-                                            </svg>
-                                        </label>
-                                        <label for="cbx3" class="check-text"> Alerts for changes in the spending limit. </label>
+                                    <div class="spending-limit" style="display: none">
+                                        <div class="box-row">
+                                            <label class="d-block" for="01">
+                                                <input type="radio" class="form-checkbox" name="r" id="01" value="2">
+                                                <p>Limit spending</p>
+                                            </label>
+
+                                            <div class="spending-note">
+                                                <p class="mb-1"> Set a monthly spending limit </p>
+                                                <div class="spending-details">
+                                                    <div class="box-update">
+                                                        <i class="fa-solid fa-dollar-sign dollar"></i>
+                                                        <input class="input-spendig-limit" type="number" name="spending-limit" min="0" placeholder="000.000 COP" id="input-limit" maxlength="7" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                                                        <button type="button" class="btn-update-limit" onclick="Update_limit()"> Update Limit </button>
+                                                    </div>
+                                                    <p class="mb-1"> Leaving it at $0.00 will avoid any extra expenses </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="box-row">
+                                            <label class="d-block" for="02">
+                                                <input type="radio" class="form-checkbox" name="r" id="02" checked="">
+                                                <p>Unlimited expenses</p>
+                                            </label>
+
+                                            <p class="mb-1"> Pay as much as you want without any limit. </p>
+                                        </div>
+
+                                        <div class="alerts-spending">
+                                            <h2> Email Alerts </h2>
+                                            <p class="alerts-text"> Receive email notifications when usage reaches 75%, 90%, and 100% thresholds. </p>
+
+                                            <div class="checkboxes">
+                                                <div class="container-checkbox">
+                                                    <input type="checkbox" id="cbx2" style="display: none;">
+                                                    <label for="cbx2" class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </label>
+                                                    <label for="cbx2" class="check-text"> Include alerts of your expenses. </label>
+                                                </div>
+
+                                                <div class="container-checkbox">
+                                                    <input type="checkbox" id="cbx3" style="display: none;">
+                                                    <label for="cbx3" class="check">
+                                                        <svg width="18px" height="18px" viewBox="0 0 18 18">
+                                                            <path d="M 1 9 L 1 9 c 0 -5 3 -8 8 -8 L 9 1 C 14 1 17 5 17 9 L 17 9 c 0 4 -4 8 -8 8 L 9 17 C 5 17 1 14 1 9 L 1 9 Z"></path>
+                                                            <polyline points="1 9 7 14 15 4"></polyline>
+                                                        </svg>
+                                                    </label>
+                                                    <label for="cbx3" class="check-text"> Alerts for changes in the spending limit. </label>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                                ';
+                            }
+
+                        ?>
 
                     </div> <!-- LAYOUT - MAIN -->
                 </div> <!-- LAYOUT - DER -->
@@ -1049,81 +1143,11 @@ if ($user == null || $user == "") {
         </div> <!-- AJUSTESCUENTA -->
     </div> <!-- CONTAINER -->
 
-    <!--<div class="layout-der">
-                    <div class="layout-main">
-                        <div class="container-md"> <--METER EL CONTENIDO EN EL CONTAINER-MD--
-
-                            <p class="mb-4"> Establece un límite de gasto mensual. Puedes ajustarlo en cualquier momento. </p>
-
-                            <div class="flash-warn"> <--ADEVERTENCIA POR SI NO TIENE NINGUN METODO DE PAGO AÑADIDO--
-                                <i class="fa-solid fa-triangle-exclamation"></i> <strong class="missing_method"> Falta el método de pago </strong>
-
-                                <p class="small-text"> No puedes alterar los límites de gasto hasta que añadas un método de pago válido. </p>
-
-                                <a href="actualizarPagoUser.php" class="btn-sm"> Añade un método de pago </a>
-                            </div> <--CUANDO HAYA UN METODO AÑADIDO QUE APAREZCA, SI HAY METODO DE PAGO AÑADIDO ESCONDER--
-
-                            <div class="spending-limit">
-                                <div class="box_spending_limit">
-                                    <form action="">
-                                        <div class="Box-row">
-                                            <label class="d-block">
-                                                <input type="radio" class="form-checkbox" name="limited_or_unlimited"> Limitar el gasto <--INFO DE ARRIBITA--
-
-                                                <div class="spending_note"> <--DONDE ACTUALIZAS EL LIMITE DE GASTO->
-                                                    <p class="mb-1"> Establezca un límite de gasto mensual </p>
-
-                                                    <div class="spending_details">
-                                                        <div class="box_supdate">
-                                                            <span class="dolar" style="line-height: 32px">$</span>
-                                                            <input class="input_spendig_limit" type="number" name="spending-limit" min="0" placeholder="0.00">
-                                                            <button type="button" class="btn_update_limit"onclick="Update_limit()"> Actualizar límite </button>
-                                                        </div>
-                                                        <p class="note_update"> Dejarlo en $0.00 evitará cualquier gasto extra </p>
-                                                    </div>
-                                                </div>
-                                            </label>
-                                        </div>
-
-                                        <div class="Box-row">
-                                            <label class="d-block">
-                                                <input type="radio" class="form-checkbox" name="limited_or_unlimited"> Gastos ilimitados
-
-                                                <p class="note_update spending_note"> Paga tanto como desees sin ningún límite. </p>
-                                            </label>
-                                        </div> <--SEGUIMOS CON ESTA (UNLIMITED)--
-                                    </form>
-                                </div> <--FIN SPENDING LIMIT--
-
-                                <form action="">
-                                    <div class="mt-4">
-                                        <h4 class="email_alerts"> Alertas de correo electrónico </h4>
-                                        <p class="email_text"> Reciba notificaciones por correo electrónico cuando el uso alcance los umbrales del 75 %, 90 % y 100 %. </p>
-
-                                        <div class="email_checkbox">
-                                            <label>
-                                                <input type="checkbox" class="form-checkbox"> Incluir alertas de tus gastos 
-                                                <span class="yes" id="chulito1"> <i class="fa-solid fa-check"></i> </span>
-                                            </label>
-                                        </div>
-                                        <div class="email_checkbox">
-                                            <label>
-                                                <input type="checkbox" class="form-checkbox"> Alertas de cambios en el límite de gasto
-                                                <span class="yes" id="chulito2"> <i class="fa-solid fa-check"></i> </span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </form> <--EMAIL ALERTS--
-                            </div> --
-
-                        </div> <--CONTAINER DEL LAYOUT DERECHO--
-                    </div> <--LAYOUT MAIN--
-                </div> <--LAYOUT DERECHO-->
-
     <script>
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
         let srcBtn = document.querySelector('.bx-search-alt-2');
 
         btn.onclick = function() {
@@ -1132,8 +1156,25 @@ if ($user == null || $user == "") {
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
         }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
         srcBtn.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/User/limiteGastoUser.php";
+            } else{
+                location.href = "../../PHP/User/limiteGastoUser.php"
+            }
         }
     </script>
 

@@ -260,6 +260,100 @@ body {
     width: 240px;
 }
 
+.sidebar ul .change-idioma .en,
+.sidebar ul .change-idioma .es,
+.sidebar ul .change-idioma .check-idioma{
+    display: none;
+}
+
+.sidebar.active ul .change-idioma .en,
+.sidebar.active ul .change-idioma .es,
+.sidebar.active ul .change-idioma .check-idioma{
+    display: block;
+}
+
+.sidebar ul .change-idioma .fa-earth-americas{
+    display: block;
+}
+
+.sidebar.active ul .change-idioma .fa-earth-americas{
+    display: none;
+}
+
+.sidebar ul .change-idioma{
+    top: 20px;
+    border-radius: 20px;
+    color: #fff;
+    transition: all .4s ease;
+    cursor: pointer;
+}
+
+.sidebar ul .change-idioma:hover{
+    color: #053247;
+    background: #fff;
+}
+
+.sidebar.active ul .change-idioma{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    top: 20px;
+    border-radius: 20px;
+}
+
+.sidebar ul .change-idioma .en{
+    color: #0076fd;
+}
+
+.sidebar ul .change-idioma .es{
+    color: #ff7979;
+}
+
+.sidebar ul .change-idioma .check-idioma{
+    position: relative;
+    width: 50px;
+    height: 25px;
+    cursor: pointer;
+    margin: 0px 10px;
+}
+
+.sidebar ul .change-idioma .check-idioma::before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 25px;
+    background-color: #0076fd;
+    border-radius: 25px;
+}
+
+.sidebar ul .change-idioma .check-idioma::after{
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background: url(../../IMG/usa.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    border: 2px solid #0076fd;
+    box-sizing: border-box;
+}
+
+.sidebar ul .change-idioma .check-idioma:checked::after{
+    left: 25px;
+    border: 2px solid #ff7979;
+    background: url(../../IMG/spain.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.sidebar ul .change-idioma .check-idioma:checked::before{
+    background-color: #ff7979;
+}
+
 /*-------------------------------------------------------------------- LOADER -----------------------------------------------------------------------------------------------------*/
 
 .page{

@@ -860,6 +860,13 @@ if ($user == null || $user == "") {
                     </a>
                     <span class="tooltip"> Settings </span>
                 </li>
+                <li class="change-idioma">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span class="en">English</span>
+                    <input type="checkbox" class="check-idioma">
+                    <span class="es">Spanish</span>
+                    <span class="tooltip"> Language </span>
+                </li>
                 <li id="close_session">
                     <a href="../../PHP/logout.php">
                         <i class='bx bx-exit'></i>
@@ -1061,16 +1068,30 @@ if ($user == null || $user == "") {
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
-        let main = document.querySelector('#main');
-        let values = document.querySelector('#values');
-        let right = document.querySelector('#right');
-        let iName = document.querySelector('.i-name');
+        let idioma = document.querySelector('.fa-earth-americas');
 
         btn.onclick = function() {
             sidebar.classList.toggle('active');
         }
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/Admin/AdminMainPage.php";
+            } else{
+                location.href = "../../PHP/Admin/AdminMainPage.php"
+            }
         }
     </script>
 </body>

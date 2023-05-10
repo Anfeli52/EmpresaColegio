@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-04-2023 a las 16:39:01
+-- Tiempo de generación: 10-05-2023 a las 02:26:23
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -71,26 +71,20 @@ INSERT INTO `contaminacion` (`codigoAgua`, `nivelContaminante`, `nivelTurbidad`,
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `contaminacion2`
+-- Estructura de tabla para la tabla `datosfacturacion`
 --
 
-CREATE TABLE `contaminacion2` (
-  `codigoAgua` varchar(25) NOT NULL,
-  `nivelContaminante` float(10,0) NOT NULL,
-  `nivelTurbidad` float NOT NULL,
-  `nombreAgua` varchar(20) NOT NULL,
-  `cuerpoAgua` varchar(20) NOT NULL,
-  `fechaMuestra` date NOT NULL,
-  `correoContaminacion` varchar(50) NOT NULL
+CREATE TABLE `datosfacturacion` (
+  `nombreFactura` varchar(30) NOT NULL,
+  `apellidoFactura` varchar(30) NOT NULL,
+  `direccion1` varchar(100) NOT NULL,
+  `direccion2` varchar(100) NOT NULL,
+  `ciudadFactura` varchar(60) NOT NULL,
+  `codepostal` varchar(20) NOT NULL,
+  `paisFactura` varchar(60) NOT NULL,
+  `estadoFactura` varchar(60) NOT NULL,
+  `correoUsuario` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `contaminacion2`
---
-
-INSERT INTO `contaminacion2` (`codigoAgua`, `nivelContaminante`, `nivelTurbidad`, `nombreAgua`, `cuerpoAgua`, `fechaMuestra`, `correoContaminacion`) VALUES
-('R12345', 23, 1, 'Laguinho', 'Lago', '2022-03-12', 'anfeli201111@gmail.com'),
-('R3357', 22, 5, 'aaa', 'Rio', '2023-04-19', 'anfeli201111@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -112,8 +106,7 @@ CREATE TABLE `metodopago` (
 --
 
 INSERT INTO `metodopago` (`cardNumber`, `cardHolder`, `expMM`, `expYY`, `cvv`, `correoUsuario`) VALUES
-('4093-5500-8705-2290', 'LUIS CALDERON', 12, 2029, 1234, 'alejandroescobar@gmail.com'),
-('3410-293819-20830', 'PACO GENTO', 11, 2030, 1244, 'alejandroescobar@gmail.com');
+('4093-5955-8903-8491', 'ALEJANDRO ESCOBAR', 4, 2031, 1234, 'alejandroescobar@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -153,7 +146,7 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `username`, `password`, `confirmPassword`, `telefono`, `fechaCumpleaños`, `tipoUsuario`, `fotoPerfil`) VALUES
 ('alejandroescobar@gmail.com', 'Alejandro', 'Escobar', 'Alejo', '1234567890', '1234567890', '3162358566', '1992-12-24', 'user', '../../IMG/FotosPerfil/Anonimo.png'),
-('anfeli201111@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'Anfeli52', '1234567890', '1234567890', '3107171889', '2006-01-06', 'admin', '../../IMG/FotosPerfil/Kenny South Park.jpg'),
+('anfeli201111@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'Anfeli52', '1234567890', '1234567890', '3107171889', '2006-01-06', 'admin', '../../IMG/FotosPerfil/Anakin.jpeg'),
 ('anfelime@gmail.com', 'Andrés Felipe', 'Medina Díaz', 'P4iN', '1234567890', '1234567890', '3107171889', '2006-01-06', 'user', '../../IMG/FotosPerfil/la-paz-nunca-fue-una-opcion-juego-de-ganso-gorra-snapback.jpg'),
 ('dani2111@gmail.com', 'Daniela', 'Monsalve', 'Dani', '12345', '12345', '3175576660', '2006-02-11', 'user', '../../IMG/FotosPerfil/Dani.jpeg'),
 ('jslucio100@gmail.com', 'Juan Esteban', 'Idrobo Lucio', 'Jslucio', 'ronaldinho', 'ronaldinho', '3164208464', '2006-01-08', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
@@ -204,11 +197,10 @@ ALTER TABLE `contaminacion`
   ADD KEY `contaminacion-correo` (`correoContaminacion`);
 
 --
--- Indices de la tabla `contaminacion2`
+-- Indices de la tabla `datosfacturacion`
 --
-ALTER TABLE `contaminacion2`
-  ADD PRIMARY KEY (`codigoAgua`),
-  ADD KEY `contaminacion-correo` (`correoContaminacion`);
+ALTER TABLE `datosfacturacion`
+  ADD KEY `factura-user` (`correoUsuario`);
 
 --
 -- Indices de la tabla `metodopago`
@@ -261,6 +253,12 @@ ALTER TABLE `campaña`
 --
 ALTER TABLE `contaminacion`
   ADD CONSTRAINT `contaminacion-correo` FOREIGN KEY (`correoContaminacion`) REFERENCES `usuario` (`correo`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `datosfacturacion`
+--
+ALTER TABLE `datosfacturacion`
+  ADD CONSTRAINT `factura-user` FOREIGN KEY (`correoUsuario`) REFERENCES `usuario` (`correo`) ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `recomendacion`

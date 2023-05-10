@@ -857,6 +857,13 @@ if ($user == null || $user == "") {
                 </a>
                 <span class="tooltip"> Settings </span>
             </li>
+            <li class="change-idioma">
+                <i class="fa-solid fa-earth-americas"></i>
+                <span class="en">English</span>
+                <input type="checkbox" class="check-idioma">
+                <span class="es">Spanish</span>
+                <span class="tooltip"> Language </span>
+            </li>
             <li id="close_session">
                 <a href="../../PHP/logout.php">
                     <i class='bx bx-exit'></i>
@@ -978,7 +985,7 @@ if ($user == null || $user == "") {
                             <i class="fa-regular fa-credit-card fa-beat"></i>
                             <h2 class="payment_history_text"> You have not made any payment. </h2> <!--AQUI COLOCAR QUE CUANDO HAYA HECHO UN PAGO, QUITE TODO EL AVISO Y COLOQUE EL HISTORIAL :D-->
                         </div>
-                        <p class="history_note"> Amounts shown in Colombian pesos <span>(COP)</span>. </p>
+                        <p class="history_note"> Amounts shown in Colombian pesos <span>(C</span><span>O</span><span>P)</span>. </p>
 
                     </div> <!-- LAYOUT - MAIN -->
                 </div> <!-- LAYOUT - DER -->
@@ -991,6 +998,7 @@ if ($user == null || $user == "") {
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
         let srcBtn = document.querySelector('.bx-search-alt-2');
 
         btn.onclick = function() {
@@ -999,8 +1007,25 @@ if ($user == null || $user == "") {
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
         }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
         srcBtn.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/User/historialPagoUser.php";
+            } else{
+                location.href = "../../PHP/User/historialPagoUser.php"
+            }
         }
     </script>
 

@@ -857,6 +857,13 @@ if($user==null || $user==""){
                 </a>
                 <span class="tooltip"> Settings </span>
             </li>
+            <li class="change-idioma">
+                <i class="fa-solid fa-earth-americas"></i>
+                <span class="en">English</span>
+                <input type="checkbox" class="check-idioma">
+                <span class="es">Spanish</span>
+                <span class="tooltip"> Language </span>
+            </li>
             <li id="close_session">
                 <a href="../../PHP/logout.php">
                     <i class='bx bx-exit'></i>
@@ -946,20 +953,20 @@ if($user==null || $user==""){
                     <div class="layout-main">
 
                         <div class="pass-authen">
-                            <form action="changePasswordUser.php" class="edit_password" method="post">
+                            <form action="changePasswordAdmin.php" class="edit_password" method="post">
                                 <div class="password">
                                     <div class="text_old"> <label for="" class="title_password">Old Password</label> </div>
-                                    <div class="campo_old"> <input type="password" name="oldPassword" class="type_old_password" placeholder="Old Password" maxlength="20" minlength="12" required> </div>
+                                    <div class="campo_old"> <input type="password" name="oldPassword" class="type_old_password" placeholder="Old Password" maxlength="20" required> </div>
                                 </div>
 
                                 <div class="password">
                                     <div class="text_old"> <label for="" class="title_password">New Password</label> </div>
-                                    <div class="campo_old"> <input type="password" name="newPassword" class="type_old_password" placeholder="New Password" maxlength="20" minlength="12" required> </div>
+                                    <div class="campo_old"> <input type="password" name="newPassword" class="type_old_password" placeholder="New Password" maxlength="20" required> </div>
                                 </div>
 
                                 <div class="password">
                                     <div class="text_old"> <label for="" class="title_password">Confirm Password</label> </div>
-                                    <div class="campo_old"> <input type="password" name="confirmNewPassword" class="type_old_password" placeholder="Confirm Password" maxlength="20" minlength="12" required> </div>
+                                    <div class="campo_old"> <input type="password" name="confirmNewPassword" class="type_old_password" placeholder="Confirm Password" maxlength="20" required> </div>
                                 </div>
 
                                 <p class="note"> Make sure your password is <span class="rojito">between 12 and 20 characters</span>.</p>
@@ -1004,6 +1011,7 @@ if($user==null || $user==""){
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
         let srcBtn = document.querySelector('.bx-search-alt-2');
 
         btn.onclick = function() {
@@ -1012,8 +1020,25 @@ if($user==null || $user==""){
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
         }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
         srcBtn.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/Admin/contrasenaAdmin.php";
+            } else{
+                location.href = "../../PHP/Admin/contrasenaAdmin.php"
+            }
         }
     </script>
     

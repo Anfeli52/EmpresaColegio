@@ -820,23 +820,23 @@ if($user==null || $user==""){
                 <li>
                     <a href="userMainPage.php">
                         <i class='bx bxs-home-smile'></i>
-                        <span class="link_name"> Inicio </span>
+                        <span class="link_name"> Main </span>
                     </a>
-                    <span class="tooltip"> Inicio </span>
+                    <span class="tooltip"> Main </span>
                 </li>
                 <li>
                     <a href="contaminacionUserPage.php">
                         <i class='bx bxs-radiation'></i>
-                        <span class="link_name"> Contaminación </span>
+                        <span class="link_name"> Pollution </span>
                     </a>
-                        <span class="tooltip"> Contaminación </span>
+                        <span class="tooltip"> Pollution </span>
                 </li>
                 <li>
                     <a href="campanasUserPage.php">
                         <i class='bx bxs-megaphone'></i>
-                        <span class="link_name"> Campañas </span>
+                        <span class="link_name"> Campaigns </span>
                     </a>
-                    <span class="tooltip"> Campañas </span>
+                    <span class="tooltip"> Campaigns </span>
                 </li>
                 <li>
                     <a href="#">
@@ -855,16 +855,23 @@ if($user==null || $user==""){
                 <li>
                     <a href="cuentaUser.php">
                         <i class='bx bxs-cog'></i>
-                        <span class="link_name"> Configuración </span>
+                        <span class="link_name"> Settings </span>
                     </a>
-                    <span class="tooltip"> Configuración </span>
+                    <span class="tooltip"> Settings </span>
+                </li>
+                <li class="change-idioma">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span class="en">English</span>
+                    <input type="checkbox" class="check-idioma">
+                    <span class="es">Spanish</span>
+                    <span class="tooltip"> Language </span>
                 </li>
                 <li id="close_session">
                     <a href="../../PHP/logout.php">
                         <i class='bx bx-exit'></i>
-                        <span class="link_name"> Cerrar Sesión </span>
+                        <span class="link_name"> Log Out </span>
                     </a>
-                    <span class="tooltip"> Cerrar Sesión </span>
+                    <span class="tooltip"> Log Out </span>
                 </li>
             </ul>
 
@@ -923,12 +930,30 @@ if($user==null || $user==""){
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
-    
-        btn.onclick = function(){
+        let idioma = document.querySelector('.fa-earth-americas');
+
+        btn.onclick = function() {
             sidebar.classList.toggle('active');
         }
-        btnclose.onclick = function(){
+        btnclose.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/User/campanasUserPage.php";
+            } else{
+                location.href = "../../PHP/User/campanasUserPage.php"
+            }
         }
     </script>
 </body>

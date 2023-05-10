@@ -34,7 +34,7 @@ if ($user == null || $user == "") {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../IMG/logoheader.png">
-    <title>Correos Electrónicos</title>
+    <title>E-mail</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../../CSS/User/Setting/emailUserStyle.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.0/dist/sweetalert2.all.min.js"></script>
@@ -859,6 +859,13 @@ if ($user == null || $user == "") {
                 </a>
                 <span class="tooltip"> Settings </span>
             </li>
+            <li class="change-idioma">
+                <i class="fa-solid fa-earth-americas"></i>
+                <span class="en">English</span>
+                <input type="checkbox" class="check-idioma">
+                <span class="es">Spanish</span>
+                <span class="tooltip"> Language </span>
+            </li>
             <li id="close_session">
                 <a href="../../PHP/logout.php">
                     <i class='bx bx-exit'></i>
@@ -1017,12 +1024,12 @@ if ($user == null || $user == "") {
 
                     </div> <!-- LAYOUT - MAIN -->
 
-                    <form action="#" class="new-email-user">
-                        <label class="email-label"> Add Email </label>
+                    <form action="../actualizarEmail.php" class="new-email-user" method="post">
+                        <label class="email-label"> Update Email </label>
 
                         <div class="newEmail">
-                            <input type="email" id="email" class="textemail" required placeholder="E-mail">
-                            <button type="submit" class="btn-add-email" onclick="AddEmail()"> Add </button>
+                            <input type="email" id="email" class="textemail" required placeholder="E-mail" name="updateEmail">
+                            <button type="submit" class="btn-add-email" onclick="AddEmail()"> Update </button>
                         </div>
                     </form>
                 </div> <!-- LAYOUT - DER -->
@@ -1036,6 +1043,7 @@ if ($user == null || $user == "") {
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
         let srcBtn = document.querySelector('.bx-search-alt-2');
 
         btn.onclick = function() {
@@ -1044,8 +1052,25 @@ if ($user == null || $user == "") {
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
         }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
         srcBtn.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/User/emailUser.php";
+            } else{
+                location.href = "../../PHP/User/emailUser.php"
+            }
         }
     </script>
 

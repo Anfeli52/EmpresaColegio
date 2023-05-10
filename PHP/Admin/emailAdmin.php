@@ -858,6 +858,13 @@ if($user==null || $user==""){
                 </a>
                 <span class="tooltip"> Settings </span>
             </li>
+            <li class="change-idioma">
+                <i class="fa-solid fa-earth-americas"></i>
+                <span class="en">English</span>
+                <input type="checkbox" class="check-idioma">
+                <span class="es">Spanish</span>
+                <span class="tooltip"> Language </span>
+            </li>
             <li id="close_session">
                 <a href="../../PHP/logout.php">
                     <i class='bx bx-exit'></i>
@@ -987,11 +994,11 @@ if($user==null || $user==""){
 
                     </div> <!-- LAYOUT - MAIN -->
 
-                    <form action="" class="new-email-user">
+                    <form action="../actualizarEmailAdmin.php" method="post" class="new-email-user">
                         <label class="email-label"> Update Email </label>
                         
                         <div class="newEmail">
-                            <input type="email" id="email" class="textemail" required placeholder="E-mail">
+                            <input type="email" id="email" class="textemail" required placeholder="E-mail" name="updateEmail">
                             <button type="submit" class="btn-add-email" onclick="AddEmail()"> Update </button>
                         </div>
                     </form>
@@ -1006,6 +1013,7 @@ if($user==null || $user==""){
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
         let srcBtn = document.querySelector('.bx-search-alt-2');
 
         btn.onclick = function() {
@@ -1014,8 +1022,25 @@ if($user==null || $user==""){
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
         }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
         srcBtn.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/Admin/emailAdmin.php";
+            } else{
+                location.href = "../../PHP/Admin/emailAdmin.php"
+            }
         }
     </script>
     

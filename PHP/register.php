@@ -34,6 +34,8 @@ if(isset($_POST['envio'])){
             header('location:../HTML/login.php?success=Account Created Successfully');
         }
     }
+}else{
+    header('location: ../HTML/login.php');
 }
 
 ?>

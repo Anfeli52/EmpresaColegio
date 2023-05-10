@@ -857,6 +857,13 @@ if($user==null || $user==""){
                     </a>
                     <span class="tooltip"> Settings </span>
                 </li>
+                <li class="change-idioma">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span class="en">English</span>
+                    <input type="checkbox" class="check-idioma">
+                    <span class="es">Spanish</span>
+                    <span class="tooltip"> Language </span>
+                </li>
                 <li id="close_session">
                     <a href="../../PHP/logout.php">
                         <i class='bx bx-exit'></i>
@@ -948,8 +955,8 @@ if($user==null || $user==""){
                                 <div class="profile">
                                     <div class="nameUser">
                                         <h2> Username </h2>
-                                        <input type="text" placeholder="Change your username" class="textuser" name="UserName" value="" required>
-                                        <span class="note"> Escoge un nuevo nombre de usuario c: </span>                
+                                        <input type="text" placeholder="Change your username" class="textuser" name="UserName" value="<?php echo $username; ?>" required>
+                                        <span class="note"> Choose a new username c: </span>                
                                     </div>
                                     <div id="foteichon">
                                         <h2> Profile picture </h2>
@@ -984,7 +991,7 @@ if($user==null || $user==""){
                 <h2 class="box-title"> Are you sure you want to do this? </h2>
             </div>
             <div class="box_advert">
-                <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> Esto es extremadamente importante.
+                <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> This is extremely important.
             </div>
             <div class="box-body">
                 <p> We will immediately <strong>delete everything related to your Yaxja account.</strong> </p>
@@ -1019,6 +1026,7 @@ if($user==null || $user==""){
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
         let srcBtn = document.querySelector('.bx-search-alt-2');
 
         btn.onclick = function() {
@@ -1027,8 +1035,25 @@ if($user==null || $user==""){
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
         }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
         srcBtn.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/Admin/cuentaAdmin.php";
+            } else{
+                location.href = "../../PHP/Admin/cuentaAdmin.php"
+            }
         }
     </script>
     

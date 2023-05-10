@@ -65,15 +65,15 @@ if ($num_rows > 0) {
         if ($row['tipoUsuario'] == 'user') {
             $userType = "<div class='select'>
                             <select>
-                                <option value='user'> user </option>
-                                <option value='admin'> admin </option>
+                                <option value='user'> User </option>
+                                <option value='admin'> Admin </option>
                             </select>
                         </div>";
         } else {
             $userType = "<div class='select'>
                             <select>
-                                <option value='admin'> admin </option>
-                                <option value='user'> user </option>
+                                <option value='admin'> Admin </option>
+                                <option value='user'> User </option>
                             </select>
                         </div>";
         }
@@ -90,7 +90,7 @@ if ($num_rows > 0) {
     }
 } else {
     $html .= '<tr>';
-    $html .= '<td colspan="8">Sin resultados</td>';
+    $html .= '<td colspan="8">Without results</td>';
     $html .= '</tr>';
 }
 

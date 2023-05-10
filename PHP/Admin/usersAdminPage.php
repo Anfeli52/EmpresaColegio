@@ -829,16 +829,16 @@ if ($user == null || $user == "") {
                 <li>
                     <a href="contaminacionAdminPage.php">
                         <i class='bx bxs-radiation'></i>
-                        <span class="link_name"> Contaminación </span>
+                        <span class="link_name"> Pollution </span>
                     </a>
-                    <span class="tooltip"> Contaminación </span>
+                    <span class="tooltip"> Pollution </span>
                 </li>
                 <li>
                     <a href="campanasAdminPage.php">
                         <i class='bx bxs-megaphone'></i>
-                        <span class="link_name"> Campañas </span>
+                        <span class="link_name"> Campaigns </span>
                     </a>
-                    <span class="tooltip"> Campañas </span>
+                    <span class="tooltip"> Campaigns </span>
                 </li>
                 <li>
                     <a href="dw-23.php">
@@ -850,23 +850,30 @@ if ($user == null || $user == "") {
                 <li>
                     <a href="usersAdminPage.php">
                         <i class='bx bxs-user'></i>
-                        <span class="link_name"> Usuarios </span>
+                        <span class="link_name"> Users </span>
                     </a>
-                    <span class="tooltip"> Usuarios </span>
+                    <span class="tooltip"> Users </span>
                 </li>
                 <li>
                     <a href="cuentaAdmin.php">
                         <i class='bx bxs-cog'></i>
-                        <span class="link_name"> Configuración </span>
+                        <span class="link_name"> Settings </span>
                     </a>
-                    <span class="tooltip"> Configuración </span>
+                    <span class="tooltip"> Settings </span>
+                </li>
+                <li class="change-idioma">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span class="en">English</span>
+                    <input type="checkbox" class="check-idioma">
+                    <span class="es">Spanish</span>
+                    <span class="tooltip"> Language </span>
                 </li>
                 <li id="close_session">
                     <a href="../../PHP/logout.php">
                         <i class='bx bx-exit'></i>
-                        <span class="link_name"> Cerrar Sesión </span>
+                        <span class="link_name"> Log Out </span>
                     </a>
-                    <span class="tooltip"> Cerrar Sesión </span>
+                    <span class="tooltip"> Log Out </span>
                 </li>
             </ul>
 
@@ -886,12 +893,12 @@ if ($user == null || $user == "") {
                 <table width="100%">
                     <thead>
                         <tr>
-                            <td>Correo</td>
-                            <td>Nombre</td>
-                            <td>Apellido</td>
+                            <td>E-mail</td>
+                            <td>Name</td>
+                            <td>Last Name</td>
                             <td>Username</td>
-                            <td>Teléfono</td>
-                            <td>Tipo de Usuario</td>
+                            <td>Phone Number</td>
+                            <td>User Type</td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -913,13 +920,13 @@ if ($user == null || $user == "") {
 
             if ($search['tipoUsuario'] == "user") {
                 $userType = '<select class="sectionUserType" name="usuarioTipoUsuario">
-                                <option value="user">user</option>
-                                <option value="admin">admin</option>
+                                <option value="user">User</option>
+                                <option value="admin">Admin</option>
                             </select>';
             } else {
                 $userType = '<select class="sectionUserType" name="usuarioTipoUsuario">
-                                <option value="admin">admin</option>
-                                <option value="user">user</option>
+                                <option value="admin">Admin</option>
+                                <option value="user">User</option>
                             </select>';
             }
 
@@ -932,10 +939,10 @@ if ($user == null || $user == "") {
                     <button type="button" class="box_btn_close">
                         <a href="usersAdminPage.php"><i class="fa-solid fa-xmark"></i></a>
                     </button>
-                    <h2 class="box_title"> ¿Estás seguro que quieres hacer esto? </h2>
+                    <h2 class="box_title"> Are you sure you want to do this? </h2>
                 </div>
                 <div class="box_advert">
-                    <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> Esto es extremadamente importante.
+                    <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> This is extremely important.
                 </div>
                 <div class="box_body">
                     <h3><strong>EDITAR DATOS</strong></h3>
@@ -943,17 +950,17 @@ if ($user == null || $user == "") {
                     </hr>
                     <form action="updateUsers.php" method="post">
                         <p class="delete_account_text">
-                            <label class="options"> Correo: </label>
+                            <label class="options"> E-mail: </label>
                             <input type="email" name="usuarioCorreo" class="form-control" value="' . $search['correo'] . '" required>
                         </p>
 
                         <p class="delete_account_text">
-                            <label class="options"> Nombre: </label>
+                            <label class="options"> Name: </label>
                             <input type="text" name="usuarioNombre" class="form-control" value="' . $search['nombre'] . '" required>
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
-                            <label class="options"> Apellido: </label>
+                            <label class="options"> Last Name: </label>
                             <input type="text" name="usuarioApellido" class="form-control" value="' . $search['apellido'] . '" required>
                         </p>
                         <p class="delete_account_text">
@@ -962,17 +969,17 @@ if ($user == null || $user == "") {
                         </p>
 
                         <p class="delete_account_text">
-                            <label class="options"> Teléfono: </label>
+                            <label class="options"> Phone Number: </label>
                             <input type="number" name="usuarioTelefono" class="form-control" value="' . $search['telefono'] . '" required>
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
-                            <label class="options"> Tipo de Usuario: </label>
+                            <label class="options"> User Type: </label>
                             ' . $userType . '
                         </p>
                         <div class="botones">
-                            <button type="submit" class="btn_update_account"> Actualizar </button>
-                            <button type="reset" class="btn_cancelUpdate_account"><a href="usersAdminPage.php"> Cancelar </a></button>
+                            <button type="submit" class="btn_update_account"> Update </button>
+                            <button type="reset" class="btn_cancelUpdate_account"><a href="usersAdminPage.php"> Cancel </a></button>
                         </div>
                     </form>
                 </div>
@@ -1121,12 +1128,30 @@ if ($user == null || $user == "") {
         let btn = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
+        let idioma = document.querySelector('.fa-earth-americas');
 
         btn.onclick = function() {
             sidebar.classList.toggle('active');
         }
         btnclose.onclick = function() {
             sidebar.classList.toggle('active');
+        }
+        idioma.onclick = function() {
+            sidebar.classList.toggle('active');
+        }
+    </script>
+
+    <script>
+        var check = document.querySelector('.check-idioma');
+        check.addEventListener('click', idioma2);
+
+        function idioma2(){
+            let id = check.checked;
+            if(id == true){
+                location.href = "../../PHP-SPANISH/Admin/usersAdminPage.php";
+            } else{
+                location.href = "../../PHP/Admin/usersAdminPage.php"
+            }
         }
     </script>
 </body>

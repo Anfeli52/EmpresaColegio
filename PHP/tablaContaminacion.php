@@ -54,13 +54,13 @@ if ($num_rows > 0) {
             $html .= '<td>' . $row['nivelContaminante'] . '</td>';
             $html .= '<td>' . $row['nivelTurbidad'] . '</td>';
             $html .= '<td>' . $row['fechaMuestra'] . '</td>';
-            $html .= '<td class="edit-table"><a href="contaminacionAdminPage.php?contaminationEditedField='.$row['codigoAgua'].'" name="editarCampo"> Editar </a></td>';
-            $html .= '<td  class="eliminate-table"><a href="contaminacionAdminPage.php?contaminationDeteledField='.$row['codigoAgua'].'" name="eliminarCampo"> Eliminar </a></td>';
+            $html .= '<td class="edit-table"><a href="contaminacionAdminPage.php?contaminationEditedField='.$row['codigoAgua'].'" name="editarCampo"> Edit </a></td>';
+            $html .= '<td  class="eliminate-table"><a href="contaminacionAdminPage.php?contaminationDeteledField='.$row['codigoAgua'].'" name="eliminarCampo"> Delete </a></td>';
         $html .= '</tr>';
     }
 } else {
     $html .= '<tr>';
-    $html .= '<td colspan="10">Sin resultados</td>';
+    $html .= '<td colspan="10">Without results</td>';
     $html .= '</tr>';
 }
 
