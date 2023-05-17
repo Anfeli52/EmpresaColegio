@@ -948,19 +948,19 @@ if ($user == null || $user == "") {
                     <h3><strong>EDITAR DATOS</strong></h3>
                     <hr>
                     </hr>
-                    <form action="updateUsers.php" method="post">
+                    <form action="updateUsers.php?idUserEmail='.$search['correo'].'" method="post">
                         <p class="delete_account_text">
-                            <label class="options"> E-mail: </label>
+                            <label class="options"> Correo: </label>
                             <input type="email" name="usuarioCorreo" class="form-control" value="' . $search['correo'] . '" required>
                         </p>
 
                         <p class="delete_account_text">
-                            <label class="options"> Name: </label>
+                            <label class="options"> Nombre: </label>
                             <input type="text" name="usuarioNombre" class="form-control" value="' . $search['nombre'] . '" required>
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
-                            <label class="options"> Last Name: </label>
+                            <label class="options"> Apellido: </label>
                             <input type="text" name="usuarioApellido" class="form-control" value="' . $search['apellido'] . '" required>
                         </p>
                         <p class="delete_account_text">
@@ -969,17 +969,17 @@ if ($user == null || $user == "") {
                         </p>
 
                         <p class="delete_account_text">
-                            <label class="options"> Phone Number: </label>
+                            <label class="options"> Teléfono: </label>
                             <input type="number" name="usuarioTelefono" class="form-control" value="' . $search['telefono'] . '" required>
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
-                            <label class="options"> User Type: </label>
+                            <label class="options"> Tipo de Usuario: </label>
                             ' . $userType . '
                         </p>
                         <div class="botones">
-                            <button type="submit" class="btn_update_account"> Update </button>
-                            <button type="reset" class="btn_cancelUpdate_account"><a href="usersAdminPage.php"> Cancel </a></button>
+                            <button type="submit" class="btn_update_account" name="btnActualizarUsuarios"> Actualizar </button>
+                            <button type="reset" class="btn_cancelUpdate_account"><a href="usersAdminPage.php"> Cancelar </a></button>
                         </div>
                     </form>
                 </div>
