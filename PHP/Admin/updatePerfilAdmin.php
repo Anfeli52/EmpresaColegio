@@ -7,9 +7,6 @@ if (isset($_POST['actualizar'])) {
     $correo = $_SESSION['email'];
     $sql = "SELECT * FROM usuario WHERE correo = '$correo'";
     $resultado = $conexion->query($sql);
-    while ($data = $resultado->fetch_assoc()) {
-        $nombre = $data['username'];
-    }
 
     $username = $_POST['UserName'];
     $foto = $_FILES['fotico'];
@@ -66,3 +63,4 @@ if (isset($_POST['actualizar'])) {
                 mysqli_query($conexion, $update);
             }
         }*/
+?>

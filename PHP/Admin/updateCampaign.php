@@ -16,10 +16,9 @@ if (isset($_POST['btn-updateCampaign'])) {
     $carpeta = "../../IMG/FotosCampanas";
     $ruta = $carpeta . '/' . $fotoName;
     move_uploaded_file($tmp_foto, $carpeta . '/' . $fotoName);
-
+    /*--------------------------------------------------------------------------------------------------------------------------------------------------------*/
     $comparacion = "SELECT * FROM campaña WHERE CodigoCampaña = '$codigoCampaña'";
     $busqueda = mysqli_query($conexion, $comparacion);
-
     $datos = mysqli_fetch_assoc($busqueda);
 
     $comparacion = "SELECT * FROM campaña WHERE NombreCampaña = '$tituloCampaña'";
