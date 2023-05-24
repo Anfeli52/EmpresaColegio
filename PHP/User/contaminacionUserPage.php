@@ -974,7 +974,7 @@ if ($user == null || $user == "") {
                         <p class="delete_account_text" id="last_camp">
                             <label class="options"> Photo of the body of water: </label>
                             <input type="file" id="fotoCuerpo" name="fotoCuerpo" multiple="multiple" accept=".jpg, .png, .jpeg" required>
-
+                            <label for="fotoCuerpo" class="btn-fotico" id="label-fotico">Edit Photo</label>
                         </p>
 
                         <div class="botones">
@@ -989,6 +989,14 @@ if ($user == null || $user == "") {
         ?>
 
     </div>
+
+    <script>
+        document.getElementById('fotoCuerpo').onchange = function () {
+            console.log(this.value);
+            document.getElementById('label-fotico').innerHTML = document.getElementById('fotoCuerpo').files[0].name;
+        }
+    </script>
+
     <script>
         $(window).on('load', function() {
             $(".loader").fadeOut(1000);

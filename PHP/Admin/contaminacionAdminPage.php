@@ -944,7 +944,7 @@ if ($user == null || $user == "") {
             echo '
             <div class="blackBackground"></div>
             
-            <div class="dialog d-flex flex-column box--overlay box" id="mensaje_borrar">
+            <div class="dialog" id="mensaje_borrar">
                 <div class="box_header">
                     <button type="button" class="box_btn_close">
                         <a href="contaminacionAdminPage.php"><i class="fa-solid fa-xmark"></i></a>
@@ -955,7 +955,7 @@ if ($user == null || $user == "") {
                     <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> This is extremely important.
                 </div>
                 <div class="box_body">
-                    <h3><strong>EDIT DATA</strong></h3>
+                    <h3>EDIT DATA</h3>
                     <hr>
                     </hr>
                     <form action="updateContamination.php?editedField='.$fetch['codigoAgua'].'" enctype="multipart/form-data" method="post">
@@ -972,7 +972,7 @@ if ($user == null || $user == "") {
                         <p class="delete_account_text" id="last_camp">
                             <label class="options"> Photo of the body of water: </label>
                             <input type="file" id="fotoCuerpo" name="fotoCuerpo" multiple="multiple" accept=".jpg, .png, .jpeg" required>
-
+                            <label for="fotoCuerpo" class="btn-fotico" id="label-fotico">Edit Photo</label>
                         </p>
 
                         <div class="botones">
@@ -987,6 +987,14 @@ if ($user == null || $user == "") {
         ?>
 
     </div>
+
+    <script>
+        document.getElementById('fotoCuerpo').onchange = function () {
+            console.log(this.value);
+            document.getElementById('label-fotico').innerHTML = document.getElementById('fotoCuerpo').files[0].name;
+        }
+    </script>
+
     <script>
         $(window).on('load', function() {
             $(".loader").fadeOut(1000);

@@ -558,39 +558,18 @@ select {
     box-shadow: none;
     /* Personalize */
     flex: 1;
-    padding: 0 1em;
-    background-color: #eef0f3;
-    background-image: none;
-    cursor: pointer;
+    background-color: #eee;
+    border-radius: 10px;
+    border: none;
+    padding: 12px 15px;
+    margin: 4px 0;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    font-size: 14px;
 }
 
 select::-ms-expand {
     display: none;
-}
-
-.select {
-    position: relative;
-    display: flex;
-    width: 90px;
-    height: 30px;
-    border-radius: 10px;
-    overflow: hidden;
-}
-
-.select::after {
-    content: '\25BC';
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 3px 6px;
-    background-color: #eef0f3;
-    color: #353579;
-    transition: .25s all ease;
-    pointer-events: none;
-}
-
-.select:hover::after {
-    color: #766f9e;
 }
 
 option{
@@ -605,7 +584,7 @@ option{
     width: 100%;
     height: 100%;
     position: fixed;
-    z-index: 998;
+    z-index: 11;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -613,85 +592,84 @@ option{
     opacity: 0.7;
 }
 
-
 .dialog{
     position: fixed;
-    top: 50%;
     left: 50%;
+    top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 999;
-    height: auto;
-    max-width: 90vh;
-    overflow: auto;
-    text-align: initial;
-    background: #b4b4b4;
+    z-index: 12;
+    border-radius: 10px;
+    background-color: #fff;
+    width: 500px;
+    color: #053247
 }
 
-
 .box_header{
-    margin: 0;
-    border-bottom-width: 1px;
-    padding: 16px;
-    background-color: rgb(216, 216, 216);
+    margin: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .box_btn_close{
-    line-height: 1.5;
-    margin: -16px;
-    padding: 16px;
     float: right;
-    display: inline-block;
-    color: #444;
-    vertical-align: middle;
-    border: 0;
-    background: transparent;
-    box-shadow: none;
-}
-
-.fa-xmark{
-    display: inline-block;
-    overflow: visible;
-    vertical-align: text-bottom;
-    fill: currentColor;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    font-size: 20px;
+    background-color: #BD081C;
+    color: #fff;
+    transition: all .3s;
     cursor: pointer;
 }
 
-.fa-xmark:hover{
-    color: #0076fd;
+.box_btn_close a{
+    color: #fff;
+    line-height: 40px;
 }
+
+.box_btn_close:hover a{
+    color: #BD081C;
+}
+
+.box_btn_close:hover{
+    color: #BD081C;
+    background-color: #fff;
+    box-shadow: 0 0 15px 5px #BD081C;
+}
+
 .box_body h3 {
     text-align: center;
+    font-size: 24px;
+    font-family: "Philosopher", sans-serif;
+    margin-bottom: 20px;
 }
 
 .box_title{
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 600;
-    margin-bottom: 0;
-    margin-top: 0;
+    font-size: 18px;
+    font-family: "Philosopher", sans-serif;
 }
 
 .box_advert{
     border-radius: 0;
-    margin-top: -1px;
     border: 1px solid red;
     border-left: 0;
     border-right: 0;
     background-color: rgb(255, 144, 144);
-    padding: 20px 16px;
+    padding: 10px;
     vertical-align: middle;
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    color: #141414;
+    padding: 20px 16px;
+    color: #053247;
 }
 
 .fa-triangle-exclamation{
     color: #f85149;
     margin-right: 12px;
-    display: inline-block;
     overflow: visible;
-    vertical-align: text-bottom;
     fill: currentColor;
+    font-size: 18px;
 }
 
 .box_body{
@@ -701,105 +679,18 @@ option{
 
 .box_body p{
     font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Poppins", sans-serif;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
     margin-top: 0;
     margin-bottom: 20px;
-    color: #141414;
-}
-
-.delete{
-    font-size: 13px;
-}
-
-.delete i{
-    color: #000;
-    font-weight: bolder;
-}
-
-
-.form-deleted-field{
-    display: block;
-    width: 100%;
-    padding: 5px 12px;
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
-    vertical-align: middle;
-    border: 1px solid #444;
-    border-radius: 6px;
-    background-color: rgb(238, 238, 238);
-    margin-top: 3px;
+    color: #053247;
 }
 
 .options{
     margin-right: 20px;
-}
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none; 
-    margin: 0; 
-}
-
-hr{
-    height: 0;
-    margin: 15px 0;
-    overflow: hidden;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #444;
-    box-sizing: border-box;
-}
-
-.delete_account_text{
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    display: block;
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #141414;
-    font-weight: 600;
-}
-
-.delete_account_text i{
-    font-weight: 400;
-}
-
-.form-control{
-    display: block;
-    width: 310px;
-    padding: 5px 12px;
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
-    vertical-align: middle;
-    border: 1px solid #444;
-    border-radius: 6px;
-    background-color: rgb(238, 238, 238);
-    margin-top: 3px;
-}
-
-.form-control:focus{
-    background-color: #fff;
-}
-
-.sectionUserType{
-    display: block;
-    width: 100%;
-    height: 30px;
-    padding: 5px 12px;
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    line-height: 20px;
-    vertical-align: middle;
-    border: 1px solid #444;
-    border-radius: 6px;
-    background-color: rgb(238, 238, 238);
-    margin-top: 3px;
-    text-align: center;
 }
 
 .botones{
@@ -809,50 +700,32 @@ hr{
 }
 
 .btn_update_account{
-    position: relative;
     padding: 5px 16px;
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 600;
-    line-height: 20px;
-    border-radius: 6px;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 20px;
     background-color: #238636;
     color: #fff;
-    text-align: center;
-    width: 100%;
-    display: block;
+    transition: all .3s;
     cursor: pointer;
-    top: -10px;
-}
-
-.btn_update_account a{
-    color: #fff;
-    padding: 0px 16px;
-    text-align: center;
-    display: block;
 }
 
 .btn_update_account:hover{
-    background-color: #429753
+    color: #238636;
+    background-color: #fff;
+    box-shadow: 0 0 15px 5px #238636;
 }
 
 .btn_cancelUpdate_account{
-    position: relative;
     padding: 5px 16px;
-    font-size: 14px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 600;
-    line-height: 20px;
-    border-radius: 6px;
-    background-color: #b63131;
-    color: #fff;
-    text-align: center;
+    border-radius: 10px;
     width: 100%;
-    display: block;
+    font-size: 20px;
+    background-color: #BD081C;
+    color: #fff;
+    transition: all .3s;
     cursor: pointer;
-    top: -10px;
 }
-
 
 .btn_cancelUpdate_account a {
     color: #fff;
@@ -861,12 +734,40 @@ hr{
     display: block;
 }
 
-.btn_cancelUpdate_account:hover{
-    color: #fff;
-    background-color: red;
-    border-color: #b63131;
-    cursor: pointer;
+.btn_cancelUpdate_account:hover a{
+    color: #BD081C;
 }
+
+.btn_cancelUpdate_account:hover{
+    color: #BD081C;
+    background-color: #fff;
+    box-shadow: 0 0 15px 5px #BD081C;
+}
+
+.form-control{
+    background-color: #eee;
+    border-radius: 10px;
+    border: none;
+    padding: 12px 15px;
+    margin: 4px 0;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    font-size: 14px;
+    width: 280px;
+}
+
+.options{
+    font-size: 16px;
+    font-weight: 800;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
 
 .btn-submit a{
     padding: 0.8rem;
