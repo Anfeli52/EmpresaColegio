@@ -1093,9 +1093,9 @@ if ($user == null || $user == "") {
         function idioma2(){
             let id = check.checked;
             if(id == true){
-                location.href = "../../PHP-SPANISH/Admin/contaminacionAdminPage.php";
+                location.href = "../../PHP-SPANISH/User/contaminacionUserPage.php";
             } else{
-                location.href = "../../PHP/Admin/contaminacionAdminPage.php"
+                location.href = "../../PHP/User/contaminacionUserPage.php"
             }
         }
     </script>
