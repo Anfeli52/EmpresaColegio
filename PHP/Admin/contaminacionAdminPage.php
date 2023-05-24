@@ -941,6 +941,44 @@ if ($user == null || $user == "") {
             $search = "SELECT * FROM contaminacion WHERE codigoAgua = '$editContaminationCode'";
             $busqueda = mysqli_query($conexion, $search);
             $fetch = mysqli_fetch_assoc($busqueda);
+
+            if($fetch['cuerpoAgua']==="Rio"){
+                $opciones = '
+                    <select name="cuerpoAgua">
+                        <option name="'.$fetch['cuerpoAgua'].'">'.$fetch['cuerpoAgua'].'</option>
+                        <option name="Oceano">Oceano</option>
+                        <option name="Mar">Mar</option>
+                        <option name="Lago">Lago</option>
+                    </select>';
+
+            }elseif($fetch['cuerpoAgua']==="Mar"){
+                $opciones = '
+                    <select name="cuerpoAgua">
+                        <option name="'.$fetch['cuerpoAgua'].'">'.$fetch['cuerpoAgua'].'</option>
+                        <option name="Oceano">Oceano</option>
+                        <option name="Rio">Rio</option>
+                        <option name="Lago">Lago</option>
+                    </select>';
+
+            }elseif($fetch['cuerpoAgua']==="Lago"){
+                $opciones = '
+                    <select name="cuerpoAgua">
+                        <option name="'.$fetch['cuerpoAgua'].'">'.$fetch['cuerpoAgua'].'</option>
+                        <option name="Oceano">Oceano</option>
+                        <option name="Mar">Mar</option>
+                        <option name="Rio">Rio</option>
+                    </select>';
+
+            }else{
+                $opciones = '
+                    <select name="cuerpoAgua">
+                        <option name="'.$fetch['cuerpoAgua'].'">'.$fetch['cuerpoAgua'].'</option>
+                        <option name="Mar">Mar</option>
+                        <option name="Lago">Lago</option>
+                        <option name="Rio">Rio</option>
+                    </select>';
+            }
+
             echo '
             <div class="blackBackground"></div>
             
@@ -966,7 +1004,7 @@ if ($user == null || $user == "") {
 
                         <p class="delete_account_text">
                             <label class="options"> Water body: </label>
-                            <input type="text" name="cuerpoAgua" class="form-control" value="' . $fetch['cuerpoAgua'] . '" required>
+                            '.$opciones.'
                         </p>
 
                         <p class="delete_account_text" id="last_camp">
