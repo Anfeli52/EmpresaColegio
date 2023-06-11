@@ -839,18 +839,11 @@ if($user==null || $user==""){
                     <span class="tooltip"> Campaigns </span>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="ProductoDw23.php">
                         <i class='bx bx-chip' ></i>
                         <span class="link_name"> DW-23 </span>
                     </a>
                     <span class="tooltip"> DW-23 </span>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class='bx bxs-message-dots'></i>
-                        <span class="link_name"> Chat </span>
-                    </a>
-                    <span class="tooltip"> Chat </span>
                 </li>
                 <li>
                     <a href="cuentaUser.php">

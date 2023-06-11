@@ -24,6 +24,24 @@ if ($user == null || $user == "") {
         $nombre = $data['nombre'];
         $foto = $data['fotoPerfil'];
     }
+
+    $sqlVentas = "SELECT * FROM ventas";
+    $resultadoVentas = $conexion->query($sqlVentas);
+    $ganancia = 0;
+
+    while ($data2 = $resultadoVentas->fetch_assoc()) {
+        $correoCliente = $data2['correoCliente'];
+        $orderNumber = $data2['orderNumber'];
+        $productName = $data2['productName'];
+        $cantidad = $data2['cantidad'];
+        $estadoEnvio = $data2['estadoEnvio'];
+        $precioTotal = $data2['precioTotal'];
+
+        $totaly = ($ganancia += $precioTotal) * (1/4492);
+        $totalyRedondo = number_format(round($totaly), 0, ',', '.');
+    }
+
+    $numVentas = mysqli_num_rows($resultadoVentas);
 }
 ?>
 <!DOCTYPE html>
@@ -895,7 +913,7 @@ if ($user == null || $user == "") {
                 <div class="val-box">
                     <i class="fa-solid fa-cart-shopping"></i>
                     <div>
-                        <h3> 120,432 </h3>
+                        <h3> <?php echo $numVentas; ?> </h3>
                         <span> Total Orders </span>
                     </div>
                 </div> <!-- TOTAL ORDERS BOX -->
@@ -903,7 +921,7 @@ if ($user == null || $user == "") {
                 <div class="val-box">
                     <i class="fa-solid fa-tag"></i>
                     <div>
-                        <h3> 426,213 </h3>
+                        <h3> <?php echo $numVentas; ?> </h3>
                         <span> Products Sold </span>
                     </div>
                 </div> <!-- PRODUCTS SOLD BOX -->
@@ -911,7 +929,7 @@ if ($user == null || $user == "") {
                 <div class="val-box">
                     <i class="fa-solid fa-dollar-sign"></i>
                     <div>
-                        <h3> 973,677 </h3>
+                        <h3>$ <?php echo $totalyRedondo; ?> </h3>
                         <span> This Month </span>
                     </div>
                 </div> <!-- THIS MONTH BOX -->
@@ -942,17 +960,17 @@ if ($user == null || $user == "") {
                                 if($fetch['estadoEnvio']=="Success"){
                                     $paymentStatus = '
                                     <td class="payment-status success">
-                                        <p> '.$fetch['estadoEnvio'].' </p>
+                                        <p> Success </p>
                                     </td>';
                                 }elseif($fetch['estadoEnvio']=="Declined"){
                                     $paymentStatus = '
                                     <td class="payment-status warning">
-                                        <p> '.$fetch['estadoEnvio'].' </p>
+                                        <p> Declined </p>
                                     </td>';
                                 }else{
                                     $paymentStatus = '
                                     <td class="payment-status caution">
-                                        <p> '.$fetch['estadoEnvio'].' </p>
+                                        <p> Pending </p>
                                     </td>';
                                 }
 

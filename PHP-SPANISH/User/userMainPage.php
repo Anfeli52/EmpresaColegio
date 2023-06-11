@@ -66,8 +66,7 @@ if ($user == null || $user == "") {
                 <li> <a href="#section" class="active"> Principal </a> </li>
                 <li> <a href="contaminacionUserPage.php" class="see"> Contaminación </a> </li>
                 <li> <a href="campanasUserPage.php" class="see"> Campañas </a> </li>
-                <li> <a href="#"> DW-23 </a> </li>
-                <li> <a href="#"> Chat </a> </li>
+                <li> <a href="ProductoDw23.php"> DW-23 </a> </li>
                 <li> <a href="cuentaUser.php"> Configuración </a> </li>
 
                 <li><img src="<?php echo $foto; ?>" alt="#" class="avatar"></li>
@@ -189,10 +188,10 @@ if ($user == null || $user == "") {
                     <h1 class="dw-23"> DW-23 </h1>
 
                     <p class="text-dw">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eum exercitationem quos, inventore minus sint asperiores labore, similique blanditiis ea laudantium dolorum est!
+                        Te presentamos nuestro innovador producto, el "DW-23". Si estás preocupado por la calidad del agua que te rodea y deseas contribuir a su conservación, este dispositivo es la elección perfecta.
                     </p>
 
-                    <a href="#" class="btn-more"> Saber más </a>
+                    <a href="ProductoDw23.php" class="btn-more"> Saber más </a>
                 </div>
                 <div class="img-dw">
                     <img src="../../IMG/FotosCuerpos/Agua.jpg" alt="">

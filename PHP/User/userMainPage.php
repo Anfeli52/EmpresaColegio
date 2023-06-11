@@ -66,8 +66,7 @@ if ($user == null || $user == "") {
                 <li> <a href="#section" class="active"> Home </a> </li>
                 <li> <a href="contaminacionUserPage.php" class="see"> Pollution </a> </li>
                 <li> <a href="campanasUserPage.php" class="see"> Campaigns </a> </li>
-                <li> <a href="#"> DW-23 </a> </li>
-                <li> <a href="#"> Chat </a> </li>
+                <li> <a href="ProductoDw23.php"> DW-23 </a> </li>
                 <li> <a href="cuentaUser.php"> Settings </a> </li>
 
                 <li><img src="<?php echo $foto; ?>" alt="#" class="avatar"></li>
@@ -189,10 +188,10 @@ if ($user == null || $user == "") {
                     <h1 class="dw-23"> DW-23 </h1>
 
                     <p class="text-dw">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod eum exercitationem quos, inventore minus sint asperiores labore, similique blanditiis ea laudantium dolorum est!
+                        Introducing our groundbreaking product, the "DW-23". If you're genuinely concerned about the water quality in your surroundings and aspire to contribute to its preservation, this device is the flawless choice for you.
                     </p>
 
-                    <a href="#" class="btn-more"> Know more </a>
+                    <a href="ProductoDw23.php" class="btn-more"> Know more </a>
                 </div>
                 <div class="img-dw">
                     <img src="../../IMG/FotosCuerpos/Agua.jpg" alt="">
@@ -259,13 +258,13 @@ if ($user == null || $user == "") {
     </script>
 
     <script>
-        let btn = document.querySelector('#btn');
+        let btn2 = document.querySelector('#btn');
         let sidebar = document.querySelector('.sidebar');
         let btnclose = document.querySelector('#btnclose');
         let idioma = document.querySelector('.fa-earth-americas');
         let srcBtn = document.querySelector('.bx-search-alt-2');
 
-        btn.onclick = function() {
+        btn2.onclick = function() {
             sidebar.classList.toggle('active');
         }
         btnclose.onclick = function() {

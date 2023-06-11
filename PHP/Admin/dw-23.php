@@ -24,6 +24,19 @@ if ($user == null || $user == "") {
         $nombre = $data['nombre'];
         $foto = $data['fotoPerfil'];
     }
+
+    $sqlDW = "SELECT * FROM dw23";
+    $resultadoDW = $conexion->query($sqlDW);
+
+    while ($data2 = $resultadoDW->fetch_assoc()) {
+        $imgProducto = $data2['imgProducto'];
+        $nameProducto = $data2['nameProducto'];
+        $descripcionProducto = $data2['descripcionProducto'];
+        $precioProducto = $data2['precioProducto'];
+        $caracteristica1 = $data2['caracteristica1'];
+        $caracteristica2 = $data2['caracteristica2'];
+        $caracteristica3 = $data2['caracteristica3'];
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -887,34 +900,34 @@ if ($user == null || $user == "") {
             <div class="info-product">
                 <div class="img-product">
                     <button onclick="editImg()" class="btn-edit-img"> Click to change image </button>
-                    <img src="../../IMG/Medina.jpeg" alt="" id="imgProduct">
+                    <img src="<?php echo $imgProducto; ?>" alt="" id="imgProduct">
                 </div>
                 <div class="campos-product">
-                    <form action="">
+                    <form action="../updatedw23.php" method="post">
                         <div class="input-product">
                             <label for="productName"> Product Name </label>
-                            <input type="text" placeholder="DW-23" id="productName" name="" maxlength="60">
+                            <input type="text" placeholder="DW-23" id="productName" name="productName" maxlength="60" value="<?php echo $nameProducto; ?>" required>
                         </div>
                         <div class="input-product">
                             <label for="productDescription"> Product description </label>
-                            <textarea placeholder="Description" id="productDescription" cols="30" rows="8" maxlength="500" name=""></textarea>
+                            <textarea placeholder="Description" id="productDescription" cols="30" rows="8" maxlength="500" name="productDescription" required><?php echo $descripcionProducto; ?></textarea>
                         </div>
                         <div class="input-product">
                             <label for="productPrice"> Price of the product </label>
                             <label class="priceSymbol"> $ </label>
-                            <input type="number" placeholder="Price of the product" id="productPrice" name="" maxlength="7" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);">
+                            <input type="number" placeholder="Price of the product" id="productPrice" name="productPrice" maxlength="7" oninput="if(this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" value="<?php echo $precioProducto; ?>" required>
                         </div>
                         <div class="input-product">
                             <label for="productFeature1"> Product features 1 </label>
-                            <input type="text" placeholder="Feature 1" id="productFeature1" name="" maxlength="60">
+                            <input type="text" placeholder="Feature 1" id="productFeature1" name="productFeature1" value="<?php echo $caracteristica1; ?>" maxlength="60"  required>
                         </div>
                         <div class="input-product">
                             <label for="productFeature2"> Product features 2 </label>
-                            <input type="text" placeholder="Feature 2" id="productFeature2" name="" maxlength="60">
+                            <input type="text" placeholder="Feature 2" id="productFeature2" value="<?php echo $caracteristica2; ?>" name="productFeature2" maxlength="60">
                         </div>
                         <div class="input-product">
                             <label for="productFeature3"> Product features 3 </label>
-                            <input type="text" placeholder="Feature 3" id="productFeature3" name="" maxlength="60">
+                            <input type="text" placeholder="Feature 3" id="productFeature3" value="<?php echo $caracteristica3; ?>" name="productFeature3" maxlength="60">
                         </div>
                         <div class="buttons-img">
                             <button type="submit" class="btn-submit"> Update </button>
@@ -926,8 +939,8 @@ if ($user == null || $user == "") {
         </div>
 
         <div class="container-edit-img" id="edit-img"> <!-- CONTAINER EDITAR IMAGEN -->
-            <i class='bx bx-x' onclick="cerrarEdit()" class="x-edit-img"></i>
-            <form action="">
+            <i class='bx bx-x x-edit-img' onclick="cerrarEdit()"></i>
+            <form action="updateIMGDW.php" enctype="multipart/form-data" method="post">
                 <label class="header-edit-img" for="file">
                     <i class='bx bx-cloud-upload'></i>
                     <p> Browse File to upload! </p>
@@ -935,10 +948,10 @@ if ($user == null || $user == "") {
                 <label class="footer-edit-img"> 
                     <p id="file-name"> Not selected file </p>
                 </label> 
-                <input id="file" type="file">
+                <input id="file" type="file" name="imgProducto" accept=".jpg, .png, .jpeg" multiple="multiple" required>
                 
                 <div class="buttons-img">
-                    <button type="submit" class="btn-submit"> Submit </button>
+                    <input type="submit" class="btn-submit" value="Submit">
                     <div onclick="cerrarEdit()" class="btn-submit"> Cancel </div>
                 </div>
             </form>
@@ -953,6 +966,7 @@ if ($user == null || $user == "") {
     </script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="../../JS/dw23.js"></script>
 
     <script>
         document.getElementById('file').onchange = function() {
@@ -994,7 +1008,7 @@ if ($user == null || $user == "") {
 
     <script src="../../JS/dw-23.js"></script>
 
-    <script>
+    <!--<script>
         const number = document.querySelector('#productPrice');
 
         function formatNumber (n) {
@@ -1007,7 +1021,7 @@ if ($user == null || $user == "") {
             const value = element.value;
             element.value = formatNumber(value);
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

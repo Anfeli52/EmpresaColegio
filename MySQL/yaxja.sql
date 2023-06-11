@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 24-05-2023 a las 06:39:20
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 26-05-2023 a las 09:52:39
+-- Versión del servidor: 10.4.24-MariaDB
+-- Versión de PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,7 +34,7 @@ CREATE TABLE `campaña` (
   `DescripcionCampaña` varchar(200) NOT NULL,
   `DetallesLink` varchar(1000) NOT NULL,
   `correoUsuario` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `campaña`
@@ -60,7 +60,7 @@ CREATE TABLE `contaminacion` (
   `fotoAgua` varchar(300) NOT NULL,
   `correoContaminacion` varchar(50) NOT NULL,
   `imagen` longblob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `contaminacion`
@@ -89,7 +89,30 @@ CREATE TABLE `datosfacturacion` (
   `paisFactura` varchar(60) NOT NULL,
   `estadoFactura` varchar(60) NOT NULL,
   `correoUsuario` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `dw23`
+--
+
+CREATE TABLE `dw23` (
+  `imgProducto` varchar(1000) NOT NULL,
+  `nameProducto` varchar(60) NOT NULL,
+  `descripcionProducto` varchar(500) NOT NULL,
+  `precioProducto` int(7) NOT NULL,
+  `caracteristica1` varchar(60) NOT NULL,
+  `caracteristica2` varchar(60) NOT NULL,
+  `caracteristica3` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `dw23`
+--
+
+INSERT INTO `dw23` (`imgProducto`, `nameProducto`, `descripcionProducto`, `precioProducto`, `caracteristica1`, `caracteristica2`, `caracteristica3`) VALUES
+('../../IMG/Cuak.jpeg', 'DW-23', 'Descubre el DW-23, un dispositivo compacto y poderoso que evalúa la calidad del agua al instante. Equipado con sensores de pH y turbidez, te brinda información precisa sobre la contaminación del agua en tiempo real. ¡Compra ahora y ayuda a proteger nuestro recurso más preciado!', 5000000, 'Sensor de PH y turbidez.', 'Arduino uno y mini proto.', 'Pantalla LCD 20x4');
 
 -- --------------------------------------------------------
 
@@ -104,14 +127,15 @@ CREATE TABLE `metodopago` (
   `expYY` int(2) NOT NULL,
   `cvv` int(4) NOT NULL,
   `correoUsuario` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `metodopago`
 --
 
 INSERT INTO `metodopago` (`cardNumber`, `cardHolder`, `expMM`, `expYY`, `cvv`, `correoUsuario`) VALUES
-('4093-5955-8903-8491', 'ALEJANDRO ESCOBAR', 4, 2031, 1234, 'alejandroescobar@gmail.com');
+('4093-8213-9081-2390', 'ALEJANDRO DURAN', 1, 2024, 1234, 'alejandroescobar@gmail.com'),
+('7548-7858-2370-8123', 'AGUAPSA', 2, 2026, 1132, 'anfelime@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -124,7 +148,7 @@ CREATE TABLE `recomendacion` (
   `Nombre` varchar(25) NOT NULL,
   `Informacion` text NOT NULL,
   `CorreoUsuario` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -143,7 +167,7 @@ CREATE TABLE `usuario` (
   `fechaCumpleaños` date NOT NULL,
   `tipoUsuario` varchar(20) NOT NULL,
   `fotoPerfil` varchar(300) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `usuario`
@@ -157,7 +181,7 @@ INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `username`, `password`, `
 ('jslucio100@gmail.com', 'Juan Esteban', 'Idrobo Lucio', 'Jslucio', 'ronaldinho', 'ronaldinho', '3164208464', '2006-01-08', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
 ('Juanesteban9283@gmail.com', 'Juan Esteban', 'Soto Potes', 'Juanes', 'juanes123', 'juanes123', '3161499556', '2006-05-07', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
 ('karolgrain@gmail.com', 'Karol Lizeth', 'Grain Mosquera', 'KG', '1234', '1234', '3186520341', '2006-02-02', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
-('lccalderon1218@gmail.com', 'Luis Carlos', 'Calderón Ríos', 'Pock', 'pock123', 'pock123', '3122487782', '2006-12-18', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
+('lccalderon1218@gmail.com', 'Luis Carlos', 'Calderón Ríos', 'Pock', 'pock123', 'pock123', '3122487782', '2006-12-18', 'admin', '../../IMG/FotosPerfil/JIJIJIJA.jpg'),
 ('venusayurialmeida.99@gmail.com', 'Venus Sayuri', 'Almeida Enriquez', 'Venussa', 'frisby', 'frisby', '3122691411', '2006-09-09', 'user', '../../IMG/FotosPerfil/20221208_193023.jpg');
 
 -- --------------------------------------------------------
@@ -171,17 +195,20 @@ CREATE TABLE `ventas` (
   `orderNumber` int(10) NOT NULL,
   `productName` varchar(50) NOT NULL,
   `cantidad` int(20) NOT NULL,
-  `estadoEnvio` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `estadoEnvio` varchar(50) NOT NULL,
+  `precioTotal` int(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `ventas`
 --
 
-INSERT INTO `ventas` (`correoCliente`, `orderNumber`, `productName`, `cantidad`, `estadoEnvio`) VALUES
-('anfelime@gmail.com', 1, 'DW23', 1, 'Declined'),
-('jslucio100@gmail.com', 2, 'DW23', 1, 'Pending'),
-('venusayurialmeida.99@gmail.com', 3, 'DW23', 3, 'Success');
+INSERT INTO `ventas` (`correoCliente`, `orderNumber`, `productName`, `cantidad`, `estadoEnvio`, `precioTotal`) VALUES
+('alejandroescobar@gmail.com', 34, 'DW-23', 100, 'Success', 500000000),
+('anfelime@gmail.com', 35, 'DW-23', 100, 'Success', 500000000),
+('anfelime@gmail.com', 36, 'DW-23', 100, 'Success', 500000000),
+('anfelime@gmail.com', 37, 'DW-23', 86, 'Success', 430000000),
+('alejandroescobar@gmail.com', 38, 'DW-23', 8, 'Success', 40000000);
 
 --
 -- Índices para tablas volcadas
@@ -242,6 +269,12 @@ ALTER TABLE `ventas`
 --
 ALTER TABLE `campaña`
   MODIFY `CodigoCampaña` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+
+--
+-- AUTO_INCREMENT de la tabla `ventas`
+--
+ALTER TABLE `ventas`
+  MODIFY `orderNumber` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restricciones para tablas volcadas

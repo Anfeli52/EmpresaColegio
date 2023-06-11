@@ -75,11 +75,11 @@ body{
     width: 50px;
     background-color: #053247;
     padding: 6px 16px;
-    height: 100%;
+    height: 98.8%;
     box-shadow: 5px 0 30px black;
     transition: all .2s ease;
     border-top-right-radius: 6px;
-    border-bottom-right-radius: 23px;
+    border-bottom-right-radius: 6px;
     z-index: 10;
 }
 
@@ -108,11 +108,10 @@ body{
 
 .sidebar .logo_content .logo .logo_name{
     font-size: 16px;
-    font-weight: 400;
+    font-weight: 600;
     margin: 0 10px;
     word-wrap: break-word;
     width: 110px;
-    font-family: "Philosopher", sans-serif;
 }
 
 .sidebar .logo_content .logo .foto{
@@ -170,57 +169,6 @@ body{
     display: none;
 }
 
-.sidebar .src{
-    position: relative;
-    height: 50px;
-    width: 100%;
-    margin-top: 0px;
-    transition: all .2s;
-    visibility: hidden;
-}
-
-.sidebar .src .search-side{
-    position: absolute;
-    height: 100%;
-    width: calc(100% - 50px);
-    left: 0;
-    top: 0;
-    border-radius: 20px;
-    outline: none;
-    border: none;
-    background-color: #0076fd;
-    padding-left: 50px;
-    font-size: 15px;
-    color: #053247;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
-    transition: all .2s;
-}
-
-.sidebar .src .bx-search-alt-2{
-    position: absolute;
-    z-index: 99;
-    font-size: 22px;
-    cursor: pointer;
-    transition: all .2s;
-    color: #fff;
-    background-color: #0076fd;
-}
-
-.sidebar .src .bx-search-alt-2:hover{
-    color: #0076fd;
-    background-color: #fff;
-}
-
-.sidebar .src .bx-search-alt-2:hover ~ .search-side{
-    background-color: #fff;
-}
-
-.sidebar.active .search-side,
-.sidebar.active .bx-search-alt-2{
-    background-color: #fff;
-    color: #053247;
-}
-
 .sidebar i{
     height: 50px;
     min-width: 50px;
@@ -231,7 +179,7 @@ body{
 }
 
 .sidebar ul{
-    margin-top: 50px;
+    margin-top: 100px;
 }
 
 .sidebar ul li{
@@ -382,7 +330,7 @@ body{
     position: absolute;
     width: 25px;
     height: 25px;
-    background: url(../../../IMG/usa.png);
+    background: url(../../IMG/usa.png);
     background-size: cover;
     background-repeat: no-repeat;
     border-radius: 25px;
@@ -393,7 +341,7 @@ body{
 .sidebar ul .change-idioma .check-idioma:checked::after{
     left: 25px;
     border: 2px solid #ff7979;
-    background: url(../../../IMG/spain.png);
+    background: url(../../IMG/spain.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -402,7 +350,7 @@ body{
     background-color: #ff7979;
 }
 
-/*-------------------------------------------------------------------- LOADER ---------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------- FIN SIDEBAR --------------------------------------------------------------------------------------------*/
 
 .page{
     display: none;
@@ -461,330 +409,124 @@ body{
 
 /*------------------------------------------------------------------------ INICIO MAIN ------------------------------------------------------------------------*/
 
-.container{
+.producto-all{
     position: absolute;
     left: 7%;
-    width: 85%;
-    padding: 4%;
+    width: 80%;
+    padding: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.img-producto{
+    width: 50%;
+    background-color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 80vh;
+    box-shadow: 0 0 50px #0076fd;
 }
 
-.ajustescuenta{
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 20px;
-    width: 90%;
+.img-producto img{
+    width: 70%;
+    height: 80%;
 }
 
-/*------------------------ LAYOUT IZQ ---------------------*/
-
-.foticousuario{
-    display: flex;
-    margin-top: 4px;
-    margin-bottom: 24px;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
+.info-producto{
+    width: 50%;
+    padding: 0px 100px;
+    height: 80vh;
 }
 
-.foto{
-    display: flex;
-    align-items: center;
-}
-
-.avatar{
-    border-radius: 50%;
-    display: inline-block;
-    overflow: hidden;
-    line-height: 1;
-    vertical-align: middle;
-    flex-shrink: 0;
-    margin-right: 16px;
-    width: 60px;
-    height: 60px;
-    size: 60px;
-}
-
-img{
-    border-style: none;
-}
-
-a{
-    text-decoration: none;
-}
-
-.infoto{
-    flex: auto;
-}
-
-.h1foto{
-    font-size: 20px;
-    line-height: 1.25;
-    font-weight: 600;
-    margin: 0;
-    letter-spacing: 1px;
-}
-
-.h1foto a{
+.titulo-producto{
     color: #053247;
-    cursor: default;
     font-family: "Philosopher", sans-serif;
+    font-size: 72px;
+    margin-top: 30px;
 }
 
-.descripfoto{
-    flex-wrap: wrap;
-    display: flex;
-    align-items: center;
-    margin: 0;
-}
-
-.descripfoto p{
-    margin-right: 16px;
-    margin: 0;
-    color: rgb(48, 48, 48);
-    font-size: 14px;
-}
-
-.layout{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: space-between;
-}
-
-.layout-izq{
-    width: 30%;
-}
-
-.lista{
-    display: block;
-    margin-top: 2px;
-}
-
-ul{
-    list-style: none;
-}
-
-.menuajustes{
-    list-style: none;
-}
-
-.ajustes{
-    background: transparent;
-    border-radius: 6px;
-    list-style: none;
-}
-
-.contentajustes{
-    display: block;
-    background-color: initial;
-    border: none;
-    border-radius: 10px;
-    color: #053247;
-    padding: 10px;
-    text-align: left;
-    transition: all .3s;
-    width: 100%;
-    font-size: 16px;
-}
-
-.contentajustes:hover,
-.especial{
-    background-color: #053247;
-    color: #fff;
-}
-
-.titumenu{
-    font-size: 18px;
-    font-weight: 600;
-    color: #444;
+.precio-producto{
+    color: #3950cf;
     margin-left: 10px;
     margin-top: 20px;
-    margin-bottom: 5px;
-    font-family: "Philosopher", sans-serif;
+    font-size: 32px;
 }
 
-.iconolist{
-    margin-right: 5px;
-}
-
-li{
-    list-style: none;
-}
-
-/*------------------------ LAYOUT DER ---------------------*/
-
-.layout-der{
-    width: 70%;
-    padding: 0px 20px 0px 70px;
-}
-
-.layout-main{
-    display: flex;
-    flex-direction: row;
-}
-
-.subhead{
-    border-bottom: 1px solid #053247;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: flex-end;
-    padding-bottom: 8px;
-    margin-bottom: 0;
-}
-
-.subhead-text{
-    flex:1 1 auto;
-    font-size: 30px;
-    font-family: "Philosopher", sans-serif;
-    color: #053247;
-    font-weight: 600;
-    order: 0;
-    height: 36px;
-    margin: 0;
-}
-
-.layout-main form{
+.comprar{
     width: 100%;
-}
-
-.profile{
-    margin-top: 20px;
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-
-.nameUser{
-    width: 55%;
-    display: flex;
-    flex-direction: column;
-}
-
-.nameUser h2,
-#foteichon h2{
+    padding: 20px 0px;
     font-size: 18px;
-    margin-bottom: 2px;
-    margin-left: 5px;
-    font-weight: 400;
-}
-
-.nameUser input{
-    background-color: #eee;
+    margin-top: 30px;
     border-radius: 10px;
-    border: none;
-    padding: 12px 15px;
-    margin: 4px 0;
-    width: 90%;
-    font-family: "Poppins", sans-serif;
-    outline: none;
-    font-size: 15px;
-}
-
-.note{
-    font-size: 13px;
-    color: #053247;
-    opacity: 0.8;
-    margin-left: 5px;
-    margin-top: 2px;
-}
-
-#foteichon{
-    width: 45%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.avatar-upload{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-#imagenPrevisualizacion{
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-}
-
-#fotico{
-    display: none;
-}
-
-.editarbtn{
-    padding: 4px 30px;
-    font-size: 16px;
-    border-radius: 20px;
+    cursor: pointer;
     background-color: #0076fd;
-    color: #fff;
-    cursor: pointer;
-    font-weight: 400;
+    color: #E5E7EB;
     transition: all .3s;
-    position: relative;
-    bottom: 10%;
 }
 
-.editarbtn:hover{
+.comprar:hover{
+    background-color: #E5E7EB;
     color: #0076fd;
-    background-color: #fff;
-    box-shadow: 0 0 15px 5px #0076fd;
+    box-shadow: 0 0 50px #0076fd;
 }
 
-.btncuenta{
-    padding: 10px 30px;
-    font-size: 14px;
-    border-radius: 20px;
-    background-color: #00B000;
-    color: #fff;
-    cursor: pointer;
-    font-weight: 400;
-    transition: all .3s;
-}
-
-.btncuenta:hover{
-    color: #00B000;
-    background-color: #fff;
-    box-shadow: 0 0 15px 5px #00B000;
-}
-
-#deletecuenta{
+.descripcion-producto{
     margin-top: 40px;
-    margin-bottom: 16px;
-}
-
-#borrarcuenta{
-    color: #BD081C;
-}
-
-.mensaje-delete{
+    text-align: justify;
     font-size: 18px;
-    margin-bottom: 15px;
+    color: #053247;
     font-weight: 400;
 }
 
-.btndelete{
-    padding: 10px 30px;
-    font-size: 14px;
-    border-radius: 20px;
-    background-color: #BD081C;
-    color: #fff;
-    cursor: pointer;
+.caracteristicas{
+    color: #053247;
+    margin-top: 30px;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.caracteristicas li{
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #3950cf;
     font-weight: 400;
+}
+
+.red-social{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    font-size: 40px;
+}
+
+.red-social i{
+    cursor: pointer;
     transition: all .3s;
 }
 
-.btndelete:hover{
-    color: #BD081C;
-    background-color: #fff;
-    box-shadow: 0 0 15px 5px #BD081C;
+.red-social a i:hover{
+    transform: scale(1.2);
 }
 
-/*---------------- MENSAJE DELETE -----------------------*/
+.red-social a:nth-child(1) i{
+    color: #3b5998;
+}
+
+.red-social a:nth-child(2) i{
+    color: #00acee;
+}
+
+.red-social a:nth-child(3) i{
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
 .body-dark{
     visibility: hidden;
@@ -798,104 +540,98 @@ li{
     opacity: .85;
 }
 
-.box-delete{
-    display: none;
+.container-pagar{
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 12;
+}
+
+#container-pagar{
+    display: none;
+}
+
+.no-pay,
+.no-pay2{
+    background-color: #fff;
     border-radius: 10px;
-    background-color: #fff;
-    width: 500px;
-    color: #053247;
-}
-
-.box_btn_close{
-    float: right;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    font-size: 20px;
-    background-color: #BD081C;
-    color: #fff;
-    transition: all .3s;
-    cursor: pointer;
-}
-
-.box_btn_close:hover{
-    color: #BD081C;
-    background-color: #fff;
-    box-shadow: 0 0 15px 5px #BD081C;
-}
-
-.box-header{
-    margin: 20px;
+    padding: 50px;
+    text-align: center;
     display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.box-title{
-    font-size: 18px;
+.no-pay i{
+    color: #BD081C;
+    font-size: 50px;
+}
+
+.no-pay h1{
+    color: #BD081C;
     font-family: "Philosopher", sans-serif;
+    margin-top: 20px;
 }
 
-.box_advert{
-    border-radius: 0;
-    border: 1px solid red;
-    border-left: 0;
-    border-right: 0;
-    background-color: rgb(255, 144, 144);
-    padding: 10px;
-    vertical-align: middle;
-    font-size: 14px;
-    padding: 20px 16px;
+.no-pay2 h1{
+    color: #0076fd;
+    font-family: "Philosopher", sans-serif;
+    margin-top: 20px;
+}
+
+.no-pay p{
     color: #053247;
-}
-
-.fa-triangle-exclamation{
-    color: #f85149;
-    margin-right: 12px;
-    overflow: visible;
-    fill: currentColor;
     font-size: 18px;
+    margin-top: 10px;
 }
 
-.box-body{
-    margin: 20px;
+.btn-pay{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
-.box-body p{
-    font-size: 14px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #053247;
+.letsgo{
+    font-size: 20px;
+    padding: 10px 30px;
+    border-radius: 20px;
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s;
 }
 
-hr{
-    height: 0;
-    margin: 15px 0;
-    overflow: hidden;
-    background: transparent;
-    border: 0;
-    border-bottom: 1px solid #053247;
-    box-sizing: border-box;
+.letsgo:nth-child(1){
+    background-color: #0076fd;
 }
 
-.delete-account-text{
-    font-size: 14px;
-    display: block;
-    margin-top: 0;
-    margin-bottom: 20px;
-    color: #053247;
-    font-weight: 600;
+.letsgo:nth-child(1):hover{
+    background-color: #fff;
+    color: #0076fd;
+    box-shadow: 0 0 30px #0076fd;
 }
 
-.delete-account-text i{
-    font-weight: 400;
+.letsgo:nth-child(2){
+    background-color: #BD081C;
 }
+
+.letsgo:nth-child(2):hover{
+    background-color: #fff;
+    color: #BD081C;
+    box-shadow: 0 0 30px #BD081C;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none; 
+    margin: 0; 
+}
+
+input[type=number] { -moz-appearance:textfield; }
 
 .form-control{
     background-color: #eee;
@@ -903,35 +639,94 @@ hr{
     border: none;
     padding: 12px 15px;
     margin: 4px 0;
-    width: calc(100% - 30px);
     font-family: "Poppins", sans-serif;
     outline: none;
     font-size: 14px;
 }
 
-.btn-delete-account{
+.no-pay2 form{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.no-pay2 .container-units{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.no-pay2 form label{
+    color: #053247;
+    font-size: 20px;
+}
+
+.unidades{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.unidades span{
+    color: #9c9d9e;
+    font-size: 14px;
+    font-family: "Philosopher", sans-serif;
+}
+
+#total{
+    color: #3950cf;
+    font-size: 24px;
+}
+
+.factura{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.factura i{
+    color: #3950cf;
+    font-size: 60px;
+}
+
+.factura h1{
+    color: #0076fd;
+    font-size: 32px;
+    font-family: "Philosopher", sans-serif;
+    margin-top: 20px;
+}
+
+.factura p{
+    color: #053247;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+.factura div{
+    font-size: 20px;
     padding: 10px 30px;
     border-radius: 20px;
-    width: 100%;
-    font-size: 20px;
-    background-color: #BD081C;
     color: #fff;
-    transition: all .3s;
     cursor: pointer;
-}
-
-.btn-delete-account:hover{
-    color: #BD081C;
-    background-color: #fff;
-    box-shadow: 0 0 15px 5px #BD081C;
-}
-
-.contact-us{
-    color: #0076fd;
     transition: all .3s;
+    background-color: #0076fd;
+    margin-top: 30px;
 }
 
-.contact-us:hover{
+.factura div:hover{
+    background-color: #fff;
     color: #0076fd;
-    text-decoration: underline;
+    box-shadow: 0 0 30px #0076fd;
 }

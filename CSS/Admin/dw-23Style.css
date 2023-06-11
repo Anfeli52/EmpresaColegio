@@ -485,6 +485,10 @@ body{
 
 /*--------------------------------------------------------------------- CONTAINER EDITAR IMAGEN ----------------------------------------------------------------------*/
 
+#edit-img{
+    display: none;
+}
+
 .x-edit-img{
     font-size: 30px;
     margin: 20px 0px;
@@ -497,6 +501,7 @@ body{
     cursor: pointer;
     transition: all .3s;
 }
+
 .x-edit-img:hover{
     transform: scale(1.2);
     color: #BD081C;
@@ -504,7 +509,6 @@ body{
 }
 
 .container-edit-img{
-    visibility: hidden;
     z-index: 12;
     border-radius: 10px;
     box-shadow: 4px 4px 30px rgba(0, 0, 0, .2);
@@ -613,7 +617,7 @@ body{
 }
 
 .body-dark{
-    visibility: hidden;
+    display: none;
     min-height: 100%;
     min-width: 100%;
     position: fixed;

@@ -174,8 +174,9 @@ body{
     position: relative;
     height: 50px;
     width: 100%;
-    margin-top: 100px;
+    margin-top: 0px;
     transition: all .2s;
+    visibility: hidden;
 }
 
 .sidebar .src .search-side{
@@ -230,7 +231,7 @@ body{
 }
 
 .sidebar ul{
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .sidebar ul li{

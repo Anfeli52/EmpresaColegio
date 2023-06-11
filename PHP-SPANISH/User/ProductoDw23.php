@@ -4,47 +4,70 @@ session_start();
 include '../conexion.php';
 
 $user = $_SESSION['email'];
-$select = "SELECT tipoUsuario FROM usuario WHERE correo = '" . $user . "';";
+$select = "SELECT tipoUsuario FROM usuario WHERE correo = '".$user."';";
 $result = $conexion->query($select);
-while ($datos = $result->fetch_assoc()) {
+while($datos=$result->fetch_assoc()){
     $tipoUsuario = $datos['tipoUsuario'];
 }
 
-if ($user == null || $user == "") {
+if($user==null || $user==""){
     header('location:../../HTML/login.php');
-} else if ($tipoUsuario != "user") {
+}else if($tipoUsuario!="user"){
     header('location:../Admin/adminMainPage.php');
-} else {
-    $sql = "SELECT * FROM usuario WHERE correo = '" . $user . "';";
+}else{
+    $sql = "SELECT * FROM usuario WHERE correo = '".$user."';";
     $resultado = $conexion->query($sql);
 
-    while ($data = $resultado->fetch_assoc()) {
+    while($data=$resultado->fetch_assoc()){
         $username = $data['username'];
         $correo = $data['correo'];
         $nombre = $data['nombre'];
         $foto = $data['fotoPerfil'];
     }
+
+    $sqlDW = "SELECT * FROM dw23";
+    $resultadoDW = $conexion->query($sqlDW);
+
+    while ($data2 = $resultadoDW->fetch_assoc()) {
+        $imgProducto = $data2['imgProducto'];
+        $nameProducto = $data2['nameProducto'];
+        $descripcionProducto = $data2['descripcionProducto'];
+        $precioProducto = $data2['precioProducto'];
+        $caracteristica1 = $data2['caracteristica1'];
+        $caracteristica2 = $data2['caracteristica2'];
+        $caracteristica3 = $data2['caracteristica3'];
+    }
+
+    $numero_formateado = number_format($precioProducto, 0, ',', '.');
+
+    $sqlpay = "SELECT * FROM metodopago WHERE correoUsuario = '" . $user . "';";
+    $resultadopay = $conexion->query($sqlpay);
+
+    while ($data2 = $resultadopay->fetch_assoc()) {
+        $cardNumber = $data2['cardNumber'];
+        $cardHolder = $data2['cardHolder'];
+        $expMM = $data2['expMM'];
+        $expYY = $data2['expYY'];
+        $cvv = $data2['cvv'];
+    }
 }
 ?>
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../IMG/logoheader.png">
-    <link rel="stylesheet" href="../../CSS/User/contaminacionUserPageStyle.css">
+    <link rel="stylesheet" href="../../CSS/User/ProductDw23Style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"/>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//code.tidio.co/0xm4bymhhmxmiwe8qrrlxsjxzvyi2nkl.js" async></script>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Contaminación</title>
-    <!-- Bootstrap core CSS -->
-
+    <title>DW-23</title>
 </head>
-
 <body>
 
     <div class="rain">
@@ -800,15 +823,16 @@ if ($user == null || $user == "") {
         </svg>
     </div> <!-- NO ABRA ESO -->
 
+    <div class="body-dark" id="body-dark"></div>
+
     <div class="loader">
         <div class="ping"></div>
     </div>
 
-    <div class="body-dark" id="body"></div>
     <div class="page">
 
         <div class="sidebar">
-
+        
             <div class="logo_content">
                 <div class="logo">
                     <a href="#" class="foto">
@@ -833,7 +857,7 @@ if ($user == null || $user == "") {
                         <i class='bx bxs-radiation'></i>
                         <span class="link_name"> Contaminación </span>
                     </a>
-                    <span class="tooltip"> Contaminación </span>
+                        <span class="tooltip"> Contaminación </span>
                 </li>
                 <li>
                     <a href="campanasUserPage.php">
@@ -844,7 +868,7 @@ if ($user == null || $user == "") {
                 </li>
                 <li>
                     <a href="ProductoDw23.php">
-                        <i class='bx bx-chip'></i>
+                        <i class='bx bx-chip' ></i>
                         <span class="link_name"> DW-23 </span>
                     </a>
                     <span class="tooltip"> DW-23 </span>
@@ -873,194 +897,133 @@ if ($user == null || $user == "") {
             </ul>
 
         </div>
-
-        <!-- FIN DEL SIDEBAR ------------------------------------------------------------------->
-
-        <div class="container-table">
-            <h3> TABLA DE CONTAMINACIÓN </h3>
-
-            <form action="" class="search-bar">
-                <input type="text" placeholder="Buscar..." name="campo" id="campo">
-                <button type="submit"> <i class="fa fa-search"></i> </button>
-            </form>
-
-            <div class="board">
-                <table width="100%">
-                    <thead>
-                        <tr>
-                            <td>Foto Cuerpo</td>
-                            <td>Código del Cuerpo</td>
-                            <td>Nombre del Cuerpo</td>
-                            <td>Cuerpo de Agua</td>
-                            <td>Nivel de Contaminación</td>
-                            <td>Nivel de Turbidad</td>
-                            <td>Fecha</td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </thead>
-
-                    <tbody id="content"> <!-- EL ID DEL CUERPO DE LA TABLA --> </tbody>
-                </table>
-            </div>
-        </div>
-        <?php 
-        
-        
-        if(isset($_GET['contaminationDeteledField'])){
-            $codigoContaminacion = $_GET['contaminationDeteledField'];
-            $search = "SELECT * FROM contaminacion WHERE codigoAgua = '$codigoContaminacion'";
-            $busqueda = mysqli_query($conexion, $search);
-            echo '
-                <div class="blackBackground"></div>
-                <div class="box-add-campana" id="elim-box"> <!-- ELIMINAR CAMPAÑA -->
-                    <div class="box-header">
-                        <a href="contaminacionAdminPage.php" class="equis"><i class="bx bx-x"></i></a>
-                        <h1 class="box-header"> DELETE FIELD </h1>
-
-                        <form action="deleteContaminationFieldUser.php?contaminatedDeletedIdUser='.$codigoContaminacion.'" method="post">
-                            <div class="add-text">
-                                <p class="sure"> Are you sure? </p>
-                                <div class="box-btn">
-                                    <button type="submit" class="btn-submit" name="btnDeleteContaminationFieldUser"> Yes, delete </button>
-                                    <a href="contaminacionUserPage.php" class="btn-submit"> No, Cancel </a>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div> <!-- ELIMINAR CAMPAÑA -->
-            ';
-        }
-
-        if(isset($_GET['contaminationEditedField'])){
-            $editContaminationCode = $_GET['contaminationEditedField'];
-            $search = "SELECT * FROM contaminacion WHERE codigoAgua = '$editContaminationCode'";
-            $busqueda = mysqli_query($conexion, $search);
-            $fetch = mysqli_fetch_assoc($busqueda);
-
-            if($fetch['cuerpoAgua']==="Rio"){
-                $opciones = '
-                    <select name="cuerpoAgua">
-                        <option name="'.$fetch['cuerpoAgua'].'">'.$fetch['cuerpoAgua'].'</option>
-                        <option name="Oceano">Oceano</option>
-                        <option name="Mar">Mar</option>
-                        <option name="Lago">Lago</option>
-                    </select>';
-
-            }elseif($fetch['cuerpoAgua']==="Mar"){
-                $opciones = '
-                    <select name="cuerpoAgua">
-                        <option name="'.$fetch['cuerpoAgua'].'">'.$fetch['cuerpoAgua'].'</option>
-                        <option name="Oceano">Oceano</option>
-                        <option name="Rio">Rio</option>
-                        <option name="Lago">Lago</option>
-                    </select>';
-
-            }elseif($fetch['cuerpoAgua']==="Lago"){
-                $opciones = '
-                    <select name="cuerpoAgua">
-                        <option name="'.$fetch['cuerpoAgua'].'">'.$fetch['cuerpoAgua'].'</option>
-                        <option name="Oceano">Oceano</option>
-                        <option name="Mar">Mar</option>
-                        <option name="Rio">Rio</option>
-                    </select>';
-
-            }else{
-                $opciones = '
-                    <select name="cuerpoAgua">
-                        <option name="'.$fetch['cuerpoAgua'].'">'.$fetch['cuerpoAgua'].'</option>
-                        <option name="Mar">Mar</option>
-                        <option name="Lago">Lago</option>
-                        <option name="Rio">Rio</option>
-                    </select>';
-            }
-
-            echo '
-            <div class="blackBackground"></div>
             
-            <div class="dialog d-flex flex-column box--overlay box" id="mensaje_borrar">
-                <div class="box_header">
-                    <button type="button" class="box_btn_close">
-                        <a href="contaminacionUserPage.php"><i class="fa-solid fa-xmark"></i></a>
-                    </button>
-                    <h2 class="box_title"> Are you sure you want to do this? </h2>
+        <!------------------------------------------------------------------ FIN SIDEBAR ----------------------------------------------------------------------------------------->
+
+        <div class="producto-all">
+
+            <div class="img-producto">
+                <img src="<?php echo $imgProducto; ?>" alt="">
+            </div>
+            <div class="info-producto">
+                <h1 class="titulo-producto"> <?php echo $nameProducto; ?> </h1>
+                <h2 class="precio-producto"> <?php echo $numero_formateado; ?> COP</h2>
+                <button class="comprar" onclick="pagar()"> ¡LO QUIERO! </button>
+                <p class="descripcion-producto"> <?php echo $descripcionProducto; ?> </p>
+                <ul class="caracteristicas"> Características: 
+                    <li> <?php echo $caracteristica1; ?> </li>
+                    <li> <?php echo $caracteristica2; ?> </li>
+                    <li> <?php echo $caracteristica3; ?> </li>
+                </ul>
+
+                <div class="red-social">
+                    <a href="#"><i class='bx bxl-facebook-circle'></i></a>
+                    <a href="#"><i class='bx bxl-twitter'></i></a>
+                    <a href="#"><i class='bx bxl-instagram'></i></a>
                 </div>
-                <div class="box_advert">
-                    <i class="fa-solid fa-triangle-exclamation" style="height: 16px;"></i> This is extremely important.
-                </div>
-                <div class="box_body">
-                    <h3><strong>EDIT DATA</strong></h3>
-                    <hr>
-                    </hr>
-                    <form action="updateContaminationUser.php?editedField='.$fetch['codigoAgua'].'" enctype="multipart/form-data" method="post">
-                        <p class="delete_account_text">
-                            <label class="options"> Name body of water: </label>
-                            <input type="text" name="nombreCuerpo" class="form-control" value="' . $fetch['nombreAgua'] . '" required>
-                        </p>
+            </div>
 
-                        <p class="delete_account_text">
-                            <label class="options"> Water body: </label>
-                            '.$opciones.'
-                        </p>
+        </div>
 
-                        <p class="delete_account_text" id="last_camp">
-                            <label class="options"> Photo of the body of water: </label>
-                            <input type="file" id="fotoCuerpo" name="fotoCuerpo" multiple="multiple" accept=".jpg, .png, .jpeg" required>
-                            <label for="fotoCuerpo" class="btn-fotico" id="label-fotico">Editar Foto</label>
-                        </p>
+        <div class="container-pagar" id="container-pagar">
 
-                        <div class="botones">
-                            <button type="submit" name="actualizarContaminacionUser" class="btn_update_account"> Update </button>
-                            <button type="reset" class="btn_cancelUpdate_account"><a href="contaminacionUserPage.php"> Cancel </a></button>
+            <?php
+
+                if(mysqli_num_rows($resultadopay) > 0){
+                    echo '
+                        <div class="no-pay2">
+                            <h1> Lets pay your DW-23! </h1>
+                            <form action="../comprarDw.php" method="post">
+                                <div class="container-units">
+                                    <label for="cantidad">Número de unidades:</label>
+                                    <div class="unidades"> 
+                                        <input type="number" class="form-control" id="cantidad" name="cantidad" min="1" value="1" oninput="limitarCantidad()" onkeyup="calcularTotal()" required>
+                                        <span> ¡Máximo 100 unidades! </span>
+                                    </div>
+                                </div>
+
+                                <div id="total">
+                                    Precio Total: 0
+                                </div>
+                                
+                                <div class="btn-pay">
+                                    <button type="submit" class="letsgo"> Quiero el asombroso DW2-23 </button>
+                                    <div class="letsgo" onclick="volver()"> No quiero el asombroso DW-23 </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
-            </div>';
-        }
-        
-        ?>
+                    ';
+                } else{
+                    echo '
+                        <div class="no-pay">
+                            <i class="fa-solid fa-circle-exclamation fa-bounce"></i>
+                            <h1> Error </h1>
+                            <p> Debe tener un <strong>método de pago</strong> para comprar <strong><?php echo $nameProducto; ?></fuerte>. </p>
+                            <div class="btn-pay">
+                                <a href="actualizarPagoUser.php" class="letsgo"> ¡Vamos a añadir uno! </a>
+                                <div class="letsgo" onclick="volver()"> No quiero </div>
+                            </div>
+                        </div>
+                    ';
+                }
+
+            ?>
+        </div>
+
     </div>
 
     <script>
-        document.getElementById('fotoCuerpo').onchange = function () {
-            console.log(this.value);
-            document.getElementById('label-fotico').innerHTML = document.getElementById('fotoCuerpo').files[0].name;
+        function calcularTotal() {
+        // Obtener el valor ingresado por el usuario
+        var cantidad = parseInt(document.getElementById("cantidad").value);
+
+        // Obtener el precio almacenado en la variable de PHP
+        var precio = <?php echo $precioProducto; ?>;
+
+        // Calcular el total
+        var total = cantidad * precio;
+
+        var total_formateado = total.toLocaleString();
+
+        // Mostrar el total en tiempo real
+        document.getElementById("total").innerHTML = "Precio Total: $" + total_formateado + " COP";
         }
     </script>
-    
+
     <script>
-        $(window).on('load', function() {
+        function limitarCantidad() {
+            var input = document.getElementById("cantidad");
+            var cantidad = parseInt(input.value);
+
+            if (isNaN(cantidad) || cantidad < 1) {
+                input.value = "";
+            } else if (cantidad > 100) {
+                input.value = 100;
+            }
+            }
+    </script>
+
+    <script>
+        function pagar(){
+            document.getElementById('container-pagar').style.display = "block";
+            document.getElementById('body-dark').style.visibility = "visible";
+        }
+
+        function volver(){
+            document.getElementById('container-pagar').style.display = "none";
+            document.getElementById('body-dark').style.visibility = "hidden";
+        }
+    </script>
+
+    <script>
+        $(window).on('load',function(){
             $(".loader").fadeOut(1000);
             $(".page").fadeIn(1000);
         });
     </script>
+    <script src="../../JS/funcionesUser.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    <script>
-        /* Llamando a la función getData() */
-        getData();
-        /* Escuchar un evento keyup en el campo de entrada y luego llamar a la función getData. */
-        document.getElementById("campo").addEventListener("keyup", getData);
-        /* Peticion AJAX */
-        function getData() {
-            let input = document.getElementById("campo").value;
-            let content = document.getElementById("content");
-            let url = "../tablaContaminacionUser.php";
-            let formaData = new FormData()
-            formaData.append('campo', input);
-            fetch(url, {
-                    method: "POST",
-                    body: formaData
-                }).then(response => response.json())
-                .then(data => {
-                    content.innerHTML = data
-                }).catch(err => console.log(err))
-        }
-    </script>
-    <!-- Bootstrap core JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
-    <script src="../../JS/contaminacion.js"></script>
 
     <script>
         let btn = document.querySelector('#btn');
@@ -1086,13 +1049,11 @@ if ($user == null || $user == "") {
         function idioma2(){
             let id = check.checked;
             if(id == true){
-                location.href = "../../PHP-SPANISH/User/contaminacionUserPage.php";
+                location.href = "../../PHP-SPANISH/User/ProductoDw23.php";
             } else{
-                location.href = "../../PHP/User/contaminacionUserPage.php"
+                location.href = "../../PHP/User/ProductoDw23.php"
             }
         }
     </script>
-
 </body>
-
 </html>
