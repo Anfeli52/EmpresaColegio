@@ -881,3 +881,13 @@ li{
     right: 2px;
     transform: rotate(180deg);
 }
+
+.alertEmailExisted{
+    background: #BD081C;
+    width: 280px;
+    font-size: 15px;
+    color: #fff;
+    font-weight: bolder;
+    border-radius: 10px;
+    text-align: center;
+}

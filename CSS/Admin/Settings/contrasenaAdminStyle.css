@@ -821,3 +821,12 @@ li{
 .VerMas{
     margin-top: 20px;
 }
+
+.passwordError{
+    color: #BD081C;
+    font-weight: bolder;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 14px;
+}

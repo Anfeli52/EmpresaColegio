@@ -995,11 +995,18 @@ if($user==null || $user==""){
                     </div> <!-- LAYOUT - MAIN -->
 
                     <form action="../actualizarEmailAdmin.php" method="post" class="new-email-user">
-                        <label class="email-label"> Actualizar Correo </label>
+                        <label class="email-label"> Update Email </label>
+                        <?php
+                            if(isset($_GET['emailAlreadyExist'])){
+                                echo '
+                                    <div class="alertEmailExisted"> ¡¡THIS EMAIL ALREADY EXIST!! </div>
+                                ';
+                            }
+                        ?>
                         
                         <div class="newEmail">
                             <input type="email" id="email" class="textemail" required placeholder="E-mail" name="updateEmail">
-                            <button type="submit" class="btn-add-email" onclick="AddEmail()"> Actualizar </button>
+                            <button type="submit" name="updateEmailAccount" class="btn-add-email" onclick="AddEmail()"> Update </button>
                         </div>
                     </form>
                 </div> <!-- LAYOUT - DER -->

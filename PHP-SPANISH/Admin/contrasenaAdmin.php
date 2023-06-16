@@ -955,26 +955,33 @@ if($user==null || $user==""){
                         <div class="pass-authen">
                             <form action="changePasswordAdmin.php" class="edit_password" method="post">
                                 <div class="password">
-                                    <div class="text_old"> <label for="" class="title_password">Contraseña Antigua</label> </div>
-                                    <div class="campo_old"> <input type="password" name="oldPassword" class="type_old_password" placeholder="Contraseña Antigua" maxlength="20" required> </div>
+                                    <div class="text_old"> <label for="" class="title_password">Old Password</label> </div>
+                                    <div class="campo_old"> <input type="password" name="oldPassword" class="type_old_password" placeholder="Old Password" maxlength="20" required> </div>
                                 </div>
 
                                 <div class="password">
-                                    <div class="text_old"> <label for="" class="title_password">Contraseña Nueva</label> </div>
-                                    <div class="campo_old"> <input type="password" name="newPassword" class="type_old_password" placeholder="Contraseña Nueva" maxlength="20" required> </div>
+                                    <div class="text_old"> <label for="" class="title_password">New Password</label> </div>
+                                    <div class="campo_old"> <input type="password" name="newPassword" class="type_old_password" placeholder="New Password" maxlength="20" required> </div>
                                 </div>
 
                                 <div class="password">
-                                    <div class="text_old"> <label for="" class="title_password">Confirmar Contraseña</label> </div>
-                                    <div class="campo_old"> <input type="password" name="confirmNewPassword" class="type_old_password" placeholder="Confirmar Contraseña" maxlength="20" required> </div>
+                                    <div class="text_old"> <label for="" class="title_password">Confirm Password</label> </div>
+                                    <div class="campo_old"> <input type="password" name="confirmNewPassword" class="type_old_password" placeholder="Confirm Password" maxlength="20" required> </div>
                                 </div>
+                                <?php
+                                    if(isset($_GET['passwordError'])){
+                                        echo '
+                                            <div class="passwordError"> ¡¡LAS CONTRASEÑAS NO COINCIDEN!! </div>
+                                        ';
+                                    }
+                                ?>
 
-                                <p class="note"> Asegúrate de que tu contraseña sea <span class="rojito">entre 12 y 20 caracteres</span>. </p>
+                                <p class="note"> Make sure your password is <span class="rojito">between 12 and 20 characters</span>.</p>
 
                                 <p class="update_password">
-                                    <button type="submit" class="btnUpdate" onclick="ActualizaContrasena()"> Actualizar contraseña </button>
+                                    <button type="submit" name="updateNewPassword" class="btnUpdate" onclick="ActualizaContrasena()"> Update Password </button>
                                     <span>
-                                        <a href="#" class="forgot"> ¿Has olvidado tu contraseña? </a> 
+                                        <a href="#" class="forgot"> Have you forgotten your password? </a>
                                     </span>
                                 </p>
                             </form>

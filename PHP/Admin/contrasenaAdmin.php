@@ -968,13 +968,20 @@ if($user==null || $user==""){
                                     <div class="text_old"> <label for="" class="title_password">Confirm Password</label> </div>
                                     <div class="campo_old"> <input type="password" name="confirmNewPassword" class="type_old_password" placeholder="Confirm Password" maxlength="20" required> </div>
                                 </div>
+                                <?php
+                                    if(isset($_GET['passwordError'])){
+                                        echo '
+                                            <div class="passwordError"> ¡¡LAS CONTRASEÑAS NO COINCIDEN!! </div>
+                                        ';
+                                    }
+                                ?>
 
                                 <p class="note"> Make sure your password is <span class="rojito">between 12 and 20 characters</span>.</p>
 
                                 <p class="update_password">
-                                    <button type="submit" class="btnUpdate" onclick="ActualizaContrasena()"> Update Password </button>
+                                    <button type="submit" name="updateNewPassword" class="btnUpdate" onclick="ActualizaContrasena()"> Update Password </button>
                                     <span>
-                                        <a href="#" class="forgot"> Have you forgotten your password? </a> 
+                                        <a href="#" class="forgot"> Have you forgotten your password? </a>
                                     </span>
                                 </p>
                             </form>

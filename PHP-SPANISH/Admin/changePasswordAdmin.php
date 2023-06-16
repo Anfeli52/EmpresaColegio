@@ -3,34 +3,27 @@
 session_start();
 include '../conexion.php';
 
-$correo = $_SESSION['email'];
-$sql = "SELECT * FROM usuario WHERE correo = '" . $correo . "';";
-$resultado = $conexion->query($sql);
+if(isset($_POST['updateNewPassword'])){
+    $correo = $_SESSION['email'];
+    $sql = "SELECT * FROM usuario WHERE correo = '$correo'";
+    $resultado = $conexion->query($sql);
 
-while ($data = $resultado->fetch_assoc()) {
-    $username = $data['username'];
-    $password = $data['password'];
-}
+    $fetch = mysqli_fetch_assoc($resultado);
+    $password = $fetch['password'];
 
-$contraseñaAntigua = $_POST['oldPassword'];
-$nuevaContraseña = $_POST['newPassword'];
-$confNuevaContraseña = $_POST['confirmNewPassword'];
+    $contraseñaAntigua = $_POST['oldPassword'];
+    $nuevaContraseña = $_POST['newPassword'];
+    $confNuevaContraseña = $_POST['confirmNewPassword'];
 
-if($contraseñaAntigua==$password){
-    if($nuevaContraseña==$confNuevaContraseña){
+    if($contraseñaAntigua==$password && $nuevaContraseña==$confNuevaContraseña){
         $update = "UPDATE usuario SET password = '$nuevaContraseña', confirmPassword = '$confNuevaContraseña' WHERE correo = '$correo'";
         mysqli_query($conexion, $update);
         header('location:contrasenaAdmin.php');
     }else{
-        echo '<script>
-                alert("Las contraseñas no coinciden");
-                window.history.go(-1);
-            </script>';
+        header('location: contrasenaAdmin.php?passwordError=true');
     }
 }else{
-    echo '<script>
-            alert("Contraseña incorrecta");
-            window.history.go(-1);
-        </script>';
+    header('location: contrasenaAdmin.php');
 }
+
 ?>
