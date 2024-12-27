@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-12-2024 a las 06:25:26
+-- Tiempo de generación: 27-12-2024 a las 06:36:09
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -154,8 +154,8 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`correo`, `nombre`, `apellido`, `username`, `password`, `confirmPassword`, `telefono`, `fechaCumpleaños`, `tipoUsuario`, `fotoPerfil`) VALUES
-('yaxja@gmail.com', 'Yaxja', 'Administrador', 'YaxjaAdmin', '1234567890', '1234567890', '1111111111', '2006-01-06', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
-('yaxjaUsuario@gmail.com', 'Yaxja', 'Usuario', 'YaxjaUser', '1234567890', '1234567890', '1111111111', '1992-12-24', 'user', '../../IMG/FotosPerfil/Anonimo.png');
+('yaxjaAdministrador@gmail.com', 'Yaxja', 'Administrador', 'YaxjaAdmin', '1234567890', '1234567890', '1111111111', '1992-12-24', 'admin', '../../IMG/FotosPerfil/Anonimo.png'),
+('yaxjaUsuario@gmail.com', 'Yaxja', 'Usuario', 'YaxjaUser', '1234567890', '1234567890', '1111111111', '2006-12-24', 'user', '../../IMG/FotosPerfil/Anonimo.png');
 
 -- --------------------------------------------------------
 
@@ -178,7 +178,8 @@ CREATE TABLE `ventas` (
 
 INSERT INTO `ventas` (`correoCliente`, `orderNumber`, `productName`, `cantidad`, `estadoEnvio`, `precioTotal`) VALUES
 ('yaxjaUsuario@gmail.com', 34, 'DW-23', 100, 'Success', 500000000),
-('yaxjaUsuario@gmail.com', 38, 'DW-23', 8, 'Success', 40000000);
+('yaxjaUsuario@gmail.com', 38, 'DW-23', 8, 'Success', 40000000),
+('yaxjaUsuario@gmail.com', 41, 'DW-23', 0, 'Success', 0);
 
 --
 -- Índices para tablas volcadas
@@ -244,7 +245,7 @@ ALTER TABLE `campaña`
 -- AUTO_INCREMENT de la tabla `ventas`
 --
 ALTER TABLE `ventas`
-  MODIFY `orderNumber` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `orderNumber` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- Restricciones para tablas volcadas
